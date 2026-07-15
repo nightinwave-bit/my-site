@@ -35,10 +35,10 @@ function useCountUp(target: number, duration = 1400) {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col">
-      <span className="font-serif text-2xl font-semibold tabular-nums text-foreground sm:text-3xl">
+      <span className="font-serif text-3xl font-semibold tabular-nums text-foreground sm:text-4xl">
         {value}
       </span>
-      <span className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
+      <span className="mt-1 text-xs text-muted-foreground sm:text-sm">
         {label}
       </span>
     </div>
@@ -69,7 +69,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background via-background/40 to-transparent lg:block" />
 
       <div className="container relative flex min-h-[100svh] flex-col justify-center pb-16 pt-28">
-        <div className="pointer-events-none max-w-3xl">
+        <div className="pointer-events-none max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,11 +80,11 @@ export function Hero() {
             {t("hero.eyebrow")}
           </motion.div>
 
-          <h1 className="text-balance font-semibold tracking-tight">
+          <h1 className="text-balance font-semibold tracking-[-0.03em]">
             {headlineLines.map((line, i) => (
-              <span key={i} className="block overflow-hidden">
+              <span key={i} className="block overflow-hidden py-[0.06em]">
                 <motion.span
-                  className="block text-gradient text-4xl leading-[1.08] sm:text-6xl md:text-7xl"
+                  className="block text-gradient text-[2.75rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-[5rem]"
                   initial={{ y: "110%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.9, ease, delay: 0.15 + i * 0.1 }}
@@ -99,7 +99,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.5 }}
-            className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
+            className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:mt-10 sm:text-xl md:text-[1.375rem] md:leading-relaxed"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -108,7 +108,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.62 }}
-            className="pointer-events-auto mt-9 flex flex-wrap items-center gap-3"
+            className="pointer-events-auto mt-10 flex flex-wrap items-center gap-3 sm:mt-12"
           >
             <Link href="#map">
               <Button variant="clay" size="lg">

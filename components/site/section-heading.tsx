@@ -38,13 +38,13 @@ export function SectionHeading({
         </Reveal>
       )}
       <Reveal delay={0.05}>
-        <h2 className="text-balance text-3xl font-semibold tracking-tight text-gradient sm:text-4xl md:text-[2.75rem] md:leading-[1.1]">
+        <h2 className="text-balance text-[2rem] font-semibold tracking-tight text-gradient sm:text-4xl md:text-[3rem] md:leading-[1.08]">
           {title}
         </h2>
       </Reveal>
       {subtitle && (
         <Reveal delay={0.1}>
-          <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
             {subtitle}
           </p>
         </Reveal>

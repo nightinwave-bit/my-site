@@ -5,13 +5,13 @@ import { Providers } from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
   display: "swap",
 });
 
 const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-newsreader",
   display: "swap",
   style: ["normal", "italic"],
 });
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f3ec" },
     { media: "(prefers-color-scheme: dark)", color: "#0f0d0b" },
-    { media: "(prefers-color-scheme: light)", color: "#faf8f5" },
   ],
 };
 
@@ -44,9 +44,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html
+      lang="ko"
+      className={`${inter.variable} ${newsreader.variable}`}
+      suppressHydrationWarning
+    >
       <body
-        className={`${inter.variable} ${newsreader.variable} font-sans antialiased`}
+        className="font-sans antialiased"
+        style={{ wordBreak: "keep-all" }}
       >
         <Providers>{children}</Providers>
       </body>

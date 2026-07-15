@@ -318,7 +318,7 @@ export function QuestionGraph() {
         const label = lang === "ko" ? n.seed.ko : n.seed.en;
         ctx!.font = `${active ? 600 : 500} ${
           active ? 13 : 12
-        }px var(--font-sans), system-ui, sans-serif`;
+        }px Inter, "Pretendard Variable", system-ui, sans-serif`;
         const textAlpha = active ? 1 : 0.62;
         ctx!.fillStyle = dark
           ? `hsla(40, 20%, 94%, ${textAlpha})`
@@ -351,7 +351,7 @@ export function QuestionGraph() {
         ctx!.fill();
 
         const label = lang === "ko" ? "한국?" : "Korea?";
-        ctx!.font = `700 22px var(--font-serif), Georgia, serif`;
+        ctx!.font = `700 24px "Pretendard Variable", Inter, system-ui, sans-serif`;
         ctx!.fillStyle = dark ? "hsl(40, 24%, 96%)" : "hsl(24, 12%, 10%)";
         ctx!.fillText(label, hub.x, hub.y - 26);
       }

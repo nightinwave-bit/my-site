@@ -11,7 +11,7 @@ export function DataSources() {
   const { t } = useLanguage();
 
   return (
-    <section id="sources" className="relative scroll-mt-24 py-24 sm:py-32">
+    <section id="sources" className="relative scroll-mt-24 py-28 sm:py-36">
       <div className="container">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
@@ -24,43 +24,29 @@ export function DataSources() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {DATA_SOURCES.map((source, i) => (
             <Reveal key={source.key} delay={i * 0.08}>
-              <div
-                className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 card-hover hover:border-foreground/20"
-                style={
-                  {
-                    "--src-hue": source.hue,
-                  } as React.CSSProperties
-                }
-              >
-                {/* accent glow */}
+              <div className="group relative h-full overflow-hidden rounded-[1.25rem] surface p-7 card-hover hover:border-[hsl(var(--border))]">
                 <div
-                  className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                  className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105"
                   style={{
-                    background: `hsl(${source.hue} 80% 55% / 0.35)`,
-                  }}
-                />
-                <div
-                  className="relative mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
-                  style={{
-                    background: `hsl(${source.hue} 70% 55% / 0.12)`,
-                    color: `hsl(${source.hue} 75% 60%)`,
+                    background: `hsl(${source.hue} 62% 55% / 0.12)`,
+                    color: `hsl(${source.hue} 66% 47%)`,
                   }}
                 >
-                  <Icon name={source.icon} className="h-5 w-5" />
+                  <Icon name={source.icon} className="h-[22px] w-[22px]" />
                 </div>
-                <h3 className="relative text-lg font-semibold tracking-tight">
+                <h3 className="text-lg font-semibold tracking-tight">
                   {source.name}
                 </h3>
-                <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
                   {t(source.descKey)}
                 </p>
-                <div className="relative mt-5 h-1 w-full overflow-hidden rounded-full bg-secondary">
+                <div className="mt-6 h-1 w-full overflow-hidden rounded-full bg-secondary">
                   <div
-                    className="h-full w-0 rounded-full transition-all duration-700 ease-out group-hover:w-full"
-                    style={{ background: `hsl(${source.hue} 75% 58%)` }}
+                    className="h-full w-8 rounded-full transition-all duration-700 ease-out group-hover:w-full"
+                    style={{ background: `hsl(${source.hue} 66% 52%)` }}
                   />
                 </div>
               </div>

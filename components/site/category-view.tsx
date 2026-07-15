@@ -22,14 +22,14 @@ function StatBlock({
   hue: number;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-card/60 p-5">
+    <div className="rounded-[1.25rem] surface p-6">
       <div
-        className="font-serif text-3xl font-semibold tabular-nums"
-        style={{ color: `hsl(${hue} 75% 64%)` }}
+        className="font-serif text-4xl font-semibold tabular-nums"
+        style={{ color: `hsl(${hue} 62% 46%)` }}
       >
         {value}
       </div>
-      <div className="mt-1 text-sm text-muted-foreground">{label}</div>
+      <div className="mt-1.5 text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -142,7 +142,7 @@ export function CategoryView({ category }: { category: Category }) {
         <section className="py-8">
           <div className="container">
             <Reveal>
-              <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card/50 p-7 sm:p-8">
+              <div className="mx-auto max-w-3xl rounded-[1.25rem] surface p-8 sm:p-10">
                 <div className="mb-3 flex items-center gap-2.5 text-sm font-medium text-clay">
                   <span className="h-px w-6 bg-clay/50" />
                   {t("category.intro")}
@@ -200,13 +200,13 @@ export function CategoryView({ category }: { category: Category }) {
                 <Reveal key={c.slug} delay={i * 0.06}>
                   <Link
                     href={`/category/${c.slug}`}
-                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 card-hover hover:border-foreground/20"
+                    className="group flex h-full flex-col overflow-hidden rounded-[1.25rem] surface p-7 card-hover hover:border-[hsl(var(--clay)/0.28)]"
                   >
                     <div
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        background: `hsl(${c.hue} 65% 55% / 0.12)`,
-                        color: `hsl(${c.hue} 75% 64%)`,
+                        background: `hsl(${c.hue} 62% 55% / 0.12)`,
+                        color: `hsl(${c.hue} 66% 47%)`,
                       }}
                     >
                       <Icon name={c.icon} className="h-5 w-5" />

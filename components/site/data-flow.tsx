@@ -19,7 +19,7 @@ export function DataFlow() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative scroll-mt-24 py-24 sm:py-32">
+    <section className="relative scroll-mt-24 py-28 sm:py-36">
       <div className="container">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
@@ -32,11 +32,11 @@ export function DataFlow() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-3 md:grid-cols-5">
+        <div className="mt-16 grid gap-3 md:grid-cols-5">
           {STEPS.map((step, i) => (
             <Reveal key={step.key} delay={i * 0.08}>
               <div className="group relative h-full">
-                <div className="relative h-full overflow-hidden rounded-2xl border border-border bg-card p-5 card-hover hover:border-clay/30">
+                <div className="relative h-full overflow-hidden rounded-[1.25rem] surface p-6 card-hover hover:border-[hsl(var(--clay)/0.28)]">
                   <div className="flex items-center justify-between">
                     <span className="font-serif text-sm font-medium text-clay">
                       {step.n}

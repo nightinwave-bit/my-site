@@ -24,7 +24,7 @@ export function SampleNotice({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "rounded-2xl border border-border bg-card/60 p-5 sm:p-6",
+        "rounded-[1.25rem] surface p-6 sm:p-7",
         className
       )}
     >

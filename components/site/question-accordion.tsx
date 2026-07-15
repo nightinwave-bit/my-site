@@ -31,7 +31,7 @@ export function QuestionAccordion({ category }: { category: Category }) {
   );
 
   return (
-    <div className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+    <div className="divide-y divide-border overflow-hidden rounded-[1.25rem] surface">
       {category.questions.map((q, i) => {
         const isOpen = open === q.id;
         return (
@@ -43,7 +43,7 @@ export function QuestionAccordion({ category }: { category: Category }) {
             >
               <span
                 className="mt-0.5 font-serif text-sm font-medium tabular-nums"
-                style={{ color: `hsl(${category.hue} 75% 62%)` }}
+                style={{ color: `hsl(${category.hue} 60% 46%)` }}
               >
                 {String(i + 1).padStart(2, "0")}
               </span>

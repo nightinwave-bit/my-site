@@ -41,7 +41,7 @@ export function QuestionMap() {
   }, [size]);
 
   return (
-    <section id="map" className="relative scroll-mt-24 py-24 sm:py-32">
+    <section id="map" className="relative scroll-mt-24 py-28 sm:py-36">
       <div className="container">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
@@ -87,11 +87,11 @@ export function QuestionMap() {
                 >
                   <Link
                     href={`/category/${cat.slug}`}
-                    className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl border p-4 transition-all duration-300 hover:-translate-y-0.5 sm:p-5"
+                    className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl border p-4 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift sm:p-5"
                     style={
                       {
-                        borderColor: `hsl(${cat.hue} 40% 50% / 0.25)`,
-                        background: `linear-gradient(155deg, hsl(${cat.hue} 55% 50% / 0.16), hsl(${cat.hue} 45% 40% / 0.05))`,
+                        borderColor: `hsl(${cat.hue} 40% 50% / 0.22)`,
+                        background: `linear-gradient(155deg, hsl(${cat.hue} 58% 52% / 0.14), hsl(${cat.hue} 45% 42% / 0.04))`,
                       } as React.CSSProperties
                     }
                   >
