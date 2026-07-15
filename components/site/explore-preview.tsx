@@ -5,7 +5,7 @@ import { ArrowRight, Network } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
-import { OntologyGraph } from "./ontology-graph";
+import { ForceGraph } from "./force-graph";
 
 export function ExplorePreview() {
   const { t } = useLanguage();
@@ -43,7 +43,7 @@ export function ExplorePreview() {
             </div>
             <div className="overflow-x-auto px-5 py-6 sm:px-8 sm:py-8">
               <div className="min-w-[680px]">
-                <OntologyGraph interactive />
+                <ForceGraph interactive={false} />
               </div>
             </div>
           </figure>

@@ -90,6 +90,25 @@ export const dict: Dict = {
   },
   "explore.back": { ko: "경로로 돌아가기", en: "Back to pathways" },
   "explore.legend": { ko: "노드 유형", en: "Node types" },
+  "explore.hint": {
+    ko: "노드에 커서를 올리면 연결이 강조되고, 클릭하면 근거가 열립니다. 노드를 드래그해 재배치할 수 있습니다.",
+    en: "Hover a node to highlight its connections, click to open its evidence, and drag to rearrange.",
+  },
+  "explore.flow.eyebrow": { ko: "인식은 어떻게 형성되는가", en: "How perception forms" },
+  "explore.flow.statement": {
+    ko: "질문이 개념을 만들고, 개념이 주제를, 주제가 서사를, 서사가 한 나라에 대한 인식을 만듭니다.",
+    en: "Questions create concepts. Concepts create themes. Themes create narratives. Narratives create a nation’s perception.",
+  },
+  "explore.flow.q": { ko: "질문", en: "Questions" },
+  "explore.flow.c": { ko: "개념", en: "Concepts" },
+  "explore.flow.t": { ko: "주제", en: "Themes" },
+  "explore.flow.n": { ko: "서사", en: "Narratives" },
+  "explore.flow.p": { ko: "인식", en: "Perception" },
+  "explore.shared.title": { ko: "관계가 드러나는 지점", en: "Where relationships surface" },
+  "explore.shared.body": {
+    ko: "서로 다른 질문이 같은 개념·주제·서사에서 만납니다. 예를 들어 ‘K-팝’과 ‘한국어’ 질문은 모두 소프트파워를 거쳐 ‘문화 강국’이라는 인식으로 수렴합니다.",
+    en: "Different questions meet at shared concepts, themes, and narratives. ‘K-pop’ and ‘Korean language,’ for instance, both pass through Soft Power and converge on the perception of a ‘Cultural Power.’",
+  },
 
   "method.eyebrow": { ko: "데이터와 방법론", en: "Data & method" },
   "method.title": {

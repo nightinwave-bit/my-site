@@ -380,7 +380,7 @@ export const NODES: Record<string, OntologyNode> = {
   t_digital_society: {
     id: "t_digital_society",
     type: "theme",
-    label: { ko: "디지털 사회", en: "Digital Society" },
+    label: { ko: "기술 사회", en: "Technology Society" },
     blurb: {
       ko: "결제부터 행정까지 일상 전반이 디지털로 매개되는 사회.",
       en: "A society where daily life — from payments to public services — is digitally mediated.",
@@ -390,12 +390,12 @@ export const NODES: Record<string, OntologyNode> = {
     id: "n_frontier",
     type: "narrative",
     label: {
-      ko: "기술의 최전선, 한국",
-      en: "Korea, a technology frontier",
+      ko: "디지털 선진 사회, 한국",
+      en: "Korea, a digitally advanced society",
     },
     blurb: {
-      ko: "‘왜 빠른가’라는 질문은, 미래를 먼저 시험하는 나라라는 인식이 됩니다.",
-      en: "‘Why so fast?’ becomes a perception of a nation that tests the future first.",
+      ko: "‘왜 빠른가’라는 질문은, 기술로 일상을 앞서 구현하는 사회라는 인식이 됩니다.",
+      en: "‘Why so fast?’ becomes a perception of a society that lives the digital future first.",
     },
   },
 
@@ -460,6 +460,53 @@ export const NODES: Record<string, OntologyNode> = {
     blurb: {
       ko: "‘왜 그렇게 공부하나’라는 질문은, 교육으로 지위를 겨루는 사회라는 인식이 됩니다.",
       en: "‘Why study so hard?’ becomes a perception of a society that competes for status through education.",
+    },
+  },
+
+  // Shared / bridging nodes (used by the ontology graph)
+  q_bow: {
+    id: "q_bow",
+    type: "question",
+    label: { ko: "왜 한국인은 절을 하나요?", en: "Why do Koreans bow?" },
+    blurb: {
+      ko: "일상의 예절에 대한 질문은 그 아래 놓인 가치 체계로 이어집니다.",
+      en: "A question about everyday etiquette leads to the value system beneath it.",
+    },
+    evidence: [
+      { q: { ko: "한국에서 인사는 어떻게 하나요?", en: "How do you greet someone in Korea?" }, platform: "google" },
+      { q: { ko: "절은 언제 하나요?", en: "When do Koreans bow?" }, platform: "paa" },
+      { q: { ko: "나이에 따라 예절이 달라지나요?", en: "Does etiquette change with age in Korea?" }, platform: "reddit" },
+    ],
+  },
+  c_confucianism: {
+    id: "c_confucianism",
+    type: "concept",
+    label: { ko: "유교", en: "Confucianism" },
+    blurb: {
+      ko: "위계·연장자 존중·교육을 중시하는 가치 체계로, 예절과 학업 문화의 뿌리가 됩니다.",
+      en: "A value system emphasizing hierarchy, respect for elders, and education — the root of etiquette and study culture.",
+    },
+    evidence: [
+      { q: { ko: "한국은 유교 국가인가요?", en: "Is Korea a Confucian country?" }, platform: "paa" },
+      { q: { ko: "유교는 한국에 어떤 영향을 주었나요?", en: "How did Confucianism shape Korea?" }, platform: "reddit" },
+    ],
+  },
+  t_national_identity: {
+    id: "t_national_identity",
+    type: "theme",
+    label: { ko: "국가 정체성", en: "National Identity" },
+    blurb: {
+      ko: "언어·전통·성취를 통해 형성되는 ‘한국다움’에 대한 감각.",
+      en: "A sense of ‘Koreanness’ formed through language, tradition, and achievement.",
+    },
+  },
+  t_historical_memory: {
+    id: "t_historical_memory",
+    type: "theme",
+    label: { ko: "역사적 기억", en: "Historical Memory" },
+    blurb: {
+      ko: "전쟁과 분단의 경험이 오늘의 정체성과 세계관에 남긴 흔적.",
+      en: "The imprint of war and division on today’s identity and worldview.",
     },
   },
 };
@@ -578,4 +625,133 @@ export function buildEdges(): OntologyEdge[] {
     }
   }
   return edges;
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// ONTOLOGY GRAPH (Explore v2)
+//
+// The graph is a normalized, many-to-many structure — deliberately separate
+// from the linear PATHWAYS above. This is the shape real data will populate:
+//   • GRAPH_NODES  ← question clusters + extracted concepts/themes/narratives
+//   • GRAPH_EDGES  ← AI-extracted relations (question→concept→theme→narrative)
+//   • evidence[]   ← real queries grouped by platform (Google/PAA/Autocomplete/
+//                    Reddit)
+// Swapping the sample arrays below for API-derived data requires no change to
+// the visualization: it consumes buildGraph() and graphNeighbors() only.
+// ══════════════════════════════════════════════════════════════════════════
+
+/** Compact labels used inside graph node chips (falls back to full label). */
+export const GRAPH_LABEL: Record<string, Localized> = {
+  q_kimchi: { ko: "김치의 유명세", en: "Kimchi’s fame" },
+  q_bow: { ko: "절하는 문화", en: "Bowing" },
+  q_kpop: { ko: "K-팝의 인기", en: "K-pop’s reach" },
+  q_two_koreas: { ko: "두 개의 한국", en: "Two Koreas" },
+  q_hangul: { ko: "한국어 학습", en: "Learning Korean" },
+  q_internet: { ko: "빠른 인터넷", en: "Fast internet" },
+  q_study: { ko: "높은 교육열", en: "Study culture" },
+
+  c_fermentation: { ko: "발효", en: "Fermentation" },
+  c_kimjang: { ko: "김장", en: "Kimjang" },
+  c_unesco: { ko: "유네스코", en: "UNESCO" },
+  c_confucianism: { ko: "유교", en: "Confucianism" },
+  c_soft_power: { ko: "소프트파워", en: "Soft Power" },
+  c_globalization: { ko: "세계화", en: "Globalization" },
+  c_korean_language: { ko: "한국어", en: "Korean Language" },
+  c_hangul_system: { ko: "한글", en: "Hangul" },
+  c_script_design: { ko: "문자 설계", en: "Script Design" },
+  c_korean_war: { ko: "한국전쟁", en: "Korean War" },
+  c_division: { ko: "분단", en: "Division" },
+  c_dmz: { ko: "DMZ", en: "DMZ" },
+  c_infrastructure: { ko: "디지털 인프라", en: "Digital Infrastructure" },
+  c_semiconductors: { ko: "반도체", en: "Semiconductors" },
+  c_suneung: { ko: "수능", en: "Suneung" },
+
+  t_community: { ko: "공동체 문화", en: "Community Culture" },
+  t_national_identity: { ko: "국가 정체성", en: "National Identity" },
+  t_cultural_influence: { ko: "문화적 영향력", en: "Cultural Influence" },
+  t_historical_memory: { ko: "역사적 기억", en: "Historical Memory" },
+  t_digital_society: { ko: "기술 사회", en: "Technology Society" },
+
+  n_tradition: { ko: "전통을 지켜온 나라", en: "Preserver of Tradition" },
+  n_superpower: { ko: "문화 강국", en: "Cultural Power" },
+  n_divided: { ko: "분단이 만든 나라", en: "Shaped by Division" },
+  n_frontier: { ko: "디지털 선진국", en: "Digitally Advanced" },
+};
+
+export function graphLabel(id: string): Localized {
+  return GRAPH_LABEL[id] ?? NODES[id].label;
+}
+
+export interface GraphEdge {
+  from: string;
+  to: string;
+}
+
+/** Many-to-many relations. Shared targets (soft_power, confucianism,
+ *  national_identity, cultural_influence, the narratives) are what make the
+ *  graph reveal relationships across questions rather than classify them. */
+export const GRAPH_EDGES: GraphEdge[] = [
+  // question → concept
+  { from: "q_kimchi", to: "c_fermentation" },
+  { from: "q_kimchi", to: "c_kimjang" },
+  { from: "q_kimchi", to: "c_unesco" },
+  { from: "q_bow", to: "c_confucianism" },
+  { from: "q_kpop", to: "c_soft_power" },
+  { from: "q_kpop", to: "c_globalization" },
+  { from: "q_kpop", to: "c_korean_language" },
+  { from: "q_two_koreas", to: "c_korean_war" },
+  { from: "q_two_koreas", to: "c_division" },
+  { from: "q_two_koreas", to: "c_dmz" },
+  { from: "q_hangul", to: "c_hangul_system" },
+  { from: "q_hangul", to: "c_script_design" },
+  { from: "q_hangul", to: "c_soft_power" },
+  { from: "q_internet", to: "c_infrastructure" },
+  { from: "q_internet", to: "c_semiconductors" },
+  { from: "q_study", to: "c_suneung" },
+  { from: "q_study", to: "c_confucianism" },
+  // concept → theme
+  { from: "c_fermentation", to: "t_community" },
+  { from: "c_kimjang", to: "t_community" },
+  { from: "c_unesco", to: "t_community" },
+  { from: "c_unesco", to: "t_national_identity" },
+  { from: "c_confucianism", to: "t_national_identity" },
+  { from: "c_confucianism", to: "t_community" },
+  { from: "c_soft_power", to: "t_cultural_influence" },
+  { from: "c_globalization", to: "t_cultural_influence" },
+  { from: "c_korean_language", to: "t_cultural_influence" },
+  { from: "c_hangul_system", to: "t_national_identity" },
+  { from: "c_script_design", to: "t_national_identity" },
+  { from: "c_korean_war", to: "t_historical_memory" },
+  { from: "c_division", to: "t_historical_memory" },
+  { from: "c_dmz", to: "t_historical_memory" },
+  { from: "c_infrastructure", to: "t_digital_society" },
+  { from: "c_semiconductors", to: "t_digital_society" },
+  { from: "c_suneung", to: "t_national_identity" },
+  // theme → narrative
+  { from: "t_community", to: "n_tradition" },
+  { from: "t_national_identity", to: "n_tradition" },
+  { from: "t_national_identity", to: "n_superpower" },
+  { from: "t_cultural_influence", to: "n_superpower" },
+  { from: "t_historical_memory", to: "n_divided" },
+  { from: "t_digital_society", to: "n_frontier" },
+];
+
+export function buildGraph(): { nodes: OntologyNode[]; edges: GraphEdge[] } {
+  const ids = new Set<string>();
+  GRAPH_EDGES.forEach((e) => {
+    ids.add(e.from);
+    ids.add(e.to);
+  });
+  return { nodes: Array.from(ids).map(getNode), edges: GRAPH_EDGES };
+}
+
+/** Neighbours of a node in the graph, split by their type — powers the
+ *  evidence drawer's "connected questions / concepts / themes / narratives". */
+export function graphNeighbors(id: string): OntologyNode[] {
+  const set = new Set<string>();
+  GRAPH_EDGES.forEach((e) => {
+    if (e.from === id) set.add(e.to);
+    if (e.to === id) set.add(e.from);
+  });
+  return Array.from(set).map(getNode);
 }

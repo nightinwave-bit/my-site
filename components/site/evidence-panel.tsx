@@ -6,9 +6,9 @@ import { X, ArrowRight, Info } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import {
   type OntologyNode,
+  type NodeType,
   PLATFORM_LABEL,
-  buildEdges,
-  getNode,
+  graphNeighbors,
 } from "@/lib/ontology";
 import { PLATFORM_ICON } from "./icon";
 import { cn } from "@/lib/utils";
@@ -20,15 +20,7 @@ const TYPE_TAG: Record<string, string> = {
   narrative: "type.narrative",
 };
 
-function connectedNodes(id: string): OntologyNode[] {
-  const edges = buildEdges();
-  const ids = new Set<string>();
-  for (const e of edges) {
-    if (e.from === id) ids.add(e.to);
-    if (e.to === id) ids.add(e.from);
-  }
-  return Array.from(ids).map(getNode);
-}
+const RELATED_ORDER: NodeType[] = ["question", "concept", "theme", "narrative"];
 
 export function EvidencePanel({
   node,
@@ -50,7 +42,11 @@ export function EvidencePanel({
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
 
-  const related = node ? connectedNodes(node.id) : [];
+  const related = node ? graphNeighbors(node.id) : [];
+  const relatedByType = RELATED_ORDER.map((type) => ({
+    type,
+    items: related.filter((r) => r.type === type),
+  })).filter((g) => g.items.length > 0);
 
   return (
     <AnimatePresence>
@@ -140,22 +136,36 @@ export function EvidencePanel({
                 )}
               </div>
 
-              {related.length > 0 && (
+              {relatedByType.length > 0 && (
                 <div className="mt-7">
                   <div className="text-sm font-semibold text-navy">
                     {t("evidence.connected")}
                   </div>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {related.map((r) => (
-                      <button
-                        key={r.id}
-                        type="button"
-                        onClick={() => onSelect?.(r)}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-[13px] font-medium text-navy transition-colors hover:border-brand hover:text-brand"
-                      >
-                        {r.label[locale]}
-                        <ArrowRight className="h-3 w-3" />
-                      </button>
+                  <div className="mt-4 space-y-4">
+                    {relatedByType.map((group) => (
+                      <div key={group.type}>
+                        <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                          {t(TYPE_TAG[group.type])}
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {group.items.map((r) => (
+                            <button
+                              key={r.id}
+                              type="button"
+                              onClick={() => onSelect?.(r)}
+                              className={cn(
+                                "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[13px] font-medium transition-colors",
+                                r.type === "narrative"
+                                  ? "border-navy bg-navy text-white hover:bg-navy/90"
+                                  : "border-border bg-white text-navy hover:border-brand hover:text-brand"
+                              )}
+                            >
+                              {r.label[locale]}
+                              <ArrowRight className="h-3 w-3" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
