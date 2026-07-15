@@ -1,0 +1,76 @@
+{
+  "note": "ILLUSTRATIVE SAMPLE — standing in for live Google People Also Ask (via SERP API) so the pipeline can be validated offline. NOT live data. Several entries intentionally share intent with autocomplete items to demonstrate cross-source merging.",
+  "seeds": {
+    "why is korea divided": {
+      "base": [
+        { "q": "Why is Korea divided?", "url": "https://example.org/korea-divided" },
+        { "q": "When did Korea split into two?", "url": "https://example.org/korea-split" },
+        { "q": "Will North and South Korea reunify?", "url": "https://example.org/korea-reunify" }
+      ]
+    },
+    "is korea safe": {
+      "base": [
+        { "q": "Is Korea safe?", "url": "https://example.org/korea-safe" },
+        { "q": "Is South Korea safe for tourists?", "url": "https://example.org/korea-safe-tourists" },
+        { "q": "Is it safe to travel to South Korea right now?", "url": "https://example.org/korea-travel" }
+      ],
+      "byLocale": {
+        "IN": [
+          { "q": "Is South Korea safe for Indian travelers?", "url": "https://example.org/korea-safe-in" }
+        ]
+      }
+    },
+    "why is kpop popular": {
+      "base": [
+        { "q": "Why is K-pop so popular?", "url": "https://example.org/kpop-popular" },
+        { "q": "How did K-pop become popular?", "url": "https://example.org/kpop-history" },
+        { "q": "Why do people love K-pop?", "url": "https://example.org/kpop-love" }
+      ]
+    },
+    "is korean hard to learn": {
+      "base": [
+        { "q": "Is Korean hard to learn?", "url": "https://example.org/korean-hard" },
+        { "q": "How long does it take to learn Korean?", "url": "https://example.org/korean-time" },
+        { "q": "Is Korean harder than Japanese?", "url": "https://example.org/korean-japanese" }
+      ]
+    },
+    "what is kimchi": {
+      "base": [
+        { "q": "What is kimchi made of?", "url": "https://example.org/kimchi-made" },
+        { "q": "Is kimchi healthy?", "url": "https://example.org/kimchi-healthy" },
+        { "q": "Why do Koreans eat kimchi?", "url": "https://example.org/koreans-kimchi" }
+      ]
+    },
+    "korean food": {
+      "base": [
+        { "q": "What is the most popular Korean food?", "url": "https://example.org/korean-food-popular" },
+        { "q": "Is Korean food healthy?", "url": "https://example.org/korean-food-healthy" },
+        { "q": "Why is Korean food spicy?", "url": "https://example.org/korean-food-spicy" }
+      ]
+    },
+    "why is korea's birth rate so low": {
+      "base": [
+        { "q": "Why is South Korea's birth rate so low?", "url": "https://example.org/korea-birthrate" },
+        { "q": "What is Korea's fertility rate?", "url": "https://example.org/korea-fertility" }
+      ]
+    },
+    "korean culture": {
+      "base": [
+        { "q": "What is Korean culture known for?", "url": "https://example.org/korean-culture-known" },
+        { "q": "What are Korean cultural values?", "url": "https://example.org/korean-values" }
+      ]
+    },
+    "한국은 왜 분단되었나": {
+      "base": [
+        { "q": "한국은 왜 분단되었나요?", "url": "https://example.org/ko-divided" },
+        { "q": "남북한은 언제 분단되었나요?", "url": "https://example.org/ko-split" }
+      ]
+    },
+    "케이팝 인기 이유": {
+      "base": [
+        { "q": "케이팝은 왜 인기가 많나요?", "url": "https://example.org/ko-kpop" },
+        { "q": "케이팝의 인기 비결은?", "url": "https://example.org/ko-kpop-secret" }
+      ]
+    }
+  }
+}
