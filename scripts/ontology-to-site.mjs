@@ -20,7 +20,25 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 
 const LAYER = JSON.parse(readFileSync("collect/output/ontology/ontology_layer.json", "utf8"));
 const LABELS = JSON.parse(readFileSync("collect/output/ontology/ontology_labels.json", "utf8"));
+const CANON = JSON.parse(readFileSync("collect/output/canonical_questions.json", "utf8"));
 const OUT = "lib/ontology.generated.ts";
+
+// ── Dataset provenance ──────────────────────────────────────────────────────
+// Derived from the collected data where possible. rawQueries is the pre-dedup
+// total from the recovered collection run (2026-07-15); it is not present in
+// this script's JSON inputs (raw_questions.json on disk is a stale partial),
+// so it is recorded here as a constant from that run's report.
+const RAW_QUERIES = 2193;
+const canonSrc = CANON.questions || CANON;
+const distinctLanguages = new Set(canonSrc.map((q) => q.language)).size;
+const PROVENANCE = {
+  rawQueries: RAW_QUERIES,
+  canonicalQuestions: LAYER.meta.totalQuestions,
+  languages: distinctLanguages,
+  markets: LAYER.meta.sourceMeta?.locales?.length ?? 0,
+  method: "Google Autocomplete",
+  lastUpdated: LAYER.meta.sourceMeta?.date ?? null,
+};
 
 // ── index labels by id ─────────────────────────────────────────────────────
 const L = {};
@@ -182,6 +200,17 @@ export const PATHWAYS: Pathway[] = ${j(pathways)};
 /** Real corpus stats (replaces the sample placeholders on swap). */
 export const TOTAL_QUESTIONS = ${LAYER.meta.totalQuestions};
 export const PLATFORM_COUNT = ${LAYER.meta.sourceMeta?.paaSkippedNoKey === false ? 2 : 1};
+
+/** Dataset provenance for the Provenance strip. */
+export interface Provenance {
+  rawQueries: number;
+  canonicalQuestions: number;
+  languages: number;
+  markets: number;
+  method: string;
+  lastUpdated: string | null;
+}
+export const PROVENANCE: Provenance = ${j(PROVENANCE)};
 `;
 
 mkdirSync("lib", { recursive: true });
@@ -196,3 +225,4 @@ console.log(`  nodes  ${nodeEntries.length}  (${Object.entries(byType).map(([k, 
 console.log(`  edges  ${graphEdges.length}`);
 console.log(`  pathways ${pathways.length}  → ${pathways.map((p) => p.id).join(", ")}`);
 console.log(`  TOTAL_QUESTIONS ${LAYER.meta.totalQuestions}   PLATFORM_COUNT ${LAYER.meta.sourceMeta?.paaSkippedNoKey === false ? 2 : 1}`);
+console.log(`  PROVENANCE  raw ${PROVENANCE.rawQueries} · canonical ${PROVENANCE.canonicalQuestions} · ${PROVENANCE.languages} langs · ${PROVENANCE.markets} markets · ${PROVENANCE.method} · ${PROVENANCE.lastUpdated}`);

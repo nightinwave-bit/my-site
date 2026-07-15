@@ -116,3 +116,14 @@ export const PATHWAYS: Pathway[] = [{"id":"cultural-force","title":{"ko":"K-ÌåùÏ
 /** Real corpus stats (replaces the sample placeholders on swap). */
 export const TOTAL_QUESTIONS = 1540;
 export const PLATFORM_COUNT = 1;
+
+/** Dataset provenance for the Provenance strip. */
+export interface Provenance {
+  rawQueries: number;
+  canonicalQuestions: number;
+  languages: number;
+  markets: number;
+  method: string;
+  lastUpdated: string | null;
+}
+export const PROVENANCE: Provenance = {"rawQueries":2193,"canonicalQuestions":1540,"languages":7,"markets":8,"method":"Google Autocomplete","lastUpdated":"2026-07-15"};

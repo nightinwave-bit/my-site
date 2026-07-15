@@ -183,7 +183,7 @@ function EncounterFlow() {
     <div className="flex flex-col items-center">
       <FlowStage
         label={t("mp.s2.search")}
-        items={["Google", "Reddit", "People Also Ask", "Autocomplete"]}
+        items={["Google Autocomplete"]}
       />
       <Arrow />
       <FlowStage label={t("mp.s2.emerge")} />
@@ -346,18 +346,29 @@ export function MethodView() {
         <SectionShell index="06" kicker={t("method.sources.title")} title={t("mp.s6.title")} tint>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              { name: "Google Search", icon: Search, descKey: "method.google.desc" },
-              { name: "Google Autocomplete", icon: TextCursorInput, descKey: "method.autocomplete.desc" },
-              { name: "Google People Also Ask", icon: MessagesSquare, descKey: "method.paa.desc" },
-              { name: "Reddit", icon: MessageCircle, descKey: "method.reddit.desc" },
+              { name: "Google Autocomplete", icon: TextCursorInput, descKey: "method.autocomplete.desc", status: "active" },
+              { name: "Google People Also Ask", icon: MessagesSquare, descKey: "method.paa.desc", status: "planned" },
+              { name: "Google Search", icon: Search, descKey: "method.google.desc", status: "planned" },
+              { name: "Reddit", icon: MessageCircle, descKey: "method.reddit.desc", status: "planned" },
             ].map((s, i) => {
               const Icon = s.icon;
               return (
                 <Reveal key={s.name} delay={(i % 2) * 0.06}>
                   <div className="h-full rounded-xl border border-border bg-white p-6 shadow-card">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-brand/8 text-brand">
-                      <Icon className="h-5 w-5" />
-                    </span>
+                    <div className="flex items-start justify-between gap-3">
+                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-brand/8 text-brand">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <span
+                        className={
+                          s.status === "active"
+                            ? "rounded-full border border-brand/30 bg-brand/8 px-2.5 py-0.5 text-[11px] font-semibold text-brand"
+                            : "rounded-full border border-border bg-tint px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground"
+                        }
+                      >
+                        {t(s.status === "active" ? "source.active" : "source.planned")}
+                      </span>
+                    </div>
                     <h3 className="mt-4 text-base font-semibold text-navy">{s.name}</h3>
                     <p className="mt-1.5 text-[14px] leading-relaxed text-secondary">
                       {t(s.descKey)}

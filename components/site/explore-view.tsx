@@ -8,6 +8,7 @@ import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { ForceGraph } from "./force-graph";
 import { SampleBadge } from "./sample-notice";
+import { ProvenanceStrip } from "./provenance-strip";
 
 const FLOW = ["explore.flow.q", "explore.flow.c", "explore.flow.t", "explore.flow.n", "explore.flow.p"];
 
@@ -68,6 +69,8 @@ export function ExploreView() {
                 </span>
               ))}
             </div>
+
+            <ProvenanceStrip className="mt-9" />
           </div>
         </section>
 

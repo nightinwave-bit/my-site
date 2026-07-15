@@ -51,18 +51,18 @@ export const dict: Dict = {
   },
   "model.step1.title": { ko: "질문", en: "Question" },
   "model.step1.body": {
-    ko: "Google과 Reddit에서 수집한 실제 질문. “왜 김치가 유명한가요?”",
-    en: "A real question collected from Google and Reddit. “Why is kimchi famous?”",
+    ko: "Google 자동완성에서 수집한 실제 질문. “K-팝은 왜 전 세계적으로 인기가 많나요?”",
+    en: "A real question collected from Google Autocomplete. “Why is K-pop so popular worldwide?”",
   },
   "model.step2.title": { ko: "개념 · 주제", en: "Concept · Theme" },
   "model.step2.body": {
-    ko: "질문이 가리키는 개념과 주제. 발효 · 김장 · 유네스코 · 공동체 문화.",
-    en: "The concepts and themes the question points to. Fermentation · Kimjang · UNESCO · community.",
+    ko: "질문이 가리키는 개념과 주제. K-팝 아이돌 · 한류.",
+    en: "The concepts and themes the question points to. K-pop idols · the Korean Wave.",
   },
   "model.step3.title": { ko: "서사 · 인식", en: "Narrative · Perception" },
   "model.step3.body": {
-    ko: "개념들이 모여 만드는 한 문장의 인식. “전통을 지켜온 나라, 한국.”",
-    en: "The one-sentence perception the concepts compose. “Korea, a preserver of tradition.”",
+    ko: "개념들이 모여 만드는 한 문장의 인식. “문화 강국, 한국.”",
+    en: "The one-sentence perception the concepts compose. “Korea, a cultural powerhouse.”",
   },
 
   "pathways.eyebrow": { ko: "질문 경로", en: "Pathways" },
@@ -82,13 +82,13 @@ export const dict: Dict = {
     en: "The questions form a single map",
   },
   "explore.subtitle": {
-    ko: "개별 경로들이 교차하며 개념의 네트워크를 만듭니다. 아래는 전체 온톨로지의 미리보기입니다.",
-    en: "Individual pathways cross to form a network of concepts. Below is a preview of the full ontology.",
+    ko: "개별 경로들이 교차하며 개념의 네트워크를 만듭니다. 아래는 수집된 질문에서 생성된 전체 온톨로지입니다.",
+    en: "Individual pathways cross to form a network of concepts. Below is the full ontology generated from the collected questions.",
   },
-  "explore.cta": { ko: "지도 미리보기", en: "Preview the map" },
+  "explore.cta": { ko: "지도 탐색하기", en: "Explore the map" },
   "explore.preview.badge": {
-    ko: "미리보기 · 인터랙티브 탐색은 준비 중입니다",
-    en: "Preview · interactive exploration coming soon",
+    ko: "인터랙티브 온톨로지 · 노드를 클릭해 근거를 확인하세요",
+    en: "Interactive ontology · click a node to see its evidence",
   },
   "explore.back": { ko: "경로로 돌아가기", en: "Back to pathways" },
   "explore.legend": { ko: "노드 유형", en: "Node types" },
@@ -123,8 +123,8 @@ export const dict: Dict = {
   },
   "method.step.collect": { ko: "수집", en: "Collection" },
   "method.step.collect.desc": {
-    ko: "Google과 Reddit에서 한국 관련 질문을 수집합니다.",
-    en: "Gather Korea-related questions from Google and Reddit.",
+    ko: "8개 시장에서 Google 자동완성으로 한국 관련 질문을 수집합니다.",
+    en: "Gather Korea-related questions via Google Autocomplete across 8 markets.",
   },
   "method.step.map": { ko: "온톨로지 매핑", en: "Ontology mapping" },
   "method.step.map.desc": {
@@ -200,8 +200,8 @@ export const dict: Dict = {
   "mp.s4.title": { ko: "질문은 어떻게 수집되는가", en: "How We Study Questions" },
   "mp.s4.1.title": { ko: "질문 수집", en: "Question Collection" },
   "mp.s4.1.desc": {
-    ko: "Google · People Also Ask · Autocomplete · Reddit에서 실제 질문을 모읍니다.",
-    en: "Gather real questions from Google, People Also Ask, Autocomplete, and Reddit.",
+    ko: "Google 자동완성으로 8개 시장·7개 언어에서 실제 질문을 수집합니다. (People Also Ask 등은 향후 도입 예정)",
+    en: "Collect real questions via Google Autocomplete across 8 markets and 7 languages. (People Also Ask and others are planned.)",
   },
   "mp.s4.2.title": { ko: "질문 매핑", en: "Question Mapping" },
   "mp.s4.2.desc": {
@@ -241,8 +241,8 @@ export const dict: Dict = {
 
   "mp.s6.title": { ko: "데이터 출처", en: "Data Sources" },
   "mp.s6.note": {
-    ko: "현재 모든 데이터는 시연용 샘플입니다. 향후 버전에서는 실시간 API 기반 수집을 도입할 예정입니다.",
-    en: "Everything is sample data for now. Future versions will incorporate live API-based collection.",
+    ko: "이 온톨로지는 8개 시장에서 Google 자동완성으로 수집한 실제 질문 1,540개에서 생성되었습니다. 향후 버전에서는 People Also Ask 등 추가 출처를 도입할 예정입니다.",
+    en: "This ontology is generated from 1,540 real questions collected via Google Autocomplete across 8 markets. Future versions will add sources such as People Also Ask.",
   },
 
   "mp.closing": {
@@ -252,29 +252,44 @@ export const dict: Dict = {
 
   "evidence.title": { ko: "연결된 실제 질문", en: "Connected questions" },
   "evidence.subtitle": {
-    ko: "이 노드에 매핑된 실제 질문 (샘플)",
-    en: "Real questions mapped to this node (sample)",
+    ko: "이 노드에 매핑된 실제 수집 질문",
+    en: "Real collected questions mapped to this node",
   },
   "evidence.connected": { ko: "연결된 개념", en: "Connected nodes" },
   "evidence.close": { ko: "닫기", en: "Close" },
   "evidence.empty": {
-    ko: "이 노드의 예시 질문은 준비 중입니다.",
-    en: "Sample questions for this node are being prepared.",
+    ko: "이 노드에 직접 연결된 예시 질문은 없습니다.",
+    en: "No example questions are linked directly to this node.",
   },
 
-  "sample.badge": { ko: "샘플 데이터", en: "Sample data" },
+  "sample.badge": { ko: "실제 수집 데이터", en: "Live dataset" },
   "sample.notice.title": {
-    ko: "모든 데이터는 시연용 샘플입니다",
-    en: "All data shown is sample data for demonstration",
+    ko: "실제 수집 데이터로 생성된 온톨로지",
+    en: "Generated from a real collected dataset",
   },
   "sample.notice.body": {
-    ko: "이 사이트의 모든 질문, 개념, 경로, 서사, 출처는 시연 목적의 예시 데이터입니다. 실제 콘텐츠는 Google과 Reddit에서 수집한 질문 데이터를 기반으로 생성됩니다.",
-    en: "All questions, concepts, pathways, narratives, and sources on this site are sample data used for demonstration. Actual content will be generated from question data collected via Google and Reddit.",
+    ko: "이 사이트의 질문·개념·경로·서사·인식은 8개 시장에서 Google 자동완성으로 수집한 실제 질문 1,540개(원본 2,193건)에서 생성되었습니다. 상대적 노출 빈도는 참고 지표이며, 절대 검색량이 아닙니다.",
+    en: "The questions, concepts, pathways, narratives, and perceptions on this site are generated from 1,540 real questions (from 2,193 raw queries) collected via Google Autocomplete across 8 markets. Relative salience is an indicative signal, not true search volume.",
   },
 
   "stat.questions": { ko: "수집된 질문", en: "Questions collected" },
   "stat.pathways": { ko: "질문 경로", en: "Pathways" },
   "stat.sources": { ko: "데이터 출처", en: "Data sources" },
+
+  // Dataset provenance strip
+  "prov.title": { ko: "데이터셋", en: "Dataset" },
+  "prov.raw": { ko: "수집된 원본 쿼리", en: "Collected queries" },
+  "prov.canonical": { ko: "정규화 질문", en: "Canonical questions" },
+  "prov.languages": { ko: "언어", en: "Languages" },
+  "prov.markets": { ko: "시장", en: "Markets" },
+  "prov.method": { ko: "수집 방법", en: "Collection method" },
+  "prov.updated": { ko: "최종 업데이트", en: "Last updated" },
+  "footer.source.note": {
+    ko: "시장별 현지화 (gl/hl)",
+    en: "Localized per market (gl/hl)",
+  },
+  "source.active": { ko: "사용 중", en: "Active" },
+  "source.planned": { ko: "예정", en: "Planned" },
 
   "footer.tagline": {
     ko: "실제 질문, 신뢰할 수 있는 답변",
@@ -284,7 +299,10 @@ export const dict: Dict = {
     ko: "세계가 한국을 어떻게 질문하는지 연구하는 공개 플랫폼.",
     en: "A public platform studying how the world questions Korea.",
   },
-  "footer.rights": { ko: "시연용 리서치 프로젝트입니다.", en: "A demonstration research project." },
+  "footer.rights": {
+    ko: "세계가 한국을 어떻게 질문하는지 연구하는 공개 리서치 프로젝트입니다.",
+    en: "An open research project on how the world questions Korea.",
+  },
 
   "toggle.lang": { ko: "언어 전환", en: "Toggle language" },
   "a11y.pathwayReads": { ko: "질문 경로", en: "Question pathway" },

@@ -1,6 +1,6 @@
 "use client";
 
-import { Info, FlaskConical } from "lucide-react";
+import { Info, Database } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +13,7 @@ export function SampleBadge({ className }: { className?: string }) {
         className
       )}
     >
-      <FlaskConical className="h-3 w-3" />
+      <Database className="h-3 w-3" />
       {t("sample.badge")}
     </span>
   );

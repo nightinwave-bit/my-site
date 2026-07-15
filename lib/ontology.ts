@@ -10,7 +10,9 @@ import {
   PATHWAYS as GENERATED_PATHWAYS,
   TOTAL_QUESTIONS as GENERATED_TOTAL_QUESTIONS,
   PLATFORM_COUNT as GENERATED_PLATFORM_COUNT,
+  PROVENANCE as GENERATED_PROVENANCE,
 } from "./ontology.generated";
+export type { Provenance } from "./ontology.generated";
 
 export type Localized = { ko: string; en: string };
 
@@ -91,6 +93,7 @@ export const GRAPH_EDGES: GraphEdge[] = GENERATED_GRAPH_EDGES;
 export const PATHWAYS: Pathway[] = GENERATED_PATHWAYS;
 export const TOTAL_QUESTIONS = GENERATED_TOTAL_QUESTIONS;
 export const PLATFORM_COUNT = GENERATED_PLATFORM_COUNT;
+export const PROVENANCE = GENERATED_PROVENANCE;
 
 export function getPathway(id: string): Pathway | undefined {
   return PATHWAYS.find((p) => p.id === id);

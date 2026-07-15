@@ -51,10 +51,8 @@ export function Footer() {
               {t("method.sources.title")}
             </h4>
             <ul className="mt-4 space-y-2.5 text-sm text-white/70">
-              <li>Google Search</li>
-              <li>People Also Ask</li>
               <li>Google Autocomplete</li>
-              <li>Reddit</li>
+              <li className="text-white/40">{t("footer.source.note")}</li>
             </ul>
             <Link
               href="/explore"

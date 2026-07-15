@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, MessagesSquare, TextCursorInput, MessageCircle } from "lucide-react";
+import { TextCursorInput } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
@@ -13,10 +13,7 @@ const STEPS = [
 ];
 
 const SOURCES = [
-  { name: "Google Search", icon: Search, descKey: "method.google.desc" },
-  { name: "People Also Ask", icon: MessagesSquare, descKey: "method.paa.desc" },
-  { name: "Autocomplete", icon: TextCursorInput, descKey: "method.autocomplete.desc" },
-  { name: "Reddit", icon: MessageCircle, descKey: "method.reddit.desc" },
+  { name: "Google Autocomplete", icon: TextCursorInput, descKey: "method.autocomplete.desc" },
 ];
 
 export function MethodSection() {
@@ -58,7 +55,7 @@ export function MethodSection() {
             {t("method.sources.title")}
           </h3>
         </Reveal>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:max-w-md">
           {SOURCES.map((s, i) => {
             const Icon = s.icon;
             return (
