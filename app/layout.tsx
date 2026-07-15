@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -9,33 +9,23 @@ const inter = Inter({
   display: "swap",
 });
 
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
-  display: "swap",
-  style: ["normal", "italic"],
-});
-
 export const metadata: Metadata = {
   title: "Ask About Korea — 실제 질문, 신뢰할 수 있는 답변",
   description:
-    "AI 시대에 세계가 한국에 대해 던지는 실제 질문을 수집하고 시각화합니다. A living map of global curiosity about Korea.",
+    "세계가 한국에 대해 던지는 실제 질문을, 질문 → 개념 → 주제 → 서사의 온톨로지로 시각화하는 공개 리서치 플랫폼. A public research platform mapping how questions about Korea become perceptions.",
   keywords: [
     "Korea",
     "questions",
-    "AI",
-    "knowledge map",
+    "ontology",
     "public diplomacy",
+    "research",
     "한국",
-    "질문",
+    "질문 온톨로지",
   ],
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f3ec" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f0d0b" },
-  ],
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -44,15 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="ko"
-      className={`${inter.variable} ${newsreader.variable}`}
-      suppressHydrationWarning
-    >
-      <body
-        className="font-sans antialiased"
-        style={{ wordBreak: "keep-all" }}
-      >
+    <html lang="ko" className={inter.variable}>
+      <body className="font-sans antialiased" style={{ wordBreak: "keep-all" }}>
         <Providers>{children}</Providers>
       </body>
     </html>

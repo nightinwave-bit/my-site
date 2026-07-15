@@ -28,23 +28,23 @@ export function SectionHeading({
         <Reveal>
           <div
             className={cn(
-              "mb-4 flex items-center gap-2.5 text-sm font-medium text-clay",
+              "mb-4 flex items-center gap-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-brand",
               align === "center" && "justify-center"
             )}
           >
-            <span className="h-px w-6 bg-clay/50" />
+            <span className="h-px w-6 bg-brand/50" />
             {eyebrow}
           </div>
         </Reveal>
       )}
       <Reveal delay={0.05}>
-        <h2 className="text-balance text-[2rem] font-semibold tracking-tight text-gradient sm:text-4xl md:text-[3rem] md:leading-[1.08]">
+        <h2 className="text-balance text-[2rem] font-semibold leading-[1.1] tracking-tight text-navy sm:text-4xl md:text-[2.75rem]">
           {title}
         </h2>
       </Reveal>
       {subtitle && (
         <Reveal delay={0.1}>
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="mt-4 max-w-2xl text-pretty text-[17px] leading-relaxed text-secondary sm:text-lg">
             {subtitle}
           </p>
         </Reveal>

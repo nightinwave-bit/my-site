@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pretendard — primary Korean typeface (variable). Latin falls to Inter first,
+/* Pretendard — primary Korean typeface (self-hosted variable). Latin uses Inter;
    Korean glyphs (absent in Inter) cascade to Pretendard automatically. */
 @font-face {
   font-family: "Pretendard Variable";
@@ -14,76 +14,45 @@
 
 @layer base {
   :root {
-    /* Font stacks: Latin → Inter, Korean → Pretendard */
     --font-sans: var(--font-inter), "Pretendard Variable", Pretendard,
       system-ui, -apple-system, sans-serif;
-    --font-serif: var(--font-newsreader), "Pretendard Variable", Pretendard,
-      Georgia, "Times New Roman", serif;
 
-    /* Light mode — the default. Warm ivory paper (Anthropic-like), not white. */
-    --background: 43 33% 95%;
-    --foreground: 24 14% 12%;
+    /* Research light system — white / navy / institutional blue / slate. */
+    --background: 0 0% 100%; /* white */
+    --tint: 210 40% 98%; /* slate-50 section band */
+    --foreground: 213 60% 11%; /* ink #0A1B2E */
+    --ink-heading: 212 63% 16%; /* #0F2846 */
 
-    --card: 42 42% 98%;
-    --card-foreground: 24 14% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 213 60% 11%;
 
-    --primary: 24 14% 13%;
-    --primary-foreground: 43 33% 96%;
+    --secondary: 210 40% 96.5%; /* slate-100 chip */
+    --secondary-foreground: 215 25% 27%;
 
-    --secondary: 40 22% 91%;
-    --secondary-foreground: 24 12% 22%;
+    --muted: 210 40% 96.5%;
+    --muted-foreground: 215 16% 47%; /* slate-500 */
+    --text-secondary: 215 19% 35%; /* slate-600 */
 
-    --muted: 40 20% 90%;
-    --muted-foreground: 28 8% 40%;
+    --brand: 224 76% 48%; /* blue-700 #1D4ED8 */
+    --brand-foreground: 0 0% 100%;
+    --brand-hi: 217 91% 60%; /* blue-500 */
+    --insight: 199 89% 48%; /* sky-500, used sparingly */
 
-    --accent: 40 24% 92%;
-    --accent-foreground: 24 12% 20%;
+    /* Node-type surfaces */
+    --concept-bg: 222 100% 97%; /* very light blue chip */
+    --theme-bg: 210 40% 96.5%; /* slate chip */
 
-    --clay: 14 58% 52%;
-    --clay-foreground: 43 33% 97%;
+    --border: 214 32% 91%; /* slate-200 */
+    --border-strong: 213 27% 84%; /* slate-300 */
+    --input: 214 32% 91%;
+    --ring: 224 76% 48%;
 
-    --border: 34 18% 85%;
-    --input: 34 18% 85%;
-    --ring: 14 58% 52%;
+    --radius: 0.75rem;
 
-    --radius: 1rem;
-
-    /* Elegant, restrained shadows (warm-tinted) */
-    --shadow-soft: 0 1px 2px hsl(28 25% 18% / 0.04),
-      0 6px 20px hsl(28 25% 18% / 0.05);
-    --shadow-lift: 0 2px 6px hsl(28 25% 18% / 0.06),
-      0 18px 44px hsl(28 25% 18% / 0.1);
-  }
-
-  .dark {
-    /* Dark mode — available via toggle. Deep warm ink. */
-    --background: 24 12% 6%;
-    --foreground: 40 20% 94%;
-
-    --card: 24 10% 9%;
-    --card-foreground: 40 20% 94%;
-
-    --primary: 40 20% 94%;
-    --primary-foreground: 24 12% 6%;
-
-    --secondary: 24 8% 14%;
-    --secondary-foreground: 40 20% 90%;
-
-    --muted: 24 8% 14%;
-    --muted-foreground: 36 8% 62%;
-
-    --accent: 24 8% 16%;
-    --accent-foreground: 40 20% 92%;
-
-    --clay: 14 78% 62%;
-    --clay-foreground: 24 12% 6%;
-
-    --border: 30 8% 18%;
-    --input: 30 8% 18%;
-    --ring: 14 78% 62%;
-
-    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.3), 0 8px 28px hsl(0 0% 0% / 0.35);
-    --shadow-lift: 0 2px 8px hsl(0 0% 0% / 0.4), 0 20px 50px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 1px 2px hsl(213 60% 15% / 0.04),
+      0 6px 20px hsl(213 60% 15% / 0.05);
+    --shadow-panel: 0 2px 8px hsl(213 60% 15% / 0.08),
+      0 24px 48px hsl(213 60% 15% / 0.1);
   }
 }
 
@@ -98,7 +67,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "cv11", "ss01";
     word-break: keep-all;
   }
   h1,
@@ -107,9 +75,10 @@
   h4 {
     word-break: keep-all;
     letter-spacing: -0.02em;
+    color: hsl(var(--ink-heading));
   }
   ::selection {
-    background: hsl(var(--clay) / 0.24);
+    background: hsl(var(--brand) / 0.16);
   }
 }
 
@@ -121,105 +90,57 @@
     text-wrap: pretty;
   }
 
-  /* Editorial display text — strong contrast for projection readability */
-  .text-gradient {
-    background: linear-gradient(
-      180deg,
-      hsl(var(--foreground)) 0%,
-      hsl(var(--foreground) / 0.78) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .text-secondary {
+    color: hsl(var(--text-secondary));
   }
 
-  .text-clay-gradient {
-    background: linear-gradient(
-      100deg,
-      hsl(var(--clay)) 0%,
-      hsl(28 74% 58%) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Ambient aurora glow — soft and restrained in light mode */
-  .aurora {
-    background:
-      radial-gradient(
-        58% 52% at 22% 22%,
-        hsl(var(--clay) / 0.1) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        48% 48% at 82% 28%,
-        hsl(28 70% 60% / 0.09) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        60% 60% at 62% 92%,
-        hsl(40 40% 70% / 0.08) 0%,
-        transparent 60%
-      );
-  }
-  .dark .aurora {
-    background:
-      radial-gradient(
-        60% 55% at 20% 20%,
-        hsl(var(--clay) / 0.16) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        50% 50% at 85% 30%,
-        hsl(210 80% 55% / 0.12) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        60% 60% at 60% 90%,
-        hsl(280 60% 55% / 0.1) 0%,
-        transparent 60%
-      );
-  }
-
-  /* Subtle dotted grid */
+  /* Fine dotted grid — quiet, research-figure feel */
   .bg-grid {
     background-image: radial-gradient(
-      hsl(var(--foreground) / 0.05) 1px,
+      hsl(213 30% 40% / 0.05) 1px,
       transparent 1px
     );
-    background-size: 30px 30px;
+    background-size: 32px 32px;
   }
 
-  .glass {
-    background: hsl(var(--card) / 0.72);
-    backdrop-filter: blur(18px) saturate(1.4);
-    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  /* Faint blueprint lines behind the hero stage */
+  .bg-blueprint {
+    background-image: linear-gradient(
+        hsl(213 40% 50% / 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, hsl(213 40% 50% / 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
+  .shadow-card {
+    box-shadow: var(--shadow-card);
   }
-  .shadow-lift {
-    box-shadow: var(--shadow-lift);
+  .shadow-panel {
+    box-shadow: var(--shadow-panel);
   }
 
-  /* Premium surface: card background, hairline border, soft shadow */
+  /* Institutional surface: white, hairline border, whisper shadow */
   .surface {
     background: hsl(var(--card));
-    border: 1px solid hsl(var(--border) / 0.8);
-    box-shadow: var(--shadow-soft);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .hairline {
+    border: 1px solid hsl(var(--border));
   }
 
   .card-hover {
     transition:
-      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.4s ease,
-      box-shadow 0.4s ease;
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
   }
   .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lift);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-panel);
+    border-color: hsl(var(--border-strong));
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -228,5 +149,28 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+}
+
+@keyframes progressGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.progress-bar {
+  transform-origin: left center;
+  animation-name: progressGrow;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar {
+    animation: none;
+    transform: scaleX(1);
   }
 }

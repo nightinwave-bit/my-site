@@ -3,103 +3,91 @@
 import * as React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, MousePointer2, Sparkles } from "lucide-react";
+import { ArrowRight, Pause, Play, Network } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
-import { TOTAL_QUESTIONS, CATEGORIES } from "@/lib/data";
-import { Button } from "@/components/ui/button";
-import { QuestionGraph } from "./question-graph";
+import {
+  PATHWAYS,
+  TOTAL_QUESTIONS,
+  PLATFORM_COUNT,
+  type OntologyNode,
+} from "@/lib/ontology";
+import { PathwayDiagram } from "./pathway-diagram";
+import { EvidencePanel } from "./evidence-panel";
+import { cn } from "@/lib/utils";
 
-function useCountUp(target: number, duration = 1400) {
-  const [value, setValue] = React.useState(0);
-  const reduce = useReducedMotion();
-  React.useEffect(() => {
-    if (reduce) {
-      setValue(target);
-      return;
-    }
-    let raf = 0;
-    let start: number | null = null;
-    const tick = (ts: number) => {
-      if (start === null) start = ts;
-      const p = Math.min((ts - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setValue(Math.round(target * eased));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [target, duration, reduce]);
-  return value;
-}
+const CYCLE_MS = 7000;
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col">
-      <span className="font-serif text-3xl font-semibold tabular-nums text-foreground sm:text-4xl">
+    <div>
+      <div className="text-2xl font-semibold tabular-nums text-navy sm:text-[1.75rem]">
         {value}
-      </span>
-      <span className="mt-1 text-xs text-muted-foreground sm:text-sm">
-        {label}
-      </span>
+      </div>
+      <div className="mt-0.5 text-[13px] text-muted-foreground">{label}</div>
     </div>
   );
 }
 
 export function Hero() {
-  const { t } = useLanguage();
-  const questions = useCountUp(TOTAL_QUESTIONS);
-  const ease = [0.22, 1, 0.36, 1] as const;
+  const { t, locale } = useLanguage();
+  const reduce = useReducedMotion();
+  const [active, setActive] = React.useState(0);
+  const [paused, setPaused] = React.useState(false);
+  const [evidence, setEvidence] = React.useState<OntologyNode | null>(null);
+
+  const pathway = PATHWAYS[active];
+  const stagePaused = paused || !!evidence;
+
+  const advance = React.useCallback(() => {
+    setActive((i) => (i + 1) % PATHWAYS.length);
+  }, []);
+
+  // Fallback timer for reduced-motion (no progress-bar animationend to drive it)
+  React.useEffect(() => {
+    if (!reduce || stagePaused) return;
+    const id = window.setTimeout(advance, CYCLE_MS);
+    return () => window.clearTimeout(id);
+  }, [reduce, stagePaused, active, advance]);
 
   const headlineLines = t("hero.title").split("\n");
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden">
-      {/* Ambient backgrounds */}
-      <div className="pointer-events-none absolute inset-0 aurora" />
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(70%_60%_at_50%_40%,black,transparent)]" />
+    <section className="relative overflow-hidden border-b border-border">
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-70 [mask-image:radial-gradient(80%_70%_at_50%_20%,black,transparent)]" />
 
-      {/* Interactive knowledge graph — ambient on mobile, offset right on
-          large screens so it clears the left-aligned headline */}
-      <div className="absolute inset-0 opacity-40 sm:opacity-60 lg:left-[36%] lg:opacity-100">
-        <QuestionGraph />
-      </div>
-
-      {/* Fades so text stays legible over the graph */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background lg:via-background/20" />
-      <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background via-background/40 to-transparent lg:block" />
-
-      <div className="container relative flex min-h-[100svh] flex-col justify-center pb-16 pt-28">
-        <div className="pointer-events-none max-w-4xl">
+      <div className="container relative grid gap-12 pb-16 pt-28 lg:grid-cols-[1fr_minmax(430px,46%)] lg:gap-16 lg:pb-24 lg:pt-36">
+        {/* Left — thesis */}
+        <div className="flex flex-col justify-center">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease }}
-            className="pointer-events-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border glass px-3.5 py-1.5 text-xs font-medium text-muted-foreground sm:text-sm"
+            transition={{ duration: 0.6, ease: EASE }}
+            className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-white px-3.5 py-1.5 text-[13px] font-medium text-secondary"
           >
-            <Sparkles className="h-3.5 w-3.5 text-clay" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand" />
             {t("hero.eyebrow")}
           </motion.div>
 
           <h1 className="text-balance font-semibold tracking-[-0.03em]">
             {headlineLines.map((line, i) => (
-              <span key={i} className="block overflow-hidden py-[0.06em]">
-                <motion.span
-                  className="block text-gradient text-[2.75rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-[5rem]"
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease, delay: 0.15 + i * 0.1 }}
-                >
-                  {line}
-                </motion.span>
-              </span>
+              <motion.span
+                key={i}
+                className="block text-[2.5rem] leading-[1.08] text-navy sm:text-6xl lg:text-[4.25rem]"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.1 + i * 0.08 }}
+              >
+                {line}
+              </motion.span>
             ))}
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.5 }}
-            className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:mt-10 sm:text-xl md:text-[1.375rem] md:leading-relaxed"
+            transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
+            className="mt-7 max-w-xl text-pretty text-[17px] leading-relaxed text-secondary sm:text-lg"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -107,52 +95,127 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.62 }}
-            className="pointer-events-auto mt-10 flex flex-wrap items-center gap-3 sm:mt-12"
+            transition={{ duration: 0.7, ease: EASE, delay: 0.42 }}
+            className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <Link href="#map">
-              <Button variant="clay" size="lg">
-                {t("hero.cta")}
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+            <Link
+              href="#pathways"
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
+            >
+              {t("hero.cta.explore")}
+              <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="#about">
-              <Button variant="outline" size="lg">
-                {t("hero.cta.secondary")}
-              </Button>
+            <Link
+              href="/explore"
+              className="inline-flex h-12 items-center gap-2 rounded-full border border-border-strong bg-white px-6 text-sm font-semibold text-navy transition-colors hover:border-brand hover:text-brand"
+            >
+              <Network className="h-4 w-4" />
+              {t("hero.cta.map")}
             </Link>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.76 }}
-            className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-6"
+            transition={{ duration: 0.7, ease: EASE, delay: 0.54 }}
+            className="mt-12 flex items-center gap-8 border-t border-border pt-7"
           >
             <Stat
-              value={`${questions.toLocaleString()}+`}
-              label={t("hero.stat.questions")}
+              value={`${TOTAL_QUESTIONS.toLocaleString()}+`}
+              label={t("stat.questions")}
             />
-            <span className="hidden h-8 w-px bg-border sm:block" />
-            <Stat
-              value={`${CATEGORIES.length}`}
-              label={t("hero.stat.categories")}
-            />
-            <span className="hidden h-8 w-px bg-border sm:block" />
-            <Stat value="4" label={t("hero.stat.sources")} />
+            <Stat value={`${PATHWAYS.length}`} label={t("stat.pathways")} />
+            <Stat value={`${PLATFORM_COUNT}`} label={t("stat.sources")} />
           </motion.div>
         </div>
 
+        {/* Right — pathway stage (research figure) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.1 }}
-          className="pointer-events-none absolute bottom-8 right-6 hidden items-center gap-2 text-xs text-muted-foreground lg:flex"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
+          className="relative"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
         >
-          <MousePointer2 className="h-3.5 w-3.5" />
-          {t("hero.hint")}
+          <div className="surface overflow-hidden rounded-2xl">
+            {/* figure header */}
+            <div className="flex items-center justify-between gap-3 border-b border-border px-5 py-3.5">
+              <div className="flex items-center gap-2.5">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
+                  {t("hero.pathway.label")} {String(active + 1).padStart(2, "0")}
+                </span>
+                <span className="hidden text-xs text-muted-foreground sm:inline">
+                  · {pathway.themeLabel[locale]}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setPaused((p) => !p)}
+                aria-label={paused ? t("hero.play") : t("hero.pause")}
+                className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-border-strong hover:text-navy"
+              >
+                {paused ? (
+                  <Play className="h-3.5 w-3.5" />
+                ) : (
+                  <Pause className="h-3.5 w-3.5" />
+                )}
+              </button>
+            </div>
+
+            {/* progress bar */}
+            <div className="h-0.5 w-full bg-border">
+              {!reduce && (
+                <div
+                  key={active}
+                  className="progress-bar h-full bg-brand"
+                  style={{
+                    animationDuration: `${CYCLE_MS}ms`,
+                    animationPlayState: stagePaused ? "paused" : "running",
+                  }}
+                  onAnimationEnd={advance}
+                />
+              )}
+            </div>
+
+            {/* diagram */}
+            <div className="bg-blueprint px-5 py-6 sm:px-7 sm:py-8">
+              <PathwayDiagram
+                key={pathway.id}
+                pathway={pathway}
+                animate
+                onNodeClick={setEvidence}
+                activeNodeId={evidence?.id}
+              />
+            </div>
+          </div>
+
+          {/* pagination */}
+          <div className="mt-5 flex items-center justify-center gap-2">
+            {PATHWAYS.map((p, i) => (
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => setActive(i)}
+                aria-label={`${t("hero.pathway.label")} ${i + 1}`}
+                aria-current={i === active}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-300",
+                  i === active
+                    ? "w-6 bg-brand"
+                    : "w-1.5 bg-border-strong hover:bg-muted-foreground"
+                )}
+              />
+            ))}
+          </div>
         </motion.div>
       </div>
+
+      <EvidencePanel
+        node={evidence}
+        onClose={() => setEvidence(null)}
+        onSelect={setEvidence}
+      />
     </section>
   );
 }

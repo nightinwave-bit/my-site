@@ -1,46 +1,15 @@
 import {
-  UtensilsCrossed,
-  Music,
-  Languages,
-  Landmark,
-  Users,
-  MapPin,
-  Cpu,
-  GraduationCap,
-  TrendingUp,
-  Globe2,
   Search,
   MessagesSquare,
   TextCursorInput,
   MessageCircle,
   type LucideIcon,
-  HelpCircle,
 } from "lucide-react";
+import type { Platform } from "@/lib/ontology";
 
-const MAP: Record<string, LucideIcon> = {
-  UtensilsCrossed,
-  Music,
-  Languages,
-  Landmark,
-  Users,
-  MapPin,
-  Cpu,
-  GraduationCap,
-  TrendingUp,
-  Globe2,
-  Search,
-  MessagesSquare,
-  TextCursorInput,
-  MessageCircle,
+export const PLATFORM_ICON: Record<Platform, LucideIcon> = {
+  google: Search,
+  paa: MessagesSquare,
+  autocomplete: TextCursorInput,
+  reddit: MessageCircle,
 };
-
-export function Icon({
-  name,
-  className,
-}: {
-  name: string;
-  className?: string;
-}) {
-  const Cmp = MAP[name] ?? HelpCircle;
-  return <Cmp className={className} />;
-}
