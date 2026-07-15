@@ -18,9 +18,16 @@ const TYPE_TAG: Record<string, string> = {
   concept: "type.concept",
   theme: "type.theme",
   narrative: "type.narrative",
+  perception: "type.perception",
 };
 
-const RELATED_ORDER: NodeType[] = ["question", "concept", "theme", "narrative"];
+const RELATED_ORDER: NodeType[] = [
+  "question",
+  "concept",
+  "theme",
+  "narrative",
+  "perception",
+];
 
 export function EvidencePanel({
   node,
@@ -157,6 +164,8 @@ export function EvidencePanel({
                                 "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[13px] font-medium transition-colors",
                                 r.type === "narrative"
                                   ? "border-navy bg-navy text-white hover:bg-navy/90"
+                                  : r.type === "perception"
+                                  ? "border-brand bg-brand text-white hover:bg-brand/90"
                                   : "border-border bg-white text-navy hover:border-brand hover:text-brand"
                               )}
                             >

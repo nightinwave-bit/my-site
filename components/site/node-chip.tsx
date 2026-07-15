@@ -10,6 +10,7 @@ const TYPE_TAG: Record<NodeType, string> = {
   concept: "type.concept",
   theme: "type.theme",
   narrative: "type.narrative",
+  perception: "type.perception",
 };
 
 export function NodeChip({
@@ -37,7 +38,11 @@ export function NodeChip({
     ? { type: "button", onClick: () => onClick?.(node) }
     : {};
 
-  if (node.type === "narrative") {
+  // narrative and perception are the terminal, filled cards. Perception (the
+  // fifth layer) uses institutional blue to sit visually above the navy
+  // narrative; dormant until perception nodes exist in the data.
+  if (node.type === "narrative" || node.type === "perception") {
+    const isPerception = node.type === "perception";
     return (
       <Wrapper
         {...wrapperProps}
@@ -46,11 +51,17 @@ export function NodeChip({
       >
         <div
           className={cn(
-            "relative overflow-hidden rounded-xl border-l-4 border-brand bg-navy px-5 py-4 shadow-card sm:px-6 sm:py-5",
+            "relative overflow-hidden rounded-xl border-l-4 px-5 py-4 shadow-card sm:px-6 sm:py-5",
+            isPerception ? "border-navy bg-brand" : "border-brand bg-navy",
             interactive && "group-hover/node:shadow-panel"
           )}
         >
-          <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-hi">
+          <div
+            className={cn(
+              "text-[11px] font-semibold uppercase tracking-[0.14em]",
+              isPerception ? "text-white/80" : "text-brand-hi"
+            )}
+          >
             {tag}
           </div>
           <div className="mt-1.5 text-lg font-semibold leading-snug text-white sm:text-xl">

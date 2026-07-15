@@ -18,11 +18,22 @@ import { Search, RotateCcw } from "lucide-react";
 const W = 1160;
 const H = 860;
 
-const TARGET_X: Record<NodeType, number> = {
+// Column x-positions. Two layouts keep the graph backward-compatible: when no
+// perception nodes are present (the sample ontology) the 4-column positions are
+// byte-for-byte the originals, so nothing moves. When perception nodes exist
+// (the production ontology) a 5-column layout is used instead.
+const X_WITHOUT_PERCEPTION: Partial<Record<NodeType, number>> = {
   question: 0.08,
   concept: 0.37,
   theme: 0.66,
   narrative: 0.9,
+};
+const X_WITH_PERCEPTION: Partial<Record<NodeType, number>> = {
+  question: 0.06,
+  concept: 0.3,
+  theme: 0.54,
+  narrative: 0.76,
+  perception: 0.95,
 };
 
 // concept column is dense → split into two staggered sub-columns
@@ -35,7 +46,8 @@ type Pt = { x: number; y: number; vx: number; vy: number; tx: number };
  *  every render (stable for SSR, screenshots, and live lectures). */
 function computeLayout(
   nodes: OntologyNode[],
-  edges: { from: string; to: string }[]
+  edges: { from: string; to: string }[],
+  targetX: Partial<Record<NodeType, number>>
 ): Record<string, Pt> {
   const pos: Record<string, Pt> = {};
   const byType: Record<string, string[]> = {
@@ -43,6 +55,7 @@ function computeLayout(
     concept: [],
     theme: [],
     narrative: [],
+    perception: [],
   };
   nodes.forEach((n) => byType[n.type].push(n.id));
 
@@ -51,7 +64,7 @@ function computeLayout(
       const idx = byType.concept.indexOf(n.id);
       return CONCEPT_SUBCOL[idx % 2] * W;
     }
-    return TARGET_X[n.type] * W;
+    return (targetX[n.type] ?? 0.5) * W;
   };
 
   nodes.forEach((n, i) => {
@@ -143,11 +156,15 @@ function computeLayout(
   return pos;
 }
 
-const COLUMNS: { type: NodeType; key: string }[] = [
+// Canonical column order. The graph renders only the columns whose type is
+// actually present in the data, so the sample ontology (no perception nodes)
+// shows the original four columns unchanged.
+const CANONICAL_COLUMNS: { type: NodeType; key: string }[] = [
   { type: "question", key: "type.question" },
   { type: "concept", key: "type.concept" },
   { type: "theme", key: "type.theme" },
   { type: "narrative", key: "type.narrative" },
+  { type: "perception", key: "type.perception" },
 ];
 
 export function ForceGraph({
@@ -159,7 +176,24 @@ export function ForceGraph({
 }) {
   const { t, locale } = useLanguage();
   const { nodes, edges } = React.useMemo(buildGraph, []);
-  const base = React.useMemo(() => computeLayout(nodes, edges), [nodes, edges]);
+
+  // Columns/positions derive from the types actually present, so the sample
+  // ontology (4 types) renders exactly as before and a production ontology
+  // with perceptions gains a fifth column automatically.
+  const hasPerception = React.useMemo(
+    () => nodes.some((n) => n.type === "perception"),
+    [nodes]
+  );
+  const targetX = hasPerception ? X_WITH_PERCEPTION : X_WITHOUT_PERCEPTION;
+  const columns = React.useMemo(() => {
+    const present = new Set(nodes.map((n) => n.type));
+    return CANONICAL_COLUMNS.filter((c) => present.has(c.type));
+  }, [nodes]);
+
+  const base = React.useMemo(
+    () => computeLayout(nodes, edges, targetX),
+    [nodes, edges, targetX]
+  );
 
   const [override, setOverride] = React.useState<Record<string, { x: number; y: number }>>({});
   const [hover, setHover] = React.useState<string | null>(null);
@@ -233,19 +267,19 @@ export function ForceGraph({
     <div className={cn("w-full", className)}>
       {/* column headers — the perception flow */}
       <div className="relative mb-2 hidden h-6 sm:block" aria-hidden>
-        {COLUMNS.map((c, i) => (
+        {columns.map((c, i) => (
           <React.Fragment key={c.type}>
             <span
               className="absolute -translate-x-1/2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
-              style={{ left: `${TARGET_X[c.type] * 100}%` }}
+              style={{ left: `${(targetX[c.type] ?? 0.5) * 100}%` }}
             >
               {t(c.key)}
             </span>
-            {i < COLUMNS.length - 1 && (
+            {i < columns.length - 1 && (
               <span
                 className="absolute top-1 -translate-x-1/2 text-border-strong"
                 style={{
-                  left: `${((TARGET_X[c.type] + TARGET_X[COLUMNS[i + 1].type]) / 2) * 100}%`,
+                  left: `${(((targetX[c.type] ?? 0.5) + (targetX[columns[i + 1].type] ?? 0.5)) / 2) * 100}%`,
                 }}
               >
                 →
@@ -306,7 +340,10 @@ export function ForceGraph({
               style={{
                 left: `${(p.x / W) * 100}%`,
                 top: `${(p.y / H) * 100}%`,
-                width: node.type === "narrative" ? "158px" : "132px",
+                width:
+                  node.type === "narrative" || node.type === "perception"
+                    ? "158px"
+                    : "132px",
                 maxWidth: "40%",
               }}
               onPointerDown={(e) => onPointerDown(e, node.id)}
@@ -322,8 +359,16 @@ export function ForceGraph({
                     "border-[hsl(224_70%_88%)] bg-concept-bg",
                   node.type === "theme" && "border-border bg-theme-bg",
                   node.type === "narrative" && "border-navy bg-navy",
-                  isActive && node.type !== "narrative" && "ring-2 ring-brand",
-                  isActive && node.type === "narrative" && "ring-2 ring-brand-hi"
+                  // fifth layer — filled institutional blue apex (distinct from
+                  // navy narratives). Dormant until perception nodes exist.
+                  node.type === "perception" && "border-brand bg-brand",
+                  isActive &&
+                    node.type !== "narrative" &&
+                    node.type !== "perception" &&
+                    "ring-2 ring-brand",
+                  isActive &&
+                    (node.type === "narrative" || node.type === "perception") &&
+                    "ring-2 ring-brand-hi"
                 )}
               >
                 {node.type === "question" && (
@@ -335,7 +380,8 @@ export function ForceGraph({
                     node.type === "question" && "text-brand",
                     node.type === "concept" && "text-navy",
                     node.type === "theme" && "text-secondary",
-                    node.type === "narrative" && "text-white"
+                    node.type === "narrative" && "text-white",
+                    node.type === "perception" && "text-white"
                   )}
                 >
                   {label}
@@ -351,7 +397,7 @@ export function ForceGraph({
         <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
           {t("explore.legend")}
         </span>
-        {COLUMNS.map((l) => (
+        {columns.map((l) => (
           <span key={l.type} className="inline-flex items-center gap-2 text-[13px] text-secondary">
             <span
               className={cn(
@@ -359,7 +405,8 @@ export function ForceGraph({
                 l.type === "question" && "border-brand bg-white",
                 l.type === "concept" && "border-[hsl(224_70%_88%)] bg-concept-bg",
                 l.type === "theme" && "border-border bg-theme-bg",
-                l.type === "narrative" && "border-navy bg-navy"
+                l.type === "narrative" && "border-navy bg-navy",
+                l.type === "perception" && "border-brand bg-brand"
               )}
             />
             {t(l.key)}

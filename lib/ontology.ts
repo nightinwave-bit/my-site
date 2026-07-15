@@ -6,7 +6,12 @@ export function loc(v: Localized, locale: Locale): string {
   return v[locale];
 }
 
-export type NodeType = "question" | "concept" | "theme" | "narrative";
+export type NodeType =
+  | "question"
+  | "concept"
+  | "theme"
+  | "narrative"
+  | "perception";
 export type Platform = "google" | "paa" | "autocomplete" | "reddit";
 
 export interface Evidence {
@@ -20,6 +25,14 @@ export interface OntologyNode {
   label: Localized;
   blurb: Localized;
   evidence?: Evidence[];
+  // Optional fields populated by the production ontology (transform output).
+  // Absent on the sample data, so all existing consumers are unaffected.
+  short?: Localized;
+  count?: number;
+  salience?: number;
+  topMarket?: string | null;
+  markets?: Record<string, number>;
+  sourceExemplar?: string;
 }
 
 /** A step within a pathway: a node, plus the relationship verb linking it to

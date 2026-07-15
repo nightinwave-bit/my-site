@@ -37,6 +37,10 @@ export const dict: Dict = {
   "type.concept": { ko: "개념", en: "Concept" },
   "type.theme": { ko: "주제", en: "Theme" },
   "type.narrative": { ko: "서사 · 인식", en: "Narrative · Perception" },
+  // The fifth ontology layer. Used only when perception nodes are present
+  // (production ontology); the sample data has none, so this is dormant and the
+  // narrative column keeps its current fused "Narrative · Perception" label.
+  "type.perception": { ko: "인식", en: "Perception" },
 
   "model.eyebrow": { ko: "읽는 법", en: "How to read this" },
   "model.title": {
