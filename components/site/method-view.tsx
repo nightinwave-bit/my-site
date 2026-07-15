@@ -200,7 +200,7 @@ function EncounterFlow() {
 
 export function MethodView() {
   const { t } = useLanguage();
-  const foodPathway = getPathway("food-heritage")!;
+  const examplePathway = getPathway("cultural-force")!;
   const ease = [0.22, 1, 0.36, 1] as const;
 
   const steps = [1, 2, 3, 4, 5, 6];
@@ -289,7 +289,7 @@ export function MethodView() {
               </figcaption>
               <div className="bg-blueprint px-5 py-8 sm:px-8">
                 <div className="mx-auto max-w-md">
-                  <PathwayDiagram pathway={foodPathway} animate={false} />
+                  <PathwayDiagram pathway={examplePathway} animate={false} />
                 </div>
               </div>
             </figure>

@@ -23,7 +23,9 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
   const [evidence, setEvidence] = React.useState<OntologyNode | null>(null);
 
   const question = getNode(pathway.steps[0].nodeId);
-  const narrative = getNode(pathway.steps[pathway.steps.length - 1].nodeId);
+  // Terminal node — a perception in the production ontology (was a narrative in
+  // the sample). Labelled by its actual type so the tag stays accurate.
+  const terminal = getNode(pathway.steps[pathway.steps.length - 1].nodeId);
   const index = PATHWAYS.findIndex((p) => p.id === pathway.id);
   const next = PATHWAYS[(index + 1) % PATHWAYS.length];
   const ease = [0.22, 1, 0.36, 1] as const;
@@ -103,13 +105,13 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
                 <Reveal>
                   <div className="rounded-2xl border-l-4 border-brand bg-navy px-7 py-8 shadow-card">
                     <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-hi">
-                      {t("type.narrative")}
+                      {t(`type.${terminal.type}`)}
                     </div>
                     <h2 className="mt-2 text-2xl font-semibold leading-snug text-white sm:text-3xl">
-                      {narrative.label[locale]}
+                      {terminal.label[locale]}
                     </h2>
                     <p className="mt-4 text-[15px] leading-relaxed text-white/70">
-                      {narrative.blurb[locale]}
+                      {terminal.blurb[locale]}
                     </p>
                   </div>
                 </Reveal>
