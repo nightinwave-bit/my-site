@@ -18,11 +18,20 @@ const QUESTION_WORDS = new Set([
 ]);
 
 const HANGUL = /[가-힣]/;
+const ARABIC = /[؀-ۿ]/;
+const KANA = /[぀-ヿ]/;
+const CJK = /[一-鿿]/;
 // Korean particles/markers to strip from content tokens (lightweight).
 const KO_STOP = new Set(["왜", "은", "는", "이", "가", "을", "를", "의", "에", "나요", "인가", "가요"]);
 
+/** Script-based detection. Portuguese shares the Latin script with English and
+ *  is not distinguished here; callers that need the true language use the
+ *  locale-assigned language instead (dedup does this). */
 export function detectLanguage(text) {
-  return HANGUL.test(text) ? "ko" : "en";
+  if (HANGUL.test(text)) return "ko";
+  if (ARABIC.test(text)) return "ar";
+  if (KANA.test(text) || CJK.test(text)) return "ja";
+  return "en";
 }
 
 /** Lowercased, unicode-normalized, punctuation-stripped form (keeps Hangul). */

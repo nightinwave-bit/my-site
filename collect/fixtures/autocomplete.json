@@ -107,6 +107,46 @@
         "케이팝은 왜 인기가 많나",
         "케이팝은 왜 세계적으로 유명한가"
       ]
+    },
+    "케이팝": {
+      "base": ["케이팝 아이돌 되는 법", "케이팝 오디션", "케이팝 인기 이유"]
+    },
+    "한국 음식": {
+      "base": ["한국 음식 종류", "한국 음식 매운 이유"]
+    },
+    "김치": {
+      "base": ["김치 종류", "김치 효능"]
+    },
+    "韓国 なぜ": {
+      "base": ["韓国 なぜ 分断", "韓国 なぜ 人気", "韓国 なぜ 少子化"]
+    },
+    "韓国 文化": {
+      "base": ["韓国 文化 特徴", "韓国 文化 日本 違い"]
+    },
+    "ケーポップ": {
+      "base": ["ケーポップ なぜ 人気", "ケーポップ アイドル 練習生"]
+    },
+    "por que a coreia": {
+      "base": [
+        "por que a coreia é dividida",
+        "por que a coreia é tão avançada",
+        "por que a coreia tem natalidade baixa"
+      ]
+    },
+    "cultura coreana": {
+      "base": ["cultura coreana fatos", "cultura coreana e japonesa"]
+    },
+    "comida coreana": {
+      "base": ["comida coreana perto de mim", "comida coreana é saudável"]
+    },
+    "لماذا كوريا": {
+      "base": ["لماذا كوريا مقسمة", "لماذا كوريا متقدمة"]
+    },
+    "الطعام الكوري": {
+      "base": ["الطعام الكوري صحي", "أشهر طعام كوري"]
+    },
+    "كي بوب": {
+      "base": ["لماذا كي بوب مشهور", "كيف تصبح نجم كي بوب"]
     }
   }
 }

@@ -50,7 +50,7 @@ export async function runPipeline({ mode, date, log = () => {} }) {
   // ── Assign stable ids + spam classification ──
   const rawAll = [...ac.records, ...paa.records].map((r, i) => {
     const id = `raw_${String(i + 1).padStart(4, "0")}`;
-    const verdict = classify(r.questionText);
+    const verdict = classify(r.questionText, { seedText: r.provenance?.seed });
     return {
       id,
       ...r,

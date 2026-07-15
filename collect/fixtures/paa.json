@@ -71,6 +71,34 @@
         { "q": "케이팝은 왜 인기가 많나요?", "url": "https://example.org/ko-kpop" },
         { "q": "케이팝의 인기 비결은?", "url": "https://example.org/ko-kpop-secret" }
       ]
+    },
+    "韓国はなぜ分断": {
+      "base": [
+        { "q": "韓国はなぜ分断されたのですか?", "url": "https://example.org/ja-divided" },
+        { "q": "南北統一は実現しますか?", "url": "https://example.org/ja-unify" }
+      ]
+    },
+    "キムチとは": {
+      "base": [
+        { "q": "キムチとは何ですか?", "url": "https://example.org/ja-kimchi" }
+      ]
+    },
+    "por que a coreia é dividida": {
+      "base": [
+        { "q": "Por que a Coreia é dividida?", "url": "https://example.org/pt-divided" },
+        { "q": "Quando a Coreia se dividiu?", "url": "https://example.org/pt-split" }
+      ]
+    },
+    "o que é kimchi": {
+      "base": [
+        { "q": "O que é kimchi?", "url": "https://example.org/pt-kimchi" }
+      ]
+    },
+    "لماذا كوريا مقسمة": {
+      "base": [
+        { "q": "لماذا كوريا مقسمة؟", "url": "https://example.org/ar-divided" },
+        { "q": "متى انقسمت كوريا؟", "url": "https://example.org/ar-split" }
+      ]
     }
   }
 }

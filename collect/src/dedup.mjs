@@ -33,13 +33,15 @@ export function toCanonical(records) {
   for (const r of records) {
     const key = normalizeText(r.questionText);
     if (!exactGroups.has(key)) {
-      const lang = detectLanguage(r.questionText);
+      // Use the locale-assigned language (not script detection), so Portuguese
+      // and English — which share the Latin script — never cross-merge.
+      const lang = r.language || detectLanguage(r.questionText);
       exactGroups.set(key, {
         norm: key,
         rows: [],
         lang,
-        tokens: contentTokens(r.questionText, lang),
-        sig: intentSignature(r.questionText, lang),
+        tokens: contentTokens(r.questionText, lang === "ko" ? "ko" : "en"),
+        sig: intentSignature(r.questionText, lang === "ko" ? "ko" : "en"),
       });
     }
     exactGroups.get(key).rows.push(r);
@@ -87,7 +89,7 @@ export function toCanonical(records) {
     canonicals.push({
       id: `canon_${String(++n).padStart(4, "0")}`,
       canonicalText,
-      language: detectLanguage(canonicalText),
+      language: languages[0] ?? detectLanguage(canonicalText),
       variantTexts,
       variantIds: rows.map((r) => r.id),
       countries,

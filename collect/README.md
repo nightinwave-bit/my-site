@@ -38,9 +38,11 @@ Requires Node ≥ 18 (uses built-in `fetch`). Outputs are written to `output/`.
 
 - **Sources:** Google Autocomplete, Google People Also Ask (Reddit is deferred to a
   later stage per the MVP plan).
-- **Locales:** US, UK, CA, AU, IN, SG (English) and KR (Korean), set via `gl`/`hl`.
-  The country signal is the *question surface served to each locale*, not per-person
-  geodata. Age/gender are out of scope by design.
+- **Locales (Stage 500):** US, UK, IN, SG (English), JP (Japanese), BR
+  (Portuguese), AE (Arabic), KR (Korean), set via `gl`/`hl`. The country signal is
+  the *question surface served to each locale*, not per-person geodata. Age/gender
+  are out of scope by design. See
+  [`../docs/STAGE-500-COLLECTION-PLAN.md`](../docs/STAGE-500-COLLECTION-PLAN.md).
 
 ## Outputs
 
