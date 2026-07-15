@@ -11,7 +11,7 @@ export function FeaturedPathways() {
   const { t, locale } = useLanguage();
 
   return (
-    <section id="pathways" className="scroll-mt-20 border-b border-border">
+    <section id="pathways" className="scroll-mt-20 border-b border-border bg-tint">
       <div className="container py-20 sm:py-28">
         <SectionHeading
           eyebrow={t("pathways.eyebrow")}

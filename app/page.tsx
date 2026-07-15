@@ -1,10 +1,10 @@
 import { Navbar } from "@/components/site/navbar";
 import { Hero } from "@/components/site/hero";
+import { ExplorePreview } from "@/components/site/explore-preview";
 import { ModelBand } from "@/components/site/model-band";
 import { FeaturedPathways } from "@/components/site/featured-pathways";
-import { ExplorePreview } from "@/components/site/explore-preview";
+import { ResearchTeaser } from "@/components/site/research-teaser";
 import { MethodSection } from "@/components/site/method-section";
-import { ProvenanceStrip } from "@/components/site/provenance-strip";
 import { Footer } from "@/components/site/footer";
 
 export default function Home() {
@@ -12,15 +12,15 @@ export default function Home() {
     <>
       <Navbar />
       <main>
+        {/* Act I — thesis: we structure questions into an ontology */}
         <Hero />
-        <section className="border-b border-border">
-          <div className="container py-10 sm:py-12">
-            <ProvenanceStrip />
-          </div>
-        </section>
+        {/* Act II — the ontology as a network (primary visual identity) */}
+        <ExplorePreview />
+        {/* supporting: the five layers, traced through one question */}
         <ModelBand />
         <FeaturedPathways />
-        <ExplorePreview />
+        {/* Act III — research, built on top of the ontology */}
+        <ResearchTeaser />
         <MethodSection />
       </main>
       <Footer />

@@ -5,12 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Pause, Play, Network } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
-import {
-  PATHWAYS,
-  TOTAL_QUESTIONS,
-  PLATFORM_COUNT,
-  type OntologyNode,
-} from "@/lib/ontology";
+import { PATHWAYS, type OntologyNode } from "@/lib/ontology";
 import { PathwayDiagram } from "./pathway-diagram";
 import { EvidencePanel } from "./evidence-panel";
 import { cn } from "@/lib/utils";
@@ -18,16 +13,8 @@ import { cn } from "@/lib/utils";
 const CYCLE_MS = 7000;
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <div className="text-2xl font-semibold tabular-nums text-navy sm:text-[1.75rem]">
-        {value}
-      </div>
-      <div className="mt-0.5 text-[13px] text-muted-foreground">{label}</div>
-    </div>
-  );
-}
+// The core structure of the project, always visible.
+const SPINE = ["type.question", "type.concept", "type.theme", "type.narrative", "type.perception"] as const;
 
 export function Hero() {
   const { t, locale } = useLanguage();
@@ -92,40 +79,57 @@ export function Hero() {
             {t("hero.subtitle")}
           </motion.p>
 
+          {/* Persistent spine — the core structure, always visible */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.42 }}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className="mt-9"
           >
-            <Link
-              href="#pathways"
-              className="inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
-            >
-              {t("hero.cta.explore")}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/explore"
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-border-strong bg-white px-6 text-sm font-semibold text-navy transition-colors hover:border-brand hover:text-brand"
-            >
-              <Network className="h-4 w-4" />
-              {t("hero.cta.map")}
-            </Link>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+              {t("hero.spine.label")}
+            </div>
+            <div className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-sm font-medium">
+              {SPINE.map((key, i) => (
+                <span key={key} className="inline-flex items-center gap-1.5">
+                  <span
+                    className={cn(
+                      "rounded-md px-2.5 py-1",
+                      i === SPINE.length - 1
+                        ? "bg-navy text-white"
+                        : "bg-secondary text-navy"
+                    )}
+                  >
+                    {t(key)}
+                  </span>
+                  {i < SPINE.length - 1 && (
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+                  )}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.54 }}
-            className="mt-12 flex items-center gap-8 border-t border-border pt-7"
+            className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <Stat
-              value={`${TOTAL_QUESTIONS.toLocaleString()}+`}
-              label={t("stat.questions")}
-            />
-            <Stat value={`${PATHWAYS.length}`} label={t("stat.pathways")} />
-            <Stat value={`${PLATFORM_COUNT}`} label={t("stat.sources")} />
+            <Link
+              href="/explore"
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
+            >
+              <Network className="h-4 w-4" />
+              {t("hero.cta.ontology")}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="#pathways"
+              className="inline-flex h-12 items-center gap-2 rounded-full border border-border-strong bg-white px-6 text-sm font-semibold text-navy transition-colors hover:border-brand hover:text-brand"
+            >
+              {t("hero.cta.pathways")}
+            </Link>
           </motion.div>
         </div>
 

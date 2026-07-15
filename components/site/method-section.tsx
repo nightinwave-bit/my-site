@@ -20,7 +20,7 @@ export function MethodSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="method" className="scroll-mt-20 border-b border-border">
+    <section id="method" className="scroll-mt-20 border-b border-border bg-tint">
       <div className="container py-20 sm:py-28">
         <SectionHeading
           eyebrow={t("method.eyebrow")}
