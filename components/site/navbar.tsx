@@ -9,7 +9,7 @@ import { LanguageSwitch } from "./language-switch";
 const LINKS = [
   { key: "nav.pathways", href: "/#pathways" },
   { key: "nav.explore", href: "/explore" },
-  { key: "nav.method", href: "/#method" },
+  { key: "nav.method", href: "/method" },
 ] as const;
 
 export function Navbar() {

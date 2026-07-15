@@ -152,6 +152,102 @@ export const dict: Dict = {
     en: "Spontaneous questions from global communities",
   },
 
+  // ── Method page ─────────────────────────────────────────────────────────
+  "mp.eyebrow": { ko: "연구 프레임워크", en: "Research framework" },
+  "mp.title": {
+    ko: "질문은 어떻게 국가 인식이 되는가",
+    en: "How Questions Shape National Perception",
+  },
+  "mp.subtitle": {
+    ko: "이 사이트는 세계가 한국에 대해 던지는 실제 질문이 AI 정보 환경 속에서 어떻게 국가 인식으로 이어지는지를 탐구합니다.",
+    en: "Ask About Korea is a research project exploring how real public questions become perceptions of Korea through the AI information environment.",
+  },
+
+  "mp.s1.kicker": { ko: "국가 브랜딩의 전환", en: "The shift in national branding" },
+  "mp.s1.title": { ko: "홍보에서 질문으로", en: "From Promotion to Questions" },
+  "mp.s1.body": {
+    ko: "지난 수십 년간 국가 브랜딩은 메시지를 ‘전달’하는 데 초점을 맞췄습니다. 그러나 오늘날 사람들은 검색 엔진, 추천 시스템, 그리고 생성형 AI를 통해 국가를 만납니다. 그 결과, 대중의 질문이 국가 인식으로 들어서는 핵심 관문이 되었습니다.",
+    en: "For decades, national branding focused on delivering messages. Today, people increasingly encounter countries through search engines, recommendation systems, and generative AI. As a result, public questions have become a primary gateway to national perception.",
+  },
+  "mp.s1.old": { ko: "이전 모델", en: "Previous model" },
+  "mp.s1.new": { ko: "새로운 모델", en: "Emerging model" },
+
+  "mp.s2.kicker": { ko: "AI 정보 환경의 작동 방식", en: "How AI information environments work" },
+  "mp.s2.title": { ko: "오늘날 한국은 어떻게 발견되는가", en: "How Korea Is Encountered Today" },
+  "mp.s2.body": {
+    ko: "초점은 AI 모델 자체가 아닙니다. 사람들이 실제로 접하게 되는 ‘정보’입니다.",
+    en: "The focus is not the AI model itself. The focus is the information people receive.",
+  },
+  "mp.s2.search": { ko: "사람들이 검색합니다", en: "People search" },
+  "mp.s2.emerge": { ko: "질문이 형성됩니다", en: "Questions emerge" },
+  "mp.s2.answer": { ko: "AI 시스템이 답합니다", en: "AI systems answer" },
+  "mp.s2.perceive": { ko: "인식이 형성됩니다", en: "Perceptions form" },
+
+  "mp.s3.kicker": { ko: "Ask About Korea 프레임워크", en: "The Ask About Korea framework" },
+  "mp.s3.title": {
+    ko: "질문 → 개념 → 주제 → 서사 → 인식",
+    en: "Question → Concept → Theme → Narrative → Perception",
+  },
+  "mp.s3.body": {
+    ko: "이것은 사실의 연쇄가 아닙니다. 인식이 형성되는 경로입니다. 여러 질문이 같은 개념으로 수렴하고, 여러 개념이 같은 서사에 기여할 수 있습니다.",
+    en: "This is not a factual chain. It is a perception pathway. Multiple questions may converge into the same concept, and multiple concepts may contribute to the same narrative.",
+  },
+  "mp.s3.caption": { ko: "예시 경로 (샘플)", en: "Example pathway (sample)" },
+
+  "mp.s4.kicker": { ko: "연구 과정", en: "Research process" },
+  "mp.s4.title": { ko: "질문은 어떻게 수집되는가", en: "How We Study Questions" },
+  "mp.s4.1.title": { ko: "질문 수집", en: "Question Collection" },
+  "mp.s4.1.desc": {
+    ko: "Google · People Also Ask · Autocomplete · Reddit에서 실제 질문을 모읍니다.",
+    en: "Gather real questions from Google, People Also Ask, Autocomplete, and Reddit.",
+  },
+  "mp.s4.2.title": { ko: "질문 매핑", en: "Question Mapping" },
+  "mp.s4.2.desc": {
+    ko: "질문을 개념·주제·서사로 연결해 온톨로지를 구축합니다.",
+    en: "Link questions into concepts, themes, and narratives — an ontology.",
+  },
+  "mp.s4.3.title": { ko: "AI 응답 관찰", en: "AI Answer Observation" },
+  "mp.s4.3.desc": {
+    ko: "AI 시스템이 해당 주제를 어떻게 설명하는지 관찰합니다.",
+    en: "Observe how AI systems explain the topic.",
+  },
+  "mp.s4.4.title": { ko: "콘텐츠 제작", en: "Content Creation" },
+  "mp.s4.4.desc": {
+    ko: "출처에 근거한 자료를 제작합니다.",
+    en: "Create evidence-based resources.",
+  },
+  "mp.s4.5.title": { ko: "SEO · AEO · AIO", en: "SEO · AEO · AIO" },
+  "mp.s4.5.desc": {
+    ko: "발견 가능성을 높이도록 콘텐츠를 설계합니다.",
+    en: "Design content for discoverability.",
+  },
+  "mp.s4.6.title": { ko: "정보 환경 기여", en: "Information Environment Impact" },
+  "mp.s4.6.desc": {
+    ko: "더 풍부한 정보 생태계에 기여합니다.",
+    en: "Contribute to a richer information ecosystem.",
+  },
+
+  "mp.s5.kicker": { ko: "왜 중요한가", en: "Why this matters" },
+  "mp.s5.title": { ko: "질문은 단순한 질문이 아니다", en: "Questions Are Not Just Questions" },
+  "mp.s5.l1": { ko: "반복되는 질문은 정보 수요를 드러냅니다.", en: "Repeated questions reveal information demand." },
+  "mp.s5.l2": { ko: "반복되는 답변은 인식에 영향을 줍니다.", en: "Repeated answers influence perception." },
+  "mp.s5.l3": { ko: "인식은 국가 이미지를 형성합니다.", en: "Perception influences national image." },
+  "mp.s5.l4": {
+    ko: "따라서 질문을 이해하는 것은 AI 시대의 국가 브랜딩을 이해하는 일입니다.",
+    en: "Therefore understanding questions is part of understanding national branding in the AI era.",
+  },
+
+  "mp.s6.title": { ko: "데이터 출처", en: "Data Sources" },
+  "mp.s6.note": {
+    ko: "현재 모든 데이터는 시연용 샘플입니다. 향후 버전에서는 실시간 API 기반 수집을 도입할 예정입니다.",
+    en: "Everything is sample data for now. Future versions will incorporate live API-based collection.",
+  },
+
+  "mp.closing": {
+    ko: "Ask About Korea는 한국을 정의하려 하지 않습니다. 질문과 정보, 그리고 AI 시스템이 한국에 대한 대중의 이해를 어떻게 형성하는지를 탐구합니다.",
+    en: "Ask About Korea does not attempt to define Korea. It explores how questions, information, and AI systems shape public understanding of Korea.",
+  },
+
   "evidence.title": { ko: "연결된 실제 질문", en: "Connected questions" },
   "evidence.subtitle": {
     ko: "이 노드에 매핑된 실제 질문 (샘플)",
