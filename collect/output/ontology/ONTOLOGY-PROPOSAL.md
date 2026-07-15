@@ -1,188 +1,324 @@
-# Ask About Korea — First Real Ontology Proposal
+# Ask About Korea — Production Ontology Proposal
 
-**Generated from:** `collect/output/canonical_questions.json` (live run, 2026-07-15)
-**Source:** Google Autocomplete across US, DE, IN, ID, JP, BR, AE, KR · **1,138 canonical questions**
-**Method:** concepts discovered by transparent keyword clustering (anchors from the observed top tokens); themes / narratives / perceptions are the interpretive layers.
-**Machine-readable:** [`ontology_layer.json`](./ontology_layer.json)
+_Generated from the recovered multilingual dataset · `collect/output/canonical_questions.json`_
+_Run: `stage-500/0.3.0-utf8fix`, mode `live`, 2026-07-15 · generator: `collect/ontology.mjs`_
 
-> This is the **first ontology built from real collected data**, not sample data.
-
-## Read this first — data-quality caveats
-
-These shape how much weight each layer can bear:
-
-1. **Autocomplete-only run** (People Also Ask was skipped — no SerpApi key). So 941 of 1,138 items are **topic/entity phrases** ("samsung s26", "kimchi jjigae", "seoul tower"), not "why/how" questions. The ontology is therefore **entity-led**; adding PAA later will add interrogative demand.
-2. **Encoding defect** from the Windows collection: **249 items are corrupted** (accented characters became `�`), and this swept most **Korean and Arabic** text into the "gibberish" quarantine — only **13 canonical each** survived for KR and AE. **This first ontology under-represents the KR and AE markets.** Re-running with UTF-8 output will fix this.
-3. **Japanese is under-clustered** (115 of the 327 "unclustered"): the MVP clusterer uses Latin/English anchors, so Japanese-script items don't match a concept yet. Cross-language concept alignment (translation) is the deferred next step.
-4. **~29% unclustered overall** — bare entities ("south korea") and long-tail attribute questions plus the Japanese items above.
-
-With that stated, the structure below is a faithful, auditable reading of what the eight markets actually searched.
+> **Status:** analysis artifact. This proposal is written to be a drop-in
+> replacement for the current sample ontology in the website's Explore mode,
+> **but no website file has been changed.** Replacement is a separate,
+> explicitly-approved step (see §10).
 
 ---
 
-## 1. Concept inventory (19)
+## 1. Executive summary
 
-Concepts are **discovered from the data**. Counts are canonical questions; markets show where they surfaced most.
+This is the **first ontology built entirely from real collected data**, and the
+first built from a **fully multilingual** corpus. The previous draft was
+generated before the encoding fix, when Korean and Arabic had collapsed to ~13
+canonical questions each; those two markets are now fully represented.
 
-| # | Concept | Questions | Share | Top markets | Example questions |
+- **1,540 canonical questions** across **7 language-markets**.
+- **18 emergent concepts** cover **97.9%** of the corpus (33 questions / 2.1%
+  unclustered — down from ~29% in the pre-recovery draft).
+- Concepts roll up into **6 themes → 5 narratives → 5 perceptions**.
+- The world's questions about Korea resolve to five stable perceptions:
+  a **cultural powerhouse**, an **aspirational modern lifestyle**, a
+  **divided nation living with security risk**, a **technological/developed
+  success story**, and a country that is **fascinating and hard to fully grasp**.
+
+The headline structural finding: **division and language-difficulty are the two
+single largest concepts** (15.7% and 10.6%) — bigger than any single Hallyu
+concept — but when concepts are grouped, **the Korean Wave is the largest theme**
+(~459 questions). The world asks about K-culture in many specific ways, and about
+the two Koreas in one big way.
+
+---
+
+## 2. Dataset provenance
+
+| Property | Value |
+|---|---|
+| Canonical questions | 1,540 |
+| Raw collected | 2,193 |
+| Quarantined | 14 (0.6%) |
+| Mode | live (Google Autocomplete; PAA skipped — no API key) |
+| Language-markets | 7 |
+
+**Language distribution (independent signal):**
+
+| Lang | Market | Questions |
+|---|---|---|
+| en | US + IN | 449 |
+| ko | KR | 210 |
+| ja | JP | 200 |
+| de | DE | 187 |
+| id | ID | 179 |
+| pt | BR | 172 |
+| ar | AE | 143 |
+
+> **Methodological caveat used throughout this document.** The US and IN locales
+> share one English seed set, so every English canonical is served to *both*
+> markets and their raw country tallies are structurally identical. The honest
+> unit of independent evidence is therefore the **language-market** (7 of them,
+> with English = "US+IN"), **not** the 8 countries. All specificity analysis in
+> §9 is computed on language-markets; raw country tallies are retained in the
+> JSON as `countryTally` but flagged, not used as independent evidence.
+
+---
+
+## 3. Method — how the concepts emerged
+
+Concepts were **discovered**, not imposed:
+
+1. **Tokenized** every canonical question per language, stripped stopwords, and
+   ranked content tokens by frequency across all 7 languages.
+2. Recurring tokens that **translated across markets** became concept candidates
+   (e.g. `food / essen / makanan / 음식 / 料理 / comida / الطعام` → one Cuisine
+   concept). Tokens that appeared in only one market became candidate
+   market-signatures (§9).
+3. Each concept is defined by a **transparent, multilingual anchor list**
+   (substring match, priority-ordered) — no black-box embeddings, so every
+   assignment is auditable. See `collect/ontology.mjs`.
+4. Iterated anchors until unclustered fell below ~3%. Two candidate concepts
+   (learning-materials/access; sports/football) were **folded**, not kept: each
+   held only ~10 questions and was cross-cutting (see §5 note).
+
+The theme / narrative / perception layers above the concepts are **interpretive**
+— they are the editorial argument about what the questions *mean*, and are the
+part a human reviewer should scrutinise most.
+
+---
+
+## 4. Concepts (18) — the empirical layer
+
+Ordered by size. "Market skew" names the language-market most over-represented
+in that concept relative to its size (the concept's _signature_).
+
+| # | Concept | n | % | Present in | Market skew |
 |---|---|---|---|---|---|
-| 1 | **Division & Two Koreas** | 105 | 9.2% | IN US BR DE ID | *north korea vs south korea*, *korea is south or north*, *korean war*, *kenapa korea wajib militer* |
-| 2 | **Korean Food** | 100 | 8.8% | IN US DE ID BR | *kimchi*, *kimchi jjigae*, *kimchi fried rice*, *korean bbq* |
-| 3 | **Neighbours & Comparison** | 77 | 6.8% | IN US ID DE JP | *korea vs japan*, *korea vs japan travel*, *korea vs china* |
-| 4 | **Travel & Visiting** | 71 | 6.2% | IN US ID BR | *is korea expensive*, *is korea safe*, *is korean tap water safe*, *do you need a visa* |
-| 5 | **K-Beauty & Appearance** | 68 | 6.0% | IN US ID BR | *korean skincare*, *korean beauty standards*, *why are koreans so beautiful*, *are koreans tall* |
-| 6 | **Korean Language** | 65 | 5.7% | IN US ID DE BR | *how to learn korean*, *is korean hard to learn*, *is korean harder than japanese* |
-| 7 | **Culture (general)** | 45 | 4.0% | IN US DE BR ID | *korean culture*, *korean weddings*, *what is korea known for* |
-| 8 | **K-pop & Hallyu** | 43 | 3.8% | IN US BR | *k-pop demon hunters*, *why is kpop so popular*, *k-pop* |
-| 9 | **Seoul & Places** | 42 | 3.7% | IN US DE BR ID | *seoul tower*, *seoul forest*, *seoul weather* |
-| 10 | **Society & People** | 42 | 3.7% | IN US | *korean etiquette*, *korean age calculator*, *korean education system*, *korean names* |
-| 11 | **K-Drama** | 35 | 3.1% | IN US ID BR DE | *korean drama*, *korean drama 2026*, *korean drama websites* |
-| 12 | **Samsung & Technology** | 34 | 3.0% | IN US BR DE ID | *samsung*, *samsung s26 ultra*, *samsung galaxy* |
-| 13 | **History** | 23 | 2.0% | IN US DE ID | *korean history*, *korean history timeline*, *korean history movies* |
-| 14 | **Economy & Development** | 17 | 1.5% | IN US | *why is korean won so weak*, *korean economy 2026*, *is korea a developed country* |
-| 15 | **Tradition & Heritage** | 15 | 1.3% | IN US ID DE | *hanbok*, *hanbok dress*, *hanbok rental* |
-| 16 | **Korean Fashion** | 13 | 1.1% | IN US ID | *korean fashion*, *korean fashion men/women*, *korean fashion brands* |
-| 17 | **Religion & Belief** | 10 | 0.9% | IN US DE | *are koreans christian*, *why is korea so christian* |
-| 18 | **Geography & Basics** | 6 | 0.5% | IN US DE | *is korea southeast asia*, *why is korea so mountainous*, *south korea population* |
-| — | *Unclustered / general* | 327 | 28.7% | JP-heavy | *south korea*, *how do koreans write the date*, *is korea a first world country* |
+| 1 | **North–South Division & Two Koreas** | 242 | 15.7 | 7/7 | BR, AE, ID |
+| 2 | **Korean Language & Its Difficulty** | 163 | 10.6 | 7/7 | **DE (strong)** |
+| 3 | **Korean People & National Character** | 143 | 9.3 | 6/7 | US+IN, KR |
+| 4 | **Korean Cuisine** | 140 | 9.1 | 7/7 | broad |
+| 5 | **Culture, Tradition & Heritage** | 127 | 8.2 | 7/7 | KR, JP |
+| 6 | **Travel & Safety** | 100 | 6.5 | 7/7 | US+IN, JP |
+| 7 | **K-Beauty, Skincare & Fashion** | 81 | 5.3 | 5/7 | ID, BR, AE |
+| 8 | **K-Drama & Screen Stories** | 77 | 5.0 | 7/7 | broad |
+| 9 | **Regional Comparison (Japan/China)** | 67 | 4.4 | 6/7 | US+IN, JP |
+| 10 | **Technology & Brands** | 62 | 4.0 | 7/7 | broad |
+| 11 | **Seoul, Places & Climate** | 61 | 4.0 | 7/7 | broad |
+| 12 | **Economy, Money & Cost** | 52 | 3.4 | 6/7 | US+IN, KR |
+| 13 | **History** | 39 | 2.5 | 7/7 | KR, JP |
+| 14 | **Society, Religion & Daily Life** | 38 | 2.5 | 6/7 | US+IN |
+| 15 | **K-Pop & Idols** | 34 | 2.2 | 5/7 | **JP** |
+| 16 | **Etiquette & Social Norms** | 31 | 2.0 | 3/7 | US+IN, KR, JP |
+| 17 | **Education & Study** | 28 | 1.8 | 3/7 | US+IN, JP, KR |
+| 18 | **Country Basics & Identity** | 22 | 1.4 | 5/7 | **ID** |
+| — | _(unclustered)_ | 33 | 2.1 | — | — |
 
-## 2. Theme inventory (6)
+**Representative questions (multilingual) per top concept:**
 
-Themes group concepts (sum of member concepts; 811 of 1,138 clustered).
+- **Division & Two Koreas** — `korea is south or north` (en) · `por que a coreia
+  foi dividida` (pt) · `한국은 왜 분단되었나` (ko) · `north korea vs south korea
+  football` (en). North Korea's absence from the World Cup and inter-Korea
+  comparison both live here.
+- **Language & Difficulty** — `is korean harder than japanese` (en) ·
+  `هل اللغة الكورية صعبة` (ar, "is Korean hard") · `koreanisch schwer` (de) ·
+  `한국어 배우기` (ko). The defining frame is *difficulty*, not just learning.
+- **Korean People & National Character** — `are koreans tall` · `why are koreans
+  so beautiful` · `외국인이 보는 한국인 특징` (ko, "traits of Koreans as foreigners
+  see them") · `why do koreans use metal chopsticks`.
+- **Cuisine** — `kimchi jjigae` (de) · `한국 음식 추천` (ko) · `الطعام الكوري`
+  (ar) · `korean bbq`.
+- **Culture & Heritage** — `hanbok rental seoul` (de) · `한복` (ko) · `韓服` (ja)
+  · `korean wave`. Korea's own market (KR) and Japan lead this concept.
+- **K-Beauty** — `korean skincare` · `منتجات العناية بالبشرة الكورية` (ar) ·
+  `skincare korea` (id) · `beleza coreana` (pt). Note the absence of DE/JP/KR.
+- **K-Pop & Idols** — `why is kpop so popular` · `케이팝` (ko) · Japan leads.
+- **K-Drama** — `k-pop demon hunters` and `why is kpop demon hunters so popular`
+  (the 2025 animated film) surface strongly alongside `korean drama 2026`.
 
-| Theme | Questions | Concepts |
-|---|---|---|
-| **Division, History & Geopolitics** | 205 | Division · History · Neighbours & Comparison |
-| **Language, Society & Beliefs** | 162 | Language · Society & People · Culture · Religion |
-| **Popular Culture (Hallyu)** | 159 | K-pop · K-Drama · K-Beauty · Fashion |
-| **Places & Travel** | 119 | Seoul & Places · Travel & Visiting · Geography |
-| **Food, Tradition & Heritage** | 115 | Korean Food · Tradition & Heritage |
-| **Technology & Economy** | 51 | Samsung & Technology · Economy |
-
-## 3. Narrative inventory (5)
-
-Narratives are the interpretive synthesis of themes (human-led).
-
-| Narrative | Questions | From themes |
-|---|---|---|
-| **Korea as a global cultural force** | 274 | Popular Culture + Food, Tradition & Heritage |
-| **Korea as a nation shaped by division & history** | 205 | Division, History & Geopolitics |
-| **Korea as a distinct society to understand** | 162 | Language, Society & Beliefs |
-| **Korea as a place to experience** | 119 | Places & Travel |
-| **Korea as an advanced technology & economy** | 51 | Technology & Economy |
-
-## 4. Perception inventory (4)
-
-Perceptions are where narratives converge — the top layer.
-
-| Perception | Questions | From narratives |
-|---|---|---|
-| **Korea as a cultural powerhouse** | 393 | global cultural force + place to experience |
-| **Korea as a divided nation** | 205 | shaped by division & history |
-| **Korea as a distinct society** | 162 | a distinct society to understand |
-| **Korea as an advanced modern nation** | 51 | advanced technology & economy |
+Full exemplars, per-language counts, and market distributions are in
+`ontology_layer.json`.
 
 ---
 
-## 5. First ontology graph proposal
+## 5. Themes (6) — grouping concepts
 
-`Question → Concept → Theme → Narrative → Perception`. Questions attach to concepts by membership (counts above); the upper structure:
+Themes are many-to-many over concepts (a concept may inform more than one theme;
+`c_compare` feeds both Geopolitics and Global-Standing).
 
-```mermaid
-flowchart LR
-  %% concepts
-  c_division[Division & Two Koreas]:::c
-  c_history[History]:::c
-  c_neighbors[Neighbours & Comparison]:::c
-  c_language[Korean Language]:::c
-  c_society[Society & People]:::c
-  c_culture[Culture general]:::c
-  c_religion[Religion & Belief]:::c
-  c_kpop[K-pop & Hallyu]:::c
-  c_drama[K-Drama]:::c
-  c_beauty[K-Beauty & Appearance]:::c
-  c_fashion[Korean Fashion]:::c
-  c_food[Korean Food]:::c
-  c_tradition[Tradition & Heritage]:::c
-  c_places[Seoul & Places]:::c
-  c_travel[Travel & Visiting]:::c
-  c_geo[Geography & Basics]:::c
-  c_samsung[Samsung & Technology]:::c
-  c_economy[Economy & Development]:::c
+| Theme | ~n | Concepts |
+|---|---|---|
+| **The Korean Wave (Hallyu)** | ~459 | K-Pop, K-Drama, K-Beauty, Cuisine, Culture |
+| **Division, History & Geopolitics** | ~348 | Division, History, Regional Comparison |
+| **People, Society & Everyday Life** | ~234 | People, Etiquette, Society/Religion, Basics |
+| **Visiting & Living in Korea** | ~213 | Travel & Safety, Places/Climate, Economy |
+| **Learning & Understanding Korea** | ~191 | Language, Education |
+| **Economy, Technology & Global Standing** | ~181 | Technology, Economy, Regional Comparison |
 
-  %% themes
-  t_div[Division, History & Geopolitics]:::t
-  t_soc[Language, Society & Beliefs]:::t
-  t_hallyu[Popular Culture Hallyu]:::t
-  t_travel[Places & Travel]:::t
-  t_food[Food, Tradition & Heritage]:::t
-  t_tech[Technology & Economy]:::t
+> **Note on the two folded facets.** _Learning-materials/access_ (`pdf`, `مترجمة`,
+> `번역`, subtitles — ~10 q, heavily Arabic/Korean) and _Sports/football rivalry_
+> (`copa`, `korea vs japan football` — ~11 q, heavily Portuguese) are real but too
+> small and too cross-cutting to be top-level concepts here. Their questions
+> already resolve into Language/Culture and Comparison/Division respectively.
+> Both are **candidate concepts for promotion** once the corpus grows (Stage
+> 1000+), particularly access-materials for the Arabic market.
 
-  c_division --> t_div
-  c_history --> t_div
-  c_neighbors --> t_div
-  c_language --> t_soc
-  c_society --> t_soc
-  c_culture --> t_soc
-  c_religion --> t_soc
-  c_kpop --> t_hallyu
-  c_drama --> t_hallyu
-  c_beauty --> t_hallyu
-  c_fashion --> t_hallyu
-  c_food --> t_food
-  c_tradition --> t_food
-  c_places --> t_travel
-  c_travel --> t_travel
-  c_geo --> t_travel
-  c_samsung --> t_tech
-  c_economy --> t_tech
+---
 
-  %% narratives
-  n_culture[Korea as a global cultural force]:::n
-  n_div[Korea shaped by division & history]:::n
-  n_soc[Korea as a distinct society]:::n
-  n_place[Korea as a place to experience]:::n
-  n_tech[Korea as an advanced tech & economy]:::n
+## 6. Narratives (5) — what the questions collectively say
 
-  t_hallyu --> n_culture
-  t_food --> n_culture
-  t_div --> n_div
-  t_soc --> n_soc
-  t_travel --> n_place
-  t_tech --> n_tech
+| Narrative | Built from themes |
+|---|---|
+| **Korea as a global cultural force** | Hallyu + Global-Standing |
+| **Korea as an aspirational lifestyle & beauty model** | Hallyu + Visiting + Society |
+| **Korea as a divided nation living with risk** | Geopolitics |
+| **Korea as a development & technology success story** | Global-Standing + Learning + Geopolitics |
+| **Korea as distinctive and intriguing** | Learning + Society + Visiting |
 
-  %% perceptions
-  p_power[[Korea as a cultural powerhouse]]:::p
-  p_divided[[Korea as a divided nation]]:::p
-  p_distinct[[Korea as a distinct society]]:::p
-  p_modern[[Korea as an advanced modern nation]]:::p
+The fifth narrative ("distinctive and intriguing") is the **curiosity residue** —
+the "why is Korea so ___" questions, language-difficulty, metal chopsticks,
+etiquette. It is the affective engine behind much of the rest.
 
-  n_culture --> p_power
-  n_place --> p_power
-  n_div --> p_divided
-  n_soc --> p_distinct
-  n_tech --> p_modern
+---
 
-  classDef c fill:#eff4ff,stroke:#c7d6f5,color:#0f2846;
-  classDef t fill:#f1f5f9,stroke:#cbd5e1,color:#334155;
-  classDef n fill:#e0e7ff,stroke:#a5b4fc,color:#312e81;
-  classDef p fill:#0f2846,stroke:#0f2846,color:#ffffff;
+## 7. Perceptions (5) — the distilled positions
+
+| Perception | From narrative |
+|---|---|
+| **Korea as a cultural powerhouse** | global cultural force |
+| **Korea as an aspirational, modern lifestyle** | aspirational lifestyle & beauty |
+| **Korea as a nation defined by division & security** | divided nation |
+| **Korea as a technologically advanced, developed nation** | development success story |
+| **Korea as fascinating and hard to fully grasp** | distinctive & intriguing |
+
+---
+
+## 8. Full structure — Question → Concept → Theme → Narrative → Perception
+
+Three worked pathways (each starts from a real canonical question):
+
+**Pathway A — Soft power**
+```
+"why is kpop so popular" (en, KR-JP-US)
+  → K-Pop & Idols
+    → The Korean Wave (Hallyu)
+      → Korea as a global cultural force
+        → Korea as a cultural powerhouse
 ```
 
+**Pathway B — Aspiration**
+```
+"منتجات العناية بالبشرة الكورية" / "korean skincare" (ar, id, pt, en)
+  → K-Beauty, Skincare & Fashion
+    → The Korean Wave (Hallyu)
+      → Korea as an aspirational lifestyle & beauty model
+        → Korea as an aspirational, modern lifestyle
+```
+
+**Pathway C — Division**
+```
+"por que a coreia foi dividida" / "korea is south or north" (pt, en, ar, id …)
+  → North–South Division & Two Koreas
+    → Division, History & Geopolitics
+      → Korea as a divided nation living with risk
+        → Korea as a nation defined by division & security
+```
+
+**Shared-node structure** (the property Explore mode visualises): the
+**Regional Comparison (Japan/China)** concept is deliberately shared between the
+Geopolitics theme and the Global-Standing theme, so "korea vs japan" bridges the
+*divided-nation* and *tech-success* narratives — exactly the cross-question
+relationship the graph is meant to reveal. Edge lists (`conceptToTheme`,
+`themeToNarrative`, `narrativeToPerception`) are in `ontology_layer.json`.
+
 ---
 
-## 6. What the real data actually shows (findings)
+## 9. Country-specific vs cross-country concepts
 
-- **Geopolitics is the single largest theme (205).** The world frames Korea heavily through **comparison and division** — *korea vs japan*, *north korea vs south korea*, *korean war*. Curiosity about Korea is relational, not just intrinsic.
-- **"Cultural powerhouse" is the dominant perception (393),** assembled from Hallyu (k-pop, drama, beauty, fashion), food, and travel — the soft-power story, evidenced bottom-up from questions.
-- **Samsung is its own concept**, and unusually **even across every market** (US/IN/BR/DE/ID all ~10). Korean *technology as consumer product* is a distinct, global thread.
-- **A live pop-culture trend surfaced by itself:** *k-pop demon hunters* is among the highest-salience items — the pipeline caught a current phenomenon, not a preset topic.
-- **Market fingerprints differ:** travel practicalities and society questions concentrate in **IN + US**; K-beauty and drama are strong in **ID + BR**; Japan appears mainly as the **comparison** other markets measure Korea against.
-- **Religion and appearance** ("is Korea so Christian", "are Koreans tall/beautiful") are small but genuinely emergent concepts we did not pre-define.
+Computed on the 7 independent language-markets (§2 caveat).
 
-## 7. Recommended next steps (data, not design)
+**Cross-market (the shared global core — present in ≥5 of 7 markets, no single
+market dominant):** Division, Cuisine, Culture, Technology, Places, History,
+K-Drama, and (broadly) Travel. **Every market asks about the two Koreas and about
+Korean food.** These are the concepts an Explore graph should render as the dense,
+central, universally-connected core.
 
-1. **Re-run with UTF-8 output** to recover Korean and Arabic (currently ~13 each) and clear the 249 corrupted items — this is the highest-value fix.
-2. **Add a SerpApi key and re-run** to layer in People Also Ask, which adds the "why/how" interrogatives this autocomplete-only set lacks.
-3. **Cross-language concept alignment** (pivot translation) so Japanese and the other non-English markets attach to concepts — this is what turns per-market inventories into true cross-market comparison.
-4. Only after 1–3, consider this ontology stable enough to replace the site's sample data.
+**Market signatures (real skews worth surfacing in the UI):**
+
+| Signature | Market(s) | Reading |
+|---|---|---|
+| **Language *difficulty*** | **DE** (71 of 163) | German-market curiosity fixates on "is Korean hard" more than any other market. |
+| **The two Koreas** | **BR, AE, ID** (58/47/46) | Global-South markets drive division questions hardest — geopolitics as the entry point to Korea. |
+| **K-Beauty** | **ID, BR, AE** (absent in DE/JP) | K-beauty is an *export-market* curiosity; neighbours and Europe barely ask. |
+| **Culture / Heritage** | **KR, JP** (28/27) | Koreans themselves and their nearest neighbour ask most about tradition & heritage. |
+| **K-Pop** | **JP** (top market) | Japan over-indexes on idols relative to concept size. |
+| **Foundational "what is Korea"** | **ID** | Indonesia asks the most first-contact, identity-level questions — a newer-to-Korea audience. |
+
+> No concept is *exclusive* to one market — the algorithm found zero
+> "market-specific" concepts under conservative thresholds, which is the honest
+> result. The signal is **skew**, not exclusivity, and the table above reports
+> skew.
+
+---
+
+## 10. Relationship to the current sample ontology (replacement plan)
+
+The website's Explore mode currently ships a **hand-authored sample ontology**
+(`lib/ontology.ts`) built around 6 flagship pathways and a Soft-Power shared node.
+This proposal keeps that *shape* but replaces the *content* with data-derived
+nodes.
+
+**What maps cleanly (keep):**
+- Soft-Power / cultural-powerhouse pathway → now backed by real K-Pop, K-Drama,
+  Cuisine, Culture concepts and the Hallyu theme.
+- A division/security pathway → now the single largest concept, well-evidenced.
+- The shared-node mechanic → preserved via the Regional-Comparison bridge (§8).
+
+**What is new / changed:**
+- **K-Beauty** becomes a first-class concept (was implicit) — it is 5.3% of all
+  questions and has the clearest market signature.
+- **Language difficulty** becomes a first-class concept and narrative input — a
+  major, previously-underweighted driver.
+- Perceptions expand from the sample's implied set to **five explicit
+  perceptions**, adding "aspirational modern lifestyle" and "fascinating & hard to
+  grasp."
+- Every node can now carry **real counts, salience, and market distribution** —
+  the Explore evidence drawer can show *actual* questions per node instead of
+  illustrative samples.
+
+**Proposed replacement steps (deferred until you approve):**
+1. Add a data-mapping layer that reads `ontology_layer.json` into the site's
+   `Node`/`Edge` types in `lib/ontology.ts` (concept→theme→narrative→perception
+   edges already match the site's typed model).
+2. Attach real exemplar questions to each node for the evidence drawer.
+3. Add bilingual (ko/en) labels — English concept labels here need Korean
+   counterparts before they ship.
+4. Re-verify `next build` and Explore-mode interactions unchanged.
+
+---
+
+## 11. Limitations & next steps
+
+- **Autocomplete-only.** PAA was skipped (no API key). Adding PAA will deepen
+  long-tail concepts (Education, Society) and may promote the folded facets.
+- **Lexical clustering.** Anchors are transparent but literal; a production
+  embedding pass would catch paraphrases the substring anchors miss (part of the
+  2.1% unclustered).
+- **English = two markets.** Until US and IN get distinct seed sets, they cannot
+  be separated. Independent India-specific seeds are the highest-value next
+  collection change.
+- **Korean labels pending.** All concept/theme/narrative/perception labels are
+  English here; bilingual labels are required before any website replacement.
+- **Salience is relative.** Frequency indicators rank within this corpus; they
+  are not true search volume.
+
+**Recommended next action:** review this proposal. If the concept/theme/narrative/
+perception structure is right, the next step is the mapping layer in §10 step 1 —
+which _is_ a website change and will only begin on your explicit go-ahead.
+
+---
+
+_Machine-readable ontology: `collect/output/ontology/ontology_layer.json`_
+_Generator (auditable anchors): `collect/ontology.mjs`_
