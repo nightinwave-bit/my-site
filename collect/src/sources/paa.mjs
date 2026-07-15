@@ -4,6 +4,7 @@
 // Emits normalized raw records (schema: RawQuestion in ../lib/schema.ts).
 
 import { SETTINGS } from "../../config.mjs";
+import { readSuggestJson } from "./autocomplete.mjs";
 
 const SERPAPI = "https://serpapi.com/search.json";
 
@@ -22,7 +23,7 @@ async function fetchLive(seed, locale, apiKey) {
   try {
     const res = await fetch(url, { signal: ctrl.signal });
     if (!res.ok) return [];
-    const data = await res.json();
+    const data = await readSuggestJson(res);
     const rq = Array.isArray(data?.related_questions) ? data.related_questions : [];
     return rq
       .map((r) => ({ q: r.question, url: r.link }))

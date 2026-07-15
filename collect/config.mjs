@@ -25,7 +25,7 @@ export const SETTINGS = {
   nearDupJaccard: 0.8,
   requestTimeoutMs: 10000,
   targetCanonical: 750,
-  version: "stage-500/0.2.0",
+  version: "stage-500/0.3.0-utf8fix",
 };
 
 // ── Seeds ──────────────────────────────────────────────────────────────────

@@ -32,6 +32,10 @@ const KOREA_TOKENS = [
  * drift (a suggestion with no Korea token AND a seed with none).
  */
 export function classify(text, { seedText = "" } = {}) {
+  // Surface any residual mis-decoded text explicitly instead of letting it hide
+  // as "gibberish" (see the encoding fix in sources/autocomplete.mjs).
+  if (text.includes("�")) return { ok: false, reason: "encoding_error" };
+
   const norm = normalizeText(text);
   if (norm.length < 3) return { ok: false, reason: "too_short" };
 

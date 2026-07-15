@@ -11,10 +11,31 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+/**
+ * Encoding-safe JSON read. The Google suggest endpoint can return Latin-1 /
+ * Windows-1252 bytes; `res.json()` force-decodes as UTF-8, which corrupts
+ * accents (é→�) and mangles Korean/Arabic into gibberish that then gets
+ * quarantined. We read the raw bytes, decode as UTF-8, and fall back to
+ * Windows-1252 if replacement characters appear.
+ */
+export async function readSuggestJson(res) {
+  const buf = new Uint8Array(await res.arrayBuffer());
+  let text = new TextDecoder("utf-8").decode(buf);
+  if (text.includes("�")) {
+    try {
+      text = new TextDecoder("windows-1252").decode(buf);
+    } catch {
+      /* keep utf-8 attempt */
+    }
+  }
+  return JSON.parse(text);
+}
+
 /** Live fetch of suggestions for one seed in one locale. Returns string[]. */
 async function fetchLive(seed, locale) {
   const url =
-    `${ENDPOINT}?client=firefox&hl=${encodeURIComponent(locale.hl)}` +
+    `${ENDPOINT}?client=firefox&ie=UTF-8&oe=UTF-8` +
+    `&hl=${encodeURIComponent(locale.hl)}` +
     `&gl=${encodeURIComponent(locale.gl)}&q=${encodeURIComponent(seed)}`;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), SETTINGS.requestTimeoutMs);
@@ -24,7 +45,7 @@ async function fetchLive(seed, locale) {
       headers: { "User-Agent": "AskAboutKorea-Research/0.1 (collection pilot)" },
     });
     if (!res.ok) return [];
-    const data = await res.json(); // [query, [suggestions...], ...]
+    const data = await readSuggestJson(res); // [query, [suggestions...], ...]
     return Array.isArray(data?.[1]) ? data[1] : [];
   } catch {
     return [];
