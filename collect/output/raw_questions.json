@@ -6,19 +6,19 @@
     "date": "2026-07-15",
     "locales": [
       "US",
-      "UK",
+      "DE",
       "IN",
-      "SG",
+      "ID",
       "JP",
       "BR",
       "AE",
       "KR"
     ],
-    "autocompleteAttempts": 292,
-    "paaAttempts": 118,
+    "autocompleteAttempts": 234,
+    "paaAttempts": 98,
     "paaSkippedNoKey": false
   },
-  "count": 278,
+  "count": 183,
   "questions": [
     {
       "id": "raw_0001",
@@ -792,18 +792,18 @@
     },
     {
       "id": "raw_0036",
-      "questionText": "why is korea divided",
+      "questionText": "warum ist korea geteilt",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
+      "countryRegion": "DE",
+      "language": "de",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=gb:hl=en",
+      "collectionMethod": "autocomplete:seed='warum ist korea':gl=de:hl=de",
       "provenance": {
-        "seed": "why is korea",
+        "seed": "warum ist korea",
         "family": "q",
-        "gl": "gb",
-        "hl": "en"
+        "gl": "de",
+        "hl": "de"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -814,18 +814,18 @@
     },
     {
       "id": "raw_0037",
-      "questionText": "why is korea so popular",
+      "questionText": "warum ist korea so beliebt",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
+      "countryRegion": "DE",
+      "language": "de",
       "rank": 1,
-      "frequencyIndicator": 0.8,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=gb:hl=en",
+      "frequencyIndicator": 0.67,
+      "collectionMethod": "autocomplete:seed='warum ist korea':gl=de:hl=de",
       "provenance": {
-        "seed": "why is korea",
+        "seed": "warum ist korea",
         "family": "q",
-        "gl": "gb",
-        "hl": "en"
+        "gl": "de",
+        "hl": "de"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -836,18 +836,18 @@
     },
     {
       "id": "raw_0038",
-      "questionText": "why is korea called the land of morning calm",
+      "questionText": "warum ist korea so teuer",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
+      "countryRegion": "DE",
+      "language": "de",
       "rank": 2,
-      "frequencyIndicator": 0.6,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=gb:hl=en",
+      "frequencyIndicator": 0.33,
+      "collectionMethod": "autocomplete:seed='warum ist korea':gl=de:hl=de",
       "provenance": {
-        "seed": "why is korea",
+        "seed": "warum ist korea",
         "family": "q",
-        "gl": "gb",
-        "hl": "en"
+        "gl": "de",
+        "hl": "de"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -858,18 +858,18 @@
     },
     {
       "id": "raw_0039",
-      "questionText": "why is korea's birth rate so low",
+      "questionText": "koreanische kultur fakten",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.4,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=gb:hl=en",
+      "countryRegion": "DE",
+      "language": "de",
+      "rank": 0,
+      "frequencyIndicator": 1,
+      "collectionMethod": "autocomplete:seed='koreanische kultur':gl=de:hl=de",
       "provenance": {
-        "seed": "why is korea",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
+        "seed": "koreanische kultur",
+        "family": "t",
+        "gl": "de",
+        "hl": "de"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -880,18 +880,18 @@
     },
     {
       "id": "raw_0040",
-      "questionText": "why is korea so developed",
+      "questionText": "koreanische kultur vs japanische",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 4,
-      "frequencyIndicator": 0.2,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=gb:hl=en",
+      "countryRegion": "DE",
+      "language": "de",
+      "rank": 1,
+      "frequencyIndicator": 0.5,
+      "collectionMethod": "autocomplete:seed='koreanische kultur':gl=de:hl=de",
       "provenance": {
-        "seed": "why is korea",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
+        "seed": "koreanische kultur",
+        "family": "t",
+        "gl": "de",
+        "hl": "de"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -902,18 +902,18 @@
     },
     {
       "id": "raw_0041",
-      "questionText": "why do koreans bow",
+      "questionText": "koreanisches essen rezepte",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
+      "countryRegion": "DE",
+      "language": "de",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='why do koreans':gl=gb:hl=en",
+      "collectionMethod": "autocomplete:seed='koreanisches essen':gl=de:hl=de",
       "provenance": {
-        "seed": "why do koreans",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
+        "seed": "koreanisches essen",
+        "family": "t",
+        "gl": "de",
+        "hl": "de"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -924,18 +924,18 @@
     },
     {
       "id": "raw_0042",
-      "questionText": "why do koreans use age differently",
+      "questionText": "ist koreanisches essen gesund",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
+      "countryRegion": "DE",
+      "language": "de",
       "rank": 1,
-      "frequencyIndicator": 0.75,
-      "collectionMethod": "autocomplete:seed='why do koreans':gl=gb:hl=en",
+      "frequencyIndicator": 0.5,
+      "collectionMethod": "autocomplete:seed='koreanisches essen':gl=de:hl=de",
       "provenance": {
-        "seed": "why do koreans",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
+        "seed": "koreanisches essen",
+        "family": "t",
+        "gl": "de",
+        "hl": "de"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -946,644 +946,6 @@
     },
     {
       "id": "raw_0043",
-      "questionText": "why do koreans eat kimchi",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='why do koreans':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why do koreans",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0044",
-      "questionText": "why do koreans work so much",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.25,
-      "collectionMethod": "autocomplete:seed='why do koreans':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why do koreans",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0045",
-      "questionText": "is korea safe",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='is korea safe':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0046",
-      "questionText": "is korea safe to travel",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.75,
-      "collectionMethod": "autocomplete:seed='is korea safe':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0047",
-      "questionText": "is korea safe for tourists",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='is korea safe':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0048",
-      "questionText": "is korea safe to live",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.25,
-      "collectionMethod": "autocomplete:seed='is korea safe':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0049",
-      "questionText": "is korean hard to learn",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='is korean hard':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korean hard",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0050",
-      "questionText": "is korean hard to speak",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "autocomplete:seed='is korean hard':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korean hard",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0051",
-      "questionText": "is korean hard for english speakers",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "autocomplete:seed='is korean hard':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korean hard",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0052",
-      "questionText": "korean food near me",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='korean food':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0053",
-      "questionText": "korean food names",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.8,
-      "collectionMethod": "autocomplete:seed='korean food':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0054",
-      "questionText": "why is korean food spicy",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.6,
-      "collectionMethod": "autocomplete:seed='korean food':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0055",
-      "questionText": "is korean food healthy",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.4,
-      "collectionMethod": "autocomplete:seed='korean food':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0056",
-      "questionText": "korean food london",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 4,
-      "frequencyIndicator": 0.2,
-      "collectionMethod": "autocomplete:seed='korean food':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0057",
-      "questionText": "korean culture facts",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='korean culture':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean culture",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0058",
-      "questionText": "korean culture vs japanese culture",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "autocomplete:seed='korean culture':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean culture",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0059",
-      "questionText": "what is korean culture known for",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "autocomplete:seed='korean culture':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean culture",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0060",
-      "questionText": "korean language basics",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='korean language':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean language",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0061",
-      "questionText": "is korean language hard",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "autocomplete:seed='korean language':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean language",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0062",
-      "questionText": "why learn korean language",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "autocomplete:seed='korean language':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean language",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0063",
-      "questionText": "why is k-pop so popular",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='k-pop':gl=gb:hl=en",
-      "provenance": {
-        "seed": "k-pop",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0064",
-      "questionText": "how to become a k-pop idol",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "autocomplete:seed='k-pop':gl=gb:hl=en",
-      "provenance": {
-        "seed": "k-pop",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0065",
-      "questionText": "k-pop idol training",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "autocomplete:seed='k-pop':gl=gb:hl=en",
-      "provenance": {
-        "seed": "k-pop",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0066",
-      "questionText": "koreans are so polite",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='koreans are':gl=gb:hl=en",
-      "provenance": {
-        "seed": "koreans are",
-        "family": "a",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0067",
-      "questionText": "koreans are good at studying",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='koreans are':gl=gb:hl=en",
-      "provenance": {
-        "seed": "koreans are",
-        "family": "a",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0068",
-      "questionText": "why is korea so popular",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='why is korea so':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is korea so",
-        "family": "a",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0069",
-      "questionText": "why is korea so expensive",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.75,
-      "collectionMethod": "autocomplete:seed='why is korea so':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is korea so",
-        "family": "a",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0070",
-      "questionText": "why is korea so advanced",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='why is korea so':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is korea so",
-        "family": "a",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0071",
-      "questionText": "why is korea so clean",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.25,
-      "collectionMethod": "autocomplete:seed='why is korea so':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is korea so",
-        "family": "a",
-        "gl": "gb",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0072",
       "questionText": "why is korea divided",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1605,7 +967,7 @@
       "perception": null
     },
     {
-      "id": "raw_0073",
+      "id": "raw_0044",
       "questionText": "why is korea so popular",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1627,7 +989,7 @@
       "perception": null
     },
     {
-      "id": "raw_0074",
+      "id": "raw_0045",
       "questionText": "why is korea called the land of morning calm",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1649,7 +1011,7 @@
       "perception": null
     },
     {
-      "id": "raw_0075",
+      "id": "raw_0046",
       "questionText": "why is korea's birth rate so low",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1671,7 +1033,7 @@
       "perception": null
     },
     {
-      "id": "raw_0076",
+      "id": "raw_0047",
       "questionText": "why is korea so developed",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1693,7 +1055,7 @@
       "perception": null
     },
     {
-      "id": "raw_0077",
+      "id": "raw_0048",
       "questionText": "why is korea popular in india",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1715,7 +1077,7 @@
       "perception": null
     },
     {
-      "id": "raw_0078",
+      "id": "raw_0049",
       "questionText": "why do koreans bow",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1737,7 +1099,7 @@
       "perception": null
     },
     {
-      "id": "raw_0079",
+      "id": "raw_0050",
       "questionText": "why do koreans use age differently",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1759,7 +1121,7 @@
       "perception": null
     },
     {
-      "id": "raw_0080",
+      "id": "raw_0051",
       "questionText": "why do koreans eat kimchi",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1781,7 +1143,7 @@
       "perception": null
     },
     {
-      "id": "raw_0081",
+      "id": "raw_0052",
       "questionText": "why do koreans work so much",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1803,7 +1165,7 @@
       "perception": null
     },
     {
-      "id": "raw_0082",
+      "id": "raw_0053",
       "questionText": "is korea safe",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1825,7 +1187,7 @@
       "perception": null
     },
     {
-      "id": "raw_0083",
+      "id": "raw_0054",
       "questionText": "is korea safe to travel",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1847,7 +1209,7 @@
       "perception": null
     },
     {
-      "id": "raw_0084",
+      "id": "raw_0055",
       "questionText": "is korea safe for tourists",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1869,7 +1231,7 @@
       "perception": null
     },
     {
-      "id": "raw_0085",
+      "id": "raw_0056",
       "questionText": "is korea safe to live",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1891,7 +1253,7 @@
       "perception": null
     },
     {
-      "id": "raw_0086",
+      "id": "raw_0057",
       "questionText": "is korea safe for indian tourists",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1913,7 +1275,7 @@
       "perception": null
     },
     {
-      "id": "raw_0087",
+      "id": "raw_0058",
       "questionText": "is korean hard to learn",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1935,7 +1297,7 @@
       "perception": null
     },
     {
-      "id": "raw_0088",
+      "id": "raw_0059",
       "questionText": "is korean hard to speak",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1957,7 +1319,7 @@
       "perception": null
     },
     {
-      "id": "raw_0089",
+      "id": "raw_0060",
       "questionText": "is korean hard for english speakers",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -1979,7 +1341,7 @@
       "perception": null
     },
     {
-      "id": "raw_0090",
+      "id": "raw_0061",
       "questionText": "korean food near me",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2001,7 +1363,7 @@
       "perception": null
     },
     {
-      "id": "raw_0091",
+      "id": "raw_0062",
       "questionText": "korean food names",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2023,7 +1385,7 @@
       "perception": null
     },
     {
-      "id": "raw_0092",
+      "id": "raw_0063",
       "questionText": "why is korean food spicy",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2045,7 +1407,7 @@
       "perception": null
     },
     {
-      "id": "raw_0093",
+      "id": "raw_0064",
       "questionText": "is korean food healthy",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2067,7 +1429,7 @@
       "perception": null
     },
     {
-      "id": "raw_0094",
+      "id": "raw_0065",
       "questionText": "korean culture facts",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2089,7 +1451,7 @@
       "perception": null
     },
     {
-      "id": "raw_0095",
+      "id": "raw_0066",
       "questionText": "korean culture vs japanese culture",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2111,7 +1473,7 @@
       "perception": null
     },
     {
-      "id": "raw_0096",
+      "id": "raw_0067",
       "questionText": "what is korean culture known for",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2133,7 +1495,7 @@
       "perception": null
     },
     {
-      "id": "raw_0097",
+      "id": "raw_0068",
       "questionText": "korean language basics",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2155,7 +1517,7 @@
       "perception": null
     },
     {
-      "id": "raw_0098",
+      "id": "raw_0069",
       "questionText": "is korean language hard",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2177,7 +1539,7 @@
       "perception": null
     },
     {
-      "id": "raw_0099",
+      "id": "raw_0070",
       "questionText": "why learn korean language",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2199,7 +1561,7 @@
       "perception": null
     },
     {
-      "id": "raw_0100",
+      "id": "raw_0071",
       "questionText": "why is k-pop so popular",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2221,7 +1583,7 @@
       "perception": null
     },
     {
-      "id": "raw_0101",
+      "id": "raw_0072",
       "questionText": "how to become a k-pop idol",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2243,7 +1605,7 @@
       "perception": null
     },
     {
-      "id": "raw_0102",
+      "id": "raw_0073",
       "questionText": "k-pop idol training",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2265,7 +1627,7 @@
       "perception": null
     },
     {
-      "id": "raw_0103",
+      "id": "raw_0074",
       "questionText": "why is k-pop popular in india",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2287,7 +1649,7 @@
       "perception": null
     },
     {
-      "id": "raw_0104",
+      "id": "raw_0075",
       "questionText": "koreans are so polite",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2309,7 +1671,7 @@
       "perception": null
     },
     {
-      "id": "raw_0105",
+      "id": "raw_0076",
       "questionText": "koreans are good at studying",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2331,7 +1693,7 @@
       "perception": null
     },
     {
-      "id": "raw_0106",
+      "id": "raw_0077",
       "questionText": "why is korea so popular",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2353,7 +1715,7 @@
       "perception": null
     },
     {
-      "id": "raw_0107",
+      "id": "raw_0078",
       "questionText": "why is korea so expensive",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2375,7 +1737,7 @@
       "perception": null
     },
     {
-      "id": "raw_0108",
+      "id": "raw_0079",
       "questionText": "why is korea so advanced",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2397,7 +1759,7 @@
       "perception": null
     },
     {
-      "id": "raw_0109",
+      "id": "raw_0080",
       "questionText": "why is korea so clean",
       "sourcePlatform": "autocomplete",
       "countryRegion": "IN",
@@ -2419,19 +1781,19 @@
       "perception": null
     },
     {
-      "id": "raw_0110",
-      "questionText": "why is korea divided",
+      "id": "raw_0081",
+      "questionText": "kenapa korea terbagi dua",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=sg:hl=en",
+      "collectionMethod": "autocomplete:seed='kenapa korea':gl=id:hl=id",
       "provenance": {
-        "seed": "why is korea",
+        "seed": "kenapa korea",
         "family": "q",
-        "gl": "sg",
-        "hl": "en"
+        "gl": "id",
+        "hl": "id"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -2441,305 +1803,19 @@
       "perception": null
     },
     {
-      "id": "raw_0111",
-      "questionText": "why is korea so popular",
+      "id": "raw_0082",
+      "questionText": "kenapa korea maju",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.8,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0112",
-      "questionText": "why is korea called the land of morning calm",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.6,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0113",
-      "questionText": "why is korea's birth rate so low",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.4,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0114",
-      "questionText": "why is korea so developed",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 4,
-      "frequencyIndicator": 0.2,
-      "collectionMethod": "autocomplete:seed='why is korea':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0115",
-      "questionText": "why do koreans bow",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='why do koreans':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why do koreans",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0116",
-      "questionText": "why do koreans use age differently",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.75,
-      "collectionMethod": "autocomplete:seed='why do koreans':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why do koreans",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0117",
-      "questionText": "why do koreans eat kimchi",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='why do koreans':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why do koreans",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0118",
-      "questionText": "why do koreans work so much",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.25,
-      "collectionMethod": "autocomplete:seed='why do koreans':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why do koreans",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0119",
-      "questionText": "is korea safe",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='is korea safe':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0120",
-      "questionText": "is korea safe to travel",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.75,
-      "collectionMethod": "autocomplete:seed='is korea safe':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0121",
-      "questionText": "is korea safe for tourists",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='is korea safe':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0122",
-      "questionText": "is korea safe to live",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.25,
-      "collectionMethod": "autocomplete:seed='is korea safe':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0123",
-      "questionText": "is korean hard to learn",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='is korean hard':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korean hard",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0124",
-      "questionText": "is korean hard to speak",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 1,
       "frequencyIndicator": 0.67,
-      "collectionMethod": "autocomplete:seed='is korean hard':gl=sg:hl=en",
+      "collectionMethod": "autocomplete:seed='kenapa korea':gl=id:hl=id",
       "provenance": {
-        "seed": "is korean hard",
+        "seed": "kenapa korea",
         "family": "q",
-        "gl": "sg",
-        "hl": "en"
+        "gl": "id",
+        "hl": "id"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -2749,19 +1825,19 @@
       "perception": null
     },
     {
-      "id": "raw_0125",
-      "questionText": "is korean hard for english speakers",
+      "id": "raw_0083",
+      "questionText": "kenapa angka kelahiran korea rendah",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 2,
       "frequencyIndicator": 0.33,
-      "collectionMethod": "autocomplete:seed='is korean hard':gl=sg:hl=en",
+      "collectionMethod": "autocomplete:seed='kenapa korea':gl=id:hl=id",
       "provenance": {
-        "seed": "is korean hard",
+        "seed": "kenapa korea",
         "family": "q",
-        "gl": "sg",
-        "hl": "en"
+        "gl": "id",
+        "hl": "id"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -2771,19 +1847,19 @@
       "perception": null
     },
     {
-      "id": "raw_0126",
-      "questionText": "korean food near me",
+      "id": "raw_0084",
+      "questionText": "budaya korea unik",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='korean food':gl=sg:hl=en",
+      "collectionMethod": "autocomplete:seed='budaya korea':gl=id:hl=id",
       "provenance": {
-        "seed": "korean food",
+        "seed": "budaya korea",
         "family": "t",
-        "gl": "sg",
-        "hl": "en"
+        "gl": "id",
+        "hl": "id"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -2793,305 +1869,19 @@
       "perception": null
     },
     {
-      "id": "raw_0127",
-      "questionText": "korean food names",
+      "id": "raw_0085",
+      "questionText": "budaya korea vs jepang",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.75,
-      "collectionMethod": "autocomplete:seed='korean food':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0128",
-      "questionText": "why is korean food spicy",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='korean food':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0129",
-      "questionText": "is korean food healthy",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.25,
-      "collectionMethod": "autocomplete:seed='korean food':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0130",
-      "questionText": "korean culture facts",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='korean culture':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean culture",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0131",
-      "questionText": "korean culture vs japanese culture",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "autocomplete:seed='korean culture':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean culture",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0132",
-      "questionText": "what is korean culture known for",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "autocomplete:seed='korean culture':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean culture",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0133",
-      "questionText": "korean language basics",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='korean language':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean language",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0134",
-      "questionText": "is korean language hard",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "autocomplete:seed='korean language':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean language",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0135",
-      "questionText": "why learn korean language",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "autocomplete:seed='korean language':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean language",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0136",
-      "questionText": "why is k-pop so popular",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='k-pop':gl=sg:hl=en",
-      "provenance": {
-        "seed": "k-pop",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0137",
-      "questionText": "how to become a k-pop idol",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "autocomplete:seed='k-pop':gl=sg:hl=en",
-      "provenance": {
-        "seed": "k-pop",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0138",
-      "questionText": "k-pop idol training",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "autocomplete:seed='k-pop':gl=sg:hl=en",
-      "provenance": {
-        "seed": "k-pop",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0139",
-      "questionText": "koreans are so polite",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='koreans are':gl=sg:hl=en",
-      "provenance": {
-        "seed": "koreans are",
-        "family": "a",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0140",
-      "questionText": "koreans are good at studying",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 1,
       "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='koreans are':gl=sg:hl=en",
+      "collectionMethod": "autocomplete:seed='budaya korea':gl=id:hl=id",
       "provenance": {
-        "seed": "koreans are",
-        "family": "a",
-        "gl": "sg",
-        "hl": "en"
+        "seed": "budaya korea",
+        "family": "t",
+        "gl": "id",
+        "hl": "id"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -3101,19 +1891,19 @@
       "perception": null
     },
     {
-      "id": "raw_0141",
-      "questionText": "why is korea so popular",
+      "id": "raw_0086",
+      "questionText": "makanan korea halal",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "autocomplete:seed='why is korea so':gl=sg:hl=en",
+      "collectionMethod": "autocomplete:seed='makanan korea':gl=id:hl=id",
       "provenance": {
-        "seed": "why is korea so",
-        "family": "a",
-        "gl": "sg",
-        "hl": "en"
+        "seed": "makanan korea",
+        "family": "t",
+        "gl": "id",
+        "hl": "id"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -3123,41 +1913,19 @@
       "perception": null
     },
     {
-      "id": "raw_0142",
-      "questionText": "why is korea so expensive",
+      "id": "raw_0087",
+      "questionText": "makanan korea pedas",
       "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 1,
-      "frequencyIndicator": 0.75,
-      "collectionMethod": "autocomplete:seed='why is korea so':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea so",
-        "family": "a",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0143",
-      "questionText": "why is korea so advanced",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
       "frequencyIndicator": 0.5,
-      "collectionMethod": "autocomplete:seed='why is korea so':gl=sg:hl=en",
+      "collectionMethod": "autocomplete:seed='makanan korea':gl=id:hl=id",
       "provenance": {
-        "seed": "why is korea so",
-        "family": "a",
-        "gl": "sg",
-        "hl": "en"
+        "seed": "makanan korea",
+        "family": "t",
+        "gl": "id",
+        "hl": "id"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -3167,29 +1935,7 @@
       "perception": null
     },
     {
-      "id": "raw_0144",
-      "questionText": "why is korea so clean",
-      "sourcePlatform": "autocomplete",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 3,
-      "frequencyIndicator": 0.25,
-      "collectionMethod": "autocomplete:seed='why is korea so':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea so",
-        "family": "a",
-        "gl": "sg",
-        "hl": "en"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0145",
+      "id": "raw_0088",
       "questionText": "韓国 なぜ 分断",
       "sourcePlatform": "autocomplete",
       "countryRegion": "JP",
@@ -3211,7 +1957,7 @@
       "perception": null
     },
     {
-      "id": "raw_0146",
+      "id": "raw_0089",
       "questionText": "韓国 なぜ 人気",
       "sourcePlatform": "autocomplete",
       "countryRegion": "JP",
@@ -3233,7 +1979,7 @@
       "perception": null
     },
     {
-      "id": "raw_0147",
+      "id": "raw_0090",
       "questionText": "韓国 なぜ 少子化",
       "sourcePlatform": "autocomplete",
       "countryRegion": "JP",
@@ -3255,7 +2001,7 @@
       "perception": null
     },
     {
-      "id": "raw_0148",
+      "id": "raw_0091",
       "questionText": "韓国 文化 特徴",
       "sourcePlatform": "autocomplete",
       "countryRegion": "JP",
@@ -3277,7 +2023,7 @@
       "perception": null
     },
     {
-      "id": "raw_0149",
+      "id": "raw_0092",
       "questionText": "韓国 文化 日本 違い",
       "sourcePlatform": "autocomplete",
       "countryRegion": "JP",
@@ -3299,7 +2045,7 @@
       "perception": null
     },
     {
-      "id": "raw_0150",
+      "id": "raw_0093",
       "questionText": "ケーポップ なぜ 人気",
       "sourcePlatform": "autocomplete",
       "countryRegion": "JP",
@@ -3321,7 +2067,7 @@
       "perception": null
     },
     {
-      "id": "raw_0151",
+      "id": "raw_0094",
       "questionText": "ケーポップ アイドル 練習生",
       "sourcePlatform": "autocomplete",
       "countryRegion": "JP",
@@ -3343,7 +2089,7 @@
       "perception": null
     },
     {
-      "id": "raw_0152",
+      "id": "raw_0095",
       "questionText": "por que a coreia é dividida",
       "sourcePlatform": "autocomplete",
       "countryRegion": "BR",
@@ -3365,7 +2111,7 @@
       "perception": null
     },
     {
-      "id": "raw_0153",
+      "id": "raw_0096",
       "questionText": "por que a coreia é tão avançada",
       "sourcePlatform": "autocomplete",
       "countryRegion": "BR",
@@ -3387,7 +2133,7 @@
       "perception": null
     },
     {
-      "id": "raw_0154",
+      "id": "raw_0097",
       "questionText": "por que a coreia tem natalidade baixa",
       "sourcePlatform": "autocomplete",
       "countryRegion": "BR",
@@ -3409,7 +2155,7 @@
       "perception": null
     },
     {
-      "id": "raw_0155",
+      "id": "raw_0098",
       "questionText": "cultura coreana fatos",
       "sourcePlatform": "autocomplete",
       "countryRegion": "BR",
@@ -3431,7 +2177,7 @@
       "perception": null
     },
     {
-      "id": "raw_0156",
+      "id": "raw_0099",
       "questionText": "cultura coreana e japonesa",
       "sourcePlatform": "autocomplete",
       "countryRegion": "BR",
@@ -3453,7 +2199,7 @@
       "perception": null
     },
     {
-      "id": "raw_0157",
+      "id": "raw_0100",
       "questionText": "comida coreana perto de mim",
       "sourcePlatform": "autocomplete",
       "countryRegion": "BR",
@@ -3475,7 +2221,7 @@
       "perception": null
     },
     {
-      "id": "raw_0158",
+      "id": "raw_0101",
       "questionText": "comida coreana é saudável",
       "sourcePlatform": "autocomplete",
       "countryRegion": "BR",
@@ -3497,7 +2243,7 @@
       "perception": null
     },
     {
-      "id": "raw_0159",
+      "id": "raw_0102",
       "questionText": "لماذا كوريا مقسمة",
       "sourcePlatform": "autocomplete",
       "countryRegion": "AE",
@@ -3519,7 +2265,7 @@
       "perception": null
     },
     {
-      "id": "raw_0160",
+      "id": "raw_0103",
       "questionText": "لماذا كوريا متقدمة",
       "sourcePlatform": "autocomplete",
       "countryRegion": "AE",
@@ -3541,7 +2287,7 @@
       "perception": null
     },
     {
-      "id": "raw_0161",
+      "id": "raw_0104",
       "questionText": "الطعام الكوري صحي",
       "sourcePlatform": "autocomplete",
       "countryRegion": "AE",
@@ -3563,7 +2309,7 @@
       "perception": null
     },
     {
-      "id": "raw_0162",
+      "id": "raw_0105",
       "questionText": "أشهر طعام كوري",
       "sourcePlatform": "autocomplete",
       "countryRegion": "AE",
@@ -3585,7 +2331,7 @@
       "perception": null
     },
     {
-      "id": "raw_0163",
+      "id": "raw_0106",
       "questionText": "لماذا كي بوب مشهور",
       "sourcePlatform": "autocomplete",
       "countryRegion": "AE",
@@ -3607,7 +2353,7 @@
       "perception": null
     },
     {
-      "id": "raw_0164",
+      "id": "raw_0107",
       "questionText": "كيف تصبح نجم كي بوب",
       "sourcePlatform": "autocomplete",
       "countryRegion": "AE",
@@ -3629,7 +2375,7 @@
       "perception": null
     },
     {
-      "id": "raw_0165",
+      "id": "raw_0108",
       "questionText": "한국은 왜 분단되었나",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3651,7 +2397,7 @@
       "perception": null
     },
     {
-      "id": "raw_0166",
+      "id": "raw_0109",
       "questionText": "한국은 왜 저출산",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3673,7 +2419,7 @@
       "perception": null
     },
     {
-      "id": "raw_0167",
+      "id": "raw_0110",
       "questionText": "한국은 왜 인터넷이 빠른가",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3695,7 +2441,7 @@
       "perception": null
     },
     {
-      "id": "raw_0168",
+      "id": "raw_0111",
       "questionText": "한국은 왜 성형수술이 많나",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3717,7 +2463,7 @@
       "perception": null
     },
     {
-      "id": "raw_0169",
+      "id": "raw_0112",
       "questionText": "한국인은 왜 나이를 따지나",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3739,7 +2485,7 @@
       "perception": null
     },
     {
-      "id": "raw_0170",
+      "id": "raw_0113",
       "questionText": "한국인은 왜 김치를 먹나",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3761,7 +2507,7 @@
       "perception": null
     },
     {
-      "id": "raw_0171",
+      "id": "raw_0114",
       "questionText": "한국 음식 종류",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3783,7 +2529,7 @@
       "perception": null
     },
     {
-      "id": "raw_0172",
+      "id": "raw_0115",
       "questionText": "한국 음식 매운 이유",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3805,7 +2551,7 @@
       "perception": null
     },
     {
-      "id": "raw_0173",
+      "id": "raw_0116",
       "questionText": "케이팝 아이돌 되는 법",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3827,7 +2573,7 @@
       "perception": null
     },
     {
-      "id": "raw_0174",
+      "id": "raw_0117",
       "questionText": "케이팝 오디션",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3849,7 +2595,7 @@
       "perception": null
     },
     {
-      "id": "raw_0175",
+      "id": "raw_0118",
       "questionText": "케이팝 인기 이유",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3871,7 +2617,7 @@
       "perception": null
     },
     {
-      "id": "raw_0176",
+      "id": "raw_0119",
       "questionText": "김치 종류",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3893,7 +2639,7 @@
       "perception": null
     },
     {
-      "id": "raw_0177",
+      "id": "raw_0120",
       "questionText": "김치 효능",
       "sourcePlatform": "autocomplete",
       "countryRegion": "KR",
@@ -3915,7 +2661,7 @@
       "perception": null
     },
     {
-      "id": "raw_0178",
+      "id": "raw_0121",
       "questionText": "Why is Korea divided?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -3938,7 +2684,7 @@
       "perception": null
     },
     {
-      "id": "raw_0179",
+      "id": "raw_0122",
       "questionText": "When did Korea split into two?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -3961,7 +2707,7 @@
       "perception": null
     },
     {
-      "id": "raw_0180",
+      "id": "raw_0123",
       "questionText": "Will North and South Korea reunify?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -3984,7 +2730,7 @@
       "perception": null
     },
     {
-      "id": "raw_0181",
+      "id": "raw_0124",
       "questionText": "Is Korea safe?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4007,7 +2753,7 @@
       "perception": null
     },
     {
-      "id": "raw_0182",
+      "id": "raw_0125",
       "questionText": "Is South Korea safe for tourists?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4030,7 +2776,7 @@
       "perception": null
     },
     {
-      "id": "raw_0183",
+      "id": "raw_0126",
       "questionText": "Is it safe to travel to South Korea right now?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4053,7 +2799,7 @@
       "perception": null
     },
     {
-      "id": "raw_0184",
+      "id": "raw_0127",
       "questionText": "Why is K-pop so popular?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4076,7 +2822,7 @@
       "perception": null
     },
     {
-      "id": "raw_0185",
+      "id": "raw_0128",
       "questionText": "How did K-pop become popular?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4099,7 +2845,7 @@
       "perception": null
     },
     {
-      "id": "raw_0186",
+      "id": "raw_0129",
       "questionText": "Why do people love K-pop?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4122,7 +2868,7 @@
       "perception": null
     },
     {
-      "id": "raw_0187",
+      "id": "raw_0130",
       "questionText": "Is Korean hard to learn?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4145,7 +2891,7 @@
       "perception": null
     },
     {
-      "id": "raw_0188",
+      "id": "raw_0131",
       "questionText": "How long does it take to learn Korean?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4168,7 +2914,7 @@
       "perception": null
     },
     {
-      "id": "raw_0189",
+      "id": "raw_0132",
       "questionText": "Is Korean harder than Japanese?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4191,7 +2937,7 @@
       "perception": null
     },
     {
-      "id": "raw_0190",
+      "id": "raw_0133",
       "questionText": "What is kimchi made of?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4214,7 +2960,7 @@
       "perception": null
     },
     {
-      "id": "raw_0191",
+      "id": "raw_0134",
       "questionText": "Is kimchi healthy?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4237,7 +2983,7 @@
       "perception": null
     },
     {
-      "id": "raw_0192",
+      "id": "raw_0135",
       "questionText": "Why do Koreans eat kimchi?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4260,7 +3006,7 @@
       "perception": null
     },
     {
-      "id": "raw_0193",
+      "id": "raw_0136",
       "questionText": "What is the most popular Korean food?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4283,7 +3029,7 @@
       "perception": null
     },
     {
-      "id": "raw_0194",
+      "id": "raw_0137",
       "questionText": "Is Korean food healthy?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4306,7 +3052,7 @@
       "perception": null
     },
     {
-      "id": "raw_0195",
+      "id": "raw_0138",
       "questionText": "Why is Korean food spicy?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4329,7 +3075,7 @@
       "perception": null
     },
     {
-      "id": "raw_0196",
+      "id": "raw_0139",
       "questionText": "Why is South Korea's birth rate so low?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4352,7 +3098,7 @@
       "perception": null
     },
     {
-      "id": "raw_0197",
+      "id": "raw_0140",
       "questionText": "What is Korea's fertility rate?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4375,7 +3121,7 @@
       "perception": null
     },
     {
-      "id": "raw_0198",
+      "id": "raw_0141",
       "questionText": "What is Korean culture known for?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4398,7 +3144,7 @@
       "perception": null
     },
     {
-      "id": "raw_0199",
+      "id": "raw_0142",
       "questionText": "What are Korean cultural values?",
       "sourcePlatform": "paa",
       "countryRegion": "US",
@@ -4421,20 +3167,20 @@
       "perception": null
     },
     {
-      "id": "raw_0200",
-      "questionText": "Why is Korea divided?",
+      "id": "raw_0143",
+      "questionText": "Warum ist Korea geteilt?",
       "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
+      "countryRegion": "DE",
+      "language": "de",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='why is korea divided':gl=gb:hl=en",
+      "collectionMethod": "paa:seed='warum ist korea geteilt':gl=de:hl=de",
       "provenance": {
-        "seed": "why is korea divided",
+        "seed": "warum ist korea geteilt",
         "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-divided"
+        "gl": "de",
+        "hl": "de",
+        "sourceUrl": "https://example.org/de-divided"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -4444,434 +3190,20 @@
       "perception": null
     },
     {
-      "id": "raw_0201",
-      "questionText": "When did Korea split into two?",
+      "id": "raw_0144",
+      "questionText": "Wann wurde Korea geteilt?",
       "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='why is korea divided':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is korea divided",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-split"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0202",
-      "questionText": "Will North and South Korea reunify?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='why is korea divided':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is korea divided",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-reunify"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0203",
-      "questionText": "Is Korea safe?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='is korea safe':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-safe"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0204",
-      "questionText": "Is South Korea safe for tourists?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='is korea safe':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-safe-tourists"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0205",
-      "questionText": "Is it safe to travel to South Korea right now?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='is korea safe':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-travel"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0206",
-      "questionText": "Why is K-pop so popular?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='why is kpop popular':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is kpop popular",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kpop-popular"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0207",
-      "questionText": "How did K-pop become popular?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='why is kpop popular':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is kpop popular",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kpop-history"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0208",
-      "questionText": "Why do people love K-pop?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='why is kpop popular':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is kpop popular",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kpop-love"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0209",
-      "questionText": "Is Korean hard to learn?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='is korean hard to learn':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korean hard to learn",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-hard"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0210",
-      "questionText": "How long does it take to learn Korean?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='is korean hard to learn':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korean hard to learn",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-time"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0211",
-      "questionText": "Is Korean harder than Japanese?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='is korean hard to learn':gl=gb:hl=en",
-      "provenance": {
-        "seed": "is korean hard to learn",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-japanese"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0212",
-      "questionText": "What is kimchi made of?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='what is kimchi':gl=gb:hl=en",
-      "provenance": {
-        "seed": "what is kimchi",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kimchi-made"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0213",
-      "questionText": "Is kimchi healthy?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='what is kimchi':gl=gb:hl=en",
-      "provenance": {
-        "seed": "what is kimchi",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kimchi-healthy"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0214",
-      "questionText": "Why do Koreans eat kimchi?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='what is kimchi':gl=gb:hl=en",
-      "provenance": {
-        "seed": "what is kimchi",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/koreans-kimchi"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0215",
-      "questionText": "What is the most popular Korean food?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='korean food':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-food-popular"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0216",
-      "questionText": "Is Korean food healthy?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='korean food':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-food-healthy"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0217",
-      "questionText": "Why is Korean food spicy?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='korean food':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-food-spicy"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0218",
-      "questionText": "Why is South Korea's birth rate so low?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='why is korea's birth rate so low':gl=gb:hl=en",
-      "provenance": {
-        "seed": "why is korea's birth rate so low",
-        "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-birthrate"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0219",
-      "questionText": "What is Korea's fertility rate?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
+      "countryRegion": "DE",
+      "language": "de",
       "rank": 1,
       "frequencyIndicator": 0.5,
-      "collectionMethod": "paa:seed='why is korea's birth rate so low':gl=gb:hl=en",
+      "collectionMethod": "paa:seed='warum ist korea geteilt':gl=de:hl=de",
       "provenance": {
-        "seed": "why is korea's birth rate so low",
+        "seed": "warum ist korea geteilt",
         "family": "q",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-fertility"
+        "gl": "de",
+        "hl": "de",
+        "sourceUrl": "https://example.org/de-split"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -4881,20 +3213,20 @@
       "perception": null
     },
     {
-      "id": "raw_0220",
-      "questionText": "What is Korean culture known for?",
+      "id": "raw_0145",
+      "questionText": "Was ist Kimchi?",
       "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
+      "countryRegion": "DE",
+      "language": "de",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='korean culture':gl=gb:hl=en",
+      "collectionMethod": "paa:seed='was ist kimchi':gl=de:hl=de",
       "provenance": {
-        "seed": "korean culture",
+        "seed": "was ist kimchi",
         "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-culture-known"
+        "gl": "de",
+        "hl": "de",
+        "sourceUrl": "https://example.org/de-kimchi"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -4904,30 +3236,7 @@
       "perception": null
     },
     {
-      "id": "raw_0221",
-      "questionText": "What are Korean cultural values?",
-      "sourcePlatform": "paa",
-      "countryRegion": "UK",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "paa:seed='korean culture':gl=gb:hl=en",
-      "provenance": {
-        "seed": "korean culture",
-        "family": "t",
-        "gl": "gb",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-values"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0222",
+      "id": "raw_0146",
       "questionText": "Why is Korea divided?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -4950,7 +3259,7 @@
       "perception": null
     },
     {
-      "id": "raw_0223",
+      "id": "raw_0147",
       "questionText": "When did Korea split into two?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -4973,7 +3282,7 @@
       "perception": null
     },
     {
-      "id": "raw_0224",
+      "id": "raw_0148",
       "questionText": "Will North and South Korea reunify?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -4996,7 +3305,7 @@
       "perception": null
     },
     {
-      "id": "raw_0225",
+      "id": "raw_0149",
       "questionText": "Is Korea safe?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5019,7 +3328,7 @@
       "perception": null
     },
     {
-      "id": "raw_0226",
+      "id": "raw_0150",
       "questionText": "Is South Korea safe for tourists?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5042,7 +3351,7 @@
       "perception": null
     },
     {
-      "id": "raw_0227",
+      "id": "raw_0151",
       "questionText": "Is it safe to travel to South Korea right now?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5065,7 +3374,7 @@
       "perception": null
     },
     {
-      "id": "raw_0228",
+      "id": "raw_0152",
       "questionText": "Is South Korea safe for Indian travelers?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5088,7 +3397,7 @@
       "perception": null
     },
     {
-      "id": "raw_0229",
+      "id": "raw_0153",
       "questionText": "Why is K-pop so popular?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5111,7 +3420,7 @@
       "perception": null
     },
     {
-      "id": "raw_0230",
+      "id": "raw_0154",
       "questionText": "How did K-pop become popular?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5134,7 +3443,7 @@
       "perception": null
     },
     {
-      "id": "raw_0231",
+      "id": "raw_0155",
       "questionText": "Why do people love K-pop?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5157,7 +3466,7 @@
       "perception": null
     },
     {
-      "id": "raw_0232",
+      "id": "raw_0156",
       "questionText": "Is Korean hard to learn?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5180,7 +3489,7 @@
       "perception": null
     },
     {
-      "id": "raw_0233",
+      "id": "raw_0157",
       "questionText": "How long does it take to learn Korean?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5203,7 +3512,7 @@
       "perception": null
     },
     {
-      "id": "raw_0234",
+      "id": "raw_0158",
       "questionText": "Is Korean harder than Japanese?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5226,7 +3535,7 @@
       "perception": null
     },
     {
-      "id": "raw_0235",
+      "id": "raw_0159",
       "questionText": "What is kimchi made of?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5249,7 +3558,7 @@
       "perception": null
     },
     {
-      "id": "raw_0236",
+      "id": "raw_0160",
       "questionText": "Is kimchi healthy?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5272,7 +3581,7 @@
       "perception": null
     },
     {
-      "id": "raw_0237",
+      "id": "raw_0161",
       "questionText": "Why do Koreans eat kimchi?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5295,7 +3604,7 @@
       "perception": null
     },
     {
-      "id": "raw_0238",
+      "id": "raw_0162",
       "questionText": "What is the most popular Korean food?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5318,7 +3627,7 @@
       "perception": null
     },
     {
-      "id": "raw_0239",
+      "id": "raw_0163",
       "questionText": "Is Korean food healthy?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5341,7 +3650,7 @@
       "perception": null
     },
     {
-      "id": "raw_0240",
+      "id": "raw_0164",
       "questionText": "Why is Korean food spicy?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5364,7 +3673,7 @@
       "perception": null
     },
     {
-      "id": "raw_0241",
+      "id": "raw_0165",
       "questionText": "Why is South Korea's birth rate so low?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5387,7 +3696,7 @@
       "perception": null
     },
     {
-      "id": "raw_0242",
+      "id": "raw_0166",
       "questionText": "What is Korea's fertility rate?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5410,7 +3719,7 @@
       "perception": null
     },
     {
-      "id": "raw_0243",
+      "id": "raw_0167",
       "questionText": "What is Korean culture known for?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5433,7 +3742,7 @@
       "perception": null
     },
     {
-      "id": "raw_0244",
+      "id": "raw_0168",
       "questionText": "What are Korean cultural values?",
       "sourcePlatform": "paa",
       "countryRegion": "IN",
@@ -5456,20 +3765,20 @@
       "perception": null
     },
     {
-      "id": "raw_0245",
-      "questionText": "Why is Korea divided?",
+      "id": "raw_0169",
+      "questionText": "Kenapa Korea terbagi dua?",
       "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='why is korea divided':gl=sg:hl=en",
+      "collectionMethod": "paa:seed='kenapa korea terbagi dua':gl=id:hl=id",
       "provenance": {
-        "seed": "why is korea divided",
+        "seed": "kenapa korea terbagi dua",
         "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-divided"
+        "gl": "id",
+        "hl": "id",
+        "sourceUrl": "https://example.org/id-divided"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -5479,434 +3788,20 @@
       "perception": null
     },
     {
-      "id": "raw_0246",
-      "questionText": "When did Korea split into two?",
+      "id": "raw_0170",
+      "questionText": "Kapan Korea terpisah?",
       "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='why is korea divided':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea divided",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-split"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0247",
-      "questionText": "Will North and South Korea reunify?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='why is korea divided':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea divided",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-reunify"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0248",
-      "questionText": "Is Korea safe?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='is korea safe':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-safe"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0249",
-      "questionText": "Is South Korea safe for tourists?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='is korea safe':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-safe-tourists"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0250",
-      "questionText": "Is it safe to travel to South Korea right now?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='is korea safe':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korea safe",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-travel"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0251",
-      "questionText": "Why is K-pop so popular?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='why is kpop popular':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is kpop popular",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kpop-popular"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0252",
-      "questionText": "How did K-pop become popular?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='why is kpop popular':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is kpop popular",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kpop-history"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0253",
-      "questionText": "Why do people love K-pop?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='why is kpop popular':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is kpop popular",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kpop-love"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0254",
-      "questionText": "Is Korean hard to learn?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='is korean hard to learn':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korean hard to learn",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-hard"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0255",
-      "questionText": "How long does it take to learn Korean?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='is korean hard to learn':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korean hard to learn",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-time"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0256",
-      "questionText": "Is Korean harder than Japanese?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='is korean hard to learn':gl=sg:hl=en",
-      "provenance": {
-        "seed": "is korean hard to learn",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-japanese"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0257",
-      "questionText": "What is kimchi made of?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='what is kimchi':gl=sg:hl=en",
-      "provenance": {
-        "seed": "what is kimchi",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kimchi-made"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0258",
-      "questionText": "Is kimchi healthy?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='what is kimchi':gl=sg:hl=en",
-      "provenance": {
-        "seed": "what is kimchi",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/kimchi-healthy"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0259",
-      "questionText": "Why do Koreans eat kimchi?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='what is kimchi':gl=sg:hl=en",
-      "provenance": {
-        "seed": "what is kimchi",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/koreans-kimchi"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0260",
-      "questionText": "What is the most popular Korean food?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='korean food':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-food-popular"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0261",
-      "questionText": "Is Korean food healthy?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.67,
-      "collectionMethod": "paa:seed='korean food':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-food-healthy"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0262",
-      "questionText": "Why is Korean food spicy?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 2,
-      "frequencyIndicator": 0.33,
-      "collectionMethod": "paa:seed='korean food':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean food",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-food-spicy"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0263",
-      "questionText": "Why is South Korea's birth rate so low?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 0,
-      "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='why is korea's birth rate so low':gl=sg:hl=en",
-      "provenance": {
-        "seed": "why is korea's birth rate so low",
-        "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-birthrate"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0264",
-      "questionText": "What is Korea's fertility rate?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 1,
       "frequencyIndicator": 0.5,
-      "collectionMethod": "paa:seed='why is korea's birth rate so low':gl=sg:hl=en",
+      "collectionMethod": "paa:seed='kenapa korea terbagi dua':gl=id:hl=id",
       "provenance": {
-        "seed": "why is korea's birth rate so low",
+        "seed": "kenapa korea terbagi dua",
         "family": "q",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korea-fertility"
+        "gl": "id",
+        "hl": "id",
+        "sourceUrl": "https://example.org/id-split"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -5916,20 +3811,20 @@
       "perception": null
     },
     {
-      "id": "raw_0265",
-      "questionText": "What is Korean culture known for?",
+      "id": "raw_0171",
+      "questionText": "Apa itu kimchi?",
       "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
+      "countryRegion": "ID",
+      "language": "id",
       "rank": 0,
       "frequencyIndicator": 1,
-      "collectionMethod": "paa:seed='korean culture':gl=sg:hl=en",
+      "collectionMethod": "paa:seed='apa itu kimchi':gl=id:hl=id",
       "provenance": {
-        "seed": "korean culture",
+        "seed": "apa itu kimchi",
         "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-culture-known"
+        "gl": "id",
+        "hl": "id",
+        "sourceUrl": "https://example.org/id-kimchi"
       },
       "collectionDate": "2026-07-15",
       "status": "raw",
@@ -5939,30 +3834,7 @@
       "perception": null
     },
     {
-      "id": "raw_0266",
-      "questionText": "What are Korean cultural values?",
-      "sourcePlatform": "paa",
-      "countryRegion": "SG",
-      "language": "en",
-      "rank": 1,
-      "frequencyIndicator": 0.5,
-      "collectionMethod": "paa:seed='korean culture':gl=sg:hl=en",
-      "provenance": {
-        "seed": "korean culture",
-        "family": "t",
-        "gl": "sg",
-        "hl": "en",
-        "sourceUrl": "https://example.org/korean-values"
-      },
-      "collectionDate": "2026-07-15",
-      "status": "raw",
-      "concept": null,
-      "theme": null,
-      "narrative": null,
-      "perception": null
-    },
-    {
-      "id": "raw_0267",
+      "id": "raw_0172",
       "questionText": "韓国はなぜ分断されたのですか?",
       "sourcePlatform": "paa",
       "countryRegion": "JP",
@@ -5985,7 +3857,7 @@
       "perception": null
     },
     {
-      "id": "raw_0268",
+      "id": "raw_0173",
       "questionText": "南北統一は実現しますか?",
       "sourcePlatform": "paa",
       "countryRegion": "JP",
@@ -6008,7 +3880,7 @@
       "perception": null
     },
     {
-      "id": "raw_0269",
+      "id": "raw_0174",
       "questionText": "キムチとは何ですか?",
       "sourcePlatform": "paa",
       "countryRegion": "JP",
@@ -6031,7 +3903,7 @@
       "perception": null
     },
     {
-      "id": "raw_0270",
+      "id": "raw_0175",
       "questionText": "Por que a Coreia é dividida?",
       "sourcePlatform": "paa",
       "countryRegion": "BR",
@@ -6054,7 +3926,7 @@
       "perception": null
     },
     {
-      "id": "raw_0271",
+      "id": "raw_0176",
       "questionText": "Quando a Coreia se dividiu?",
       "sourcePlatform": "paa",
       "countryRegion": "BR",
@@ -6077,7 +3949,7 @@
       "perception": null
     },
     {
-      "id": "raw_0272",
+      "id": "raw_0177",
       "questionText": "O que é kimchi?",
       "sourcePlatform": "paa",
       "countryRegion": "BR",
@@ -6100,7 +3972,7 @@
       "perception": null
     },
     {
-      "id": "raw_0273",
+      "id": "raw_0178",
       "questionText": "لماذا كوريا مقسمة؟",
       "sourcePlatform": "paa",
       "countryRegion": "AE",
@@ -6123,7 +3995,7 @@
       "perception": null
     },
     {
-      "id": "raw_0274",
+      "id": "raw_0179",
       "questionText": "متى انقسمت كوريا؟",
       "sourcePlatform": "paa",
       "countryRegion": "AE",
@@ -6146,7 +4018,7 @@
       "perception": null
     },
     {
-      "id": "raw_0275",
+      "id": "raw_0180",
       "questionText": "한국은 왜 분단되었나요?",
       "sourcePlatform": "paa",
       "countryRegion": "KR",
@@ -6169,7 +4041,7 @@
       "perception": null
     },
     {
-      "id": "raw_0276",
+      "id": "raw_0181",
       "questionText": "남북한은 언제 분단되었나요?",
       "sourcePlatform": "paa",
       "countryRegion": "KR",
@@ -6192,7 +4064,7 @@
       "perception": null
     },
     {
-      "id": "raw_0277",
+      "id": "raw_0182",
       "questionText": "케이팝은 왜 인기가 많나요?",
       "sourcePlatform": "paa",
       "countryRegion": "KR",
@@ -6215,7 +4087,7 @@
       "perception": null
     },
     {
-      "id": "raw_0278",
+      "id": "raw_0183",
       "questionText": "케이팝의 인기 비결은?",
       "sourcePlatform": "paa",
       "countryRegion": "KR",

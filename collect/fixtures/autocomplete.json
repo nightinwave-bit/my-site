@@ -147,6 +147,32 @@
     },
     "كي بوب": {
       "base": ["لماذا كي بوب مشهور", "كيف تصبح نجم كي بوب"]
+    },
+    "warum ist korea": {
+      "base": [
+        "warum ist korea geteilt",
+        "warum ist korea so beliebt",
+        "warum ist korea so teuer"
+      ]
+    },
+    "koreanische kultur": {
+      "base": ["koreanische kultur fakten", "koreanische kultur vs japanische"]
+    },
+    "koreanisches essen": {
+      "base": ["koreanisches essen rezepte", "ist koreanisches essen gesund"]
+    },
+    "kenapa korea": {
+      "base": [
+        "kenapa korea terbagi dua",
+        "kenapa korea maju",
+        "kenapa angka kelahiran korea rendah"
+      ]
+    },
+    "budaya korea": {
+      "base": ["budaya korea unik", "budaya korea vs jepang"]
+    },
+    "makanan korea": {
+      "base": ["makanan korea halal", "makanan korea pedas"]
     }
   }
 }

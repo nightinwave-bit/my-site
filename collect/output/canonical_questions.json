@@ -6,19 +6,19 @@
     "date": "2026-07-15",
     "locales": [
       "US",
-      "UK",
+      "DE",
       "IN",
-      "SG",
+      "ID",
       "JP",
       "BR",
       "AE",
       "KR"
     ],
-    "autocompleteAttempts": 292,
-    "paaAttempts": 118,
+    "autocompleteAttempts": 234,
+    "paaAttempts": 98,
     "paaSkippedNoKey": false
   },
-  "count": 96,
+  "count": 113,
   "questions": [
     {
       "id": "canon_0001",
@@ -30,18 +30,12 @@
       ],
       "variantIds": [
         "raw_0001",
-        "raw_0036",
-        "raw_0072",
-        "raw_0110",
-        "raw_0178",
-        "raw_0200",
-        "raw_0222",
-        "raw_0245"
+        "raw_0043",
+        "raw_0121",
+        "raw_0146"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -52,12 +46,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 2,
         "variants": 2,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.709,
+      "frequencyIndicator": 0.594,
       "status": "canonical"
     },
     {
@@ -70,18 +64,12 @@
       ],
       "variantIds": [
         "raw_0004",
-        "raw_0039",
-        "raw_0075",
-        "raw_0113",
-        "raw_0196",
-        "raw_0218",
-        "raw_0241",
-        "raw_0263"
+        "raw_0046",
+        "raw_0139",
+        "raw_0165"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -92,12 +80,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 2,
         "variants": 2,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.709,
+      "frequencyIndicator": 0.594,
       "status": "canonical"
     },
     {
@@ -110,18 +98,12 @@
       ],
       "variantIds": [
         "raw_0010",
-        "raw_0045",
-        "raw_0082",
-        "raw_0119",
-        "raw_0181",
-        "raw_0203",
-        "raw_0225",
-        "raw_0248"
+        "raw_0053",
+        "raw_0124",
+        "raw_0149"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -132,12 +114,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 2,
         "variants": 2,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.709,
+      "frequencyIndicator": 0.594,
       "status": "canonical"
     },
     {
@@ -150,18 +132,12 @@
       ],
       "variantIds": [
         "raw_0014",
-        "raw_0049",
-        "raw_0087",
-        "raw_0123",
-        "raw_0187",
-        "raw_0209",
-        "raw_0232",
-        "raw_0254"
+        "raw_0058",
+        "raw_0130",
+        "raw_0156"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -172,12 +148,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 2,
         "variants": 2,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.709,
+      "frequencyIndicator": 0.594,
       "status": "canonical"
     },
     {
@@ -190,18 +166,12 @@
       ],
       "variantIds": [
         "raw_0023",
-        "raw_0059",
-        "raw_0096",
-        "raw_0132",
-        "raw_0198",
-        "raw_0220",
-        "raw_0243",
-        "raw_0265"
+        "raw_0067",
+        "raw_0141",
+        "raw_0167"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -212,12 +182,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 2,
         "variants": 2,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.709,
+      "frequencyIndicator": 0.594,
       "status": "canonical"
     },
     {
@@ -230,18 +200,12 @@
       ],
       "variantIds": [
         "raw_0027",
-        "raw_0063",
-        "raw_0100",
-        "raw_0136",
-        "raw_0184",
-        "raw_0206",
-        "raw_0229",
-        "raw_0251"
+        "raw_0071",
+        "raw_0127",
+        "raw_0153"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -252,12 +216,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 2,
         "variants": 2,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.709,
+      "frequencyIndicator": 0.594,
       "status": "canonical"
     },
     {
@@ -270,18 +234,12 @@
       ],
       "variantIds": [
         "raw_0020",
-        "raw_0055",
-        "raw_0093",
-        "raw_0129",
-        "raw_0194",
-        "raw_0216",
-        "raw_0239",
-        "raw_0261"
+        "raw_0064",
+        "raw_0137",
+        "raw_0163"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -292,52 +250,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 2,
         "variants": 2,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.676,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0019",
-      "canonicalText": "why is korean food spicy",
-      "language": "en",
-      "variantTexts": [
-        "why is korean food spicy",
-        "Why is Korean food spicy?"
-      ],
-      "variantIds": [
-        "raw_0019",
-        "raw_0054",
-        "raw_0092",
-        "raw_0128",
-        "raw_0195",
-        "raw_0217",
-        "raw_0240",
-        "raw_0262"
-      ],
-      "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
-      ],
-      "sources": [
-        "autocomplete",
-        "paa"
-      ],
-      "languages": [
-        "en"
-      ],
-      "coverage": {
-        "countries": 4,
-        "sources": 2,
-        "variants": 2,
-        "records": 8
-      },
-      "frequencyIndicator": 0.669,
+      "frequencyIndicator": 0.561,
       "status": "canonical"
     },
     {
@@ -350,18 +268,12 @@
       ],
       "variantIds": [
         "raw_0008",
-        "raw_0043",
-        "raw_0080",
-        "raw_0117",
-        "raw_0192",
-        "raw_0214",
-        "raw_0237",
-        "raw_0259"
+        "raw_0051",
+        "raw_0135",
+        "raw_0161"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -372,16 +284,112 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 2,
         "variants": 2,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.659,
+      "frequencyIndicator": 0.544,
       "status": "canonical"
     },
     {
-      "id": "canon_0046",
+      "id": "canon_0019",
+      "canonicalText": "why is korean food spicy",
+      "language": "en",
+      "variantTexts": [
+        "why is korean food spicy",
+        "Why is Korean food spicy?"
+      ],
+      "variantIds": [
+        "raw_0019",
+        "raw_0063",
+        "raw_0138",
+        "raw_0164"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "autocomplete",
+        "paa"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 2,
+        "variants": 2,
+        "records": 4
+      },
+      "frequencyIndicator": 0.544,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0035",
+      "canonicalText": "Warum ist Korea geteilt?",
+      "language": "de",
+      "variantTexts": [
+        "warum ist korea geteilt",
+        "Warum ist Korea geteilt?"
+      ],
+      "variantIds": [
+        "raw_0036",
+        "raw_0143"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "sources": [
+        "autocomplete",
+        "paa"
+      ],
+      "languages": [
+        "de"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 2,
+        "variants": 2,
+        "records": 2
+      },
+      "frequencyIndicator": 0.537,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0045",
+      "canonicalText": "Kenapa Korea terbagi dua?",
+      "language": "id",
+      "variantTexts": [
+        "kenapa korea terbagi dua",
+        "Kenapa Korea terbagi dua?"
+      ],
+      "variantIds": [
+        "raw_0081",
+        "raw_0169"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "sources": [
+        "autocomplete",
+        "paa"
+      ],
+      "languages": [
+        "id"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 2,
+        "variants": 2,
+        "records": 2
+      },
+      "frequencyIndicator": 0.537,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0059",
       "canonicalText": "Por que a Coreia é dividida?",
       "language": "pt",
       "variantTexts": [
@@ -389,8 +397,8 @@
         "Por que a Coreia é dividida?"
       ],
       "variantIds": [
-        "raw_0152",
-        "raw_0270"
+        "raw_0095",
+        "raw_0175"
       ],
       "countries": [
         "BR"
@@ -421,17 +429,11 @@
       "variantIds": [
         "raw_0002",
         "raw_0032",
-        "raw_0037",
-        "raw_0068",
-        "raw_0073",
-        "raw_0106",
-        "raw_0111",
-        "raw_0141"
+        "raw_0044",
+        "raw_0077"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -441,12 +443,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 8
+        "records": 4
       },
-      "frequencyIndicator": 0.519,
+      "frequencyIndicator": 0.404,
       "status": "canonical"
     },
     {
@@ -458,14 +460,10 @@
       ],
       "variantIds": [
         "raw_0006",
-        "raw_0041",
-        "raw_0078",
-        "raw_0115"
+        "raw_0049"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -475,12 +473,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.519,
+      "frequencyIndicator": 0.404,
       "status": "canonical"
     },
     {
@@ -492,14 +490,10 @@
       ],
       "variantIds": [
         "raw_0017",
-        "raw_0052",
-        "raw_0090",
-        "raw_0126"
+        "raw_0061"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -509,12 +503,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.519,
+      "frequencyIndicator": 0.404,
       "status": "canonical"
     },
     {
@@ -526,14 +520,10 @@
       ],
       "variantIds": [
         "raw_0021",
-        "raw_0057",
-        "raw_0094",
-        "raw_0130"
+        "raw_0065"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -543,12 +533,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.519,
+      "frequencyIndicator": 0.404,
       "status": "canonical"
     },
     {
@@ -560,14 +550,10 @@
       ],
       "variantIds": [
         "raw_0024",
-        "raw_0060",
-        "raw_0097",
-        "raw_0133"
+        "raw_0068"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -577,12 +563,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.519,
+      "frequencyIndicator": 0.404,
       "status": "canonical"
     },
     {
@@ -594,14 +580,10 @@
       ],
       "variantIds": [
         "raw_0030",
-        "raw_0066",
-        "raw_0104",
-        "raw_0139"
+        "raw_0075"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -611,31 +593,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.519,
+      "frequencyIndicator": 0.404,
       "status": "canonical"
     },
     {
-      "id": "canon_0080",
+      "id": "canon_0093",
       "canonicalText": "What is kimchi made of?",
       "language": "en",
       "variantTexts": [
         "What is kimchi made of?"
       ],
       "variantIds": [
-        "raw_0190",
-        "raw_0212",
-        "raw_0235",
-        "raw_0257"
+        "raw_0133",
+        "raw_0159"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -645,31 +623,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.519,
+      "frequencyIndicator": 0.404,
       "status": "canonical"
     },
     {
-      "id": "canon_0082",
+      "id": "canon_0095",
       "canonicalText": "What is the most popular Korean food?",
       "language": "en",
       "variantTexts": [
         "What is the most popular Korean food?"
       ],
       "variantIds": [
-        "raw_0193",
-        "raw_0215",
-        "raw_0238",
-        "raw_0260"
+        "raw_0136",
+        "raw_0162"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -679,12 +653,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.519,
+      "frequencyIndicator": 0.404,
       "status": "canonical"
     },
     {
@@ -696,14 +670,10 @@
       ],
       "variantIds": [
         "raw_0011",
-        "raw_0046",
-        "raw_0083",
-        "raw_0120"
+        "raw_0054"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -713,46 +683,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.499,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0018",
-      "canonicalText": "korean food names",
-      "language": "en",
-      "variantTexts": [
-        "korean food names"
-      ],
-      "variantIds": [
-        "raw_0018",
-        "raw_0053",
-        "raw_0091",
-        "raw_0127"
-      ],
-      "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "en"
-      ],
-      "coverage": {
-        "countries": 4,
-        "sources": 1,
-        "variants": 1,
-        "records": 4
-      },
-      "frequencyIndicator": 0.499,
+      "frequencyIndicator": 0.384,
       "status": "canonical"
     },
     {
@@ -764,14 +700,10 @@
       ],
       "variantIds": [
         "raw_0007",
-        "raw_0042",
-        "raw_0079",
-        "raw_0116"
+        "raw_0050"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -781,12 +713,42 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.494,
+      "frequencyIndicator": 0.379,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0018",
+      "canonicalText": "korean food names",
+      "language": "en",
+      "variantTexts": [
+        "korean food names"
+      ],
+      "variantIds": [
+        "raw_0018",
+        "raw_0062"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.379,
       "status": "canonical"
     },
     {
@@ -798,14 +760,10 @@
       ],
       "variantIds": [
         "raw_0028",
-        "raw_0064",
-        "raw_0101",
-        "raw_0137"
+        "raw_0072"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -815,12 +773,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.494,
+      "frequencyIndicator": 0.379,
       "status": "canonical"
     },
     {
@@ -832,14 +790,10 @@
       ],
       "variantIds": [
         "raw_0033",
-        "raw_0069",
-        "raw_0107",
-        "raw_0142"
+        "raw_0078"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -849,31 +803,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.494,
+      "frequencyIndicator": 0.379,
       "status": "canonical"
     },
     {
-      "id": "canon_0074",
+      "id": "canon_0087",
       "canonicalText": "Is South Korea safe for tourists?",
       "language": "en",
       "variantTexts": [
         "Is South Korea safe for tourists?"
       ],
       "variantIds": [
-        "raw_0182",
-        "raw_0204",
-        "raw_0226",
-        "raw_0249"
+        "raw_0125",
+        "raw_0150"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -883,12 +833,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.494,
+      "frequencyIndicator": 0.379,
       "status": "canonical"
     },
     {
@@ -900,14 +850,10 @@
       ],
       "variantIds": [
         "raw_0003",
-        "raw_0038",
-        "raw_0074",
-        "raw_0112"
+        "raw_0045"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -917,12 +863,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.486,
+      "frequencyIndicator": 0.371,
       "status": "canonical"
     },
     {
@@ -934,14 +880,10 @@
       ],
       "variantIds": [
         "raw_0015",
-        "raw_0050",
-        "raw_0088",
-        "raw_0124"
+        "raw_0059"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -951,12 +893,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.486,
+      "frequencyIndicator": 0.371,
       "status": "canonical"
     },
     {
@@ -968,14 +910,10 @@
       ],
       "variantIds": [
         "raw_0022",
-        "raw_0058",
-        "raw_0095",
-        "raw_0131"
+        "raw_0066"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -985,12 +923,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.486,
+      "frequencyIndicator": 0.371,
       "status": "canonical"
     },
     {
@@ -1002,14 +940,10 @@
       ],
       "variantIds": [
         "raw_0025",
-        "raw_0061",
-        "raw_0098",
-        "raw_0134"
+        "raw_0069"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1019,31 +953,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.486,
+      "frequencyIndicator": 0.371,
       "status": "canonical"
     },
     {
-      "id": "canon_0072",
+      "id": "canon_0085",
       "canonicalText": "When did Korea split into two?",
       "language": "en",
       "variantTexts": [
         "When did Korea split into two?"
       ],
       "variantIds": [
-        "raw_0179",
-        "raw_0201",
-        "raw_0223",
-        "raw_0246"
+        "raw_0122",
+        "raw_0147"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1053,31 +983,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.486,
+      "frequencyIndicator": 0.371,
       "status": "canonical"
     },
     {
-      "id": "canon_0076",
+      "id": "canon_0089",
       "canonicalText": "How did K-pop become popular?",
       "language": "en",
       "variantTexts": [
         "How did K-pop become popular?"
       ],
       "variantIds": [
-        "raw_0185",
-        "raw_0207",
-        "raw_0230",
-        "raw_0252"
+        "raw_0128",
+        "raw_0154"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1087,31 +1013,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.486,
+      "frequencyIndicator": 0.371,
       "status": "canonical"
     },
     {
-      "id": "canon_0078",
+      "id": "canon_0091",
       "canonicalText": "How long does it take to learn Korean?",
       "language": "en",
       "variantTexts": [
         "How long does it take to learn Korean?"
       ],
       "variantIds": [
-        "raw_0188",
-        "raw_0210",
-        "raw_0233",
-        "raw_0255"
+        "raw_0131",
+        "raw_0157"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1121,31 +1043,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.486,
+      "frequencyIndicator": 0.371,
       "status": "canonical"
     },
     {
-      "id": "canon_0081",
+      "id": "canon_0094",
       "canonicalText": "Is kimchi healthy?",
       "language": "en",
       "variantTexts": [
         "Is kimchi healthy?"
       ],
       "variantIds": [
-        "raw_0191",
-        "raw_0213",
-        "raw_0236",
-        "raw_0258"
+        "raw_0134",
+        "raw_0160"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1155,12 +1073,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.486,
+      "frequencyIndicator": 0.371,
       "status": "canonical"
     },
     {
@@ -1172,14 +1090,10 @@
       ],
       "variantIds": [
         "raw_0012",
-        "raw_0047",
-        "raw_0084",
-        "raw_0121"
+        "raw_0055"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1189,12 +1103,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.479,
+      "frequencyIndicator": 0.364,
       "status": "canonical"
     },
     {
@@ -1206,14 +1120,10 @@
       ],
       "variantIds": [
         "raw_0029",
-        "raw_0065",
-        "raw_0102",
-        "raw_0138"
+        "raw_0073"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1223,12 +1133,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.469,
+      "frequencyIndicator": 0.354,
       "status": "canonical"
     },
     {
@@ -1240,14 +1150,10 @@
       ],
       "variantIds": [
         "raw_0031",
-        "raw_0067",
-        "raw_0105",
-        "raw_0140"
+        "raw_0076"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1257,12 +1163,12 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.469,
+      "frequencyIndicator": 0.354,
       "status": "canonical"
     },
     {
@@ -1274,14 +1180,10 @@
       ],
       "variantIds": [
         "raw_0034",
-        "raw_0070",
-        "raw_0108",
-        "raw_0143"
+        "raw_0079"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1291,31 +1193,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.469,
+      "frequencyIndicator": 0.354,
       "status": "canonical"
     },
     {
-      "id": "canon_0075",
+      "id": "canon_0088",
       "canonicalText": "Is it safe to travel to South Korea right now?",
       "language": "en",
       "variantTexts": [
         "Is it safe to travel to South Korea right now?"
       ],
       "variantIds": [
-        "raw_0183",
-        "raw_0205",
-        "raw_0227",
-        "raw_0250"
+        "raw_0126",
+        "raw_0151"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1325,31 +1223,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.469,
+      "frequencyIndicator": 0.354,
       "status": "canonical"
     },
     {
-      "id": "canon_0083",
+      "id": "canon_0096",
       "canonicalText": "What is Korea's fertility rate?",
       "language": "en",
       "variantTexts": [
         "What is Korea's fertility rate?"
       ],
       "variantIds": [
-        "raw_0197",
-        "raw_0219",
-        "raw_0242",
-        "raw_0264"
+        "raw_0140",
+        "raw_0166"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1359,31 +1253,27 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.469,
+      "frequencyIndicator": 0.354,
       "status": "canonical"
     },
     {
-      "id": "canon_0084",
+      "id": "canon_0097",
       "canonicalText": "What are Korean cultural values?",
       "language": "en",
       "variantTexts": [
         "What are Korean cultural values?"
       ],
       "variantIds": [
-        "raw_0199",
-        "raw_0221",
-        "raw_0244",
-        "raw_0266"
+        "raw_0142",
+        "raw_0168"
       ],
       "countries": [
         "IN",
-        "SG",
-        "UK",
         "US"
       ],
       "sources": [
@@ -1393,329 +1283,135 @@
         "en"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 2,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 2
       },
-      "frequencyIndicator": 0.469,
+      "frequencyIndicator": 0.354,
       "status": "canonical"
     },
     {
-      "id": "canon_0013",
-      "canonicalText": "is korea safe to live",
-      "language": "en",
+      "id": "canon_0038",
+      "canonicalText": "koreanische kultur fakten",
+      "language": "de",
       "variantTexts": [
-        "is korea safe to live"
+        "koreanische kultur fakten"
       ],
       "variantIds": [
-        "raw_0013",
-        "raw_0048",
-        "raw_0085",
-        "raw_0122"
+        "raw_0039"
       ],
       "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
+        "DE"
       ],
       "sources": [
         "autocomplete"
       ],
       "languages": [
-        "en"
+        "de"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 1,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 1
       },
-      "frequencyIndicator": 0.459,
+      "frequencyIndicator": 0.347,
       "status": "canonical"
     },
     {
-      "id": "canon_0005",
-      "canonicalText": "why is korea so developed",
-      "language": "en",
+      "id": "canon_0040",
+      "canonicalText": "koreanisches essen rezepte",
+      "language": "de",
       "variantTexts": [
-        "why is korea so developed"
+        "koreanisches essen rezepte"
       ],
       "variantIds": [
-        "raw_0005",
-        "raw_0040",
-        "raw_0076",
-        "raw_0114"
+        "raw_0041"
       ],
       "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
+        "DE"
       ],
       "sources": [
         "autocomplete"
       ],
       "languages": [
-        "en"
+        "de"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 1,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 1
       },
-      "frequencyIndicator": 0.452,
+      "frequencyIndicator": 0.347,
       "status": "canonical"
     },
     {
-      "id": "canon_0016",
-      "canonicalText": "is korean hard for english speakers",
-      "language": "en",
+      "id": "canon_0048",
+      "canonicalText": "budaya korea unik",
+      "language": "id",
       "variantTexts": [
-        "is korean hard for english speakers"
+        "budaya korea unik"
       ],
       "variantIds": [
-        "raw_0016",
-        "raw_0051",
-        "raw_0089",
-        "raw_0125"
+        "raw_0084"
       ],
       "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
+        "ID"
       ],
       "sources": [
         "autocomplete"
       ],
       "languages": [
-        "en"
+        "id"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 1,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 1
       },
-      "frequencyIndicator": 0.452,
+      "frequencyIndicator": 0.347,
       "status": "canonical"
     },
     {
-      "id": "canon_0026",
-      "canonicalText": "why learn korean language",
-      "language": "en",
+      "id": "canon_0050",
+      "canonicalText": "makanan korea halal",
+      "language": "id",
       "variantTexts": [
-        "why learn korean language"
+        "makanan korea halal"
       ],
       "variantIds": [
-        "raw_0026",
-        "raw_0062",
-        "raw_0099",
-        "raw_0135"
+        "raw_0086"
       ],
       "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
+        "ID"
       ],
       "sources": [
         "autocomplete"
       ],
       "languages": [
-        "en"
+        "id"
       ],
       "coverage": {
-        "countries": 4,
+        "countries": 1,
         "sources": 1,
         "variants": 1,
-        "records": 4
+        "records": 1
       },
-      "frequencyIndicator": 0.452,
+      "frequencyIndicator": 0.347,
       "status": "canonical"
     },
     {
-      "id": "canon_0073",
-      "canonicalText": "Will North and South Korea reunify?",
-      "language": "en",
-      "variantTexts": [
-        "Will North and South Korea reunify?"
-      ],
-      "variantIds": [
-        "raw_0180",
-        "raw_0202",
-        "raw_0224",
-        "raw_0247"
-      ],
-      "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
-      ],
-      "sources": [
-        "paa"
-      ],
-      "languages": [
-        "en"
-      ],
-      "coverage": {
-        "countries": 4,
-        "sources": 1,
-        "variants": 1,
-        "records": 4
-      },
-      "frequencyIndicator": 0.452,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0077",
-      "canonicalText": "Why do people love K-pop?",
-      "language": "en",
-      "variantTexts": [
-        "Why do people love K-pop?"
-      ],
-      "variantIds": [
-        "raw_0186",
-        "raw_0208",
-        "raw_0231",
-        "raw_0253"
-      ],
-      "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
-      ],
-      "sources": [
-        "paa"
-      ],
-      "languages": [
-        "en"
-      ],
-      "coverage": {
-        "countries": 4,
-        "sources": 1,
-        "variants": 1,
-        "records": 4
-      },
-      "frequencyIndicator": 0.452,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0079",
-      "canonicalText": "Is Korean harder than Japanese?",
-      "language": "en",
-      "variantTexts": [
-        "Is Korean harder than Japanese?"
-      ],
-      "variantIds": [
-        "raw_0189",
-        "raw_0211",
-        "raw_0234",
-        "raw_0256"
-      ],
-      "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
-      ],
-      "sources": [
-        "paa"
-      ],
-      "languages": [
-        "en"
-      ],
-      "coverage": {
-        "countries": 4,
-        "sources": 1,
-        "variants": 1,
-        "records": 4
-      },
-      "frequencyIndicator": 0.452,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0009",
-      "canonicalText": "why do koreans work so much",
-      "language": "en",
-      "variantTexts": [
-        "why do koreans work so much"
-      ],
-      "variantIds": [
-        "raw_0009",
-        "raw_0044",
-        "raw_0081",
-        "raw_0118"
-      ],
-      "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "en"
-      ],
-      "coverage": {
-        "countries": 4,
-        "sources": 1,
-        "variants": 1,
-        "records": 4
-      },
-      "frequencyIndicator": 0.444,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0034",
-      "canonicalText": "why is korea so clean",
-      "language": "en",
-      "variantTexts": [
-        "why is korea so clean"
-      ],
-      "variantIds": [
-        "raw_0035",
-        "raw_0071",
-        "raw_0109",
-        "raw_0144"
-      ],
-      "countries": [
-        "IN",
-        "SG",
-        "UK",
-        "US"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "en"
-      ],
-      "coverage": {
-        "countries": 4,
-        "sources": 1,
-        "variants": 1,
-        "records": 4
-      },
-      "frequencyIndicator": 0.444,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0039",
+      "id": "canon_0052",
       "canonicalText": "韓国 なぜ 分断",
       "language": "ja",
       "variantTexts": [
         "韓国 なぜ 分断"
       ],
       "variantIds": [
-        "raw_0145"
+        "raw_0088"
       ],
       "countries": [
         "JP"
@@ -1725,146 +1421,6 @@
       ],
       "languages": [
         "ja"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.347,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0042",
-      "canonicalText": "韓国 文化 特徴",
-      "language": "ja",
-      "variantTexts": [
-        "韓国 文化 特徴"
-      ],
-      "variantIds": [
-        "raw_0148"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ja"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.347,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0044",
-      "canonicalText": "ケーポップ なぜ 人気",
-      "language": "ja",
-      "variantTexts": [
-        "ケーポップ なぜ 人気"
-      ],
-      "variantIds": [
-        "raw_0150"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ja"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.347,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0049",
-      "canonicalText": "cultura coreana fatos",
-      "language": "pt",
-      "variantTexts": [
-        "cultura coreana fatos"
-      ],
-      "variantIds": [
-        "raw_0155"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "pt"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.347,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0051",
-      "canonicalText": "comida coreana perto de mim",
-      "language": "pt",
-      "variantTexts": [
-        "comida coreana perto de mim"
-      ],
-      "variantIds": [
-        "raw_0157"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "pt"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.347,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0053",
-      "canonicalText": "لماذا كوريا مقسمة",
-      "language": "ar",
-      "variantTexts": [
-        "لماذا كوريا مقسمة"
-      ],
-      "variantIds": [
-        "raw_0159"
-      ],
-      "countries": [
-        "AE"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ar"
       ],
       "coverage": {
         "countries": 1,
@@ -1877,22 +1433,22 @@
     },
     {
       "id": "canon_0055",
-      "canonicalText": "الطعام الكوري صحي",
-      "language": "ar",
+      "canonicalText": "韓国 文化 特徴",
+      "language": "ja",
       "variantTexts": [
-        "الطعام الكوري صحي"
+        "韓国 文化 特徴"
       ],
       "variantIds": [
-        "raw_0161"
+        "raw_0091"
       ],
       "countries": [
-        "AE"
+        "JP"
       ],
       "sources": [
         "autocomplete"
       ],
       "languages": [
-        "ar"
+        "ja"
       ],
       "coverage": {
         "countries": 1,
@@ -1905,13 +1461,97 @@
     },
     {
       "id": "canon_0057",
-      "canonicalText": "لماذا كي بوب مشهور",
-      "language": "ar",
+      "canonicalText": "ケーポップ なぜ 人気",
+      "language": "ja",
       "variantTexts": [
-        "لماذا كي بوب مشهور"
+        "ケーポップ なぜ 人気"
       ],
       "variantIds": [
-        "raw_0163"
+        "raw_0093"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ja"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0062",
+      "canonicalText": "cultura coreana fatos",
+      "language": "pt",
+      "variantTexts": [
+        "cultura coreana fatos"
+      ],
+      "variantIds": [
+        "raw_0098"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "pt"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0064",
+      "canonicalText": "comida coreana perto de mim",
+      "language": "pt",
+      "variantTexts": [
+        "comida coreana perto de mim"
+      ],
+      "variantIds": [
+        "raw_0100"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "pt"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0066",
+      "canonicalText": "لماذا كوريا مقسمة",
+      "language": "ar",
+      "variantTexts": [
+        "لماذا كوريا مقسمة"
+      ],
+      "variantIds": [
+        "raw_0102"
       ],
       "countries": [
         "AE"
@@ -1932,107 +1572,23 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0059",
-      "canonicalText": "한국은 왜 분단되었나",
-      "language": "ko",
+      "id": "canon_0068",
+      "canonicalText": "الطعام الكوري صحي",
+      "language": "ar",
       "variantTexts": [
-        "한국은 왜 분단되었나"
+        "الطعام الكوري صحي"
       ],
       "variantIds": [
-        "raw_0165"
+        "raw_0104"
       ],
       "countries": [
-        "KR"
+        "AE"
       ],
       "sources": [
         "autocomplete"
       ],
       "languages": [
-        "ko"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.347,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0063",
-      "canonicalText": "한국인은 왜 나이를 따지나",
-      "language": "ko",
-      "variantTexts": [
-        "한국인은 왜 나이를 따지나"
-      ],
-      "variantIds": [
-        "raw_0169"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ko"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.347,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0065",
-      "canonicalText": "한국 음식 종류",
-      "language": "ko",
-      "variantTexts": [
-        "한국 음식 종류"
-      ],
-      "variantIds": [
-        "raw_0171"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ko"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.347,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0067",
-      "canonicalText": "케이팝 아이돌 되는 법",
-      "language": "ko",
-      "variantTexts": [
-        "케이팝 아이돌 되는 법"
-      ],
-      "variantIds": [
-        "raw_0173"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ko"
+        "ar"
       ],
       "coverage": {
         "countries": 1,
@@ -2045,13 +1601,41 @@
     },
     {
       "id": "canon_0070",
-      "canonicalText": "김치 종류",
-      "language": "ko",
+      "canonicalText": "لماذا كي بوب مشهور",
+      "language": "ar",
       "variantTexts": [
-        "김치 종류"
+        "لماذا كي بوب مشهور"
       ],
       "variantIds": [
-        "raw_0176"
+        "raw_0106"
+      ],
+      "countries": [
+        "AE"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ar"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0072",
+      "canonicalText": "한국은 왜 분단되었나",
+      "language": "ko",
+      "variantTexts": [
+        "한국은 왜 분단되었나"
+      ],
+      "variantIds": [
+        "raw_0108"
       ],
       "countries": [
         "KR"
@@ -2072,14 +1656,182 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0086",
+      "id": "canon_0076",
+      "canonicalText": "한국인은 왜 나이를 따지나",
+      "language": "ko",
+      "variantTexts": [
+        "한국인은 왜 나이를 따지나"
+      ],
+      "variantIds": [
+        "raw_0112"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0078",
+      "canonicalText": "한국 음식 종류",
+      "language": "ko",
+      "variantTexts": [
+        "한국 음식 종류"
+      ],
+      "variantIds": [
+        "raw_0114"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0080",
+      "canonicalText": "케이팝 아이돌 되는 법",
+      "language": "ko",
+      "variantTexts": [
+        "케이팝 아이돌 되는 법"
+      ],
+      "variantIds": [
+        "raw_0116"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0083",
+      "canonicalText": "김치 종류",
+      "language": "ko",
+      "variantTexts": [
+        "김치 종류"
+      ],
+      "variantIds": [
+        "raw_0119"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0099",
+      "canonicalText": "Was ist Kimchi?",
+      "language": "de",
+      "variantTexts": [
+        "Was ist Kimchi?"
+      ],
+      "variantIds": [
+        "raw_0145"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "de"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0102",
+      "canonicalText": "Apa itu kimchi?",
+      "language": "id",
+      "variantTexts": [
+        "Apa itu kimchi?"
+      ],
+      "variantIds": [
+        "raw_0171"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "id"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.347,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0103",
       "canonicalText": "韓国はなぜ分断されたのですか?",
       "language": "ja",
       "variantTexts": [
         "韓国はなぜ分断されたのですか?"
       ],
       "variantIds": [
-        "raw_0267"
+        "raw_0172"
       ],
       "countries": [
         "JP"
@@ -2100,14 +1852,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0088",
+      "id": "canon_0105",
       "canonicalText": "キムチとは何ですか?",
       "language": "ja",
       "variantTexts": [
         "キムチとは何ですか?"
       ],
       "variantIds": [
-        "raw_0269"
+        "raw_0174"
       ],
       "countries": [
         "JP"
@@ -2128,14 +1880,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0090",
+      "id": "canon_0107",
       "canonicalText": "O que é kimchi?",
       "language": "pt",
       "variantTexts": [
         "O que é kimchi?"
       ],
       "variantIds": [
-        "raw_0272"
+        "raw_0177"
       ],
       "countries": [
         "BR"
@@ -2156,14 +1908,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0091",
+      "id": "canon_0108",
       "canonicalText": "لماذا كوريا مقسمة؟",
       "language": "ar",
       "variantTexts": [
         "لماذا كوريا مقسمة؟"
       ],
       "variantIds": [
-        "raw_0273"
+        "raw_0178"
       ],
       "countries": [
         "AE"
@@ -2184,14 +1936,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0093",
+      "id": "canon_0110",
       "canonicalText": "한국은 왜 분단되었나요?",
       "language": "ko",
       "variantTexts": [
         "한국은 왜 분단되었나요?"
       ],
       "variantIds": [
-        "raw_0275"
+        "raw_0180"
       ],
       "countries": [
         "KR"
@@ -2212,14 +1964,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0095",
+      "id": "canon_0112",
       "canonicalText": "케이팝은 왜 인기가 많나요?",
       "language": "ko",
       "variantTexts": [
         "케이팝은 왜 인기가 많나요?"
       ],
       "variantIds": [
-        "raw_0277"
+        "raw_0182"
       ],
       "countries": [
         "KR"
@@ -2240,14 +1992,284 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0060",
+      "id": "canon_0013",
+      "canonicalText": "is korea safe to live",
+      "language": "en",
+      "variantTexts": [
+        "is korea safe to live"
+      ],
+      "variantIds": [
+        "raw_0013",
+        "raw_0056"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.344,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0005",
+      "canonicalText": "why is korea so developed",
+      "language": "en",
+      "variantTexts": [
+        "why is korea so developed"
+      ],
+      "variantIds": [
+        "raw_0005",
+        "raw_0047"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.337,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0016",
+      "canonicalText": "is korean hard for english speakers",
+      "language": "en",
+      "variantTexts": [
+        "is korean hard for english speakers"
+      ],
+      "variantIds": [
+        "raw_0016",
+        "raw_0060"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.337,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0026",
+      "canonicalText": "why learn korean language",
+      "language": "en",
+      "variantTexts": [
+        "why learn korean language"
+      ],
+      "variantIds": [
+        "raw_0026",
+        "raw_0070"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.337,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0086",
+      "canonicalText": "Will North and South Korea reunify?",
+      "language": "en",
+      "variantTexts": [
+        "Will North and South Korea reunify?"
+      ],
+      "variantIds": [
+        "raw_0123",
+        "raw_0148"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.337,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0090",
+      "canonicalText": "Why do people love K-pop?",
+      "language": "en",
+      "variantTexts": [
+        "Why do people love K-pop?"
+      ],
+      "variantIds": [
+        "raw_0129",
+        "raw_0155"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.337,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0092",
+      "canonicalText": "Is Korean harder than Japanese?",
+      "language": "en",
+      "variantTexts": [
+        "Is Korean harder than Japanese?"
+      ],
+      "variantIds": [
+        "raw_0132",
+        "raw_0158"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.337,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0009",
+      "canonicalText": "why do koreans work so much",
+      "language": "en",
+      "variantTexts": [
+        "why do koreans work so much"
+      ],
+      "variantIds": [
+        "raw_0009",
+        "raw_0052"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.329,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0034",
+      "canonicalText": "why is korea so clean",
+      "language": "en",
+      "variantTexts": [
+        "why is korea so clean"
+      ],
+      "variantIds": [
+        "raw_0035",
+        "raw_0080"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "en"
+      ],
+      "coverage": {
+        "countries": 2,
+        "sources": 1,
+        "variants": 1,
+        "records": 2
+      },
+      "frequencyIndicator": 0.329,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0073",
       "canonicalText": "한국은 왜 저출산",
       "language": "ko",
       "variantTexts": [
         "한국은 왜 저출산"
       ],
       "variantIds": [
-        "raw_0166"
+        "raw_0109"
       ],
       "countries": [
         "KR"
@@ -2268,14 +2290,70 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0040",
+      "id": "canon_0036",
+      "canonicalText": "warum ist korea so beliebt",
+      "language": "de",
+      "variantTexts": [
+        "warum ist korea so beliebt"
+      ],
+      "variantIds": [
+        "raw_0037"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "de"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.314,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0046",
+      "canonicalText": "kenapa korea maju",
+      "language": "id",
+      "variantTexts": [
+        "kenapa korea maju"
+      ],
+      "variantIds": [
+        "raw_0082"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "id"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.314,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0053",
       "canonicalText": "韓国 なぜ 人気",
       "language": "ja",
       "variantTexts": [
         "韓国 なぜ 人気"
       ],
       "variantIds": [
-        "raw_0146"
+        "raw_0089"
       ],
       "countries": [
         "JP"
@@ -2296,14 +2374,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0047",
+      "id": "canon_0060",
       "canonicalText": "por que a coreia é tão avançada",
       "language": "pt",
       "variantTexts": [
         "por que a coreia é tão avançada"
       ],
       "variantIds": [
-        "raw_0153"
+        "raw_0096"
       ],
       "countries": [
         "BR"
@@ -2324,14 +2402,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0068",
+      "id": "canon_0081",
       "canonicalText": "케이팝 오디션",
       "language": "ko",
       "variantTexts": [
         "케이팝 오디션"
       ],
       "variantIds": [
-        "raw_0174"
+        "raw_0117"
       ],
       "countries": [
         "KR"
@@ -2352,443 +2430,23 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0043",
-      "canonicalText": "韓国 文化 日本 違い",
-      "language": "ja",
+      "id": "canon_0039",
+      "canonicalText": "koreanische kultur vs japanische",
+      "language": "de",
       "variantTexts": [
-        "韓国 文化 日本 違い"
+        "koreanische kultur vs japanische"
       ],
       "variantIds": [
-        "raw_0149"
+        "raw_0040"
       ],
       "countries": [
-        "JP"
+        "DE"
       ],
       "sources": [
         "autocomplete"
       ],
       "languages": [
-        "ja"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0045",
-      "canonicalText": "ケーポップ アイドル 練習生",
-      "language": "ja",
-      "variantTexts": [
-        "ケーポップ アイドル 練習生"
-      ],
-      "variantIds": [
-        "raw_0151"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ja"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0050",
-      "canonicalText": "cultura coreana e japonesa",
-      "language": "pt",
-      "variantTexts": [
-        "cultura coreana e japonesa"
-      ],
-      "variantIds": [
-        "raw_0156"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "pt"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0052",
-      "canonicalText": "comida coreana é saudável",
-      "language": "pt",
-      "variantTexts": [
-        "comida coreana é saudável"
-      ],
-      "variantIds": [
-        "raw_0158"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "pt"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0054",
-      "canonicalText": "لماذا كوريا متقدمة",
-      "language": "ar",
-      "variantTexts": [
-        "لماذا كوريا متقدمة"
-      ],
-      "variantIds": [
-        "raw_0160"
-      ],
-      "countries": [
-        "AE"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ar"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0056",
-      "canonicalText": "أشهر طعام كوري",
-      "language": "ar",
-      "variantTexts": [
-        "أشهر طعام كوري"
-      ],
-      "variantIds": [
-        "raw_0162"
-      ],
-      "countries": [
-        "AE"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ar"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0058",
-      "canonicalText": "كيف تصبح نجم كي بوب",
-      "language": "ar",
-      "variantTexts": [
-        "كيف تصبح نجم كي بوب"
-      ],
-      "variantIds": [
-        "raw_0164"
-      ],
-      "countries": [
-        "AE"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ar"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0061",
-      "canonicalText": "한국은 왜 인터넷이 빠른가",
-      "language": "ko",
-      "variantTexts": [
-        "한국은 왜 인터넷이 빠른가"
-      ],
-      "variantIds": [
-        "raw_0167"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ko"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0064",
-      "canonicalText": "한국인은 왜 김치를 먹나",
-      "language": "ko",
-      "variantTexts": [
-        "한국인은 왜 김치를 먹나"
-      ],
-      "variantIds": [
-        "raw_0170"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ko"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0066",
-      "canonicalText": "한국 음식 매운 이유",
-      "language": "ko",
-      "variantTexts": [
-        "한국 음식 매운 이유"
-      ],
-      "variantIds": [
-        "raw_0172"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ko"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0071",
-      "canonicalText": "김치 효능",
-      "language": "ko",
-      "variantTexts": [
-        "김치 효능"
-      ],
-      "variantIds": [
-        "raw_0177"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "ko"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0087",
-      "canonicalText": "南北統一は実現しますか?",
-      "language": "ja",
-      "variantTexts": [
-        "南北統一は実現しますか?"
-      ],
-      "variantIds": [
-        "raw_0268"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "sources": [
-        "paa"
-      ],
-      "languages": [
-        "ja"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0089",
-      "canonicalText": "Quando a Coreia se dividiu?",
-      "language": "pt",
-      "variantTexts": [
-        "Quando a Coreia se dividiu?"
-      ],
-      "variantIds": [
-        "raw_0271"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "sources": [
-        "paa"
-      ],
-      "languages": [
-        "pt"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0092",
-      "canonicalText": "متى انقسمت كوريا؟",
-      "language": "ar",
-      "variantTexts": [
-        "متى انقسمت كوريا؟"
-      ],
-      "variantIds": [
-        "raw_0274"
-      ],
-      "countries": [
-        "AE"
-      ],
-      "sources": [
-        "paa"
-      ],
-      "languages": [
-        "ar"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0094",
-      "canonicalText": "남북한은 언제 분단되었나요?",
-      "language": "ko",
-      "variantTexts": [
-        "남북한은 언제 분단되었나요?"
-      ],
-      "variantIds": [
-        "raw_0276"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "paa"
-      ],
-      "languages": [
-        "ko"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.297,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0096",
-      "canonicalText": "케이팝의 인기 비결은?",
-      "language": "ko",
-      "variantTexts": [
-        "케이팝의 인기 비결은?"
-      ],
-      "variantIds": [
-        "raw_0278"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "sources": [
-        "paa"
-      ],
-      "languages": [
-        "ko"
+        "de"
       ],
       "coverage": {
         "countries": 1,
@@ -2801,13 +2459,657 @@
     },
     {
       "id": "canon_0041",
+      "canonicalText": "ist koreanisches essen gesund",
+      "language": "de",
+      "variantTexts": [
+        "ist koreanisches essen gesund"
+      ],
+      "variantIds": [
+        "raw_0042"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "de"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0049",
+      "canonicalText": "budaya korea vs jepang",
+      "language": "id",
+      "variantTexts": [
+        "budaya korea vs jepang"
+      ],
+      "variantIds": [
+        "raw_0085"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "id"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0051",
+      "canonicalText": "makanan korea pedas",
+      "language": "id",
+      "variantTexts": [
+        "makanan korea pedas"
+      ],
+      "variantIds": [
+        "raw_0087"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "id"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0056",
+      "canonicalText": "韓国 文化 日本 違い",
+      "language": "ja",
+      "variantTexts": [
+        "韓国 文化 日本 違い"
+      ],
+      "variantIds": [
+        "raw_0092"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ja"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0058",
+      "canonicalText": "ケーポップ アイドル 練習生",
+      "language": "ja",
+      "variantTexts": [
+        "ケーポップ アイドル 練習生"
+      ],
+      "variantIds": [
+        "raw_0094"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ja"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0063",
+      "canonicalText": "cultura coreana e japonesa",
+      "language": "pt",
+      "variantTexts": [
+        "cultura coreana e japonesa"
+      ],
+      "variantIds": [
+        "raw_0099"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "pt"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0065",
+      "canonicalText": "comida coreana é saudável",
+      "language": "pt",
+      "variantTexts": [
+        "comida coreana é saudável"
+      ],
+      "variantIds": [
+        "raw_0101"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "pt"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0067",
+      "canonicalText": "لماذا كوريا متقدمة",
+      "language": "ar",
+      "variantTexts": [
+        "لماذا كوريا متقدمة"
+      ],
+      "variantIds": [
+        "raw_0103"
+      ],
+      "countries": [
+        "AE"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ar"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0069",
+      "canonicalText": "أشهر طعام كوري",
+      "language": "ar",
+      "variantTexts": [
+        "أشهر طعام كوري"
+      ],
+      "variantIds": [
+        "raw_0105"
+      ],
+      "countries": [
+        "AE"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ar"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0071",
+      "canonicalText": "كيف تصبح نجم كي بوب",
+      "language": "ar",
+      "variantTexts": [
+        "كيف تصبح نجم كي بوب"
+      ],
+      "variantIds": [
+        "raw_0107"
+      ],
+      "countries": [
+        "AE"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ar"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0074",
+      "canonicalText": "한국은 왜 인터넷이 빠른가",
+      "language": "ko",
+      "variantTexts": [
+        "한국은 왜 인터넷이 빠른가"
+      ],
+      "variantIds": [
+        "raw_0110"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0077",
+      "canonicalText": "한국인은 왜 김치를 먹나",
+      "language": "ko",
+      "variantTexts": [
+        "한국인은 왜 김치를 먹나"
+      ],
+      "variantIds": [
+        "raw_0113"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0079",
+      "canonicalText": "한국 음식 매운 이유",
+      "language": "ko",
+      "variantTexts": [
+        "한국 음식 매운 이유"
+      ],
+      "variantIds": [
+        "raw_0115"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0084",
+      "canonicalText": "김치 효능",
+      "language": "ko",
+      "variantTexts": [
+        "김치 효능"
+      ],
+      "variantIds": [
+        "raw_0120"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0098",
+      "canonicalText": "Wann wurde Korea geteilt?",
+      "language": "de",
+      "variantTexts": [
+        "Wann wurde Korea geteilt?"
+      ],
+      "variantIds": [
+        "raw_0144"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "de"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0101",
+      "canonicalText": "Kapan Korea terpisah?",
+      "language": "id",
+      "variantTexts": [
+        "Kapan Korea terpisah?"
+      ],
+      "variantIds": [
+        "raw_0170"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "id"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0104",
+      "canonicalText": "南北統一は実現しますか?",
+      "language": "ja",
+      "variantTexts": [
+        "南北統一は実現しますか?"
+      ],
+      "variantIds": [
+        "raw_0173"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "ja"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0106",
+      "canonicalText": "Quando a Coreia se dividiu?",
+      "language": "pt",
+      "variantTexts": [
+        "Quando a Coreia se dividiu?"
+      ],
+      "variantIds": [
+        "raw_0176"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "pt"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0109",
+      "canonicalText": "متى انقسمت كوريا؟",
+      "language": "ar",
+      "variantTexts": [
+        "متى انقسمت كوريا؟"
+      ],
+      "variantIds": [
+        "raw_0179"
+      ],
+      "countries": [
+        "AE"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "ar"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0111",
+      "canonicalText": "남북한은 언제 분단되었나요?",
+      "language": "ko",
+      "variantTexts": [
+        "남북한은 언제 분단되었나요?"
+      ],
+      "variantIds": [
+        "raw_0181"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0113",
+      "canonicalText": "케이팝의 인기 비결은?",
+      "language": "ko",
+      "variantTexts": [
+        "케이팝의 인기 비결은?"
+      ],
+      "variantIds": [
+        "raw_0183"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "sources": [
+        "paa"
+      ],
+      "languages": [
+        "ko"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.297,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0037",
+      "canonicalText": "warum ist korea so teuer",
+      "language": "de",
+      "variantTexts": [
+        "warum ist korea so teuer"
+      ],
+      "variantIds": [
+        "raw_0038"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "de"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.28,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0047",
+      "canonicalText": "kenapa angka kelahiran korea rendah",
+      "language": "id",
+      "variantTexts": [
+        "kenapa angka kelahiran korea rendah"
+      ],
+      "variantIds": [
+        "raw_0083"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "sources": [
+        "autocomplete"
+      ],
+      "languages": [
+        "id"
+      ],
+      "coverage": {
+        "countries": 1,
+        "sources": 1,
+        "variants": 1,
+        "records": 1
+      },
+      "frequencyIndicator": 0.28,
+      "status": "canonical"
+    },
+    {
+      "id": "canon_0054",
       "canonicalText": "韓国 なぜ 少子化",
       "language": "ja",
       "variantTexts": [
         "韓国 なぜ 少子化"
       ],
       "variantIds": [
-        "raw_0147"
+        "raw_0090"
       ],
       "countries": [
         "JP"
@@ -2828,14 +3130,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0048",
+      "id": "canon_0061",
       "canonicalText": "por que a coreia tem natalidade baixa",
       "language": "pt",
       "variantTexts": [
         "por que a coreia tem natalidade baixa"
       ],
       "variantIds": [
-        "raw_0154"
+        "raw_0097"
       ],
       "countries": [
         "BR"
@@ -2856,14 +3158,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0069",
+      "id": "canon_0082",
       "canonicalText": "케이팝 인기 이유",
       "language": "ko",
       "variantTexts": [
         "케이팝 인기 이유"
       ],
       "variantIds": [
-        "raw_0175"
+        "raw_0118"
       ],
       "countries": [
         "KR"
@@ -2884,14 +3186,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0038",
+      "id": "canon_0044",
       "canonicalText": "why is k-pop popular in india",
       "language": "en",
       "variantTexts": [
         "why is k-pop popular in india"
       ],
       "variantIds": [
-        "raw_0103"
+        "raw_0074"
       ],
       "countries": [
         "IN"
@@ -2912,14 +3214,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0062",
+      "id": "canon_0075",
       "canonicalText": "한국은 왜 성형수술이 많나",
       "language": "ko",
       "variantTexts": [
         "한국은 왜 성형수술이 많나"
       ],
       "variantIds": [
-        "raw_0168"
+        "raw_0111"
       ],
       "countries": [
         "KR"
@@ -2940,14 +3242,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0085",
+      "id": "canon_0100",
       "canonicalText": "Is South Korea safe for Indian travelers?",
       "language": "en",
       "variantTexts": [
         "Is South Korea safe for Indian travelers?"
       ],
       "variantIds": [
-        "raw_0228"
+        "raw_0152"
       ],
       "countries": [
         "IN"
@@ -2968,42 +3270,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0035",
-      "canonicalText": "korean food london",
-      "language": "en",
-      "variantTexts": [
-        "korean food london"
-      ],
-      "variantIds": [
-        "raw_0056"
-      ],
-      "countries": [
-        "UK"
-      ],
-      "sources": [
-        "autocomplete"
-      ],
-      "languages": [
-        "en"
-      ],
-      "coverage": {
-        "countries": 1,
-        "sources": 1,
-        "variants": 1,
-        "records": 1
-      },
-      "frequencyIndicator": 0.267,
-      "status": "canonical"
-    },
-    {
-      "id": "canon_0037",
+      "id": "canon_0043",
       "canonicalText": "is korea safe for indian tourists",
       "language": "en",
       "variantTexts": [
         "is korea safe for indian tourists"
       ],
       "variantIds": [
-        "raw_0086"
+        "raw_0057"
       ],
       "countries": [
         "IN"
@@ -3024,14 +3298,14 @@
       "status": "canonical"
     },
     {
-      "id": "canon_0036",
+      "id": "canon_0042",
       "canonicalText": "why is korea popular in india",
       "language": "en",
       "variantTexts": [
         "why is korea popular in india"
       ],
       "variantIds": [
-        "raw_0077"
+        "raw_0048"
       ],
       "countries": [
         "IN"

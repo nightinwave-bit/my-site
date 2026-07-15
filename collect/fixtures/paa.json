@@ -99,6 +99,28 @@
         { "q": "لماذا كوريا مقسمة؟", "url": "https://example.org/ar-divided" },
         { "q": "متى انقسمت كوريا؟", "url": "https://example.org/ar-split" }
       ]
+    },
+    "warum ist korea geteilt": {
+      "base": [
+        { "q": "Warum ist Korea geteilt?", "url": "https://example.org/de-divided" },
+        { "q": "Wann wurde Korea geteilt?", "url": "https://example.org/de-split" }
+      ]
+    },
+    "was ist kimchi": {
+      "base": [
+        { "q": "Was ist Kimchi?", "url": "https://example.org/de-kimchi" }
+      ]
+    },
+    "kenapa korea terbagi dua": {
+      "base": [
+        { "q": "Kenapa Korea terbagi dua?", "url": "https://example.org/id-divided" },
+        { "q": "Kapan Korea terpisah?", "url": "https://example.org/id-split" }
+      ]
+    },
+    "apa itu kimchi": {
+      "base": [
+        { "q": "Apa itu kimchi?", "url": "https://example.org/id-kimchi" }
+      ]
     }
   }
 }

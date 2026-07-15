@@ -3,15 +3,19 @@
 // The country signal is the question surface served to each locale — not
 // per-person geodata (see docs/MVP-COLLECTION-SYSTEM.md §2).
 
+// Region-representative MVP set: one information-active market per region,
+// East Asia doubled (JP + KR) given the subject. Chosen for global information-
+// environment representation over language balancing — see
+// docs/STAGE-500-COLLECTION-PLAN.md §"Representative region set".
 export const LOCALES = [
-  { region: "US", gl: "us", hl: "en", language: "en" },
-  { region: "UK", gl: "gb", hl: "en", language: "en" },
-  { region: "IN", gl: "in", hl: "en", language: "en" },
-  { region: "SG", gl: "sg", hl: "en", language: "en" },
-  { region: "JP", gl: "jp", hl: "ja", language: "ja" },
-  { region: "BR", gl: "br", hl: "pt", language: "pt" },
-  { region: "AE", gl: "ae", hl: "ar", language: "ar" },
-  { region: "KR", gl: "kr", hl: "ko", language: "ko" },
+  { region: "US", gl: "us", hl: "en", language: "en" }, // North America
+  { region: "DE", gl: "de", hl: "de", language: "de" }, // Europe (continental)
+  { region: "IN", gl: "in", hl: "en", language: "en" }, // South Asia
+  { region: "ID", gl: "id", hl: "id", language: "id" }, // Southeast Asia
+  { region: "JP", gl: "jp", hl: "ja", language: "ja" }, // East Asia
+  { region: "BR", gl: "br", hl: "pt", language: "pt" }, // Latin America
+  { region: "AE", gl: "ae", hl: "ar", language: "ar" }, // Middle East
+  { region: "KR", gl: "kr", hl: "ko", language: "ko" }, // East Asia (domestic baseline)
 ];
 
 export const SETTINGS = {
@@ -97,8 +101,36 @@ const SEEDS_AR = [
   s("كوريا مقابل اليابان", "c"), s("العناية بالبشرة الكورية", "t"),
 ];
 
+const SEEDS_DE = [
+  s("warum ist korea", "q"), s("warum sind koreaner", "q"),
+  s("was ist korea", "q"), s("wie ist korea", "q"),
+  s("ist korea sicher", "q"), s("ist koreanisch schwer", "q"),
+  s("warum ist k-pop so beliebt", "q"),
+  s("koreanische kultur", "t"), s("koreanisches essen", "t"),
+  s("koreanische sprache", "t"), s("koreanische geschichte", "t"),
+  s("koreanisches drama", "t"), s("nordkorea", "t"), s("südkorea", "t"),
+  s("seoul", "t"), s("samsung", "t"), s("kimchi", "t"), s("hanbok", "t"),
+  s("koreanische schönheit", "t"),
+  s("koreaner sind", "a"), s("warum ist korea so", "a"),
+  s("korea vs japan", "c"),
+];
+
+const SEEDS_ID = [
+  s("kenapa korea", "q"), s("kenapa orang korea", "q"),
+  s("apa itu korea", "q"), s("bagaimana korea", "q"),
+  s("apakah korea aman", "q"), s("apakah bahasa korea sulit", "q"),
+  s("kenapa k-pop populer", "q"),
+  s("budaya korea", "t"), s("makanan korea", "t"), s("bahasa korea", "t"),
+  s("sejarah korea", "t"), s("drama korea", "t"), s("korea utara", "t"),
+  s("korea selatan", "t"), s("seoul", "t"), s("samsung", "t"),
+  s("kimchi", "t"), s("hanbok", "t"), s("kecantikan korea", "t"),
+  s("skincare korea", "t"),
+  s("orang korea", "a"), s("korea vs jepang", "c"),
+];
+
 const SEEDS_BY_LANG = {
-  en: SEEDS_EN, ko: SEEDS_KO, ja: SEEDS_JA, pt: SEEDS_PT, ar: SEEDS_AR,
+  en: SEEDS_EN, de: SEEDS_DE, id: SEEDS_ID,
+  ko: SEEDS_KO, ja: SEEDS_JA, pt: SEEDS_PT, ar: SEEDS_AR,
 };
 
 // ── PAA seeds (full queries whose related_questions we read) ────────────────
@@ -145,8 +177,26 @@ const PAA_AR = [
   s("لماذا كوريا الشمالية معزولة", "q"), s("هل السفر إلى كوريا آمن", "p"),
 ];
 
+const PAA_DE = [
+  s("warum ist korea geteilt", "q"), s("ist korea sicher", "q"),
+  s("warum ist k-pop so beliebt", "q"), s("ist koreanisch schwer zu lernen", "q"),
+  s("was ist kimchi", "t"), s("koreanisches essen", "t"),
+  s("warum ist die geburtenrate in korea so niedrig", "q"),
+  s("was ist hanbok", "t"), s("warum ist nordkorea so isoliert", "q"),
+  s("was ist hallyu", "t"),
+];
+
+const PAA_ID = [
+  s("kenapa korea terbagi dua", "q"), s("apakah korea aman", "q"),
+  s("kenapa k-pop populer", "q"), s("apakah bahasa korea sulit", "q"),
+  s("apa itu kimchi", "t"), s("makanan korea", "t"),
+  s("kenapa angka kelahiran korea rendah", "q"), s("apa itu hanbok", "t"),
+  s("kenapa korea utara terisolasi", "q"), s("apa itu hallyu", "t"),
+];
+
 const PAA_BY_LANG = {
-  en: PAA_EN, ko: PAA_KO, ja: PAA_JA, pt: PAA_PT, ar: PAA_AR,
+  en: PAA_EN, de: PAA_DE, id: PAA_ID,
+  ko: PAA_KO, ja: PAA_JA, pt: PAA_PT, ar: PAA_AR,
 };
 
 export function seedsForLocale(locale, kind = "autocomplete") {
