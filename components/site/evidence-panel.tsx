@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { X, ArrowRight, Info } from "lucide-react";
+import { X, ArrowRight, ArrowUpRight, Info } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import {
   type OntologyNode,
@@ -107,6 +108,26 @@ export function EvidencePanel({
               <p className="text-[15px] leading-relaxed text-secondary">
                 {node.blurb[locale]}
               </p>
+
+              {/* bridge into the Research reading (rung by node type) */}
+              {(node.type === "perception" || node.type === "narrative") && (
+                <Link
+                  href="/research/diplomacy-brief"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-opacity hover:opacity-80"
+                >
+                  {t("evidence.research.perception")}
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              )}
+              {node.type === "concept" && (
+                <Link
+                  href="/research/data-report"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-opacity hover:opacity-80"
+                >
+                  {t("evidence.research.concept")}
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              )}
 
               <div className="mt-7">
                 <div className="text-sm font-semibold text-navy">

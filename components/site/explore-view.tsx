@@ -119,6 +119,22 @@ export function ExploreView() {
             </div>
           </div>
         </section>
+
+        {/* bridge → Research */}
+        <section className="border-b border-border bg-tint">
+          <div className="container flex flex-col items-start justify-between gap-5 py-14 sm:flex-row sm:items-center">
+            <p className="max-w-2xl text-balance text-xl font-semibold leading-snug text-navy sm:text-2xl">
+              {t("research.explore.cta.title")}
+            </p>
+            <Link
+              href="/research"
+              className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
+            >
+              {t("research.explore.cta.link")}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

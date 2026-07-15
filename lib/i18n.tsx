@@ -12,7 +12,39 @@ export const dict: Dict = {
   "nav.brand": { ko: "Ask About Korea", en: "Ask About Korea" },
   "nav.pathways": { ko: "질문 경로", en: "Pathways" },
   "nav.explore": { ko: "전체 지도", en: "Explore" },
+  "nav.research": { ko: "리서치", en: "Research" },
   "nav.method": { ko: "방법론", en: "Method" },
+
+  // Research section — structural chrome (content prose lives in components)
+  "research.eyebrow": { ko: "리서치", en: "Research" },
+  "research.title": {
+    ko: "1,540개의 질문이 말하는 것",
+    en: "What 1,540 questions reveal",
+  },
+  "research.lede": {
+    ko: "세계가 한국에 대해 던진 실제 질문을 네 단계로 읽습니다 — 서술에서 해석으로, 제도로, 그리고 생태계로. 각 페이지는 아래 단계 위에 세워집니다.",
+    en: "One dataset read across four rungs — from description to interpretation to institutions to ecosystem. Each page builds on the rung below it.",
+  },
+  "research.ladder": { ko: "네 단계", en: "The four rungs" },
+  "research.read": { ko: "읽기", en: "Read" },
+  "research.rung": { ko: "단계", en: "Rung" },
+  "research.audience": { ko: "대상", en: "For" },
+  "research.crumb": { ko: "리서치", en: "Research" },
+  "research.prev": { ko: "이전 단계", en: "Previous rung" },
+  "research.next": { ko: "다음 단계", en: "Next rung" },
+  "research.map": { ko: "인터랙티브 지도 열기", en: "Open the interactive map" },
+  "research.method": { ko: "수집 방법과 한계", en: "Method & limits" },
+  "research.byline": {
+    ko: "1,540개 정규화 질문 · 8개 시장 · 7개 언어 · Google 자동완성",
+    en: "1,540 canonical questions · 8 markets · 7 languages · Google Autocomplete",
+  },
+  "research.explore.cta.title": {
+    ko: "질문들이 어떻게 연결되는지 보셨습니다. 이제 그것이 무엇을 의미하는지 읽어보세요.",
+    en: "You've seen how the questions connect. Now read what it means.",
+  },
+  "research.explore.cta.link": { ko: "리서치 읽기", en: "Read the Research" },
+  "evidence.research.perception": { ko: "해석 읽기", en: "Read the interpretation" },
+  "evidence.research.concept": { ko: "관련 발견 보기", en: "See the finding" },
   "nav.sources": { ko: "데이터 출처", en: "Sources" },
 
   "hero.eyebrow": {
