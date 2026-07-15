@@ -1,0 +1,481 @@
+// Phase 0 — bilingual label authoring for the production ontology.
+// ------------------------------------------------------------------
+// Authors Korean + English label / short-label / blurb for EVERY node in the
+// generated ontology (18 concepts, 6 themes, 5 narratives, 5 perceptions) plus
+// one real flagship question per concept (18). Merges in the real counts /
+// salience / top-market from ontology_layer.json, and FAILS LOUDLY if any node
+// in the layer lacks an authored label — so the ontology is never silently
+// simplified.
+//
+// Content-authoring only. Emits output/ontology/ontology_labels.json. Does not
+// touch the website.
+//
+// Usage: node labels.mjs
+
+import { readFileSync, writeFileSync } from "node:fs";
+
+const LAYER = JSON.parse(
+  readFileSync("./output/ontology/ontology_layer.json", "utf8")
+);
+const OUT = "./output/ontology/ontology_labels.json";
+
+// ── Concepts (18) ──────────────────────────────────────────────────────────
+const CONCEPTS = {
+  c_division: {
+    short: { ko: "분단과 두 한국", en: "Division & Two Koreas" },
+    label: { ko: "남북 분단과 두 개의 한국", en: "North–South Division & the Two Koreas" },
+    blurb: {
+      ko: "한반도가 왜 갈라졌는지, 그 분단을 굳힌 전쟁, 그리고 남과 북을 견주려는 질문들.",
+      en: "Why the peninsula split, the war that fixed it, and how North and South compare.",
+    },
+  },
+  c_language: {
+    short: { ko: "언어와 난이도", en: "Language & Difficulty" },
+    label: { ko: "한국어와 그 난이도", en: "The Korean Language & Its Difficulty" },
+    blurb: {
+      ko: "한국어가 얼마나 어려운지, 어떻게 시작하는지, 일본어와 어떻게 다른지에 대한 질문들.",
+      en: "How hard Korean is to learn, how to start, and how it stacks up against Japanese.",
+    },
+  },
+  c_people: {
+    short: { ko: "사람과 특성", en: "People & Character" },
+    label: { ko: "한국인과 국민성", en: "Korean People & National Character" },
+    blurb: {
+      ko: "외모, 습관, 이름 등 외국인이 눈여겨보는 한국인의 특징에 대한 질문들.",
+      en: "What Koreans are like — appearance, habits, names, and the traits foreigners notice.",
+    },
+  },
+  c_food: {
+    short: { ko: "음식", en: "Cuisine" },
+    label: { ko: "한국 음식", en: "Korean Cuisine" },
+    blurb: {
+      ko: "김치, 고기구이, 조리법, 그리고 한국 음식이 건강에 좋은지에 대한 질문들.",
+      en: "Kimchi, barbecue, recipes, and whether Korean food is healthy.",
+    },
+  },
+  c_culture: {
+    short: { ko: "문화와 유산", en: "Culture & Heritage" },
+    label: { ko: "문화·전통·유산", en: "Culture, Tradition & Heritage" },
+    blurb: {
+      ko: "한복, 명절, 한류, 그리고 살아 있는 전통에 대한 질문들.",
+      en: "Hanbok, festivals, the Korean Wave, and living tradition.",
+    },
+  },
+  c_travel: {
+    short: { ko: "여행과 안전", en: "Travel & Safety" },
+    label: { ko: "여행과 안전", en: "Travel & Safety" },
+    blurb: {
+      ko: "한국 여행이 안전한지, 비자, 항공, 이동 등 실제 방문에 대한 질문들.",
+      en: "Whether Korea is safe to visit, plus visas, flights, and getting around.",
+    },
+  },
+  c_beauty: {
+    short: { ko: "K-뷰티", en: "K-Beauty" },
+    label: { ko: "K-뷰티·스킨케어·패션", en: "K-Beauty, Skincare & Fashion" },
+    blurb: {
+      ko: "한국 스킨케어, 미의 기준, 화장품, 패션에 대한 질문들.",
+      en: "Korean skincare, beauty standards, cosmetics, and fashion.",
+    },
+  },
+  c_drama: {
+    short: { ko: "K-드라마", en: "K-Drama" },
+    label: { ko: "K-드라마와 영상 콘텐츠", en: "K-Drama & Screen Stories" },
+    blurb: {
+      ko: "한국 드라마와 영화, 그리고 <케이팝 데몬 헌터스> 같은 화제작에 대한 질문들.",
+      en: "Korean dramas, films, and breakout hits like KPop Demon Hunters.",
+    },
+  },
+  c_compare: {
+    short: { ko: "일본·중국 비교", en: "Japan/China Compare" },
+    label: { ko: "지역 비교 (일본·중국)", en: "Regional Comparison (Japan / China)" },
+    blurb: {
+      ko: "문화와 위상 전반에서 이웃 나라 일본·중국과 한국을 견주는 질문들.",
+      en: "Korea set against its neighbours — Japan and China — across culture and rank.",
+    },
+  },
+  c_tech: {
+    short: { ko: "기술과 브랜드", en: "Tech & Brands" },
+    label: { ko: "기술과 브랜드", en: "Technology & Brands" },
+    blurb: {
+      ko: "삼성, 현대, 반도체, 그리고 빠른 인터넷 등 한국의 기술에 대한 질문들.",
+      en: "Samsung, Hyundai, semiconductors, and Korea's fast connectivity.",
+    },
+  },
+  c_place: {
+    short: { ko: "장소와 기후", en: "Places & Climate" },
+    label: { ko: "서울·지역·기후", en: "Seoul, Places & Climate" },
+    blurb: {
+      ko: "서울과 여러 지역, 날씨, 그리고 실제 방문이 어떤지에 대한 질문들.",
+      en: "Seoul and other places, the weather, and what a visit is really like.",
+    },
+  },
+  c_economy: {
+    short: { ko: "경제와 물가", en: "Economy & Cost" },
+    label: { ko: "경제·화폐·물가", en: "Economy, Money & Cost" },
+    blurb: {
+      ko: "한국의 물가, 원화, 임금, 그리고 발전 수준에 대한 질문들.",
+      en: "How expensive Korea is, the won, wages, and its development level.",
+    },
+  },
+  c_history: {
+    short: { ko: "역사", en: "History" },
+    label: { ko: "역사", en: "History" },
+    blurb: {
+      ko: "국호의 유래, 왕조, 나라의 형성 등 한국의 역사에 대한 질문들.",
+      en: "Korea's past — its name, dynasties, and how the country came to be.",
+    },
+  },
+  c_society: {
+    short: { ko: "사회와 일상", en: "Society & Daily Life" },
+    label: { ko: "사회·종교·일상", en: "Society, Religion & Daily Life" },
+    blurb: {
+      ko: "종교, 결혼, 시민권, 그리고 한국 일상의 궁금한 단면들에 대한 질문들.",
+      en: "Religion, weddings, citizenship, and the quirks of everyday Korean life.",
+    },
+  },
+  c_kpop: {
+    short: { ko: "K-팝", en: "K-Pop" },
+    label: { ko: "K-팝과 아이돌", en: "K-Pop & Idols" },
+    blurb: {
+      ko: "K-팝이 어떻게 세계를 사로잡았는지, 그 뒤의 아이돌 시스템에 대한 질문들.",
+      en: "Why K-pop took over the world, and the idol system behind it.",
+    },
+  },
+  c_etiquette: {
+    short: { ko: "예절", en: "Etiquette" },
+    label: { ko: "예절과 사회 규범", en: "Etiquette & Social Norms" },
+    blurb: {
+      ko: "예의, 식사 예절, 그리고 한국에서 존중을 표하는 방식에 대한 질문들.",
+      en: "Manners, dining etiquette, and how to behave respectfully in Korea.",
+    },
+  },
+  c_education: {
+    short: { ko: "교육", en: "Education" },
+    label: { ko: "교육과 학업", en: "Education & Study" },
+    blurb: {
+      ko: "시험 중심의 교육 제도, 학원, 학업 압박에 대한 질문들.",
+      en: "The exam-driven school system, hagwons, and study pressure.",
+    },
+  },
+  c_basics: {
+    short: { ko: "기본 정보", en: "Country Basics" },
+    label: { ko: "국가 기본 정보와 정체성", en: "Country Basics & Identity" },
+    blurb: {
+      ko: "한국이 어떤 나라인지, 무엇으로 유명한지 등 첫 접점의 질문들.",
+      en: "First-contact questions — what Korea is, and what it's known for.",
+    },
+  },
+};
+
+// ── Themes (6) ─────────────────────────────────────────────────────────────
+const THEMES = {
+  t_hallyu: {
+    short: { ko: "한류", en: "Hallyu" },
+    label: { ko: "한류 (한국의 물결)", en: "The Korean Wave (Hallyu)" },
+    blurb: {
+      ko: "K-팝·드라마·뷰티·음식이 하나의 문화 흐름으로 함께 확산되는 현상.",
+      en: "K-pop, drama, beauty, and food moving together as one cultural export.",
+    },
+  },
+  t_language: {
+    short: { ko: "이해하기", en: "Understanding Korea" },
+    label: { ko: "한국을 배우고 이해하기", en: "Learning & Understanding Korea" },
+    blurb: {
+      ko: "언어와 교육 — 한국을 실제로 이해하려는 노력.",
+      en: "Language and education — the effort to actually understand Korea.",
+    },
+  },
+  t_geopolitics: {
+    short: { ko: "지정학", en: "Geopolitics" },
+    label: { ko: "분단·역사·지정학", en: "Division, History & Geopolitics" },
+    blurb: {
+      ko: "두 개의 한국, 전쟁, 그리고 이웃 나라들 사이에서 한국의 위치.",
+      en: "The two Koreas, the war, and Korea's place among its neighbours.",
+    },
+  },
+  t_society: {
+    short: { ko: "사회", en: "Society" },
+    label: { ko: "사람·사회·일상", en: "People, Society & Everyday Life" },
+    blurb: {
+      ko: "한국인은 어떤 사람들이며 일상과 규범이 실제로 어떻게 작동하는지.",
+      en: "Who Koreans are, and how daily life and norms actually work.",
+    },
+  },
+  t_visiting: {
+    short: { ko: "방문", en: "Visiting" },
+    label: { ko: "한국 방문과 거주", en: "Visiting & Living in Korea" },
+    blurb: {
+      ko: "여행, 장소, 안전, 그리고 실제로 머무는 데 드는 비용.",
+      en: "Travel, places, safety, and the cost of actually being there.",
+    },
+  },
+  t_power: {
+    short: { ko: "국력", en: "Global Standing" },
+    label: { ko: "경제·기술·국제적 위상", en: "Economy, Technology & Global Standing" },
+    blurb: {
+      ko: "산업과 브랜드, 그리고 선진국으로서 한국의 위상.",
+      en: "Industry, brands, and how Korea ranks as a developed power.",
+    },
+  },
+};
+
+// ── Narratives (5) ─────────────────────────────────────────────────────────
+const NARRATIVES = {
+  n_softpower: {
+    short: { ko: "문화 강국", en: "Global cultural force" },
+    label: { ko: "세계적 문화 강국으로서의 한국", en: "Korea as a global cultural force" },
+    blurb: {
+      ko: "K-문화를 향한 세계의 호기심은 바깥으로 뻗어나가는 문화적 영향력으로 읽힙니다.",
+      en: "The world's curiosity about K-culture reads as cultural power projected outward.",
+    },
+  },
+  n_aspiration: {
+    short: { ko: "동경의 라이프스타일", en: "Aspirational lifestyle" },
+    label: {
+      ko: "동경의 라이프스타일·뷰티 모델로서의 한국",
+      en: "Korea as an aspirational lifestyle & beauty model",
+    },
+    blurb: {
+      ko: "뷰티·음식·생활에 대한 질문은 한국을 따라 하고 싶은 삶의 모델로 그려냅니다.",
+      en: "Beauty, food, and living questions frame Korea as a lifestyle to emulate.",
+    },
+  },
+  n_division: {
+    short: { ko: "분단국", en: "Divided nation" },
+    label: {
+      ko: "위험과 함께 살아가는 분단국으로서의 한국",
+      en: "Korea as a divided nation living with risk",
+    },
+    blurb: {
+      ko: "분단에 대한 질문은 한국을 미해결의 분열이 규정한 나라로 그려냅니다.",
+      en: "Division questions frame Korea as a nation shaped by an unresolved split.",
+    },
+  },
+  n_model: {
+    short: { ko: "성공 사례", en: "Success story" },
+    label: {
+      ko: "발전과 기술의 성공 사례로서의 한국",
+      en: "Korea as a development & technology success story",
+    },
+    blurb: {
+      ko: "경제·기술·학습에 대한 질문은 한국을 빠른 성공의 모델로 그려냅니다.",
+      en: "Economy, tech, and learning questions frame Korea as a model of rapid success.",
+    },
+  },
+  n_enigma: {
+    short: { ko: "독특한 나라", en: "Distinctive & intriguing" },
+    label: { ko: "독특하고 흥미로운 나라로서의 한국", en: "Korea as distinctive and intriguing" },
+    blurb: {
+      ko: "난이도·규범·일상의 낯섦은 한국을 매혹적이면서도 온전히 이해하기 어려운 나라로 그려냅니다.",
+      en: "Difficulty, norms, and everyday quirks frame Korea as fascinating and hard to fully grasp.",
+    },
+  },
+};
+
+// ── Perceptions (5) ────────────────────────────────────────────────────────
+const PERCEPTIONS = {
+  p_cultural: {
+    short: { ko: "문화 강국", en: "Cultural powerhouse" },
+    label: { ko: "문화 강국, 한국", en: "Korea as a cultural powerhouse" },
+    blurb: {
+      ko: "응축된 인식 — 한국은 세계 문화를 이끄는 나라다.",
+      en: "The distilled position: Korea shapes global culture.",
+    },
+  },
+  p_aspirational: {
+    short: { ko: "동경의 라이프스타일", en: "Aspirational lifestyle" },
+    label: {
+      ko: "동경받는 현대적 라이프스타일, 한국",
+      en: "Korea as an aspirational, modern lifestyle",
+    },
+    blurb: {
+      ko: "응축된 인식 — 한국은 닮고 싶은 현대적 삶을 보여주는 나라다.",
+      en: "The distilled position: Korea models a life worth emulating.",
+    },
+  },
+  p_divided: {
+    short: { ko: "분단의 나라", en: "Defined by division" },
+    label: {
+      ko: "분단과 안보로 규정되는 나라, 한국",
+      en: "Korea as a nation defined by division & security",
+    },
+    blurb: {
+      ko: "응축된 인식 — 한국은 분단을 통해 이해되는 나라다.",
+      en: "The distilled position: Korea is understood through its division.",
+    },
+  },
+  p_advanced: {
+    short: { ko: "기술 선진국", en: "Technologically advanced" },
+    label: {
+      ko: "기술 선진국, 한국",
+      en: "Korea as a technologically advanced, developed nation",
+    },
+    blurb: {
+      ko: "응축된 인식 — 한국은 기술로 앞서가는 선진국이다.",
+      en: "The distilled position: Korea is a developed, high-tech nation.",
+    },
+  },
+  p_enigmatic: {
+    short: { ko: "알기 어려운 매력", en: "Fascinating & elusive" },
+    label: {
+      ko: "매혹적이지만 온전히 알기 어려운 나라, 한국",
+      en: "Korea as fascinating and hard to fully grasp",
+    },
+    blurb: {
+      ko: "응축된 인식 — 한국은 쉽게 이해되지 않기에 오히려 더 흥미로운 나라다.",
+      en: "The distilled position: Korea intrigues precisely because it resists easy understanding.",
+    },
+  },
+};
+
+// ── Flagship questions (1 real question per concept, 18) ───────────────────
+// `source` is the actual collected exemplar the flagship is grounded in.
+const QUESTIONS = [
+  { id: "q_division", concept: "c_division", source: "korea is south or north",
+    label: { ko: "한국은 하나의 나라인가요, 둘로 나뉘어 있나요?", en: "Is Korea one country or two?" },
+    blurb: { ko: "분단은 세계가 한반도를 이해하려 할 때 가장 먼저 던지는 질문입니다.",
+      en: "Division is the first thing the world asks in trying to understand the peninsula." } },
+  { id: "q_language", concept: "c_language", source: "is korean harder than japanese",
+    label: { ko: "한국어는 일본어보다 배우기 어렵나요?", en: "Is Korean harder than Japanese?" },
+    blurb: { ko: "난이도는 대부분의 학습자가 한국어를 처음 마주하는 관점입니다.",
+      en: "Difficulty is the frame through which most learners first approach Korean." } },
+  { id: "q_people", concept: "c_people", source: "why are koreans so beautiful",
+    label: { ko: "한국인은 왜 그렇게 아름다운가요?", en: "Why are Koreans so beautiful?" },
+    blurb: { ko: "외모에 대한 호기심은 습관과 국민성에 대한 질문으로 이어집니다.",
+      en: "Curiosity about appearance opens into questions of habits and character." } },
+  { id: "q_food", concept: "c_food", source: "is korean food healthy",
+    label: { ko: "한국 음식은 건강에 좋나요?", en: "Is Korean food healthy?" },
+    blurb: { ko: "음식은 흔히 세계가 한국을 처음 검색하는 관문입니다.",
+      en: "Food is often the world's first gateway to searching about Korea." } },
+  { id: "q_culture", concept: "c_culture", source: "hanbok",
+    label: { ko: "한복은 무엇인가요?", en: "What is hanbok?" },
+    blurb: { ko: "전통 의복에 대한 관심은 명절, 유산, 한류로 이어집니다.",
+      en: "Traditional dress opens into festivals, heritage, and the Korean Wave." } },
+  { id: "q_travel", concept: "c_travel", source: "is korea safe",
+    label: { ko: "한국은 여행하기 안전한가요?", en: "Is Korea safe to visit?" },
+    blurb: { ko: "안전은 방문에 앞서 가장 먼저 확인하는 실질적 질문입니다.",
+      en: "Safety is the practical question that precedes any visit." } },
+  { id: "q_beauty", concept: "c_beauty", source: "korean skincare",
+    label: { ko: "한국 스킨케어는 왜 이렇게 인기가 많나요?", en: "Why is Korean skincare so popular?" },
+    blurb: { ko: "스킨케어는 한국식 라이프스타일에 대한 동경이 시작되는 지점입니다.",
+      en: "Skincare is where aspiration to a Korean lifestyle often begins." } },
+  { id: "q_drama", concept: "c_drama", source: "why is kpop demon hunters so popular",
+    label: { ko: "<케이팝 데몬 헌터스>는 왜 이렇게 인기가 많나요?", en: "Why is KPop Demon Hunters so popular?" },
+    blurb: { ko: "화제작 한 편이 한국 영상 콘텐츠로 들어가는 입구가 됩니다.",
+      en: "A breakout hit becomes an entry point into Korean screen stories." } },
+  { id: "q_compare", concept: "c_compare", source: "korea vs japan",
+    label: { ko: "한국과 일본은 어떻게 다른가요?", en: "Korea or Japan — how do they compare?" },
+    blurb: { ko: "이웃 나라와의 비교는 문화와 지정학을 잇는 다리가 됩니다.",
+      en: "Comparison with neighbours bridges culture and geopolitics." } },
+  { id: "q_tech", concept: "c_tech", source: "samsung galaxy",
+    label: { ko: "삼성은 한국에서 얼마나 큰 기업인가요?", en: "How big is Samsung in Korea?" },
+    blurb: { ko: "브랜드에 대한 질문은 산업, 수출, 국가 기술력에 대한 질문으로 확장됩니다.",
+      en: "A brand question opens into industry, exports, and national tech power." } },
+  { id: "q_place", concept: "c_place", source: "seoul",
+    label: { ko: "서울은 어떤 도시인가요?", en: "What is Seoul like?" },
+    blurb: { ko: "수도에 대한 호기심은 날씨, 장소, 일상으로 확장됩니다.",
+      en: "Curiosity about the capital extends to weather, places, and daily life." } },
+  { id: "q_economy", concept: "c_economy", source: "is korea expensive",
+    label: { ko: "한국은 물가가 비싼가요?", en: "Is Korea expensive?" },
+    blurb: { ko: "물가에 대한 질문은 임금, 원화, 발전 수준으로 이어집니다.",
+      en: "Cost questions open into wages, the won, and development level." } },
+  { id: "q_history", concept: "c_history", source: "why is korea called korea",
+    label: { ko: "‘코리아’라는 이름은 어디서 왔나요?", en: "Why is Korea called Korea?" },
+    blurb: { ko: "국호는 왕조와 나라의 형성으로 들어가는 문입니다.",
+      en: "The name is a doorway into dynasties and how the country formed." } },
+  { id: "q_society", concept: "c_society", source: "why is korea so christian",
+    label: { ko: "한국은 왜 기독교인이 많은가요?", en: "Why is Korea so Christian?" },
+    blurb: { ko: "뜻밖의 사실 하나가 종교, 결혼, 일상 규범으로 이어집니다.",
+      en: "An unexpected fact opens into religion, weddings, and daily norms." } },
+  { id: "q_kpop", concept: "c_kpop", source: "why is kpop so popular",
+    label: { ko: "K-팝은 왜 전 세계적으로 인기가 많나요?", en: "Why is K-pop so popular worldwide?" },
+    blurb: { ko: "대중문화는 오늘날 세계가 한국을 처음 만나는 접점입니다.",
+      en: "Pop culture is where much of the world first meets Korea today." } },
+  { id: "q_etiquette", concept: "c_etiquette", source: "korean etiquette for foreigners",
+    label: { ko: "외국인이 한국에서 지켜야 할 예절은 무엇인가요?", en: "What's the etiquette for foreigners in Korea?" },
+    blurb: { ko: "일상의 예절에 대한 질문은 그 아래 놓인 가치로 이어집니다.",
+      en: "Everyday manners open into the values beneath them." } },
+  { id: "q_education", concept: "c_education", source: "korean education system",
+    label: { ko: "한국의 교육 제도는 왜 그렇게 치열한가요?", en: "Why is Korea's education system so intense?" },
+    blurb: { ko: "교육에 대한 질문은 곧 그 사회의 작동 방식에 대한 질문입니다.",
+      en: "School questions are questions about how the society works." } },
+  { id: "q_basics", concept: "c_basics", source: "what is korea known for",
+    label: { ko: "한국은 무엇으로 유명한가요?", en: "What is Korea known for?" },
+    blurb: { ko: "다른 모든 질문이 갈라져 나오는 첫 접점의 질문입니다.",
+      en: "The first-contact question that everything else branches from." } },
+];
+
+// ── Merge + validate (fail loud on any missing label) ──────────────────────
+const missing = [];
+function build(kind, layerArr, authored) {
+  return layerArr.map((node) => {
+    const a = authored[node.id];
+    if (!a) { missing.push(`${kind}:${node.id}`); return null; }
+    const out = {
+      id: node.id, type: kind,
+      short: a.short, label: a.label, blurb: a.blurb,
+    };
+    if (kind === "concept") {
+      out.count = node.count;
+      out.salience = node.salience;
+      out.topMarket = node.market?.topMarket ?? null;
+      out.markets = node.market?.distribution ?? {};
+    }
+    return out;
+  });
+}
+
+const conceptsOut = build("concept", LAYER.concepts, CONCEPTS);
+const themesOut = build("theme", LAYER.themes, THEMES);
+const narrativesOut = build("narrative", LAYER.narratives, NARRATIVES);
+const perceptionsOut = build("perception", LAYER.perceptions, PERCEPTIONS);
+
+// questions must each point at a concept present in the layer
+const conceptIds = new Set(LAYER.concepts.map((c) => c.id));
+for (const q of QUESTIONS) {
+  if (!conceptIds.has(q.concept)) missing.push(`question:${q.id}->${q.concept}(no such concept)`);
+}
+const questionsOut = QUESTIONS.map((q) => ({
+  id: q.id, type: "question", conceptId: q.concept,
+  sourceExemplar: q.source, label: q.label, blurb: q.blurb,
+}));
+
+if (missing.length) {
+  console.error("MISSING LABELS — ontology would be simplified. Aborting:");
+  for (const m of missing) console.error("  " + m);
+  process.exit(1);
+}
+
+const dataset = {
+  meta: {
+    purpose: "Phase 0 bilingual label dataset for ontology migration (content only).",
+    generatedFrom: "output/ontology/ontology_layer.json",
+    totalQuestionsInCorpus: LAYER.meta.totalQuestions,
+    counts: {
+      concepts: conceptsOut.length, themes: themesOut.length,
+      narratives: narrativesOut.length, perceptions: perceptionsOut.length,
+      flagshipQuestions: questionsOut.length,
+    },
+    languages: ["ko", "en"],
+    note: "Every node in ontology_layer.json has an authored ko/en label, short-label, and blurb. Flagship questions are one real collected exemplar per concept. No website file is modified.",
+  },
+  concepts: conceptsOut,
+  themes: themesOut,
+  narratives: narrativesOut,
+  perceptions: perceptionsOut,
+  questions: questionsOut,
+};
+
+writeFileSync(OUT, JSON.stringify(dataset, null, 2));
+
+const total =
+  conceptsOut.length + themesOut.length + narrativesOut.length +
+  perceptionsOut.length + questionsOut.length;
+console.log("Phase 0 bilingual labels authored — all nodes covered.");
+console.log(`  concepts     ${conceptsOut.length}`);
+console.log(`  themes       ${themesOut.length}`);
+console.log(`  narratives   ${narrativesOut.length}`);
+console.log(`  perceptions  ${perceptionsOut.length}`);
+console.log(`  questions    ${questionsOut.length}  (1 real flagship per concept)`);
+console.log(`  TOTAL nodes  ${total}`);
+console.log(`\nwrote ${OUT}`);
