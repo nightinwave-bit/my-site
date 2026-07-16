@@ -22,104 +22,104 @@ const DOSSIERS: Dossier[] = [
   {
     no: "01",
     name: D("두 개의 한국", "The Two Koreas"),
-    salience: D("최대 개념 · 242개 · 브라질·아랍·인도네시아가 주도", "Largest concept · 242 · led by Brazil, the Arab world, Indonesia"),
-    misread: D("동아시아 밖 대부분에게 ‘한국’은 여전히 모호하고 어쩌면 위험한 지명이며, 한류는 이를 구분해 주지 못했다.", "To most of the world outside East Asia, “Korea” is still an ambiguous, possibly-dangerous place-name — and Hallyu has not disambiguated it."),
-    why: D("긴밀한 양자 관계가 없는 시장에서 한국은 BTS보다 먼저 냉전 지리(전쟁·DMZ·핵)로 각인됐다. 대중문화가 관심을 키웠지만 첫 질문은 물려받은 프레임으로 돌아간다 — 어느 한국이며, 안전한가?", "For markets without deep ties, Korea entered global consciousness as Cold-War geography long before BTS. Curiosity spikes, but the first question defaults to the inherited frame: which Korea is this, and is it safe?"),
-    assumption: D("세계는 남한이 북한과 구별되는 정상적·주권적·안전한 나라인지 확신하지 못한다. 애정이 미해결의 정체성 위에 쌓이고 있다.", "The world is not sure South Korea is a normal, sovereign, safe country distinct from the North. Affection is being built on an unresolved identity."),
-    gap: D("남한은 스스로를 안착한 OECD 민주주의로 경험한다. 세계는 여전히 ‘하나인가 둘인가’를 묻는다.", "South Korea experiences itself as a settled OECD democracy; much of the world still has to ask whether it is one country or two."),
+    salience: D("가장 큰 질문 · 242개 · 브라질·아랍·인도네시아에서 특히 많다", "The biggest question · 242 · especially in Brazil, the Arab world, Indonesia"),
+    misread: D("동아시아 밖에서는 아직도 ‘한국’이라고 하면 어느 쪽 한국인지, 위험하지는 않은지부터 헷갈려한다. 한류도 이 헷갈림을 풀어 주지 못했다.", "Outside East Asia, “Korea” still makes people unsure which Korea it is and whether it's dangerous. Hallyu never cleared that up."),
+    why: D("한국과 오래 교류하지 않은 나라에서는, BTS보다 먼저 ‘전쟁·DMZ·핵’으로 한국을 알았다. 대중문화가 관심을 키워도, 첫 질문은 예전에 배운 이미지로 돌아간다 — 어느 한국이지? 안전한가?", "In countries without long ties to Korea, people knew it as “war, the DMZ, nukes” long before BTS. Pop culture raises the interest, but the first question falls back to the older image — which Korea is this, and is it safe?"),
+    assumption: D("사람들은 남한이 북한과 분명히 다른, 정상적이고 안전한 나라인지 아직 확신하지 못한다. 좋아하는 마음이, 아직 정리되지 않은 ‘이 나라가 뭐지?’ 위에 쌓이고 있는 것이다.", "People aren't yet sure South Korea is a normal, safe country clearly separate from the North. The affection is piling up on top of an unsettled “what is this country?”"),
+    gap: D("한국은 스스로를 이미 자리 잡은 선진 민주국가로 느낀다. 그런데 세계의 상당수는 여전히 ‘한국은 한 나라야, 두 나라야?’부터 묻는다.", "Korea feels like a settled, advanced democracy. Much of the world still starts from “is Korea one country or two?”"),
     impl: [
-      [D("공공외교", "Public diplomacy"), D("홍보가 아니라 ‘구분’이 기초 과제다.", "Disambiguation, not promotion, is the foundational job.")],
-      [D("관광", "Tourism"), D("‘한국은 안전한가’가 전환을 막는다.", "“Is Korea safe” is a conversion-killer.")],
-      [D("교육", "Education"), D("기초 한국 리터러시 수요가 실재한다.", "Real demand exists for foundational Korea-literacy.")],
-      [D("문화정책", "Cultural policy"), D("DMZ·전쟁 이국주의는 프레임을 강화한다.", "DMZ/war exoticism reinforces the frame.")],
-      [D("국가브랜딩", "Nation branding"), D("‘한국’은 통제 불가한 평판 외부효과를 진다.", "“Korea” carries reputational externalities it can't control.")],
+      [D("공공외교", "Public diplomacy"), D("먼저 할 일은 ‘알리기’가 아니라 ‘남한과 북한을 구분해 주기’다.", "The first job isn't promotion — it's helping people tell the two Koreas apart.")],
+      [D("관광", "Tourism"), D("‘한국은 안전한가’라는 의심이 실제 방문을 막는다.", "The doubt “is Korea safe” blocks actual visits.")],
+      [D("교육", "Education"), D("한국을 기초부터 알려 주는 콘텐츠 수요가 분명히 있다.", "There's clear demand for content that explains Korea from scratch.")],
+      [D("문화정책", "Cultural policy"), D("DMZ·전쟁을 구경거리로 파는 건 이 오해를 더 굳힌다.", "Selling the DMZ and the war as spectacle only hardens the misunderstanding.")],
+      [D("국가브랜딩", "Nation branding"), D("‘한국’이라는 이름은 통제할 수 없는 평판까지 함께 짊어진다.", "The name “Korea” carries a reputation it can't control.")],
     ],
-    move: D("‘이것은 남한이다 — 안전하고 민주적이며 구별된다’를 신흥시장 외교의 기초 층위로 삼되, 이미 관심을 얻은 K-콘텐츠 채널을 통해 전달하라. 한류가 이 일을 해줬다고 가정하지 말라.", "Make “This is South Korea — safe, democratic, distinct” the base layer of emerging-market diplomacy, delivered through the K-content channels already capturing attention. Don't assume Hallyu has done this work."),
+    move: D("‘여기는 남한이다 — 안전하고, 민주적이고, 북한과 다르다’를 신흥 시장 외교의 가장 기본 메시지로 삼되, 이미 사람들이 보고 있는 K-콘텐츠를 통해 전하라. 한류가 이 일을 대신 해 줬다고 넘겨짚지 말라.", "Make “this is South Korea — safe, democratic, and different from the North” the base message of emerging-market diplomacy, delivered through the K-content people already watch. Don't assume Hallyu has done this job for you."),
   },
   {
     no: "02",
     name: D("언어, 그리고 그 어려움", "The Language, and its Difficulty"),
-    salience: D("2위 · 163개 · 44%가 독일에 집중", "2nd largest · 163 · 44% concentrated in Germany"),
-    misread: D("세계는 한국어가 ‘어렵다’고 단정했고, 한국이 가진 가장 깊은 소프트파워의 문턱에서 스스로를 잃고 있다.", "The world has decided Korean is hard — and is losing itself at the doorway to the deepest soft power Korea has."),
-    why: D("‘한국어 어렵나요’는 이미 배울지도 모른다고 결정한 사람이 던지는 선별 질문이다. 독일의 집중은 관심이 지적·헌신적인 시장을 드러낸다 — 문턱에서 확신을 기다리는 가장 진지한 잠재 옹호자들.", "“Is Korean hard” is a triage question from people who've already decided they might learn. Germany's concentration reveals an intellectualized, commitment-oriented market — Korea's most serious prospective advocates, pausing for reassurance."),
-    assumption: D("한국어가 장벽이며 문자와 언어가 똑같이 어렵다는 가정. 사실 한글은 한 시간이면 읽고, 어려운 건 문법이다. 한국은 이 오해를 바로잡은 적이 없다.", "That Korean is a barrier, and that script and language are equally hard. Hangul reads in an hour; grammar is the hill. Korea has never corrected the conflation."),
-    gap: D("한국인은 한글을 세계에서 가장 합리적인 문자로 자랑한다. 세계의 기본값은 ‘내겐 너무 어렵다’이다.", "Koreans take pride in Hangul as the world's most rational alphabet; the world's default is “too hard for me.”"),
+    salience: D("두 번째로 큰 질문 · 163개 · 그중 44%가 독일에서 나온다", "2nd biggest · 163 · 44% of it from Germany"),
+    misread: D("세계는 ‘한국어는 어렵다’고 이미 결론 내렸다. 그래서 한국이 가진 가장 강력한 소프트파워의 입구에서 사람들을 놓치고 있다.", "The world has already decided “Korean is hard” — and so it loses people right at the doorway to Korea's strongest soft power."),
+    why: D("‘한국어 어렵나요?’는 이미 ‘한번 배워 볼까’ 생각한 사람이 던지는 질문이다. 독일에 이 질문이 몰린다는 건, 진지하게 배우려는 사람이 많은 시장이라는 뜻이다 — 문 앞에서 ‘해볼 만할까?’ 확인하며 망설이는, 가장 열성적인 잠재 팬들.", "“Is Korean hard?” is asked by someone who's already thinking of learning it. Germany's concentration of it signals a market full of serious would-be learners — the most committed prospective fans, pausing at the door to check “is this doable?”"),
+    assumption: D("‘한국어는 장벽’이고 ‘글자도 말도 똑같이 어렵다’는 생각. 사실 한글은 한 시간이면 읽을 수 있고, 어려운 건 문법이다. 한국은 이 오해를 한 번도 제대로 바로잡지 않았다.", "The belief that “Korean is a wall” and that the script and the language are equally hard. In fact you can read Hangul in an hour; the grammar is the hard part. Korea has never really corrected the mix-up."),
+    gap: D("한국인은 한글을 ‘세계에서 가장 과학적인 문자’라고 자랑한다. 그런데 세계 사람들의 기본 생각은 ‘나한텐 너무 어려워’다.", "Koreans boast that Hangul is “the world's most scientific alphabet.” The world's default thought is “too hard for me.”"),
     impl: [
-      [D("공공외교", "Public diplomacy"), D("언어 학습자는 평생 옹호자 — 최고 잔존 외교.", "Learners are lifelong advocates — the highest-retention diplomacy.")],
-      [D("관광", "Tourism"), D("언어 불안이 독립 여행을 억제한다.", "Language anxiety suppresses independent travel.")],
-      [D("교육", "Education"), D("세종학당 규모를 넘어서는 잠재 초급 수요.", "Latent beginner demand beyond current capacity.")],
-      [D("문화정책", "Cultural policy"), D("자막 의존이 팬을 언어에서 한 발 떼어 놓는다.", "Subtitle dependency keeps fans one step from the language.")],
-      [D("국가브랜딩", "Nation branding"), D("‘과학적 문자를 설계한 나라’는 미사용 자산.", "“The engineered scientific alphabet” is an unused asset.")],
+      [D("공공외교", "Public diplomacy"), D("언어를 배운 사람은 평생 한국 편이 된다 — 가장 오래 남는 외교.", "Someone who learns the language becomes a lifelong friend of Korea — the longest-lasting diplomacy there is.")],
+      [D("관광", "Tourism"), D("언어에 대한 두려움이 자유여행을 막는다.", "Fear of the language holds back independent travel.")],
+      [D("교육", "Education"), D("세종학당이 감당하는 규모보다 훨씬 많은 초급 수요가 잠자고 있다.", "Far more beginner demand is sleeping than King Sejong Institutes can currently handle.")],
+      [D("문화정책", "Cultural policy"), D("자막에 의존하게 두면 팬은 언어에서 한 걸음 떨어진 채 머문다.", "Leave fans on subtitles and they stay one step away from the language.")],
+      [D("국가브랜딩", "Nation branding"), D("‘가장 과학적인 문자를 직접 만든 나라’라는 이야기는 아직 안 쓰고 있는 자산이다.", "“The country that engineered the most scientific alphabet” is a story Korea isn't using yet.")],
     ],
-    move: D("문턱에서 난이도를 재구성하라. 모든 학습 접점을 ‘오늘 한글을 읽을 수 있다’로 시작하고 문자와 유창성을 분리하라. 언어는 한국이 만들 수 있는 가장 깊은 유대이며, 문장 하나를 바꾸지 못해 문 앞에서 새고 있다.", "Reframe difficulty at the threshold. Lead every learner touchpoint with “you can read Hangul today,” separate script from fluency. Language is the deepest affinity Korea can create, and it leaks at the front door for want of one reframed sentence."),
+    move: D("입구에서 ‘어렵다’는 인상부터 바꿔라. 모든 학습 첫 화면을 ‘한글, 오늘 바로 읽을 수 있어요’로 시작하고, ‘글자’와 ‘유창함’을 분리해 설명하라. 언어는 한국이 만들 수 있는 가장 깊은 유대인데, 문장 하나를 못 바꿔서 문 앞에서 사람을 흘려보내고 있다.", "Change the “it's hard” impression right at the door. Start every learning entry with “Hangul — you can read it today,” and separate the script from fluency. Language is the deepest bond Korea can make, and it's leaking people at the entrance for want of one changed sentence."),
   },
   {
     no: "03",
     name: D("한국인은 누구인가", "Who Koreans Are"),
-    salience: D("3위 · 143개 · 그리고 자신의 상을 검색하는 한국", "3rd largest · 143 · and Korea googling its own reflection"),
-    misread: D("세계는 사회를 이해하기보다 미학을 사랑하기 시작했고, 한국은 자신이 관찰당하는 것을 불안하게 지켜본다.", "The world is coming to love an aesthetic rather than understand a society; and Korea anxiously watches itself be watched."),
-    why: D("문화가 부상하면 청중은 ‘무엇을 만드나’에서 ‘누구인가’로 옮겨간다. 그러나 ‘왜 이렇게 아름다운가’, ‘왜 금속 젓가락인가’ 같은 질문은 사람들을 이국적 유형으로 평면화한다. 한국의 1위 질문은 ‘외국인이 보는 한국인’ — 세계의 거울을 확인하는 나라.", "Curiosity moves from “what do they make” to “who are they” — but essentializes a people into a type. Tellingly, Korea's own top question is “how foreigners see Koreans”: a nation checking its reflection."),
-    assumption: D("밖에서는 한국인이 균일하고 아름답고 다소 알 수 없는 원형이라는 가정. 안에서는 한국의 위상이 취약해 외부 인정이 필요하다는 가정 — 둘 다 불안의 가정이다.", "Abroad: Koreans are a uniform, beautiful, slightly unknowable archetype. At home: Korea's standing is fragile and needs validation — both assumptions of insecurity."),
-    gap: D("세계의 호기심은 치켜세우되 평면화하고, 한국은 현대적·다원적·개별적으로 보이길 원한다.", "The world's curiosity flatters but flattens; Korea wants to be seen as modern, plural, individual."),
+    salience: D("세 번째로 큰 질문 · 143개 · 그리고 자기 모습을 검색하는 한국", "3rd biggest · 143 · and Korea searching its own reflection"),
+    misread: D("세계는 한국 ‘사회’를 이해하기보다 한국의 ‘보기 좋은 겉모습’을 먼저 좋아하기 시작했다. 그리고 한국은 그런 시선을 불안하게 지켜본다.", "The world has started loving Korea's good-looking surface faster than it understands Korean society. And Korea anxiously watches itself being watched."),
+    why: D("문화가 뜨면 사람들의 관심은 ‘무엇을 만드나’에서 ‘어떤 사람들인가’로 옮겨간다. 그런데 ‘왜 이렇게 예쁘지?’, ‘왜 금속 젓가락을 쓰지?’ 같은 질문은 한국인을 하나의 ‘신기한 유형’으로 납작하게 만든다. 정작 한국의 1위 질문은 ‘외국인이 보는 한국인’ — 세계가 비추는 거울을 확인하는 나라다.", "When a culture rises, attention shifts from “what do they make” to “who are they.” But questions like “why are they so pretty” or “why metal chopsticks” flatten Koreans into a single exotic type. Tellingly, Korea's own #1 question is “how foreigners see Koreans” — a nation checking the mirror the world holds up."),
+    assumption: D("밖에서는 ‘한국인은 다 비슷하게 예쁘고, 어딘가 알 수 없는 사람들’이라고 본다. 안에서는 ‘우리 위상이 아직 약해서 남의 인정이 필요하다’고 느낀다 — 둘 다 불안에서 나온 생각이다.", "From outside: “Koreans are all similarly pretty, and a bit unknowable.” From inside: “our standing is still shaky, so we need others' approval.” Both come from insecurity."),
+    gap: D("세계의 호기심은 한국인을 띄워 주지만 동시에 납작하게 만든다. 한국은 ‘현대적이고, 다양하고, 저마다 다른 사람들’로 보이고 싶어 한다.", "The world's curiosity flatters Koreans but flattens them. Korea wants to be seen as modern, varied, and individual."),
     impl: [
-      [D("공공외교", "Public diplomacy"), D("사회로 존중받지 못하고 미학으로 사랑받을 위험.", "Risk of being loved as an aesthetic, not respected as a society.")],
-      [D("관광", "Tourism"), D("‘아름다운 사람 구경’이라는 얕은 동기.", "A shallow “see the beautiful people” motivation.")],
-      [D("교육", "Education"), D("사회·일상 콘텐츠 수요가 채워지지 않았다.", "Unmet demand for society-and-daily-life content.")],
-      [D("문화정책", "Cultural policy"), D("아이돌·뷰티 복합체가 본질화 시선을 키운다.", "The idol/beauty complex feeds the essentializing gaze.")],
-      [D("국가브랜딩", "Nation branding"), D("‘아름다운 사람들’은 취약하고 전유 가능하다.", "“Beautiful people” is fragile and appropriable.")],
+      [D("공공외교", "Public diplomacy"), D("‘사회’로 존중받지 못하고 ‘예쁜 볼거리’로만 사랑받을 위험.", "The risk of being loved as a pretty spectacle rather than respected as a society.")],
+      [D("관광", "Tourism"), D("‘예쁜 사람 구경’이라는 얕은 방문 동기.", "A shallow reason to visit: “see the beautiful people.”")],
+      [D("교육", "Education"), D("한국의 사회·일상을 보여 주는 콘텐츠 수요가 안 채워졌다.", "Unmet demand for content about ordinary Korean society and daily life.")],
+      [D("문화정책", "Cultural policy"), D("아이돌·뷰티 위주 콘텐츠가 ‘납작한 시선’을 키운다.", "Idol- and beauty-heavy content feeds the flattening gaze.")],
+      [D("국가브랜딩", "Nation branding"), D("‘예쁜 사람들’이라는 이미지는 약하고, 누구나 흉내 낼 수 있다.", "“Beautiful people” is a weak image — anyone can copy it.")],
     ],
-    move: D("초상을 의도적으로 인간화·다양화하라 — 아이돌만이 아니라 평범하고 다원적이며 개별적인 한국인의 삶. 미적 매혹을 사회적 이해로 전환하는 것이 장기 애정을 지탱한다. 그리고 검증을 구하지 말고 자신감을 투사하라 — 그것이 더 강한 브랜드다.", "Deliberately humanize and diversify the portrait — ordinary, plural, individual Korean lives, not only idols — converting fascination into understanding. And project confidence rather than seek validation; that is the stronger brand."),
+    move: D("한국인의 모습을 일부러 더 입체적으로, 다양하게 보여 줘라 — 아이돌만이 아니라 평범하고 저마다 다른 한국인의 삶. 겉모습에 대한 매력을 사회에 대한 이해로 바꿔야 애정이 오래간다. 그리고 남의 인정을 구하지 말고 자신감을 보여 줘라 — 그게 더 강한 브랜드다.", "Deliberately show Koreans as fuller and more varied — not just idols, but ordinary, individual Korean lives. Turning attraction to the surface into understanding of the society is what makes affection last. And project confidence instead of seeking approval — that's the stronger brand."),
   },
   {
     no: "04",
     name: D("음식, 보편의 문", "Food, the Universal Door"),
-    salience: D("140개 · 모든 시장에 강하게 존재하는 유일한 개념", "140 · the one concept present strongly in every market"),
-    misread: D("한식은 세계에서 가장 믿을 만하고 덜 정치적인 대사인데, 한국은 그것을 세 가지 요리로 안다.", "Korean cuisine is the world's most reliable, least-political ambassador — and Korea knows it as three dishes."),
-    why: D("음식은 언어도 정치도 없이 즉시 소비되는 최저 마찰의 진입점이다. 모든 시장이 공유하는 유일한 개념이지만 어휘는 좁고(김치·고기구이·매움), ‘건강한가’는 한국이 아직 주장하지 않은 웰니스 렌즈를 드러낸다.", "Food is the lowest-friction entry — no language, no politics. It's the one concept every market shares, but the vocabulary is narrow (kimchi, BBQ, “spicy”), and “is it healthy” reveals an unclaimed wellness lens."),
-    assumption: D("한식이 몇 개의 수출 히트작이며 그 정체성이 매움이라는 가정. 방대하고 지역적인 발효 요리가 이국적 별미로 수용된다.", "That Korean food equals a handful of export hits defined by heat. A vast, regional, fermentation-based cuisine received as a spicy novelty."),
-    gap: D("국민 요리의 깊이와 세 개 요리만 아는 세계 사이의 폭의 격차.", "Between the depth of a national cuisine and a world that knows three of its dishes."),
+    salience: D("140개 · 모든 시장에 고르게 나타나는 유일한 질문", "140 · the one question that shows up evenly in every market"),
+    misread: D("한식은 세계에서 가장 부담 없고 정치색 없는 ‘한국 대사’인데, 정작 한국은 그걸 몇 가지 요리로만 안다고 생각한다.", "Korean food is the world's most low-pressure, least-political ambassador for Korea — and Korea knows it as just a few dishes."),
+    why: D("음식은 언어도 정치도 필요 없이 바로 즐길 수 있는, 가장 문턱 낮은 입구다. 모든 시장이 공통으로 묻는 유일한 주제지만, 아는 단어는 좁다(김치·고기구이·맵다). ‘건강에 좋나요?’라는 질문은, 한국이 아직 내세우지 않은 ‘웰빙’이라는 관점을 보여 준다.", "Food is the lowest doorway — no language, no politics, enjoy it immediately. It's the one topic every market shares, but the vocabulary is narrow (kimchi, barbecue, “spicy”). The question “is it healthy?” points to a wellness angle Korea hasn't claimed."),
+    assumption: D("‘한식 = 수출 히트작 몇 개’이고 ‘핵심은 매운맛’이라는 생각. 사실은 지역마다 다른 방대한 발효 음식 문화인데, 세계는 그걸 ‘이국적인 별미’ 정도로 받아들인다.", "The belief that “Korean food = a few export hits” and “the point is the heat.” It's actually a vast, regional, fermentation-based cuisine that the world receives as an exotic novelty."),
+    gap: D("국민 음식의 깊이와, 그 음식을 딱 세 가지만 아는 세계 사이의 간격.", "The gap between a national cuisine's depth and a world that knows three of its dishes."),
     impl: [
-      [D("공공외교", "Public diplomacy"), D("모든 시장이 이미 지나는 보편의 진입로.", "The universal on-ramp every market already walks through.")],
-      [D("관광", "Tourism"), D("미식 관광은 고부가 세그먼트 — 수요 미충족.", "Culinary tourism is high-value and under-served.")],
-      [D("교육", "Education"), D("음식 호기심은 문화·언어로 가는 가장 싼 관문.", "Food curiosity is the cheapest gateway to culture and language.")],
-      [D("문화정책", "Cultural policy"), D("한식 세계화는 밀어내기, 수요는 ‘지식’이다.", "Hansik globalization is push; the demand is knowledge.")],
-      [D("국가브랜딩", "Nation branding"), D("‘건강·발효·균형’은 웰니스 흐름과 맞는 위치.", "“Healthy, fermented, balanced” fits the wellness turn.")],
+      [D("공공외교", "Public diplomacy"), D("모든 시장이 이미 지나가는 공통의 입구.", "The shared doorway every market already walks through.")],
+      [D("관광", "Tourism"), D("미식 여행은 돈을 많이 쓰는 분야인데, 수요를 못 채우고 있다.", "Food tourism spends big and is under-served.")],
+      [D("교육", "Education"), D("음식에 대한 호기심은 문화·언어로 가는 가장 값싼 통로.", "Curiosity about food is the cheapest path into culture and language.")],
+      [D("문화정책", "Cultural policy"), D("‘한식 세계화’는 밀어붙이기인데, 실제 수요는 ‘제대로 아는 것’이다.", "“Globalizing Korean food” is a push; the real demand is to actually understand it.")],
+      [D("국가브랜딩", "Nation branding"), D("‘건강하고, 발효되고, 균형 잡힌’이라는 이미지는 요즘 웰빙 흐름과 잘 맞는다.", "“Healthy, fermented, balanced” fits neatly with today's wellness trend.")],
     ],
-    move: D("음식을 의도적 정문으로 삼고 그 호기심을 더 깊이 연결하라 — ‘이국적·매운’에서 ‘건강·발효·균형’으로 재구성해 실제 수요에 맞춰라. 일곱 시장이 만나는 곳에서 시작해 바깥으로 뻗어가라.", "Make food the deliberate front door and route the curiosity deeper — reframe from exotic-and-spicy to healthy-fermented-balanced to meet demand where it is. Start where all seven markets converge, and branch outward."),
+    move: D("음식을 일부러 ‘정문’으로 삼고, 그 호기심을 더 깊은 데로 이어라 — ‘이국적이고 맵다’에서 ‘건강하고 발효된 균형 잡힌 음식’으로 이야기를 바꿔 실제 수요에 맞춰라. 일곱 시장이 다 만나는 지점에서 시작해 바깥으로 넓혀 가라.", "Make food the deliberate front door and lead that curiosity deeper — shift the story from “exotic and spicy” to “healthy, fermented, balanced” to meet demand where it is. Start where all seven markets meet, and widen out."),
   },
   {
     no: "05",
     name: D("유산과 깊이", "Heritage & Depth"),
-    salience: D("127개 · 한국인 자신과 일본에 집중", "127 · concentrated among Koreans and Japan"),
-    misread: D("세계는 한국이 곧 대중문화라 — 약 15년 깊이의 나라라 — 믿고, 그 아래 문명이 있음은 이웃만이 안다.", "The world believes Korea is its pop culture — a country ~15 years deep — and only its neighbours know a civilization lies beneath."),
-    why: D("유산 호기심은 근접성이 진정성 층에 대한 관심을 낳는 곳에 몰린다 — 한국과 일본이 한복·명절·전통을 묻는다. 먼 시장은 대중-한국을, 가까운 시장은 깊은-한국을 묻는다. 서구의 한국은 플레이리스트로 도착해 얇다.", "Heritage curiosity concentrates where proximity breeds interest in the authentic layer. Distant markets ask about pop-Korea; near markets about deep-Korea. The West's Korea arrived through a playlist, so it's thin."),
-    assumption: D("한국 = K-팝이며 깊기보다 유행이라는 가정. 일본·중국에는 결코 하지 않을 방식으로 세계가 한국의 역사적 깊이를 과소평가한다.", "That Korea = K-pop, trendy rather than deep. The world under-attributes historical depth in a way it never would to Japan or China."),
-    gap: D("수천 년 깊이의 문명과 약 15년 깊이의 세계적 이미지 사이의 격차.", "Between a civilization millennia deep and a global image about fifteen years deep."),
+    salience: D("127개 · 한국인 자신과 일본에 몰려 있다", "127 · concentrated among Koreans themselves and Japan"),
+    misread: D("세계는 ‘한국 = 요즘 대중문화’라고, 즉 ‘한 15년쯤 된 나라’라고 여긴다. 그 아래 오래된 문명이 있다는 걸 아는 건 가까운 이웃뿐이다.", "The world treats “Korea = today's pop culture” — a country about fifteen years deep. Only its close neighbours know there's an old civilization underneath."),
+    why: D("역사·전통에 대한 호기심은 ‘가까워서 더 깊이 궁금해지는’ 곳에 몰린다 — 한국과 일본이 한복·명절·전통을 묻는다. 먼 나라는 ‘대중문화 한국’을, 가까운 나라는 ‘깊은 한국’을 묻는다. 서구에는 한국이 ‘플레이리스트’로 도착했기 때문에 얕다.", "Curiosity about history and tradition clusters where proximity breeds deeper interest — Korea and Japan ask about hanbok, holidays, tradition. Distant markets ask about pop-Korea; near ones about deep-Korea. In the West, Korea arrived as a playlist, so it's thin."),
+    assumption: D("‘한국은 K-팝이고, 깊다기보다 유행’이라는 생각. 일본·중국에는 절대 하지 않을 방식으로, 세계는 한국의 역사적 깊이를 낮춰 본다.", "The belief that “Korea is K-pop — trendy more than deep.” The world underrates Korea's historical depth in a way it never would with Japan or China."),
+    gap: D("수천 년 된 문명과, ‘한 15년쯤 된’ 세계 이미지 사이의 간격.", "The gap between a civilization thousands of years old and a global image about fifteen years old."),
     impl: [
-      [D("공공외교", "Public diplomacy"), D("깊이는 내구성 — 대중-only 이미지는 취약하다.", "Depth is durability; a pop-only image is fragile.")],
-      [D("관광", "Tourism"), D("유산 관광이 대중문화 청중에 덜 알려져 있다.", "Heritage tourism is under-marketed to the pop audience.")],
-      [D("교육", "Education"), D("세계의 한국 리터러시는 대중-깊이, 역사-얕음.", "Global Korea-literacy is pop-deep, history-shallow.")],
-      [D("문화정책", "Cultural policy"), D("투자가 대중 수출에 치우쳐 유산이 저활용.", "Investment skews to pop export; heritage under-leveraged.")],
-      [D("국가브랜딩", "Nation branding"), D("‘고대 문명 + 초현대’는 가장 방어 가능한 브랜드.", "“Ancient civilization + hyper-modern” is the most defensible brand.")],
+      [D("공공외교", "Public diplomacy"), D("깊이는 곧 오래 감 — 대중문화만으로 만든 이미지는 약하다.", "Depth means durability — an image built on pop culture alone is fragile.")],
+      [D("관광", "Tourism"), D("역사·유산 관광이 대중문화 팬들에게 덜 알려져 있다.", "Heritage tourism is under-marketed to the pop-culture audience.")],
+      [D("교육", "Education"), D("세계의 한국 이해는 ‘대중문화는 깊고, 역사는 얕다’.", "Global understanding of Korea is pop-deep and history-shallow.")],
+      [D("문화정책", "Cultural policy"), D("투자가 대중문화 수출에 쏠려 유산이 덜 쓰인다.", "Investment tilts to pop-culture export, so heritage is under-used.")],
+      [D("국가브랜딩", "Nation branding"), D("‘오래된 문명 + 최첨단’은 가장 흉내 내기 어려운 브랜드.", "“Ancient civilization + cutting-edge” is the hardest brand to imitate.")],
     ],
-    move: D("대중의 부상을 문명적 깊이에 정박하라 — K-팝 세대에게 ‘이 뒤에는 이천 년이 있다’는 이야기를 주라. 깊이가 유행을 지속 가능한 국가 브랜드로 바꾸고 한류 피로에 대비한다.", "Anchor the pop surge to civilizational depth — give the K-pop generation the “there are two thousand years behind this” story. Depth converts a trend into a durable brand and hedges against Hallyu fatigue."),
+    move: D("지금의 대중문화 붐을 오래된 문명의 깊이에 붙들어 매라 — K-팝 세대에게 ‘이 뒤에는 이천 년이 있다’는 이야기를 줘라. 깊이가 유행을 오래가는 국가 브랜드로 바꾸고, 언젠가 올 ‘한류 피로’에도 대비하게 한다.", "Anchor today's pop boom to civilizational depth — give the K-pop generation the story “there are two thousand years behind this.” Depth turns a trend into a lasting national brand and hedges against the “Hallyu fatigue” that will eventually come."),
   },
   {
     no: "06",
     name: D("동경으로서의 K-뷰티", "K-Beauty as Aspiration"),
-    salience: D("81개 · 인도네시아·브라질·아랍에 강함 — 독일·일본·한국엔 없음", "81 · strong in Indonesia, Brazil, the Arab world — absent in Germany, Japan, Korea"),
-    misread: D("한국은 K-뷰티를 수출 카테고리로 다루지만, 부상하는 글로벌 사우스에게 그것은 정체성 실천이자 가장 친밀한 소프트파워이며, 지금 외교관이 아니라 화장품 회사가 운영한다.", "Korea treats K-beauty as an export category. For the rising Global South it is an identity practice — the most intimate soft power Korea has, run by cosmetics firms, not diplomats."),
-    why: D("K-뷰티는 부상하는 중산층이 현대성을 수행하는 곳에 몰리고, 자신감 있는(독일·일본) 혹은 원천인(한국) 시장에선 사라진다. 도달 가능한 자기개선과 지위 이동을 파는 ‘동경 기술’이다 — 팬덤이 아니라 개인적·일상적 벡터.", "K-beauty concentrates where a rising middle class performs modernity, and vanishes in confident (Germany, Japan) or source (Korea) markets. It sells attainable self-improvement — an aspiration technology, personal and daily, not celebrity fandom."),
-    assumption: D("신흥세계에서 ‘한국산’은 도달 가능한 현대적 아름다움·자기최적화의 동의어가 됐다. 한국 = 실제로 닿을 수 있는 동경의 삶.", "In the emerging world, “Korean” has become a synonym for achievable modern beauty and self-optimization. Korea = the aspirational lifestyle you can reach."),
-    gap: D("한국은 산업을 보고, 이 시장은 정체성을 산다 — 한국은 그 유대의 깊이를 과소평가한다.", "Korea sees an industry; these markets live an identity — Korea under-recognizes the depth of that bond."),
+    salience: D("81개 · 인도네시아·브라질·아랍에서 강하고 — 독일·일본·한국에는 거의 없다", "81 · strong in Indonesia, Brazil, the Arab world — nearly absent in Germany, Japan, Korea"),
+    misread: D("한국은 K-뷰티를 ‘수출 품목’으로 다룬다. 하지만 떠오르는 신흥국 사람들에게 그건 ‘나를 가꾸는 정체성’이자 가장 친밀한 소프트파워다. 그런데 지금 그걸 운영하는 건 외교관이 아니라 화장품 회사다.", "Korea treats K-beauty as an export product. For people in the rising emerging world it's an identity — a way of caring for oneself — and Korea's most intimate soft power. Yet the ones running it are cosmetics firms, not diplomats."),
+    why: D("K-뷰티는 ‘이제 막 중산층이 되어 현대적인 삶을 보여 주고 싶은’ 곳에서 강하고, 이미 자신 있는 나라(독일·일본)나 원산지(한국)에서는 사라진다. ‘노력하면 나도 닿을 수 있는 더 나은 나’를 파는 셈이다 — 스타를 좋아하는 팬심이 아니라, 매일의 개인적인 습관.", "K-beauty is strong where a new middle class wants to perform a modern life, and it vanishes in confident markets (Germany, Japan) or at the source (Korea). It sells “a better me you can actually reach” — not celebrity fandom, but a personal daily habit."),
+    assumption: D("신흥국에서 ‘한국산’은 ‘노력하면 닿을 수 있는 현대적인 아름다움·자기관리’와 같은 말이 됐다. 한국 = 실제로 손에 닿는 ‘동경하는 삶’.", "In emerging markets, “made in Korea” has become shorthand for “modern beauty and self-care you can actually reach.” Korea = an aspirational life within arm's reach."),
+    gap: D("한국은 ‘산업’을 보는데, 이 시장 사람들은 ‘정체성’을 산다 — 한국은 그 유대가 얼마나 깊은지 과소평가한다.", "Korea sees an industry; these markets buy an identity — and Korea underrates how deep that bond runs."),
     impl: [
-      [D("공공외교", "Public diplomacy"), D("가장 친밀한 일상 소프트파워가 상업에만 맡겨져 있다.", "The most intimate daily soft power is left entirely to commerce.")],
-      [D("관광", "Tourism"), D("의료·뷰티 관광 수요가 바로 이 시장에 집중.", "Medical/beauty tourism demand is concentrated in these markets.")],
-      [D("교육", "Education"), D("뷰티 관심이 언어·여행으로 가는 관문.", "Beauty interest is the gateway to language and travel.")],
-      [D("문화정책", "Cultural policy"), D("무역으로 분류돼 정체성 형성력을 놓친다.", "Filed under trade, missing its identity-formation power.")],
-      [D("국가브랜딩", "Nation branding"), D("‘도달 가능한 현대적 삶’이라는 시장별 브랜드.", "“The attainable modern lifestyle” — a market-specific brand.")],
+      [D("공공외교", "Public diplomacy"), D("가장 친밀한 일상 소프트파워를 통째로 기업에만 맡겨 두고 있다.", "The most intimate everyday soft power is left entirely to companies.")],
+      [D("관광", "Tourism"), D("의료·뷰티 관광 수요가 바로 이 시장에 몰려 있다.", "Medical and beauty tourism demand is concentrated in exactly these markets.")],
+      [D("교육", "Education"), D("뷰티에 대한 관심은 언어·여행으로 가는 통로.", "Interest in beauty is a gateway to language and travel.")],
+      [D("문화정책", "Cultural policy"), D("‘무역’으로만 분류해서, 정체성을 만드는 힘을 놓치고 있다.", "Filed only under “trade,” it misses its power to shape identity.")],
+      [D("국가브랜딩", "Nation branding"), D("‘노력하면 닿는 현대적인 삶’이라는, 시장마다 다른 브랜드.", "“The modern life you can reach” — a brand that differs by market.")],
     ],
-    move: D("K-뷰티를 최고 성장 시장의 전략적 외교 자산으로 인식하고 ‘뷰티 → 언어 → 여행 → 애정’ 퍼널을 의도적으로 구축하라. 한국의 이미지가 지금 가장 중요한 시장에서 형성되고 있으며, 현재 국가적 위임을 가진 누구도 이를 저술하지 않는다.", "Recognize K-beauty as strategic diplomacy in the highest-growth markets and build the deliberate beauty → language → travel → affinity funnel. Korea's image is being formed right now in the markets that matter most — authored by no one with a national mandate."),
+    move: D("K-뷰티를 ‘가장 빠르게 크는 시장의 전략적 외교 자산’으로 보고, ‘뷰티 → 언어 → 여행 → 애정’으로 이어지는 길을 일부러 설계하라. 한국의 이미지가 지금 가장 중요한 시장에서 만들어지고 있는데, 정작 국가를 대표해 그걸 이끄는 사람은 아무도 없다.", "See K-beauty as a strategic diplomatic asset in the fastest-growing markets, and deliberately design the path “beauty → language → travel → affection.” Korea's image is being made right now in the markets that matter most — and no one with a national mandate is leading it."),
   },
 ];
 
@@ -137,22 +137,22 @@ export function DiplomacyBrief() {
   return (
     <>
       <DocSection>
-        <Kicker>{locale === "ko" ? "핵심 주장" : "The central argument"}</Kicker>
+        <Kicker>{locale === "ko" ? "핵심 주장" : "The main point"}</Kicker>
         <H2>{locale === "ko" ? "사람들은 한국을 많이 본다. 하지만 많이 안다고 보긴 어렵다." : "People see a lot of Korea. But that isn’t the same as knowing it."}</H2>
         <Lead>
           {locale === "ko"
-            ? "한국의 외교는 20년간 공급 측이었다 — 콘텐츠를 밀고 기관을 열고 축제를 후원한다. 질문은 수요 측을 드러내며, 그것은 일치하지 않는다. 세계는 주목하지만 콘텐츠 붐이 해체하지 못한 옛 프레임으로 한국을 처리한다: 분단된 전쟁-장소, 벅찬 언어, 아름답지만 알 수 없는 사람들."
-            : "Korea's diplomacy has been supply-side for two decades — push content, open institutes, sponsor festivals. The questions reveal the demand-side, and it doesn't match. The world is attending, but through older frames the content boom never dismantled: a divided war-place, a forbidding language, a beautiful but unknowable people."}
+            ? "한국은 20년 동안 세계에 한국을 ‘보여주는’ 데 집중했다. 콘텐츠를 만들고, 문화원을 열고, 축제를 후원했다. 그런데 사람들이 실제로 검색하는 질문을 보면, 그들이 알고 싶어 하는 것과 한국이 보여주는 것이 어긋나 있다. 세계는 한국을 보고 있지만, 여전히 오래된 눈으로 본다 — 전쟁으로 나뉜 위험한 곳, 배우기 벅찬 언어, 예쁘지만 잘 모르겠는 사람들."
+            : "For twenty years Korea has focused on showing itself to the world — making content, opening cultural centers, sponsoring festivals. But look at what people actually search for, and what they want to know doesn't match what Korea is showing. The world is watching Korea, but still through old eyes: a dangerous place split by war, a language too hard to learn, beautiful people it can't quite read."}
         </Lead>
         <div className="mt-6 border-l-[3px] border-[color:var(--accent)] pl-5 text-xl font-medium leading-snug text-navy max-w-[52ch]">
           {locale === "ko"
-            ? "세계가 던지는 가장 큰 단일 질문은 여전히 ‘왜 한국은 둘인가’다 — 어떤 K-팝·드라마·뷰티 주제보다 크다. 15년의 한류가 볼륨을 키웠지만 첫 질문은 바꾸지 못했다."
-            : "The largest single thing the world asks is still “why are there two Koreas” — bigger than any K-pop, drama, or beauty topic. Fifteen years of Hallyu raised the volume; it did not change the first question."}
+            ? "세계가 가장 많이 던지는 질문은 지금도 ‘한국은 왜 둘로 나뉘었나’다 — K-팝·드라마·뷰티에 대한 어떤 질문보다도 많다. 15년의 한류는 관심의 크기는 키웠지만, 사람들이 던지는 첫 질문은 바꾸지 못했다."
+            : "The single most common thing the world asks is still “why is Korea split in two” — more than any question about K-pop, drama, or beauty. Fifteen years of Hallyu made the interest louder, but it did not change the first question people ask."}
         </div>
         <Lead>
           {locale === "ko"
-            ? "그리고 응답할 단일한 세계 청중이 없다. 질문의 31%만 시장을 넘나든다 — 나머지 69%는 지역적이다. 하나의 한국-브랜드가 아니라 일곱 개의 부분적 한국이 있고, 각 시장이 자기 프레임으로 다른 조각을 본다."
-            : "And there is no single global audience to address. Only 31% of questions cross markets; the other 69% are local. There are not one Korea-brand but seven partial Koreas, each market seeing a different slice through its own frame."}
+            ? "게다가 한꺼번에 대답할 ‘하나의 세계’도 없다. 질문의 31%만 여러 나라에 공통으로 나타나고, 나머지 69%는 그 나라에만 있다. 하나의 한국 이미지가 아니라, 나라마다 다른 조각의 한국이 있는 것이다."
+            : "And there is no single “world” to answer all at once. Only 31% of the questions show up in more than one country; the other 69% are local. There isn't one image of Korea — each country sees a different piece of it."}
         </Lead>
       </DocSection>
 
@@ -164,17 +164,17 @@ export function DiplomacyBrief() {
           </div>
           <div className="mt-2 text-[12px] font-medium uppercase tracking-[0.08em] text-muted-foreground">{d.salience[locale]}</div>
           <p className="mt-5 max-w-[60ch] text-[19px] leading-snug text-navy">
-            <span className="font-semibold text-[color:var(--accent)]">{locale === "ko" ? "오독: " : "The misread: "}</span>
+            <span className="font-semibold text-[color:var(--accent)]">{locale === "ko" ? "흔한 오해: " : "The common misunderstanding: "}</span>
             {d.misread[locale]}
           </p>
           <div className="mt-6 grid gap-5">
-            <Q label={locale === "ko" ? "왜 존재하는가" : "Why this exists"}>{d.why[locale]}</Q>
-            <Q label={locale === "ko" ? "드러나는 가정" : "The assumption it reveals"}>{d.assumption[locale]}</Q>
-            <Q label={locale === "ko" ? "인식의 격차" : "The perception gap"}>{d.gap[locale]}</Q>
+            <Q label={locale === "ko" ? "왜 이런 질문이 나올까" : "Why people ask this"}>{d.why[locale]}</Q>
+            <Q label={locale === "ko" ? "이 질문 속에 숨은 생각" : "The belief hidden inside it"}>{d.assumption[locale]}</Q>
+            <Q label={locale === "ko" ? "한국 생각과 세계 생각의 차이" : "Where Korea and the world disagree"}>{d.gap[locale]}</Q>
           </div>
           <div className="mt-6 overflow-hidden rounded-xl border border-border bg-white">
             <div className="border-b border-border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-              {locale === "ko" ? "무엇을 함의하는가" : "What it implies"}
+              {locale === "ko" ? "이것이 뜻하는 것" : "What this means"}
             </div>
             <dl className="divide-y divide-border">
               {d.impl.map(([dom, txt]) => (
@@ -186,18 +186,18 @@ export function DiplomacyBrief() {
             </dl>
           </div>
           <div className="mt-5">
-            <Accented label={locale === "ko" ? "이것이 사실이라면, 한국은" : "If this is true, Korea should"}>{d.move[locale]}</Accented>
+            <Accented label={locale === "ko" ? "그래서 한국은" : "So here's what Korea should do"}>{d.move[locale]}</Accented>
           </div>
         </DocSection>
       ))}
 
       <DocSection>
-        <Kicker>{locale === "ko" ? "종합" : "Synthesis"}</Kicker>
-        <H2>{locale === "ko" ? "하나의 한국을 방송하지 말고, 일곱을 해결하라" : "Stop broadcasting one Korea; start resolving seven"}</H2>
+        <Kicker>{locale === "ko" ? "종합" : "Putting it together"}</Kicker>
+        <H2>{locale === "ko" ? "하나의 한국을 방송하지 말고, 일곱 개의 질문에 답하라" : "Stop broadcasting one Korea; answer seven different questions"}</H2>
         <Lead>
           {locale === "ko"
-            ? "모든 개념을 관통하는 선은 같다: 주목이 이해를 앞질렀다. 글로벌 사우스에게 한국은 지정학적 사실이자 동경의 삶, 서구에겐 어려운 언어 뒤의 멋진 문화 상품, 이웃에겐 유산 문명이다. 하나의 나라, 세 개의 한국 — 어떤 단일 캠페인도 셋 모두에게 말할 수 없다. 다음 단계는 더 크게가 아니라, 각 시장이 드러내는 특정 격차의 표적 해결이다."
-            : "The through-line is the same across every concept: attention has outrun understanding. To the Global South, Korea is a geopolitical fact and an aspirational lifestyle; to the West, a cool cultural product behind a hard language; to its neighbours, a heritage civilization. One country, three Koreas — no single campaign can speak to all three. The next phase is not louder but targeted resolution of the specific gap each market exposes."}
+            ? "여섯 개 주제를 관통하는 하나의 사실이 있다: 관심은 이해보다 빨리 자랐다. 신흥국에게 한국은 ‘지정학적 사실이자 동경하는 삶’, 서구에게는 ‘어려운 언어 뒤의 멋진 문화 상품’, 이웃에게는 ‘오래된 문명’이다. 한 나라인데, 사람들이 보는 한국은 여러 개다 — 그래서 어떤 하나의 캠페인도 이들 모두에게 통할 수 없다. 다음 단계는 ‘더 크게 알리기’가 아니라, 시장마다 다르게 드러나는 그 격차를 하나씩 좁히는 것이다."
+            : "One fact runs through all six: interest grew faster than understanding. To the emerging world Korea is a geopolitical fact and an aspirational life; to the West, a cool cultural product behind a hard language; to its neighbours, an old civilization. One country, but people see several Koreas — so no single campaign can reach all of them. The next step isn't louder promotion; it's closing, one at a time, the specific gap each market reveals."}
         </Lead>
       </DocSection>
     </>
