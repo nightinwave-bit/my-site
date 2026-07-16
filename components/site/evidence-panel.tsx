@@ -11,8 +11,17 @@ import {
   PLATFORM_LABEL,
   graphNeighbors,
 } from "@/lib/ontology";
+import { discoveryFor } from "@/lib/interpretation";
 import { PLATFORM_ICON } from "./icon";
 import { cn } from "@/lib/utils";
+
+const LAYER_LABEL: Record<string, string> = {
+  question: "layer.question",
+  concept: "layer.concept",
+  theme: "layer.theme",
+  narrative: "layer.narrative",
+  perception: "layer.perception",
+};
 
 const TYPE_TAG: Record<string, string> = {
   question: "type.question",
@@ -92,6 +101,11 @@ export function EvidencePanel({
                 <h3 className="mt-1.5 text-xl font-semibold leading-tight text-navy">
                   {node.label[locale]}
                 </h3>
+                {LAYER_LABEL[node.type] && (
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {t(LAYER_LABEL[node.type])}
+                  </p>
+                )}
               </div>
               <button
                 type="button"
@@ -108,6 +122,18 @@ export function EvidencePanel({
               <p className="text-[15px] leading-relaxed text-secondary">
                 {node.blurb[locale]}
               </p>
+
+              {/* Discovery — the interpretation layer: what this structure reveals */}
+              {node.type === "perception" && discoveryFor(node.id) && (
+                <div className="mt-5 rounded-xl border border-brand/30 bg-brand/5 p-4">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
+                    {t("layer.discovery")}
+                  </div>
+                  <p className="mt-1.5 text-[15px] font-medium leading-relaxed text-navy">
+                    {discoveryFor(node.id)![locale]}
+                  </p>
+                </div>
+              )}
 
               {/* bridge into the Research reading (rung by node type) */}
               {(node.type === "perception" || node.type === "narrative") && (

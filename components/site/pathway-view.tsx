@@ -11,6 +11,7 @@ import {
   type Pathway,
   type OntologyNode,
 } from "@/lib/ontology";
+import { meaningFor, discoveryFor } from "@/lib/interpretation";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { PathwayDiagram } from "./pathway-diagram";
@@ -29,6 +30,16 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
   const index = PATHWAYS.findIndex((p) => p.id === pathway.id);
   const next = PATHWAYS[(index + 1) % PATHWAYS.length];
   const ease = [0.22, 1, 0.36, 1] as const;
+
+  const meaning = meaningFor(pathway.id);
+  const discovery = discoveryFor(terminal.id);
+  const meaningCards = meaning
+    ? [
+        { key: "pathway.meaning.what", value: meaning.whatHappened },
+        { key: "pathway.meaning.why", value: meaning.why },
+        { key: "pathway.meaning.matters", value: meaning.whyItMatters },
+      ]
+    : [];
 
   return (
     <>
@@ -80,13 +91,56 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
           </div>
         </section>
 
-        {/* pathway diagram + explanation */}
-        <section className="border-b border-border">
+        {/* meaning — What happened → Why → So what */}
+        {meaningCards.length > 0 && (
+          <section className="border-b border-border">
+            <div className="container py-16 sm:py-20">
+              <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
+                {t("pathway.meaning.eyebrow")}
+              </div>
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                {meaningCards.map((c, i) => (
+                  <Reveal key={c.key} delay={i * 0.08} className="h-full">
+                    <div className="flex h-full flex-col rounded-xl border border-border bg-white p-6 shadow-card">
+                      <div className="flex items-center gap-2.5">
+                        <span className="text-sm font-semibold tabular-nums text-brand">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-[13px] font-semibold uppercase tracking-[0.12em] text-navy">
+                          {t(c.key)}
+                        </span>
+                      </div>
+                      <p className="mt-4 text-[17px] font-medium leading-relaxed text-navy">
+                        {c.value[locale]}
+                      </p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+
+              {discovery && (
+                <Reveal delay={0.1}>
+                  <div className="mt-4 rounded-xl border-l-4 border-brand bg-brand/5 p-6">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
+                      {t("layer.discovery")}
+                    </div>
+                    <p className="mt-2 text-lg font-semibold leading-snug text-navy sm:text-xl">
+                      {discovery[locale]}
+                    </p>
+                  </div>
+                </Reveal>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* pathway diagram + explanation (the underlying structure) */}
+        <section className="border-b border-border bg-tint">
           <div className="container py-16 sm:py-20">
             <div className="grid gap-12 lg:grid-cols-[minmax(0,440px)_1fr] lg:gap-16">
               <div>
                 <div className="mb-6 text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  {t("a11y.pathwayReads")}
+                  {t("pathway.structure.eyebrow")}
                 </div>
                 <PathwayDiagram
                   pathway={pathway}
@@ -105,7 +159,7 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
                 <Reveal>
                   <div className="rounded-2xl border-l-4 border-brand bg-navy px-7 py-8 shadow-card">
                     <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-hi">
-                      {t(`type.${terminal.type}`)}
+                      {t(`layer.${terminal.type}`)}
                     </div>
                     <h2 className="mt-2 text-2xl font-semibold leading-snug text-white sm:text-3xl">
                       {terminal.label[locale]}
@@ -161,13 +215,21 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
                 {getNode(next.steps[0].nodeId).label[locale]}
               </div>
             </div>
-            <Link
-              href={`/pathway/${next.id}`}
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-brand px-5 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
-            >
-              {t("pathways.view")}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/topics"
+                className="inline-flex h-11 items-center gap-2 rounded-full border border-border-strong bg-white px-5 text-sm font-semibold text-navy transition-colors hover:border-brand hover:text-brand"
+              >
+                {t("pathway.browseAll")}
+              </Link>
+              <Link
+                href={`/pathway/${next.id}`}
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-brand px-5 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
+              >
+                {t("pathways.view")}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>

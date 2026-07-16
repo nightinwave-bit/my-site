@@ -1,9 +1,11 @@
 import { Navbar } from "@/components/site/navbar";
 import { Hero } from "@/components/site/hero";
+import { TopicsHome } from "@/components/site/topics-home";
 import { ExplorePreview } from "@/components/site/explore-preview";
 import { ModelBand } from "@/components/site/model-band";
 import { FeaturedPathways } from "@/components/site/featured-pathways";
 import { ResearchTeaser } from "@/components/site/research-teaser";
+import { SiteMap } from "@/components/site/site-map";
 import { MethodSection } from "@/components/site/method-section";
 import { Footer } from "@/components/site/footer";
 
@@ -12,15 +14,19 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        {/* Act I — thesis: we structure questions into an ontology */}
+        {/* Act I — the question: how does the world understand Korea? */}
         <Hero />
-        {/* Act II — the ontology as a network (primary visual identity) */}
+        {/* primary entry — start with a topic */}
+        <TopicsHome />
+        {/* the ontology as a network (core differentiator) */}
         <ExplorePreview />
-        {/* supporting: the five layers, traced through one question */}
+        {/* supporting: how one question becomes a perception */}
         <ModelBand />
         <FeaturedPathways />
         {/* Act III — research, built on top of the ontology */}
         <ResearchTeaser />
+        {/* what you can do here — a visible exploration structure */}
+        <SiteMap />
         <MethodSection />
       </main>
       <Footer />

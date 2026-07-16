@@ -8,7 +8,7 @@ const D = (ko: string, en: string): L => ({ ko, en });
 
 const FALSIFIED: [L, L, L][] = [
   [D("독점 이미지", "The monolith"), D("무너짐 01", "Falsified 01"), D("질문의 69%가 시장 고유. 브랜딩할 하나의 세계-한국은 없고, 각기 지역 프레임으로 보이는 일곱 개의 부분적 한국이 있다.", "69% of questions are market-specific. No global Korea to brand — seven partial Koreas, each seen through a local frame.")],
-  [D("인상 지표", "The impression"), D("무너짐 02", "Falsified 02"), D("주목은 사상 최고이나 최대 질문은 여전히 ‘왜 둘인가’다. 도달은 이해가 되지 못했다.", "Attention is at record highs, yet the largest question is still “why are there two Koreas.” Reach did not become comprehension.")],
+  [D("인상 지표", "The impression"), D("무너짐 02", "Falsified 02"), D("주목은 사상 최고인데, 가장 많이 묻는 질문은 여전히 ‘왜 둘인가’다. 사람들은 한국을 많이 본다. 하지만 많이 안다고 보긴 어렵다.", "Attention is at record highs, yet the most-asked question is still “why are there two Koreas.” People see a lot of Korea — but that isn’t the same as knowing it.")],
   [D("일방 방송", "The broadcast"), D("무너짐 03", "Falsified 03"), D("실제 이미지는 공동 생산된다 — 질문자, 디아스포라, 민간 산업이 함께. 국가는 수신기가 없다.", "The real image is co-produced — by questioners, diaspora, private industry. The state has no receiver.")],
 ];
 
@@ -99,7 +99,7 @@ export function FrameworkPaper() {
     <>
       <DocSection>
         <Kicker>{locale === "ko" ? "전제" : "Premise"}</Kicker>
-        <H2>{locale === "ko" ? "국가 브랜딩은 데이터가 반증하는 세 가정 위에 서 있다" : "Nation branding rests on three assumptions the data falsifies"}</H2>
+        <H2>{locale === "ko" ? "우리가 흔히 믿는 국가 홍보 방식에는 세 가지 착각이 있다" : "The usual way we think about promoting a country rests on three mistaken beliefs"}</H2>
         <Lead>
           {locale === "ko"
             ? "모든 이미지-부처는 같은 상속 교리로 돈다: 국가가 하나의 이미지를 세계 공중에 밀 수 있고, 주목이 성공의 척도이며, 국가가 이미지를 생산한다는 것. 코퍼스는 셋을 동시에 깨뜨리고, 각 균열은 다른 아키텍처를 연다."
@@ -116,8 +116,8 @@ export function FrameworkPaper() {
         </div>
         <p className="mt-6 max-w-[64ch] text-[17px] text-navy">
           {locale === "ko"
-            ? "이어지는 것은 역(逆) 가정 위에 세운 여섯 아키텍처다: 독점이 아니라 연합, 도달이 아니라 이해로 회계, 방송이 아니라 경청 시스템이 생산."
-            : "What follows are six architectures on the inverse assumptions: federated not monolithic; accounted by comprehension not reach; produced by a listening system, not a broadcast."}
+            ? "그래서 반대로 뒤집은 여섯 가지 방식을 제안합니다: 혼자 독점하기보다 함께, 얼마나 알려졌나보다 얼마나 이해됐나, 일방적으로 알리기보다 먼저 듣기."
+            : "So we propose six ways that flip those beliefs: together rather than alone; measured by how well people understand, not how widely they’ve heard; listening first, not broadcasting."}
         </p>
       </DocSection>
 

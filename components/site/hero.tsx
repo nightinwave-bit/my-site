@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Pause, Play, Network } from "lucide-react";
+import { ArrowRight, Pause, Play, Network, LayoutGrid } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { PATHWAYS, type OntologyNode } from "@/lib/ontology";
 import { PathwayDiagram } from "./pathway-diagram";
@@ -13,8 +13,9 @@ import { cn } from "@/lib/utils";
 const CYCLE_MS = 7000;
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-// The core structure of the project, always visible.
-const SPINE = ["type.question", "type.concept", "type.theme", "type.narrative", "type.perception"] as const;
+// The homepage thesis — purpose, not method: the world's questions become
+// perceptions, perceptions have a structure, and that structure reveals something.
+const FLOW = ["hero.flow.q", "hero.flow.p", "hero.flow.s", "hero.flow.m"] as const;
 
 export function Hero() {
   const { t, locale } = useLanguage();
@@ -90,19 +91,19 @@ export function Hero() {
               {t("hero.spine.label")}
             </div>
             <div className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-sm font-medium">
-              {SPINE.map((key, i) => (
+              {FLOW.map((key, i) => (
                 <span key={key} className="inline-flex items-center gap-1.5">
                   <span
                     className={cn(
                       "rounded-md px-2.5 py-1",
-                      i === SPINE.length - 1
+                      i === FLOW.length - 1
                         ? "bg-navy text-white"
                         : "bg-secondary text-navy"
                     )}
                   >
                     {t(key)}
                   </span>
-                  {i < SPINE.length - 1 && (
+                  {i < FLOW.length - 1 && (
                     <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
                   )}
                 </span>
@@ -117,17 +118,18 @@ export function Hero() {
             className="mt-9 flex flex-wrap items-center gap-3"
           >
             <Link
-              href="/explore"
+              href="/topics"
               className="inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
             >
-              <Network className="h-4 w-4" />
+              <LayoutGrid className="h-4 w-4" />
               {t("hero.cta.ontology")}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="#pathways"
+              href="/explore"
               className="inline-flex h-12 items-center gap-2 rounded-full border border-border-strong bg-white px-6 text-sm font-semibold text-navy transition-colors hover:border-brand hover:text-brand"
             >
+              <Network className="h-4 w-4" />
               {t("hero.cta.pathways")}
             </Link>
           </motion.div>

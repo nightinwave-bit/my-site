@@ -138,7 +138,7 @@ export function DiplomacyBrief() {
     <>
       <DocSection>
         <Kicker>{locale === "ko" ? "핵심 주장" : "The central argument"}</Kicker>
-        <H2>{locale === "ko" ? "소프트파워는 한국의 인지도를 높였지만 의미는 해결하지 못했다" : "Soft power raised Korea's salience without resolving its meaning"}</H2>
+        <H2>{locale === "ko" ? "사람들은 한국을 많이 본다. 하지만 많이 안다고 보긴 어렵다." : "People see a lot of Korea. But that isn’t the same as knowing it."}</H2>
         <Lead>
           {locale === "ko"
             ? "한국의 외교는 20년간 공급 측이었다 — 콘텐츠를 밀고 기관을 열고 축제를 후원한다. 질문은 수요 측을 드러내며, 그것은 일치하지 않는다. 세계는 주목하지만 콘텐츠 붐이 해체하지 못한 옛 프레임으로 한국을 처리한다: 분단된 전쟁-장소, 벅찬 언어, 아름답지만 알 수 없는 사람들."

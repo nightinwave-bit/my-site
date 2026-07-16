@@ -77,7 +77,7 @@ export function QuestionCommons() {
     <>
       <DocSection>
         <Kicker>{locale === "ko" ? "재구성" : "The reframe"}</Kicker>
-        <H2>{locale === "ko" ? "질문은 모든 행위자가 쥘 수 있는 유일한 객체다" : "A question is the one object every actor can hold"}</H2>
+        <H2>{locale === "ko" ? "질문은 누구나 함께 쥘 수 있는 단 하나의 공통물이다" : "A question is the one thing everyone can hold together"}</H2>
         <Lead>
           {locale === "ko"
             ? "제도는 사람을 역할로 나눈다. 질문은 그러지 않는다. 같은 질문 — ‘한국은 안전한가’, ‘한국어는 어렵나’ — 을 연구자가 발견하고, 디아스포라가 해석하고, 창작자가 영상으로 만들고, 교육자가 가르치고, 커뮤니티가 논쟁하고, 시민이 답하고, 새 질문을 낳는 지식으로 종합할 수 있다. 질문은 경계 객체다 — 누구의 것도 아니면서 모두를 잇는다."
