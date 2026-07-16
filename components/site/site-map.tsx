@@ -1,18 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { Route, LayoutGrid, Network, FlaskConical, ArrowRight } from "lucide-react";
+import { Route, LayoutGrid, Network, FlaskConical, Database, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
 
-// A visible exploration structure so a first-time visitor understands where
-// they are and what exists here — reducing reliance on next-pathway stepping.
+// A visible exploration structure so a first-time visitor understands, at a
+// glance, everything this site contains — reducing reliance on next-pathway
+// stepping. Order mirrors the primary navigation.
 const AREAS = [
   { key: "paths", href: "/#pathways", icon: Route },
   { key: "topics", href: "/topics", icon: LayoutGrid },
   { key: "explore", href: "/explore", icon: Network },
   { key: "research", href: "/research", icon: FlaskConical },
+  { key: "data", href: "/method", icon: Database },
 ] as const;
 
 export function SiteMap() {

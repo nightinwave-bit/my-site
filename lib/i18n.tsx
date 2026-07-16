@@ -10,11 +10,11 @@ type Dict = Record<string, { ko: string; en: string }>;
 
 export const dict: Dict = {
   "nav.brand": { ko: "Ask About Korea", en: "Ask About Korea" },
-  "nav.pathways": { ko: "질문의 길", en: "Question Paths" },
+  "nav.pathways": { ko: "대표 질문", en: "Key Questions" },
   "nav.topics": { ko: "주제", en: "Topics" },
-  "nav.explore": { ko: "온톨로지 지도", en: "Explore" },
+  "nav.explore": { ko: "질문 지도", en: "Question Map" },
   "nav.research": { ko: "리서치", en: "Research" },
-  "nav.method": { ko: "데이터 · 방법", en: "Data & Analysis" },
+  "nav.method": { ko: "데이터와 분석", en: "Data & Analysis" },
 
   // Research section — structural chrome (content prose lives in components)
   "research.eyebrow": { ko: "리서치", en: "Research" },
@@ -44,14 +44,14 @@ export const dict: Dict = {
     en: "You've seen how the questions connect. Now read what it means.",
   },
   "research.explore.cta.link": { ko: "리서치 읽기", en: "Read the Research" },
-  "research.teaser.eyebrow": { ko: "온톨로지 위에서", en: "Built on the ontology" },
+  "research.teaser.eyebrow": { ko: "질문에서 해석으로", en: "From questions to interpretation" },
   "research.teaser.title": {
-    ko: "구조가 만들어지면, 해석이 시작됩니다",
-    en: "Once the structure exists, interpretation begins",
+    ko: "질문이 무엇을 뜻하는지 읽습니다",
+    en: "We read what the questions mean",
   },
   "research.teaser.subtitle": {
-    ko: "리서치는 온톨로지를 토대로 삼습니다. 같은 1,540개 질문을 서술에서 해석, 제도, 생태계로 이어지는 네 단계로 읽어냅니다.",
-    en: "The research rests on the ontology. It reads the same 1,540 questions across four rungs — from description to interpretation, institutions, and ecosystem.",
+    ko: "같은 1,540개 질문을 네 단계로 해석합니다 — 무엇이 있는가, 그것이 뜻하는 것, 무엇을 해야 하는가, 무엇이 가능한가.",
+    en: "We interpret the same 1,540 questions across four steps — what is there, what it means, what to do, and what becomes possible.",
   },
   "research.teaser.rung": { ko: "단계", en: "Rung" },
   "research.teaser.all": { ko: "리서치 전체 보기", en: "See all research" },
@@ -60,25 +60,25 @@ export const dict: Dict = {
   "nav.sources": { ko: "데이터 출처", en: "Sources" },
 
   "hero.eyebrow": {
-    ko: "AI 시대의 질문 온톨로지",
-    en: "A question ontology for the AI era",
+    ko: "세계의 질문으로 읽는 한국",
+    en: "Reading Korea through the world's questions",
   },
   "hero.title": {
     ko: "세계는 한국을\n어떻게 이해하고 있을까?",
     en: "How does the world\nunderstand Korea?",
   },
   "hero.subtitle": {
-    ko: "우리는 세계가 한국에 대해 던지는 실제 질문을 읽습니다. 그 질문이 어떤 인식을 만들고, 그 인식이 어떤 구조를 이루며, 그 구조가 무엇을 뜻하는지 보여줍니다.",
-    en: "We read the real questions the world asks about Korea — and show the perceptions they form, the structure beneath them, and what that structure reveals.",
+    ko: "세계는 한국에 대해 질문합니다. 우리는 그 질문을 읽고, 그것이 무엇을 뜻하는지 해석합니다.",
+    en: "The world asks questions about Korea. We read those questions — and interpret what they mean.",
   },
-  "hero.spine.label": { ko: "이 사이트가 보여주는 것", en: "What this site shows" },
-  // The homepage thesis flow (purpose, not method).
-  "hero.flow.q": { ko: "세계의 질문", en: "The world's questions" },
-  "hero.flow.p": { ko: "한국에 대한 인식", en: "Perceptions of Korea" },
-  "hero.flow.s": { ko: "그 인식의 구조", en: "The structure beneath" },
-  "hero.flow.m": { ko: "그것이 뜻하는 것", en: "What it reveals" },
+  "hero.spine.label": { ko: "질문에서 의미까지", en: "From question to meaning" },
+  // The homepage thesis — short, memorable, human-readable.
+  "hero.flow.q": { ko: "질문", en: "Question" },
+  "hero.flow.p": { ko: "인식", en: "Perception" },
+  "hero.flow.s": { ko: "구조", en: "Structure" },
+  "hero.flow.m": { ko: "의미", en: "Meaning" },
   "hero.cta.ontology": { ko: "주제로 시작하기", en: "Start with a topic" },
-  "hero.cta.pathways": { ko: "온톨로지 지도 보기", en: "See the ontology map" },
+  "hero.cta.pathways": { ko: "질문 지도 보기", en: "See the question map" },
   "hero.pathway.label": { ko: "질문 경로", en: "Pathway" },
   "hero.pause": { ko: "일시정지", en: "Pause" },
   "hero.play": { ko: "재생", en: "Play" },
@@ -138,8 +138,8 @@ export const dict: Dict = {
   },
   "model.step5.title": { ko: "문화 강국, 한국", en: "Korea, a cultural power" },
   "model.step5.body": {
-    ko: "서사가 남기는 한 문장의 인식. 온톨로지가 도달하는 지점입니다.",
-    en: "The one-line perception the narrative leaves behind. Where the ontology arrives.",
+    ko: "서사가 남기는 한 문장의 인식. 질문이 도달하는 지점입니다.",
+    en: "The one-line perception the narrative leaves behind. Where the question arrives.",
   },
 
   "pathways.eyebrow": { ko: "질문 경로", en: "Pathways" },
@@ -158,6 +158,7 @@ export const dict: Dict = {
   "pathway.meaning.matters": { ko: "왜 중요한가", en: "So what?" },
   "pathway.structure.eyebrow": { ko: "질문에서 인식까지, 단계별로", en: "From question to perception, step by step" },
   "pathway.browseAll": { ko: "모든 주제 둘러보기", en: "Browse all topics" },
+  "pathway.discovery.eyebrow": { ko: "그래서, 이것이 뜻하는 것", en: "So — what this means" },
 
   "topics.eyebrow": { ko: "주제로 둘러보기", en: "Browse by topic" },
   "topics.title": { ko: "세계는 한국의 무엇을 궁금해할까?", en: "What does the world ask about Korea?" },
@@ -180,34 +181,36 @@ export const dict: Dict = {
   "topic.paths": { ko: "관련 질문의 길", en: "Related question paths" },
   "sitemap.eyebrow": { ko: "여기서 무엇을 할 수 있나", en: "What you can do here" },
   "sitemap.title": { ko: "이 사이트를 둘러보는 법", en: "Ways to explore this site" },
-  "sitemap.paths.title": { ko: "질문의 길", en: "Question Paths" },
+  "sitemap.paths.title": { ko: "대표 질문", en: "Key Questions" },
   "sitemap.paths.body": { ko: "하나의 질문이 어떻게 인식이 되는지 따라가 보세요.", en: "Follow how one question becomes a perception." },
   "sitemap.topics.title": { ko: "주제", en: "Topics" },
   "sitemap.topics.body": { ko: "관심 주제에서 시작해 관련 질문을 살펴보세요.", en: "Start from a topic and explore its questions." },
-  "sitemap.explore.title": { ko: "온톨로지 지도", en: "Explore" },
-  "sitemap.explore.body": { ko: "모든 질문이 이루는 전체 네트워크를 살펴보세요.", en: "See the full network the questions form." },
+  "sitemap.explore.title": { ko: "질문 지도", en: "Question Map" },
+  "sitemap.explore.body": { ko: "서로 다른 질문이 어디서 만나는지 한눈에 살펴보세요.", en: "See at a glance where different questions meet." },
   "sitemap.research.title": { ko: "리서치", en: "Research" },
   "sitemap.research.body": { ko: "이 패턴이 무엇을 뜻하는지 해석을 읽어보세요.", en: "Read what the patterns mean." },
+  "sitemap.data.title": { ko: "데이터와 분석", en: "Data & Analysis" },
+  "sitemap.data.body": { ko: "어떤 데이터를, 어떻게 모았는지 확인하세요.", en: "See what data we collected, and how." },
 
-  "explore.eyebrow": { ko: "전체 온톨로지", en: "Full ontology" },
+  "explore.eyebrow": { ko: "질문 지도", en: "The question map" },
   "explore.title": {
-    ko: "질문들은 하나의 지도를 이룹니다",
-    en: "The questions form a single map",
+    ko: "서로 다른 질문은 어디서 만날까?",
+    en: "Where do different questions meet?",
   },
   "explore.subtitle": {
-    ko: "개별 경로들이 교차하며 개념의 네트워크를 만듭니다. 아래는 수집된 질문에서 생성된 전체 온톨로지입니다.",
-    en: "Individual pathways cross to form a network of concepts. Below is the full ontology generated from the collected questions.",
+    ko: "한 질문을 따라가면 다른 질문과 만나는 지점이 보입니다. ‘K-팝’과 ‘한국어’는 서로 다른 질문이지만, 결국 같은 인식으로 이어집니다. 이 지도는 그렇게 흩어진 질문들이 어떻게 하나의 한국 이미지를 만드는지 보여줍니다.",
+    en: "Follow one question and you can see where it meets another. “K-pop” and “Korean language” are different questions, yet they arrive at the same perception. This map shows how scattered questions add up to a single image of Korea.",
   },
-  "explore.cta": { ko: "지도 탐색하기", en: "Explore the map" },
+  "explore.cta": { ko: "질문 지도 열기", en: "Open the question map" },
   "explore.preview.badge": {
-    ko: "인터랙티브 온톨로지 · 노드를 클릭해 근거를 확인하세요",
-    en: "Interactive ontology · click a node to see its evidence",
+    ko: "인터랙티브 지도 · 노드를 클릭해 실제 질문을 확인하세요",
+    en: "Interactive map · click a node to see the real questions",
   },
   "explore.back": { ko: "경로로 돌아가기", en: "Back to pathways" },
   "explore.legend": { ko: "노드 유형", en: "Node types" },
   "explore.hint": {
-    ko: "노드에 커서를 올리면 연결이 강조되고, 클릭하면 근거가 열립니다. 노드를 드래그해 재배치할 수 있습니다.",
-    en: "Hover a node to highlight its connections, click to open its evidence, and drag to rearrange.",
+    ko: "노드에 커서를 올리면 연결된 경로 전체가 강조되고, 클릭하면 실제 질문이 열립니다. 노드를 드래그해 재배치할 수 있습니다.",
+    en: "Hover a node to highlight the whole connected path, click to open the real questions, and drag to rearrange.",
   },
   "explore.flow.eyebrow": { ko: "인식은 어떻게 형성되는가", en: "How perception forms" },
   "explore.flow.statement": {
@@ -377,7 +380,7 @@ export const dict: Dict = {
 
   "sample.badge": { ko: "실제 수집 데이터", en: "Live dataset" },
   "sample.notice.title": {
-    ko: "실제 수집 데이터로 생성된 온톨로지",
+    ko: "실제 수집 데이터로 생성된 질문 지도",
     en: "Generated from a real collected dataset",
   },
   "sample.notice.body": {

@@ -22,27 +22,29 @@ import type { Localized } from "@/lib/ontology";
 // instead "people see a lot of Korea, but that isn't the same as knowing it."
 // =============================================================================
 
-/** One-line discovery per perception — "what does this reveal?" */
+// Discovery per perception — "so what?". Each is written to do four things:
+// say what the structure reveals, why it matters, and where the perception gap
+// or larger implication is. Read as plain prose (2–3 sentences), not fragments.
 export const DISCOVERY_BY_PERCEPTION: Record<string, Localized> = {
   p_cultural: {
-    ko: "K-팝은 이제 음악에 대한 관심을 넘어, 한국 자체로 들어가는 입구가 되고 있습니다.",
-    en: "K-pop is no longer just about the music — it has become the door people walk through to reach Korea itself.",
+    ko: "세계는 K-팝을 통해 한국을 처음 만납니다. 하지만 관심은 음악에서 멈추지 않고, 언어·음식·삶의 방식으로 번져 갑니다. K-팝은 목적지가 아니라 한국으로 들어오는 입구입니다 — 문제는 그 입구를 지난 다음에 보여줄 것이 아직 정리되어 있지 않다는 점입니다.",
+    en: "The world first meets Korea through K-pop. But the interest doesn’t stop at the music — it spreads into language, food, and ways of living. K-pop is not the destination; it’s the doorway into Korea — and the gap is that we haven’t yet organized what to show people once they walk through it.",
   },
   p_aspirational: {
-    ko: "‘한국적’이라는 말이 손에 닿는 현대적 삶의 대명사가 되어가고 있습니다. 뷰티는 목적지가 아니라 그 삶으로 들어가는 입구입니다.",
-    en: "“Korean” is becoming shorthand for an attainable modern life. Beauty isn’t the destination — it’s the on-ramp.",
+    ko: "신흥 시장에서 ‘한국적’이라는 말은 손에 닿는 현대적 삶을 뜻하게 되었습니다. 사람들은 뷰티나 라이프스타일을 통해 그 삶에 다가가려 합니다. 뷰티는 목적지가 아니라 입구이며, 정작 그 뒤의 ‘한국’은 아직 충분히 설명되지 않았습니다.",
+    en: "In emerging markets, “Korean” has come to mean an attainable modern life, and people reach for it through beauty and lifestyle. Beauty is the on-ramp, not the destination — and the Korea behind it is still under-explained.",
   },
   p_divided: {
-    ko: "관심은 그 어느 때보다 크지만, 가장 많이 묻는 질문은 여전히 ‘왜 둘로 나뉘었나’입니다. 많이 보는 것과 이해하는 것은 다릅니다.",
-    en: "Attention is at an all-time high, yet the most-asked question is still “why are there two Koreas.” Being seen a lot is not the same as being understood.",
+    ko: "한국에 대한 관심은 그 어느 때보다 큽니다. 그런데도 가장 많이 묻는 질문은 여전히 ‘왜 둘로 나뉘었나’입니다. 많이 보이는 것과 이해되는 것은 다릅니다 — 오래된 기본 질문조차 아직 제대로 답해지지 않았다는 뜻입니다.",
+    en: "Interest in Korea is higher than ever. Yet the most-asked question is still “why are there two Koreas.” Being seen a lot is not the same as being understood — even the oldest, most basic question still hasn’t been answered well.",
   },
   p_advanced: {
-    ko: "사람들은 삼성 같은 익숙한 브랜드에서 출발해 한국 경제 전체로 들어갑니다. 제품이 나라로 가는 통로가 됩니다.",
-    en: "People start from a familiar brand like Samsung and back into the whole economy. The product is the gateway to the country.",
+    ko: "사람들은 삼성 같은 익숙한 브랜드에서 출발해 한국 경제 전체로 관심을 넓혀 갑니다. 제품이 나라로 들어가는 통로가 되는 셈입니다. 하지만 브랜드는 알아도 그 뒤의 사회와 사람은 잘 모릅니다 — 인지도와 이해 사이에 큰 틈이 있습니다.",
+    en: "People start from a familiar brand like Samsung and widen out into the whole economy — the product becomes the gateway to the country. But knowing the brand isn’t knowing the society or the people behind it: there’s a wide gap between recognition and understanding.",
   },
   p_enigmatic: {
-    ko: "한국에 대한 관심이, 실제로 한국을 이해할 수 있는 통로보다 빠르게 자라고 있습니다. 어려움은 언어의 성질이 아니라 진입로의 부족입니다.",
-    en: "Interest in Korea is growing faster than the ways to actually access it. The difficulty is a missing on-ramp, not a hard language.",
+    ko: "한국에 대한 관심은 빠르게 늘고 있습니다. 하지만 그 관심이 실제 이해로 이어지지는 않습니다. 사람들은 한국을 좋아하지만, 한국을 설명할 언어는 아직 부족합니다 — 어려움은 언어의 성질이 아니라 들어올 입구의 부족입니다.",
+    en: "Interest in Korea is growing fast. But that interest doesn’t turn into real understanding. People like Korea, yet they still lack the language to explain it — the difficulty isn’t the language itself, it’s the missing way in.",
   },
 };
 

@@ -35,7 +35,7 @@ export function ExplorePreview() {
           <figure className="overflow-hidden rounded-2xl border border-border bg-white shadow-card">
             <div className="flex items-center justify-between gap-3 border-b border-border px-5 py-3">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                Figure · 전체 온톨로지 · Full ontology
+                질문 지도 · The question map
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-tint px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
                 {t("explore.preview.badge")}

@@ -117,19 +117,6 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
                   </Reveal>
                 ))}
               </div>
-
-              {discovery && (
-                <Reveal delay={0.1}>
-                  <div className="mt-4 rounded-xl border-l-4 border-brand bg-brand/5 p-6">
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
-                      {t("layer.discovery")}
-                    </div>
-                    <p className="mt-2 text-lg font-semibold leading-snug text-navy sm:text-xl">
-                      {discovery[locale]}
-                    </p>
-                  </div>
-                </Reveal>
-              )}
             </div>
           </section>
         )}
@@ -203,6 +190,24 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
             </div>
           </div>
         </section>
+
+        {/* closing insight — the page climaxes on interpretation, not the label */}
+        {discovery && (
+          <section className="border-b border-border bg-navy">
+            <div className="container py-16 sm:py-24">
+              <div className="max-w-3xl">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-hi">
+                  {t("pathway.discovery.eyebrow")}
+                </div>
+                <Reveal>
+                  <p className="mt-4 text-pretty text-2xl font-semibold leading-[1.4] text-white sm:text-3xl sm:leading-[1.4]">
+                    {discovery[locale]}
+                  </p>
+                </Reveal>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* next pathway */}
         <section className="border-b border-border bg-tint">

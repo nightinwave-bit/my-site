@@ -35,7 +35,7 @@ export const TOPICS: Topic[] = [
     slug: "hallyu",
     title: { ko: "한류", en: "Hallyu" },
     tagline: { ko: "K-팝, 드라마, 뷰티, 음식 — 세계가 처음 한국을 만나는 곳.", en: "K-pop, drama, beauty, food — where the world first meets Korea." },
-    concepts: ["c_kpop", "c_drama", "c_beauty", "c_food", "c_culture"],
+    concepts: ["c_kpop", "c_drama", "c_beauty", "c_food"],
   },
   {
     slug: "language",
@@ -45,20 +45,20 @@ export const TOPICS: Topic[] = [
   },
   {
     slug: "tourism",
-    title: { ko: "여행", en: "Tourism" },
+    title: { ko: "관광", en: "Tourism" },
     tagline: { ko: "한국을 방문하고 살아가는 일 — 안전, 도시, 비용.", en: "Visiting and living in Korea — safety, cities, cost." },
     concepts: ["c_travel", "c_place"],
   },
   {
     slug: "history",
-    title: { ko: "역사", en: "History" },
-    tagline: { ko: "오늘의 한국을 만든 과거.", en: "The past that shaped today’s Korea." },
-    concepts: ["c_history"],
+    title: { ko: "역사·전통", en: "History & Heritage" },
+    tagline: { ko: "오늘의 한국을 만든 과거 — 그리고 한복·명절·살아 있는 전통.", en: "The past that shaped today’s Korea — hanbok, holidays, and living traditions." },
+    concepts: ["c_history", "c_culture"],
   },
   {
     slug: "diplomacy",
-    title: { ko: "외교·지정학", en: "Diplomacy" },
-    tagline: { ko: "분단, 두 개의 한국, 그리고 이웃 사이에서의 위치.", en: "Division, the two Koreas, and Korea’s place among its neighbours." },
+    title: { ko: "외교", en: "Diplomacy" },
+    tagline: { ko: "북한, 분단, 안보, 그리고 이웃 나라들과의 관계.", en: "North Korea, division, security, and relations with neighbours." },
     concepts: ["c_division", "c_compare"],
   },
   {

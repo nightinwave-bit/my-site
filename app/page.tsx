@@ -14,19 +14,19 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        {/* Act I — the question: how does the world understand Korea? */}
+        {/* identity — the world asks questions about Korea; we read them */}
         <Hero />
-        {/* primary entry — start with a topic */}
-        <TopicsHome />
-        {/* the ontology as a network (core differentiator) */}
-        <ExplorePreview />
-        {/* supporting: how one question becomes a perception */}
-        <ModelBand />
-        <FeaturedPathways />
-        {/* Act III — research, built on top of the ontology */}
-        <ResearchTeaser />
-        {/* what you can do here — a visible exploration structure */}
+        {/* orientation — everything this site contains, at a glance */}
         <SiteMap />
+        {/* entry — start with a topic */}
+        <TopicsHome />
+        {/* INTERPRETATION FIRST — representative questions, each ending in an insight */}
+        <FeaturedPathways />
+        <ResearchTeaser />
+        {/* STRUCTURE SECOND — the question map + how a question becomes a perception */}
+        <ExplorePreview />
+        <ModelBand />
+        {/* METHODOLOGY & DATA LAST */}
         <MethodSection />
       </main>
       <Footer />

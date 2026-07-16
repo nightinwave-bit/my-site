@@ -217,13 +217,28 @@ export function ForceGraph({
   );
 
   const active = hover ?? selected?.id ?? null;
+  // Trace the FULL connected path through the active node, not just its direct
+  // neighbours: walk downstream (toward perception) and upstream (toward the
+  // questions) along the directed edges. Hovering any node lights up the whole
+  // question → concept → theme → narrative → perception lineage it belongs to.
   const neighbors = React.useMemo(() => {
     if (!active) return null;
-    const s = new Set<string>([active]);
+    const fwd = new Map<string, string[]>();
+    const bwd = new Map<string, string[]>();
     edges.forEach((e) => {
-      if (e.from === active) s.add(e.to);
-      if (e.to === active) s.add(e.from);
+      (fwd.get(e.from) ?? fwd.set(e.from, []).get(e.from)!).push(e.to);
+      (bwd.get(e.to) ?? bwd.set(e.to, []).get(e.to)!).push(e.from);
     });
+    const s = new Set<string>([active]);
+    const walk = (adj: Map<string, string[]>) => {
+      const stack = [active];
+      while (stack.length) {
+        const cur = stack.pop()!;
+        for (const nb of adj.get(cur) ?? []) if (!s.has(nb)) { s.add(nb); stack.push(nb); }
+      }
+    };
+    walk(fwd);
+    walk(bwd);
     return s;
   }, [active, edges]);
 
@@ -307,7 +322,8 @@ export function ForceGraph({
             const a = pos(e.from);
             const b = pos(e.to);
             if (!a || !b) return null;
-            const on = neighbors != null && (e.from === active || e.to === active);
+            // an edge is "on" when both endpoints are in the traced path
+            const on = neighbors != null && neighbors.has(e.from) && neighbors.has(e.to);
             const dim = neighbors != null && !on;
             const mx = (a.x + b.x) / 2;
             return (

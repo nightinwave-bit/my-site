@@ -99,7 +99,7 @@ export function FrameworkPaper() {
     <>
       <DocSection>
         <Kicker>{locale === "ko" ? "전제" : "Premise"}</Kicker>
-        <H2>{locale === "ko" ? "우리가 흔히 믿는 국가 홍보 방식에는 세 가지 착각이 있다" : "The usual way we think about promoting a country rests on three mistaken beliefs"}</H2>
+        <H2>{locale === "ko" ? "우리는 세계가 같은 한국을 본다고 생각한다. 하지만 질문은 다르게 나타난다 — 나라마다 다른 한국을 보고 있다." : "We assume the world sees the same Korea. But the questions say otherwise — each country is looking at a different Korea."}</H2>
         <Lead>
           {locale === "ko"
             ? "모든 이미지-부처는 같은 상속 교리로 돈다: 국가가 하나의 이미지를 세계 공중에 밀 수 있고, 주목이 성공의 척도이며, 국가가 이미지를 생산한다는 것. 코퍼스는 셋을 동시에 깨뜨리고, 각 균열은 다른 아키텍처를 연다."
