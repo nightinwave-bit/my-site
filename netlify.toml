@@ -1,0 +1,18 @@
+# Netlify configuration for Ask About Korea (Next.js 14 App Router).
+#
+# This is a standard server-rendered Next.js app (no `output: export`), so it
+# deploys via Netlify's official Next.js runtime, which builds to `.next`.
+# The offline workspaces (collect/, pipeline/, reasoning/) are not part of the
+# site build and are ignored by Next.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 14.2.5 requires Node 18.17+; pin an LTS for reproducible builds.
+  NODE_VERSION = "20"
+
+# Official Next.js runtime — handles App Router, SSR, and routing on Netlify.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
