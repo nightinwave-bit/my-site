@@ -1,0 +1,313 @@
+{
+  "totals": {
+    "subjects": 18,
+    "significanceOwed": 234,
+    "significanceAnswered": 0,
+    "machineReadyRungs": 1,
+    "humanBlockedRungs": 3
+  },
+  "rungs": [
+    {
+      "rung": 1,
+      "slug": "data-report",
+      "question": "What is there?",
+      "section": "§5·L1",
+      "sources": [
+        "ladder.L1_observation",
+        "provenance",
+        "frameCompetition.detect"
+      ],
+      "machineReady": true,
+      "readiness": {
+        "ready": true,
+        "owed": 0,
+        "answered": 18
+      },
+      "note": "Description. Assembled from AI-detected observation — the only rung the engine may complete.",
+      "body": {
+        "frame": "Leading frame by attention share: “Korea as an aspirational, modern lifestyle” (28.7%).",
+        "frameRanking": [
+          {
+            "id": "p_aspirational",
+            "label": "Korea as an aspirational, modern lifestyle",
+            "attention": 296.5,
+            "share": 28.7
+          },
+          {
+            "id": "p_advanced",
+            "label": "Korea as a technologically advanced, developed nation",
+            "attention": 209.8,
+            "share": 20.3
+          },
+          {
+            "id": "p_enigmatic",
+            "label": "Korea as fascinating and hard to fully grasp",
+            "attention": 209.7,
+            "share": 20.3
+          },
+          {
+            "id": "p_cultural",
+            "label": "Korea as a cultural powerhouse",
+            "attention": 207.8,
+            "share": 20.1
+          },
+          {
+            "id": "p_divided",
+            "label": "Korea as a nation defined by division & security",
+            "attention": 110.8,
+            "share": 10.7
+          }
+        ],
+        "observations": [
+          {
+            "subject": "North–South Division & Two Koreas",
+            "observation": "People ask about “North–South Division & Two Koreas” — 242 questions across 7 markets.",
+            "count": 242,
+            "sharePct": 15.7,
+            "persistent": true,
+            "relationship": "Relationship map — North–South Division & Two Koreas → Division, History & Geopolitics → Korea as a divided nation living with risk → Korea as a nation defined by division & security."
+          },
+          {
+            "subject": "Korean Language & Its Difficulty",
+            "observation": "People ask about “Korean Language & Its Difficulty” — 163 questions across 7 markets.",
+            "count": 163,
+            "sharePct": 10.6,
+            "persistent": true,
+            "relationship": "Relationship map — Korean Language & Its Difficulty → Learning & Understanding Korea → Korea as a development & technology success story → Korea as a technologically advanced, developed nation."
+          },
+          {
+            "subject": "Korean People & National Character",
+            "observation": "People ask about “Korean People & National Character” — 143 questions across 6 markets.",
+            "count": 143,
+            "sharePct": 9.3,
+            "persistent": true,
+            "relationship": "Relationship map — Korean People & National Character → People, Society & Everyday Life → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          {
+            "subject": "Korean Cuisine",
+            "observation": "People ask about “Korean Cuisine” — 140 questions across 7 markets.",
+            "count": 140,
+            "sharePct": 9.1,
+            "persistent": true,
+            "relationship": "Relationship map — Korean Cuisine → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          {
+            "subject": "Culture, Tradition & Heritage",
+            "observation": "People ask about “Culture, Tradition & Heritage” — 127 questions across 7 markets.",
+            "count": 127,
+            "sharePct": 8.2,
+            "persistent": true,
+            "relationship": "Relationship map — Culture, Tradition & Heritage → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          {
+            "subject": "Travel & Safety",
+            "observation": "People ask about “Travel & Safety” — 100 questions across 7 markets.",
+            "count": 100,
+            "sharePct": 6.5,
+            "persistent": true,
+            "relationship": "Relationship map — Travel & Safety → Visiting & Living in Korea → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          {
+            "subject": "K-Beauty, Skincare & Fashion",
+            "observation": "People ask about “K-Beauty, Skincare & Fashion” — 81 questions across 5 markets.",
+            "count": 81,
+            "sharePct": 5.3,
+            "persistent": true,
+            "relationship": "Relationship map — K-Beauty, Skincare & Fashion → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          {
+            "subject": "K-Drama & Screen Stories",
+            "observation": "People ask about “K-Drama & Screen Stories” — 77 questions across 7 markets.",
+            "count": 77,
+            "sharePct": 5,
+            "persistent": true,
+            "relationship": "Relationship map — K-Drama & Screen Stories → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          {
+            "subject": "Regional Comparison (Japan / China)",
+            "observation": "People ask about “Regional Comparison (Japan / China)” — 67 questions across 6 markets.",
+            "count": 67,
+            "sharePct": 4.4,
+            "persistent": true,
+            "relationship": "Relationship map — Regional Comparison (Japan / China) → Division, History & Geopolitics → Korea as a divided nation living with risk → Korea as a nation defined by division & security."
+          },
+          {
+            "subject": "Technology & Brands",
+            "observation": "People ask about “Technology & Brands” — 62 questions across 7 markets.",
+            "count": 62,
+            "sharePct": 4,
+            "persistent": true,
+            "relationship": "Relationship map — Technology & Brands → Economy, Technology & Global Standing → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          {
+            "subject": "Seoul, Places & Climate",
+            "observation": "People ask about “Seoul, Places & Climate” — 61 questions across 7 markets.",
+            "count": 61,
+            "sharePct": 4,
+            "persistent": true,
+            "relationship": "Relationship map — Seoul, Places & Climate → Visiting & Living in Korea → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          {
+            "subject": "Economy, Money & Cost",
+            "observation": "People ask about “Economy, Money & Cost” — 52 questions across 5 markets.",
+            "count": 52,
+            "sharePct": 3.4,
+            "persistent": true,
+            "relationship": "Relationship map — Economy, Money & Cost → Visiting & Living in Korea → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          {
+            "subject": "History",
+            "observation": "People ask about “History” — 39 questions across 7 markets.",
+            "count": 39,
+            "sharePct": 2.5,
+            "persistent": true,
+            "relationship": "Relationship map — History → Division, History & Geopolitics → Korea as a divided nation living with risk → Korea as a nation defined by division & security."
+          },
+          {
+            "subject": "Society, Religion & Daily Life",
+            "observation": "People ask about “Society, Religion & Daily Life” — 38 questions across 6 markets.",
+            "count": 38,
+            "sharePct": 2.5,
+            "persistent": true,
+            "relationship": "Relationship map — Society, Religion & Daily Life → People, Society & Everyday Life → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          {
+            "subject": "K-Pop & Idols",
+            "observation": "People ask about “K-Pop & Idols” — 34 questions across 5 markets.",
+            "count": 34,
+            "sharePct": 2.2,
+            "persistent": true,
+            "relationship": "Relationship map — K-Pop & Idols → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          {
+            "subject": "Etiquette & Social Norms",
+            "observation": "People ask about “Etiquette & Social Norms” — 31 questions across 3 markets.",
+            "count": 31,
+            "sharePct": 2,
+            "persistent": false,
+            "relationship": "Relationship map — Etiquette & Social Norms → People, Society & Everyday Life → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          {
+            "subject": "Education & Study",
+            "observation": "People ask about “Education & Study” — 28 questions across 3 markets.",
+            "count": 28,
+            "sharePct": 1.8,
+            "persistent": false,
+            "relationship": "Relationship map — Education & Study → Learning & Understanding Korea → Korea as a development & technology success story → Korea as a technologically advanced, developed nation."
+          },
+          {
+            "subject": "Country Basics & Identity",
+            "observation": "People ask about “Country Basics & Identity” — 22 questions across 5 markets.",
+            "count": 22,
+            "sharePct": 1.4,
+            "persistent": false,
+            "relationship": "Relationship map — Country Basics & Identity → People, Society & Everyday Life → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          }
+        ],
+        "gaps": {
+          "unclustered": 33,
+          "thinCoverage": [
+            {
+              "id": "c_history",
+              "label": "History",
+              "sharePct": 2.5,
+              "distinctMarkets": 7
+            },
+            {
+              "id": "c_society",
+              "label": "Society, Religion & Daily Life",
+              "sharePct": 2.5,
+              "distinctMarkets": 6
+            },
+            {
+              "id": "c_kpop",
+              "label": "K-Pop & Idols",
+              "sharePct": 2.2,
+              "distinctMarkets": 5
+            },
+            {
+              "id": "c_etiquette",
+              "label": "Etiquette & Social Norms",
+              "sharePct": 2,
+              "distinctMarkets": 3
+            },
+            {
+              "id": "c_education",
+              "label": "Education & Study",
+              "sharePct": 1.8,
+              "distinctMarkets": 3
+            },
+            {
+              "id": "c_basics",
+              "label": "Country Basics & Identity",
+              "sharePct": 1.4,
+              "distinctMarkets": 5
+            }
+          ]
+        }
+      },
+      "awaiting": null
+    },
+    {
+      "rung": 2,
+      "slug": "diplomacy-brief",
+      "question": "So what?",
+      "section": "§5·L2–L3",
+      "sources": [
+        "ladder.L2_meaning",
+        "ladder.L3_gap",
+        "lenses.*.judge"
+      ],
+      "machineReady": false,
+      "readiness": {
+        "ready": false,
+        "owed": 36,
+        "answered": 0
+      },
+      "note": "Interpretation. Awaits human significance (meaning + gap).",
+      "body": null,
+      "awaiting": "36 human field(s) across 18 subjects"
+    },
+    {
+      "rung": 3,
+      "slug": "framework-paper",
+      "question": "Now what?",
+      "section": "§5·L4–L5,§13",
+      "sources": [
+        "ladder.L4_strategic",
+        "ladder.L5_system",
+        "outputs.strategic",
+        "outputs.system",
+        "questionToSystem.judge"
+      ],
+      "machineReady": false,
+      "readiness": {
+        "ready": false,
+        "owed": 72,
+        "answered": 0
+      },
+      "note": "Institutions. Awaits human strategic + system design.",
+      "body": null,
+      "awaiting": "72 human field(s) across 18 subjects"
+    },
+    {
+      "rung": 4,
+      "slug": "question-commons",
+      "question": "What if?",
+      "section": "§9,§10,§13",
+      "sources": [
+        "outputs.participation",
+        "circulation"
+      ],
+      "machineReady": false,
+      "readiness": {
+        "ready": false,
+        "owed": 18,
+        "answered": 0
+      },
+      "note": "Ecosystem. Awaits human participation + circulation design.",
+      "body": null,
+      "awaiting": "18 human field(s) across 18 subjects"
+    }
+  ]
+}

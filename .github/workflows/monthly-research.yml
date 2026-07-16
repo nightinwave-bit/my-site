@@ -1,0 +1,78 @@
+name: Monthly Research Pipeline
+
+# Runs the Kwon Soyoung Monthly Research Pipeline once a month:
+# collect → merge → regenerate ontology → run the reasoning engine →
+# generate research drafts → detect + interpret change → snapshot to
+# versioned history, then commit the new artifacts when they exist.
+#
+# The pipeline is offline-safe: if live Google Autocomplete is unreachable it
+# falls back to deterministic fixtures, so the scheduled run stays green.
+# Findings are AI-generated; all significance remains human-owned (§12).
+
+on:
+  schedule:
+    # 06:00 UTC on the 1st of every month
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Collection mode"
+        type: choice
+        default: auto
+        options: [auto, offline, live, skip]
+      apply_site:
+        description: "Regenerate lib/ontology.generated.ts (self-gates on labels)"
+        type: boolean
+        default: false
+
+# Allow the job to commit generated snapshots back to the repository.
+permissions:
+  contents: write
+
+concurrency:
+  group: monthly-research
+  cancel-in-progress: false
+
+jobs:
+  monthly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # The pipeline and its tools use only Node built-ins (collect/ has no
+      # dependencies), so no install step is required.
+
+      - name: Run the monthly research pipeline
+        env:
+          AAK_DATE: ${{ github.event.repository.updated_at }}
+          AAK_COLLECT_MODE: ${{ github.event.inputs.mode || 'auto' }}
+          AAK_APPLY_SITE: ${{ github.event.inputs.apply_site == 'true' && '1' || '0' }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: |
+          # Use the real run date (the expression above can be blank on schedule).
+          export AAK_DATE="$(date -u +%Y-%m-%d)"
+          echo "Running monthly pipeline for $AAK_DATE (mode: ${AAK_COLLECT_MODE:-auto})"
+          node pipeline/run-monthly.mjs
+
+      - name: Commit generated artifacts if changed
+        run: |
+          git config user.name  "aak-pipeline[bot]"
+          git config user.email "aak-pipeline[bot]@users.noreply.github.com"
+          # Stage only pipeline outputs and the (optionally) refreshed dataset/site.
+          git add pipeline/history collect/output reasoning/output lib/ontology.generated.ts 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes — nothing to commit."
+          else
+            MONTH="$(date -u +%Y-%m)"
+            git commit -m "Monthly research snapshot ${MONTH}
+
+          Automated run of the Kwon Soyoung Monthly Research Pipeline.
+          Findings are AI-generated; all significance remains human-owned (§12)."
+            git push
+          fi
