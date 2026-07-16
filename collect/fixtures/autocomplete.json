@@ -1,0 +1,178 @@
+{
+  "note": "ILLUSTRATIVE SAMPLE — standing in for live Google Autocomplete responses so the pipeline can be validated offline. NOT live data. `base` suggestions are emitted for every locale that runs the seed (producing cross-locale duplicates); `byLocale` adds a market-specific tail.",
+  "seeds": {
+    "why is korea": {
+      "base": [
+        "why is korea divided",
+        "why is korea so popular",
+        "why is korea called the land of morning calm",
+        "why is korea's birth rate so low",
+        "why is korea so developed"
+      ],
+      "byLocale": { "IN": ["why is korea popular in india"] }
+    },
+    "why do koreans": {
+      "base": [
+        "why do koreans bow",
+        "why do koreans use age differently",
+        "why do koreans eat kimchi",
+        "why do koreans work so much"
+      ]
+    },
+    "is korea safe": {
+      "base": [
+        "is korea safe",
+        "is korea safe to travel",
+        "is korea safe for tourists",
+        "is korea safe to live"
+      ],
+      "byLocale": { "IN": ["is korea safe for indian tourists"] }
+    },
+    "is korean hard": {
+      "base": [
+        "is korean hard to learn",
+        "is korean hard to speak",
+        "is korean hard for english speakers"
+      ]
+    },
+    "why is korea so": {
+      "base": [
+        "why is korea so popular",
+        "why is korea so expensive",
+        "why is korea so advanced",
+        "why is korea so clean"
+      ]
+    },
+    "koreans are": {
+      "base": [
+        "koreans are so polite",
+        "koreans are good at studying"
+      ]
+    },
+    "korean food": {
+      "base": [
+        "korean food near me",
+        "korean food names",
+        "why is korean food spicy",
+        "is korean food healthy"
+      ],
+      "byLocale": { "UK": ["korean food london"], "AU": ["korean food sydney"] }
+    },
+    "korean culture": {
+      "base": [
+        "korean culture facts",
+        "korean culture vs japanese culture",
+        "what is korean culture known for"
+      ]
+    },
+    "korean language": {
+      "base": [
+        "korean language basics",
+        "is korean language hard",
+        "why learn korean language"
+      ]
+    },
+    "k-pop": {
+      "base": [
+        "why is k-pop so popular",
+        "how to become a k-pop idol",
+        "k-pop idol training"
+      ],
+      "byLocale": { "IN": ["why is k-pop popular in india"] }
+    },
+    "korea vs": {
+      "base": [
+        "korea vs japan",
+        "north korea vs south korea",
+        "korea vs china"
+      ],
+      "byLocale": { "SG": ["korea vs singapore"] }
+    },
+    "한국은 왜": {
+      "base": [
+        "한국은 왜 분단되었나",
+        "한국은 왜 저출산",
+        "한국은 왜 인터넷이 빠른가",
+        "한국은 왜 성형수술이 많나"
+      ]
+    },
+    "한국인은 왜": {
+      "base": [
+        "한국인은 왜 나이를 따지나",
+        "한국인은 왜 김치를 먹나"
+      ]
+    },
+    "케이팝은 왜": {
+      "base": [
+        "케이팝은 왜 인기가 많나",
+        "케이팝은 왜 세계적으로 유명한가"
+      ]
+    },
+    "케이팝": {
+      "base": ["케이팝 아이돌 되는 법", "케이팝 오디션", "케이팝 인기 이유"]
+    },
+    "한국 음식": {
+      "base": ["한국 음식 종류", "한국 음식 매운 이유"]
+    },
+    "김치": {
+      "base": ["김치 종류", "김치 효능"]
+    },
+    "韓国 なぜ": {
+      "base": ["韓国 なぜ 分断", "韓国 なぜ 人気", "韓国 なぜ 少子化"]
+    },
+    "韓国 文化": {
+      "base": ["韓国 文化 特徴", "韓国 文化 日本 違い"]
+    },
+    "ケーポップ": {
+      "base": ["ケーポップ なぜ 人気", "ケーポップ アイドル 練習生"]
+    },
+    "por que a coreia": {
+      "base": [
+        "por que a coreia é dividida",
+        "por que a coreia é tão avançada",
+        "por que a coreia tem natalidade baixa"
+      ]
+    },
+    "cultura coreana": {
+      "base": ["cultura coreana fatos", "cultura coreana e japonesa"]
+    },
+    "comida coreana": {
+      "base": ["comida coreana perto de mim", "comida coreana é saudável"]
+    },
+    "لماذا كوريا": {
+      "base": ["لماذا كوريا مقسمة", "لماذا كوريا متقدمة"]
+    },
+    "الطعام الكوري": {
+      "base": ["الطعام الكوري صحي", "أشهر طعام كوري"]
+    },
+    "كي بوب": {
+      "base": ["لماذا كي بوب مشهور", "كيف تصبح نجم كي بوب"]
+    },
+    "warum ist korea": {
+      "base": [
+        "warum ist korea geteilt",
+        "warum ist korea so beliebt",
+        "warum ist korea so teuer"
+      ]
+    },
+    "koreanische kultur": {
+      "base": ["koreanische kultur fakten", "koreanische kultur vs japanische"]
+    },
+    "koreanisches essen": {
+      "base": ["koreanisches essen rezepte", "ist koreanisches essen gesund"]
+    },
+    "kenapa korea": {
+      "base": [
+        "kenapa korea terbagi dua",
+        "kenapa korea maju",
+        "kenapa angka kelahiran korea rendah"
+      ]
+    },
+    "budaya korea": {
+      "base": ["budaya korea unik", "budaya korea vs jepang"]
+    },
+    "makanan korea": {
+      "base": ["makanan korea halal", "makanan korea pedas"]
+    }
+  }
+}

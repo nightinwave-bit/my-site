@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pretendard — primary Korean typeface (self-hosted variable). Latin uses Inter;
+   Korean glyphs (absent in Inter) cascade to Pretendard automatically. */
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+
+@layer base {
+  :root {
+    --font-sans: var(--font-inter), "Pretendard Variable", Pretendard,
+      system-ui, -apple-system, sans-serif;
+
+    /* Research light system — white / navy / institutional blue / slate. */
+    --background: 0 0% 100%; /* white */
+    --tint: 210 40% 98%; /* slate-50 section band */
+    --foreground: 213 60% 11%; /* ink #0A1B2E */
+    --ink-heading: 212 63% 16%; /* #0F2846 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 60% 11%;
+
+    --secondary: 210 40% 96.5%; /* slate-100 chip */
+    --secondary-foreground: 215 25% 27%;
+
+    --muted: 210 40% 96.5%;
+    --muted-foreground: 215 16% 47%; /* slate-500 */
+    --text-secondary: 215 19% 35%; /* slate-600 */
+
+    --brand: 224 76% 48%; /* blue-700 #1D4ED8 */
+    --brand-foreground: 0 0% 100%;
+    --brand-hi: 217 91% 60%; /* blue-500 */
+    --insight: 199 89% 48%; /* sky-500, used sparingly */
+
+    /* Node-type surfaces */
+    --concept-bg: 222 100% 97%; /* very light blue chip */
+    --theme-bg: 210 40% 96.5%; /* slate chip */
+
+    --border: 214 32% 91%; /* slate-200 */
+    --border-strong: 213 27% 84%; /* slate-300 */
+    --input: 214 32% 91%;
+    --ring: 224 76% 48%;
+
+    --radius: 0.75rem;
+
+    --shadow-card: 0 1px 2px hsl(213 60% 15% / 0.04),
+      0 6px 20px hsl(213 60% 15% / 0.05);
+    --shadow-panel: 0 2px 8px hsl(213 60% 15% / 0.08),
+      0 24px 48px hsl(213 60% 15% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground;
+    word-break: keep-all;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    word-break: keep-all;
+    letter-spacing: -0.02em;
+    color: hsl(var(--ink-heading));
+  }
+  ::selection {
+    background: hsl(var(--brand) / 0.16);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .text-secondary {
+    color: hsl(var(--text-secondary));
+  }
+
+  /* Fine dotted grid — quiet, research-figure feel */
+  .bg-grid {
+    background-image: radial-gradient(
+      hsl(213 30% 40% / 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  /* Faint blueprint lines behind the hero stage */
+  .bg-blueprint {
+    background-image: linear-gradient(
+        hsl(213 40% 50% / 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, hsl(213 40% 50% / 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-panel {
+    box-shadow: var(--shadow-panel);
+  }
+
+  /* Institutional surface: white, hairline border, whisper shadow */
+  .surface {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .hairline {
+    border: 1px solid hsl(var(--border));
+  }
+
+  .card-hover {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-panel);
+    border-color: hsl(var(--border-strong));
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes progressGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.progress-bar {
+  transform-origin: left center;
+  animation-name: progressGrow;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

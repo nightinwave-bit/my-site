@@ -1,0 +1,1964 @@
+{
+  "meta": {
+    "generatedFrom": "/home/user/my-site/collect/output/canonical_questions.json",
+    "sourceMeta": {
+      "version": "stage-500/0.3.0-utf8fix",
+      "mode": "live",
+      "modeNote": "",
+      "date": "2026-07-15",
+      "locales": [
+        "US",
+        "DE",
+        "IN",
+        "ID",
+        "JP",
+        "BR",
+        "AE",
+        "KR"
+      ],
+      "autocompleteAttempts": 234,
+      "paaAttempts": 0,
+      "paaSkippedNoKey": true
+    },
+    "totalQuestions": 1540,
+    "unclusteredCount": 33,
+    "unclusteredPct": 2.1,
+    "conceptCount": 18,
+    "themeCount": 6,
+    "narrativeCount": 5,
+    "perceptionCount": 5,
+    "note": "Data-driven ontology. Concepts are empirical (token-frequency clusters); theme/narrative/perception layers are interpretive rollups. Analysis artifact only — does not modify the website."
+  },
+  "concepts": [
+    {
+      "id": "c_division",
+      "label": "North–South Division & Two Koreas",
+      "count": 242,
+      "sharePct": 15.7,
+      "salience": 76.37,
+      "languages": {
+        "en": 43,
+        "id": 46,
+        "pt": 58,
+        "ar": 47,
+        "de": 25,
+        "ja": 12,
+        "ko": 11
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "BR",
+        "topShare": 0.24,
+        "classification": "cross-market",
+        "distribution": {
+          "BR": 58,
+          "AE": 47,
+          "ID": 46,
+          "US+IN": 43,
+          "DE": 25,
+          "JP": 12,
+          "KR": 11
+        }
+      },
+      "countryTally": {
+        "IN": 43,
+        "US": 43,
+        "ID": 46,
+        "BR": 58,
+        "AE": 47,
+        "DE": 25,
+        "JP": 12,
+        "KR": 11
+      },
+      "exemplars": [
+        {
+          "text": "north korea vs south korea women",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "south korea",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korea is south or north",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "north korea vs south korea football",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "apakah bahasa korea sulit",
+          "language": "id",
+          "countries": [
+            "ID"
+          ]
+        },
+        {
+          "text": "história da coreia do sul",
+          "language": "pt",
+          "countries": [
+            "BR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_language",
+      "label": "Korean Language & Its Difficulty",
+      "count": 163,
+      "sharePct": 10.6,
+      "salience": 51.4,
+      "languages": {
+        "ar": 11,
+        "en": 33,
+        "de": 71,
+        "id": 11,
+        "ja": 12,
+        "pt": 15,
+        "ko": 10
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "DE",
+        "topShare": 0.44,
+        "classification": "cross-market",
+        "distribution": {
+          "DE": 71,
+          "US+IN": 33,
+          "BR": 15,
+          "JP": 12,
+          "AE": 11,
+          "ID": 11,
+          "KR": 10
+        }
+      },
+      "countryTally": {
+        "AE": 11,
+        "IN": 33,
+        "US": 33,
+        "DE": 71,
+        "ID": 11,
+        "JP": 12,
+        "BR": 15,
+        "KR": 10
+      },
+      "exemplars": [
+        {
+          "text": "هل اللغة الكورية صعبة",
+          "language": "ar",
+          "countries": [
+            "AE"
+          ]
+        },
+        {
+          "text": "is korean harder than japanese",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "is korean hard to learn for english speakers",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "how to learn korean",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean language",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "how to learn korean fast",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_people",
+      "label": "Korean People & National Character",
+      "count": 143,
+      "sharePct": 9.3,
+      "salience": 48.1,
+      "languages": {
+        "en": 76,
+        "ko": 34,
+        "de": 15,
+        "id": 14,
+        "ja": 3,
+        "pt": 1
+      },
+      "market": {
+        "distinctMarkets": 6,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.53,
+        "classification": "mixed",
+        "distribution": {
+          "US+IN": 76,
+          "KR": 34,
+          "DE": 15,
+          "ID": 14,
+          "JP": 3,
+          "BR": 1
+        }
+      },
+      "countryTally": {
+        "IN": 76,
+        "US": 76,
+        "KR": 34,
+        "DE": 15,
+        "ID": 14,
+        "JP": 3,
+        "BR": 1
+      },
+      "exemplars": [
+        {
+          "text": "are koreans tall",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "are koreans christian",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "why are koreans so beautiful",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "why do koreans use metal chopsticks",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "how do koreans write the date",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "are koreans lactose intolerant",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_food",
+      "label": "Korean Cuisine",
+      "count": 140,
+      "sharePct": 9.1,
+      "salience": 44.8,
+      "languages": {
+        "de": 12,
+        "en": 28,
+        "id": 19,
+        "ja": 22,
+        "pt": 17,
+        "ar": 20,
+        "ko": 22
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.2,
+        "classification": "cross-market",
+        "distribution": {
+          "US+IN": 28,
+          "JP": 22,
+          "KR": 22,
+          "AE": 20,
+          "ID": 19,
+          "BR": 17,
+          "DE": 12
+        }
+      },
+      "countryTally": {
+        "BR": 20,
+        "DE": 12,
+        "ID": 21,
+        "IN": 34,
+        "US": 34,
+        "JP": 22,
+        "AE": 20,
+        "KR": 22
+      },
+      "exemplars": [
+        {
+          "text": "kimchi",
+          "language": "de",
+          "countries": [
+            "BR",
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "kimchi jjigae",
+          "language": "de",
+          "countries": [
+            "BR",
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "kimchi fried rice",
+          "language": "de",
+          "countries": [
+            "BR",
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "kimchi stew",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "is korean food healthy",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "kimchi jjim",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_culture",
+      "label": "Culture, Tradition & Heritage",
+      "count": 127,
+      "sharePct": 8.2,
+      "salience": 40.6,
+      "languages": {
+        "de": 9,
+        "en": 24,
+        "id": 14,
+        "ja": 27,
+        "pt": 19,
+        "ar": 6,
+        "ko": 28
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "KR",
+        "topShare": 0.22,
+        "classification": "cross-market",
+        "distribution": {
+          "KR": 28,
+          "JP": 27,
+          "US+IN": 24,
+          "BR": 19,
+          "ID": 14,
+          "DE": 9,
+          "AE": 6
+        }
+      },
+      "countryTally": {
+        "DE": 9,
+        "ID": 16,
+        "IN": 31,
+        "US": 31,
+        "JP": 27,
+        "BR": 19,
+        "AE": 6,
+        "KR": 28
+      },
+      "exemplars": [
+        {
+          "text": "hanbok",
+          "language": "de",
+          "countries": [
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "hanbok dress",
+          "language": "de",
+          "countries": [
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "hanbok rental seoul",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "hanboknam",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "hanbok rental",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "hanbok men",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_travel",
+      "label": "Travel & Safety",
+      "count": 100,
+      "sharePct": 6.5,
+      "salience": 33.5,
+      "languages": {
+        "en": 48,
+        "de": 9,
+        "ar": 3,
+        "id": 8,
+        "ja": 21,
+        "ko": 10,
+        "pt": 1
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.48,
+        "classification": "mixed",
+        "distribution": {
+          "US+IN": 48,
+          "JP": 21,
+          "KR": 10,
+          "DE": 9,
+          "ID": 8,
+          "AE": 3,
+          "BR": 1
+        }
+      },
+      "countryTally": {
+        "IN": 49,
+        "US": 49,
+        "DE": 9,
+        "AE": 3,
+        "ID": 8,
+        "JP": 21,
+        "KR": 10,
+        "BR": 1
+      },
+      "exemplars": [
+        {
+          "text": "is korean tap water safe",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "is korea safe",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korea vs japan travel",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "is korean air star alliance",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "do you need a visa for korea from us",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "does korean air have wifi",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_beauty",
+      "label": "K-Beauty, Skincare & Fashion",
+      "count": 81,
+      "sharePct": 5.3,
+      "salience": 26.37,
+      "languages": {
+        "ar": 8,
+        "en": 29,
+        "id": 22,
+        "pt": 20,
+        "de": 2
+      },
+      "market": {
+        "distinctMarkets": 5,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.36,
+        "classification": "cross-market",
+        "distribution": {
+          "US+IN": 29,
+          "ID": 22,
+          "BR": 20,
+          "AE": 8,
+          "DE": 2
+        }
+      },
+      "countryTally": {
+        "AE": 8,
+        "IN": 29,
+        "US": 29,
+        "ID": 22,
+        "BR": 20,
+        "DE": 2
+      },
+      "exemplars": [
+        {
+          "text": "منتجات العناية بالبشرة الكورية",
+          "language": "ar",
+          "countries": [
+            "AE"
+          ]
+        },
+        {
+          "text": "korean skincare",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean beauty standards",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean fashion brands",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean skincare brands",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean beauty products",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_drama",
+      "label": "K-Drama & Screen Stories",
+      "count": 77,
+      "sharePct": 5,
+      "salience": 24.61,
+      "languages": {
+        "en": 19,
+        "id": 10,
+        "ja": 12,
+        "pt": 9,
+        "ar": 12,
+        "ko": 14,
+        "de": 1
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.25,
+        "classification": "cross-market",
+        "distribution": {
+          "US+IN": 19,
+          "KR": 14,
+          "JP": 12,
+          "AE": 12,
+          "ID": 10,
+          "BR": 9,
+          "DE": 1
+        }
+      },
+      "countryTally": {
+        "IN": 19,
+        "US": 19,
+        "ID": 10,
+        "JP": 12,
+        "BR": 9,
+        "AE": 12,
+        "KR": 14,
+        "DE": 1
+      },
+      "exemplars": [
+        {
+          "text": "k-pop demon hunters",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "why is kpop demon hunters so popular",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean drama",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean drama 2026",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "why is kpop demon hunters so bad",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean drama 2025",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_compare",
+      "label": "Regional Comparison (Japan / China)",
+      "count": 67,
+      "sharePct": 4.4,
+      "salience": 22,
+      "languages": {
+        "de": 9,
+        "en": 24,
+        "id": 10,
+        "ja": 12,
+        "pt": 4,
+        "ko": 8
+      },
+      "market": {
+        "distinctMarkets": 6,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.36,
+        "classification": "cross-market",
+        "distribution": {
+          "US+IN": 24,
+          "JP": 12,
+          "ID": 10,
+          "DE": 9,
+          "KR": 8,
+          "BR": 4
+        }
+      },
+      "countryTally": {
+        "DE": 9,
+        "IN": 26,
+        "US": 26,
+        "ID": 10,
+        "JP": 12,
+        "BR": 4,
+        "KR": 8
+      },
+      "exemplars": [
+        {
+          "text": "korea vs japan",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "is korea southeast asia",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korea vs japan football",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korea vs china",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean vs japanese",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korea vs japan reddit",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_tech",
+      "label": "Technology & Brands",
+      "count": 62,
+      "sharePct": 4,
+      "salience": 20.74,
+      "languages": {
+        "de": 10,
+        "en": 13,
+        "id": 6,
+        "ja": 10,
+        "ar": 10,
+        "ko": 9,
+        "pt": 4
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.21,
+        "classification": "cross-market",
+        "distribution": {
+          "US+IN": 13,
+          "DE": 10,
+          "JP": 10,
+          "AE": 10,
+          "KR": 9,
+          "ID": 6,
+          "BR": 4
+        }
+      },
+      "countryTally": {
+        "BR": 10,
+        "DE": 10,
+        "ID": 10,
+        "IN": 19,
+        "US": 19,
+        "JP": 10,
+        "AE": 10,
+        "KR": 9
+      },
+      "exemplars": [
+        {
+          "text": "samsung",
+          "language": "de",
+          "countries": [
+            "BR",
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "samsung s26",
+          "language": "de",
+          "countries": [
+            "BR",
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "samsung s26 ultra",
+          "language": "en",
+          "countries": [
+            "BR",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "samsung galaxy",
+          "language": "de",
+          "countries": [
+            "BR",
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "samsung stock",
+          "language": "de",
+          "countries": [
+            "DE",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "samsung a17",
+          "language": "en",
+          "countries": [
+            "ID",
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_place",
+      "label": "Seoul, Places & Climate",
+      "count": 61,
+      "sharePct": 4,
+      "salience": 20.05,
+      "languages": {
+        "de": 10,
+        "en": 13,
+        "ja": 10,
+        "pt": 6,
+        "ar": 9,
+        "ko": 9,
+        "id": 4
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.21,
+        "classification": "cross-market",
+        "distribution": {
+          "US+IN": 13,
+          "DE": 10,
+          "JP": 10,
+          "AE": 9,
+          "KR": 9,
+          "BR": 6,
+          "ID": 4
+        }
+      },
+      "countryTally": {
+        "BR": 9,
+        "DE": 10,
+        "ID": 10,
+        "IN": 17,
+        "US": 17,
+        "JP": 10,
+        "AE": 9,
+        "KR": 9
+      },
+      "exemplars": [
+        {
+          "text": "seoul forest",
+          "language": "de",
+          "countries": [
+            "BR",
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "seoul tower",
+          "language": "de",
+          "countries": [
+            "BR",
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "seoul weather",
+          "language": "de",
+          "countries": [
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "seoul",
+          "language": "de",
+          "countries": [
+            "DE",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "seoul station",
+          "language": "en",
+          "countries": [
+            "BR",
+            "ID",
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "seoul grand park",
+          "language": "en",
+          "countries": [
+            "ID",
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_economy",
+      "label": "Economy, Money & Cost",
+      "count": 52,
+      "sharePct": 3.4,
+      "salience": 17.8,
+      "languages": {
+        "ar": 1,
+        "en": 26,
+        "pt": 2,
+        "ja": 10,
+        "ko": 13
+      },
+      "market": {
+        "distinctMarkets": 5,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.5,
+        "classification": "mixed",
+        "distribution": {
+          "US+IN": 26,
+          "KR": 13,
+          "JP": 10,
+          "BR": 2,
+          "AE": 1
+        }
+      },
+      "countryTally": {
+        "AE": 1,
+        "IN": 26,
+        "US": 26,
+        "BR": 2,
+        "JP": 10,
+        "KR": 13
+      },
+      "exemplars": [
+        {
+          "text": "ما هي عملة كوريا",
+          "language": "ar",
+          "countries": [
+            "AE"
+          ]
+        },
+        {
+          "text": "is korea expensive",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "why is korean won so weak",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "what is korean money called",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean economy",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "vale a pena morar na coreia",
+          "language": "pt",
+          "countries": [
+            "BR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_history",
+      "label": "History",
+      "count": 39,
+      "sharePct": 2.5,
+      "salience": 12.42,
+      "languages": {
+        "en": 10,
+        "de": 1,
+        "ja": 8,
+        "ar": 2,
+        "ko": 10,
+        "id": 6,
+        "pt": 2
+      },
+      "market": {
+        "distinctMarkets": 7,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.26,
+        "classification": "cross-market",
+        "distribution": {
+          "US+IN": 10,
+          "KR": 10,
+          "JP": 8,
+          "ID": 6,
+          "AE": 2,
+          "BR": 2,
+          "DE": 1
+        }
+      },
+      "countryTally": {
+        "IN": 10,
+        "US": 10,
+        "DE": 1,
+        "JP": 8,
+        "AE": 2,
+        "KR": 10,
+        "ID": 6,
+        "BR": 2
+      },
+      "exemplars": [
+        {
+          "text": "korean history",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean history museum",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean history timeline",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean history museum seoul",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "why is korea called korea",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean history books",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_society",
+      "label": "Society, Religion & Daily Life",
+      "count": 38,
+      "sharePct": 2.5,
+      "salience": 12.59,
+      "languages": {
+        "en": 17,
+        "ko": 5,
+        "de": 2,
+        "ar": 4,
+        "ja": 9,
+        "id": 1
+      },
+      "market": {
+        "distinctMarkets": 6,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.45,
+        "classification": "cross-market",
+        "distribution": {
+          "US+IN": 17,
+          "JP": 9,
+          "KR": 5,
+          "AE": 4,
+          "DE": 2,
+          "ID": 1
+        }
+      },
+      "countryTally": {
+        "IN": 17,
+        "US": 17,
+        "KR": 5,
+        "DE": 2,
+        "AE": 4,
+        "JP": 9,
+        "ID": 1
+      },
+      "exemplars": [
+        {
+          "text": "why is korea so christian",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean weddings",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "does korea allow dual citizenship",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean weddings reddit",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean people are which religion",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean weddings short",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_kpop",
+      "label": "K-Pop & Idols",
+      "count": 34,
+      "sharePct": 2.2,
+      "salience": 10.9,
+      "languages": {
+        "en": 9,
+        "de": 2,
+        "ja": 11,
+        "ar": 6,
+        "ko": 6
+      },
+      "market": {
+        "distinctMarkets": 5,
+        "totalMarkets": 7,
+        "topMarket": "JP",
+        "topShare": 0.32,
+        "classification": "cross-market",
+        "distribution": {
+          "JP": 11,
+          "US+IN": 9,
+          "AE": 6,
+          "KR": 6,
+          "DE": 2
+        }
+      },
+      "countryTally": {
+        "IN": 9,
+        "US": 9,
+        "DE": 2,
+        "JP": 11,
+        "AE": 6,
+        "KR": 6
+      },
+      "exemplars": [
+        {
+          "text": "why is kpop so popular",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "k-pop",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "k-pop square",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "k-pop square hongdae",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "why is kpop banned in china",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "warum ist k-pop so beliebt",
+          "language": "de",
+          "countries": [
+            "DE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_etiquette",
+      "label": "Etiquette & Social Norms",
+      "count": 31,
+      "sharePct": 2,
+      "salience": 9.97,
+      "languages": {
+        "en": 12,
+        "ja": 9,
+        "ko": 10
+      },
+      "market": {
+        "distinctMarkets": 3,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.39,
+        "classification": "mixed",
+        "distribution": {
+          "US+IN": 12,
+          "KR": 10,
+          "JP": 9
+        }
+      },
+      "countryTally": {
+        "IN": 12,
+        "US": 12,
+        "JP": 9,
+        "KR": 10
+      },
+      "exemplars": [
+        {
+          "text": "korean etiquette",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean etiquette eating",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean etiquette for foreigners",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean weddings do's and don ts",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean etiquette and manners",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean etiquette in business",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_education",
+      "label": "Education & Study",
+      "count": 28,
+      "sharePct": 1.8,
+      "salience": 9.04,
+      "languages": {
+        "en": 10,
+        "ja": 9,
+        "ko": 9
+      },
+      "market": {
+        "distinctMarkets": 3,
+        "totalMarkets": 7,
+        "topMarket": "US+IN",
+        "topShare": 0.36,
+        "classification": "mixed",
+        "distribution": {
+          "US+IN": 10,
+          "JP": 9,
+          "KR": 9
+        }
+      },
+      "countryTally": {
+        "IN": 10,
+        "US": 10,
+        "JP": 9,
+        "KR": 9
+      },
+      "exemplars": [
+        {
+          "text": "korean education system",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean education",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean educational development institute",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean education system problems",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean education centre uk",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "korean education center in malaysia",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_basics",
+      "label": "Country Basics & Identity",
+      "count": 22,
+      "sharePct": 1.4,
+      "salience": 7.25,
+      "languages": {
+        "pt": 3,
+        "en": 6,
+        "de": 4,
+        "id": 7,
+        "ar": 2
+      },
+      "market": {
+        "distinctMarkets": 5,
+        "totalMarkets": 7,
+        "topMarket": "ID",
+        "topShare": 0.32,
+        "classification": "cross-market",
+        "distribution": {
+          "ID": 7,
+          "US+IN": 6,
+          "DE": 4,
+          "BR": 3,
+          "AE": 2
+        }
+      },
+      "countryTally": {
+        "BR": 3,
+        "IN": 6,
+        "US": 6,
+        "DE": 4,
+        "ID": 7,
+        "AE": 2
+      },
+      "exemplars": [
+        {
+          "text": "o que é a coreia",
+          "language": "pt",
+          "countries": [
+            "BR"
+          ]
+        },
+        {
+          "text": "what is korea known for",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "what is korean breakfast",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        },
+        {
+          "text": "was ist korean lash lifting",
+          "language": "de",
+          "countries": [
+            "DE"
+          ]
+        },
+        {
+          "text": "apa itu korea",
+          "language": "id",
+          "countries": [
+            "ID"
+          ]
+        },
+        {
+          "text": "how is korea",
+          "language": "en",
+          "countries": [
+            "IN",
+            "US"
+          ]
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "id": "t_hallyu",
+      "label": "The Korean Wave (Hallyu)",
+      "concepts": [
+        "c_kpop",
+        "c_drama",
+        "c_beauty",
+        "c_food",
+        "c_culture"
+      ]
+    },
+    {
+      "id": "t_language",
+      "label": "Learning & Understanding Korea",
+      "concepts": [
+        "c_language",
+        "c_education"
+      ]
+    },
+    {
+      "id": "t_geopolitics",
+      "label": "Division, History & Geopolitics",
+      "concepts": [
+        "c_division",
+        "c_history",
+        "c_compare"
+      ]
+    },
+    {
+      "id": "t_society",
+      "label": "People, Society & Everyday Life",
+      "concepts": [
+        "c_people",
+        "c_etiquette",
+        "c_society",
+        "c_basics"
+      ]
+    },
+    {
+      "id": "t_visiting",
+      "label": "Visiting & Living in Korea",
+      "concepts": [
+        "c_travel",
+        "c_place",
+        "c_economy"
+      ]
+    },
+    {
+      "id": "t_power",
+      "label": "Economy, Technology & Global Standing",
+      "concepts": [
+        "c_tech",
+        "c_economy",
+        "c_compare"
+      ]
+    }
+  ],
+  "narratives": [
+    {
+      "id": "n_softpower",
+      "label": "Korea as a global cultural force",
+      "themes": [
+        "t_hallyu",
+        "t_power"
+      ]
+    },
+    {
+      "id": "n_aspiration",
+      "label": "Korea as an aspirational lifestyle & beauty model",
+      "themes": [
+        "t_hallyu",
+        "t_visiting",
+        "t_society"
+      ]
+    },
+    {
+      "id": "n_division",
+      "label": "Korea as a divided nation living with risk",
+      "themes": [
+        "t_geopolitics"
+      ]
+    },
+    {
+      "id": "n_model",
+      "label": "Korea as a development & technology success story",
+      "themes": [
+        "t_power",
+        "t_language",
+        "t_geopolitics"
+      ]
+    },
+    {
+      "id": "n_enigma",
+      "label": "Korea as distinctive and intriguing",
+      "themes": [
+        "t_language",
+        "t_society",
+        "t_visiting"
+      ]
+    }
+  ],
+  "perceptions": [
+    {
+      "id": "p_cultural",
+      "label": "Korea as a cultural powerhouse",
+      "narratives": [
+        "n_softpower"
+      ]
+    },
+    {
+      "id": "p_aspirational",
+      "label": "Korea as an aspirational, modern lifestyle",
+      "narratives": [
+        "n_aspiration"
+      ]
+    },
+    {
+      "id": "p_divided",
+      "label": "Korea as a nation defined by division & security",
+      "narratives": [
+        "n_division"
+      ]
+    },
+    {
+      "id": "p_advanced",
+      "label": "Korea as a technologically advanced, developed nation",
+      "narratives": [
+        "n_model"
+      ]
+    },
+    {
+      "id": "p_enigmatic",
+      "label": "Korea as fascinating and hard to fully grasp",
+      "narratives": [
+        "n_enigma"
+      ]
+    }
+  ],
+  "edges": {
+    "conceptToTheme": [
+      [
+        "c_kpop",
+        "t_hallyu"
+      ],
+      [
+        "c_drama",
+        "t_hallyu"
+      ],
+      [
+        "c_beauty",
+        "t_hallyu"
+      ],
+      [
+        "c_food",
+        "t_hallyu"
+      ],
+      [
+        "c_culture",
+        "t_hallyu"
+      ],
+      [
+        "c_language",
+        "t_language"
+      ],
+      [
+        "c_education",
+        "t_language"
+      ],
+      [
+        "c_division",
+        "t_geopolitics"
+      ],
+      [
+        "c_history",
+        "t_geopolitics"
+      ],
+      [
+        "c_compare",
+        "t_geopolitics"
+      ],
+      [
+        "c_people",
+        "t_society"
+      ],
+      [
+        "c_etiquette",
+        "t_society"
+      ],
+      [
+        "c_society",
+        "t_society"
+      ],
+      [
+        "c_basics",
+        "t_society"
+      ],
+      [
+        "c_travel",
+        "t_visiting"
+      ],
+      [
+        "c_place",
+        "t_visiting"
+      ],
+      [
+        "c_economy",
+        "t_visiting"
+      ],
+      [
+        "c_tech",
+        "t_power"
+      ],
+      [
+        "c_economy",
+        "t_power"
+      ],
+      [
+        "c_compare",
+        "t_power"
+      ]
+    ],
+    "themeToNarrative": [
+      [
+        "t_hallyu",
+        "n_softpower"
+      ],
+      [
+        "t_power",
+        "n_softpower"
+      ],
+      [
+        "t_hallyu",
+        "n_aspiration"
+      ],
+      [
+        "t_visiting",
+        "n_aspiration"
+      ],
+      [
+        "t_society",
+        "n_aspiration"
+      ],
+      [
+        "t_geopolitics",
+        "n_division"
+      ],
+      [
+        "t_power",
+        "n_model"
+      ],
+      [
+        "t_language",
+        "n_model"
+      ],
+      [
+        "t_geopolitics",
+        "n_model"
+      ],
+      [
+        "t_language",
+        "n_enigma"
+      ],
+      [
+        "t_society",
+        "n_enigma"
+      ],
+      [
+        "t_visiting",
+        "n_enigma"
+      ]
+    ],
+    "narrativeToPerception": [
+      [
+        "n_softpower",
+        "p_cultural"
+      ],
+      [
+        "n_aspiration",
+        "p_aspirational"
+      ],
+      [
+        "n_division",
+        "p_divided"
+      ],
+      [
+        "n_model",
+        "p_advanced"
+      ],
+      [
+        "n_enigma",
+        "p_enigmatic"
+      ]
+    ]
+  }
+}

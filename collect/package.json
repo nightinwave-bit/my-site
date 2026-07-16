@@ -1,0 +1,15 @@
+{
+  "name": "aak-collect",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Ask About Korea — standalone question collection workspace (Stage 100). Separate from the website; zero runtime dependencies.",
+  "scripts": {
+    "collect": "node run.mjs",
+    "collect:offline": "node run.mjs --mode offline",
+    "collect:live": "node run.mjs --mode live"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

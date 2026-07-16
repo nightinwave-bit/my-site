@@ -1,0 +1,20 @@
+{
+  "month": "2026-07",
+  "date": "2026-07-15",
+  "previousMonth": null,
+  "collectMode": "skip",
+  "siteRefreshed": false,
+  "siteReason": "AAK_APPLY_SITE=0",
+  "framework": "Kwon-Soyoung v1.5",
+  "counts": {
+    "freshQuestions": 1540,
+    "accumulatedQuestions": 1540,
+    "concepts": 18,
+    "themes": 6,
+    "narratives": 5,
+    "perceptions": 5
+  },
+  "leadingFrame": "Korea as an aspirational, modern lifestyle",
+  "significanceOwed": 234,
+  "boundary": "AI produced findings only; all significance fields human-owned (§12)."
+}
