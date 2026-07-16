@@ -1,0 +1,4204 @@
+{
+  "meta": {
+    "generatedFrom": "/home/user/my-site/collect/output/canonical_questions.json",
+    "totalQuestions": 1540,
+    "subjects": 18,
+    "floor": 4,
+    "boundary": "AI filled detection only; all significance fields are empty and human-owned (§12)."
+  },
+  "records": [
+    {
+      "id": "interp_c_division",
+      "subject": {
+        "type": "concept",
+        "id": "c_division",
+        "label": "North–South Division & Two Koreas"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 242
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 15.7
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 76.37
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "BR"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 76.37, 242 questions (15.7% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market BR."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “North–South Division & Two Koreas.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — North–South Division & Two Koreas → Division, History & Geopolitics → Korea as a divided nation living with risk → Korea as a nation defined by division & security."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “north korea vs south korea women.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 15.7 (cross-market, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “North–South Division & Two Koreas” — 242 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_language",
+      "subject": {
+        "type": "concept",
+        "id": "c_language",
+        "label": "Korean Language & Its Difficulty"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 163
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 10.6
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 51.4
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "DE"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 51.4, 163 questions (10.6% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market DE."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Korean Language & Its Difficulty.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Korean Language & Its Difficulty → Learning & Understanding Korea → Korea as a development & technology success story → Korea as a technologically advanced, developed nation."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “هل اللغة الكورية صعبة.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 10.6 (cross-market, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Korean Language & Its Difficulty” — 163 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_people",
+      "subject": {
+        "type": "concept",
+        "id": "c_people",
+        "label": "Korean People & National Character"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 143
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 9.3
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 48.1
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 6
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 48.1, 143 questions (9.3% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 6 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Korean People & National Character.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Korean People & National Character → People, Society & Everyday Life → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “are koreans tall.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 7.97 (mixed, 6 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Korean People & National Character” — 143 questions across 6 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_food",
+      "subject": {
+        "type": "concept",
+        "id": "c_food",
+        "label": "Korean Cuisine"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 140
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 9.1
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 44.8
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 44.8, 140 questions (9.1% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Korean Cuisine.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Korean Cuisine → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “kimchi.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 9.1 (cross-market, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Korean Cuisine” — 140 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_culture",
+      "subject": {
+        "type": "concept",
+        "id": "c_culture",
+        "label": "Culture, Tradition & Heritage"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 127
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 8.2
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 40.6
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "KR"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 40.6, 127 questions (8.2% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market KR."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Culture, Tradition & Heritage.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Culture, Tradition & Heritage → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “hanbok.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 8.2 (cross-market, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Culture, Tradition & Heritage” — 127 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_travel",
+      "subject": {
+        "type": "concept",
+        "id": "c_travel",
+        "label": "Travel & Safety"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 100
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 6.5
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 33.5
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 33.5, 100 questions (6.5% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Travel & Safety.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Travel & Safety → Visiting & Living in Korea → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “is korean tap water safe.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 6.5 (mixed, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Travel & Safety” — 100 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_beauty",
+      "subject": {
+        "type": "concept",
+        "id": "c_beauty",
+        "label": "K-Beauty, Skincare & Fashion"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 81
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 5.3
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 26.37
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 5
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 26.37, 81 questions (5.3% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 5 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “K-Beauty, Skincare & Fashion.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — K-Beauty, Skincare & Fashion → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “منتجات العناية بالبشرة الكورية.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 3.79 (cross-market, 5 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “K-Beauty, Skincare & Fashion” — 81 questions across 5 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_drama",
+      "subject": {
+        "type": "concept",
+        "id": "c_drama",
+        "label": "K-Drama & Screen Stories"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 77
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 5
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 24.61
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 24.61, 77 questions (5% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “K-Drama & Screen Stories.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — K-Drama & Screen Stories → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “k-pop demon hunters.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 5 (cross-market, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “K-Drama & Screen Stories” — 77 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_compare",
+      "subject": {
+        "type": "concept",
+        "id": "c_compare",
+        "label": "Regional Comparison (Japan / China)"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 67
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 4.4
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 22
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 6
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 22, 67 questions (4.4% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 6 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Regional Comparison (Japan / China).”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Regional Comparison (Japan / China) → Division, History & Geopolitics → Korea as a divided nation living with risk → Korea as a nation defined by division & security."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “korea vs japan.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 3.77 (cross-market, 6 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Regional Comparison (Japan / China)” — 67 questions across 6 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_tech",
+      "subject": {
+        "type": "concept",
+        "id": "c_tech",
+        "label": "Technology & Brands"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 62
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 4
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 20.74
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 20.74, 62 questions (4% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Technology & Brands.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Technology & Brands → Economy, Technology & Global Standing → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “samsung.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 4 (cross-market, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Technology & Brands” — 62 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_place",
+      "subject": {
+        "type": "concept",
+        "id": "c_place",
+        "label": "Seoul, Places & Climate"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 61
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 4
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 20.05
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 20.05, 61 questions (4% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Seoul, Places & Climate.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Seoul, Places & Climate → Visiting & Living in Korea → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “seoul forest.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 4 (cross-market, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Seoul, Places & Climate” — 61 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_economy",
+      "subject": {
+        "type": "concept",
+        "id": "c_economy",
+        "label": "Economy, Money & Cost"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 52
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 3.4
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 17.8
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 5
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 17.8, 52 questions (3.4% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 5 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Economy, Money & Cost.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Economy, Money & Cost → Visiting & Living in Korea → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “ما هي عملة كوريا.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 2.43 (mixed, 5 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Economy, Money & Cost” — 52 questions across 5 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_history",
+      "subject": {
+        "type": "concept",
+        "id": "c_history",
+        "label": "History"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 39
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 2.5
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 12.42
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 7
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 12.42, 39 questions (2.5% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 7 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “History.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — History → Division, History & Geopolitics → Korea as a divided nation living with risk → Korea as a nation defined by division & security."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “korean history.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 2.5 (cross-market, 7 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “History” — 39 questions across 7 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_society",
+      "subject": {
+        "type": "concept",
+        "id": "c_society",
+        "label": "Society, Religion & Daily Life"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 38
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 2.5
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 12.59
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 6
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 12.59, 38 questions (2.5% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 6 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Society, Religion & Daily Life.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Society, Religion & Daily Life → People, Society & Everyday Life → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “why is korea so christian.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 2.14 (cross-market, 6 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Society, Religion & Daily Life” — 38 questions across 6 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_kpop",
+      "subject": {
+        "type": "concept",
+        "id": "c_kpop",
+        "label": "K-Pop & Idols"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 34
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 2.2
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 10.9
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 5
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "JP"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 10.9, 34 questions (2.2% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 5 markets; leading market JP."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “K-Pop & Idols.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — K-Pop & Idols → The Korean Wave (Hallyu) → Korea as a global cultural force → Korea as a cultural powerhouse."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “why is kpop so popular.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 1.57 (cross-market, 5 markets). PERSISTENT — a missing system is implied."
+        },
+        "isPersistent": true,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "Name the missing system this persistent question diagnoses (never 'people are ignorant').",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “K-Pop & Idols” — 34 questions across 5 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_etiquette",
+      "subject": {
+        "type": "concept",
+        "id": "c_etiquette",
+        "label": "Etiquette & Social Norms"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 31
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 2
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 9.97
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 3
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 9.97, 31 questions (2% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 3 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Etiquette & Social Norms.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Etiquette & Social Norms → People, Society & Everyday Life → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “korean etiquette.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 0.86 (mixed, 3 markets). not persistent by the current threshold."
+        },
+        "isPersistent": false,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "If you judge this persistent, name the missing system it implies.",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Etiquette & Social Norms” — 31 questions across 3 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_education",
+      "subject": {
+        "type": "concept",
+        "id": "c_education",
+        "label": "Education & Study"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 28
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 1.8
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 9.04
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 3
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "US+IN"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 9.04, 28 questions (1.8% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 3 markets; leading market US+IN."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Education & Study.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Education & Study → Learning & Understanding Korea → Korea as a development & technology success story → Korea as a technologically advanced, developed nation."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “korean education system.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 0.77 (mixed, 3 markets). not persistent by the current threshold."
+        },
+        "isPersistent": false,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "If you judge this persistent, name the missing system it implies.",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Education & Study” — 28 questions across 3 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    },
+    {
+      "id": "interp_c_basics",
+      "subject": {
+        "type": "concept",
+        "id": "c_basics",
+        "label": "Country Basics & Identity"
+      },
+      "provenance": {
+        "count": {
+          "author": "ai",
+          "filled": true,
+          "value": 22
+        },
+        "sharePct": {
+          "author": "ai",
+          "filled": true,
+          "value": 1.4
+        },
+        "salience": {
+          "author": "ai",
+          "filled": true,
+          "value": 7.25
+        },
+        "distinctMarkets": {
+          "author": "ai",
+          "filled": true,
+          "value": 5
+        },
+        "topMarket": {
+          "author": "ai",
+          "filled": true,
+          "value": "ID"
+        }
+      },
+      "lenses": {
+        "attentionVsUnderstanding": {
+          "section": "§4·P1",
+          "rule": "Attention is not understanding.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Attention proxy — salience 7.25, 22 questions (1.4% of dataset)."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What understanding did this attention produce?",
+            "section": "§4·P1"
+          }
+        },
+        "demandVsSupply": {
+          "section": "§4·P2",
+          "rule": "Curiosity matters more than promotion — read demand, not supply.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Demand signal — asked across 5 markets; leading market ID."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does the world already want to understand?",
+            "section": "§4·P2"
+          }
+        },
+        "structureVsPattern": {
+          "section": "§4·P3",
+          "rule": "Patterns are symptoms; structures are causes.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Observed pattern — questions cluster on “Country Basics & Identity.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure produces this pattern?",
+            "section": "§4·P3"
+          }
+        },
+        "systemic": {
+          "section": "§4·P4",
+          "rule": "Every perception is systemic — map relationships, do not count.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Relationship map — Country Basics & Identity → People, Society & Everyday Life → Korea as an aspirational lifestyle & beauty model → Korea as an aspirational, modern lifestyle."
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What system of relationships does this belong to?",
+            "section": "§4·P4"
+          }
+        },
+        "institutional": {
+          "section": "§4·P5",
+          "rule": "Every dataset contains institutional questions beneath informational ones.",
+          "detected": {
+            "author": "ai",
+            "filled": true,
+            "value": "Literal question — “o que é a coreia.”"
+          },
+          "judgment": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What missing responsibility does this question imply?",
+            "section": "§4·P5"
+          }
+        }
+      },
+      "questionToSystem": {
+        "section": "§6",
+        "detected": {
+          "author": "ai",
+          "filled": true,
+          "value": "Persistence 1 (cross-market, 5 markets). not persistent by the current threshold."
+        },
+        "isPersistent": false,
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "If you judge this persistent, name the missing system it implies.",
+          "section": "§6"
+        }
+      },
+      "ladder": {
+        "L1_observation": {
+          "level": 1,
+          "title": "Observation",
+          "value": {
+            "author": "ai",
+            "filled": true,
+            "value": "People ask about “Country Basics & Identity” — 22 questions across 5 markets."
+          }
+        },
+        "L2_meaning": {
+          "level": 2,
+          "title": "Meaning",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What does that observation mean?",
+            "section": "§5"
+          }
+        },
+        "L3_gap": {
+          "level": 3,
+          "title": "Gap",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What gap does that meaning expose?",
+            "section": "§5"
+          }
+        },
+        "L4_strategic": {
+          "level": 4,
+          "title": "Strategic implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change because of that gap?",
+            "section": "§5"
+          }
+        },
+        "L5_system": {
+          "level": 5,
+          "title": "System implication",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure is missing that the gap implies?",
+            "section": "§5"
+          }
+        }
+      },
+      "floor": 4,
+      "outputs": {
+        "strategic": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What should change?",
+            "section": "§13"
+          }
+        },
+        "participation": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "Who should participate?",
+            "section": "§13"
+          }
+        },
+        "system": {
+          "section": "§13",
+          "value": {
+            "author": "human",
+            "filled": false,
+            "value": null,
+            "prompt": "What structure should exist?",
+            "section": "§13"
+          }
+        }
+      },
+      "status": "below-floor",
+      "significanceDebt": {
+        "owed": 13,
+        "answered": 0,
+        "total": 13
+      }
+    }
+  ],
+  "frameCompetition": {
+    "section": "§7",
+    "keyQuestion": "Which frame is winning?",
+    "detected": {
+      "author": "ai",
+      "filled": true,
+      "value": "Leading frame by attention share: “Korea as an aspirational, modern lifestyle” (28.7%)."
+    },
+    "ranking": [
+      {
+        "id": "p_aspirational",
+        "label": "Korea as an aspirational, modern lifestyle",
+        "attention": 296.5,
+        "share": 28.7
+      },
+      {
+        "id": "p_advanced",
+        "label": "Korea as a technologically advanced, developed nation",
+        "attention": 209.8,
+        "share": 20.3
+      },
+      {
+        "id": "p_enigmatic",
+        "label": "Korea as fascinating and hard to fully grasp",
+        "attention": 209.7,
+        "share": 20.3
+      },
+      {
+        "id": "p_cultural",
+        "label": "Korea as a cultural powerhouse",
+        "attention": 207.8,
+        "share": 20.1
+      },
+      {
+        "id": "p_divided",
+        "label": "Korea as a nation defined by division & security",
+        "attention": 110.8,
+        "share": 10.7
+      }
+    ],
+    "interpretation": {
+      "author": "human",
+      "filled": false,
+      "value": null,
+      "prompt": "Interpret the competition — which frame is displacing which, and whether that should change.",
+      "section": "§7"
+    }
+  },
+  "circulation": {
+    "section": "§9,§14,§15",
+    "unclustered": {
+      "author": "ai",
+      "filled": true,
+      "value": 33,
+      "note": "Questions no concept absorbed — the clearest gap signal."
+    },
+    "thinCoverage": {
+      "author": "ai",
+      "filled": true,
+      "value": [
+        {
+          "id": "c_history",
+          "label": "History",
+          "sharePct": 2.5,
+          "distinctMarkets": 7
+        },
+        {
+          "id": "c_society",
+          "label": "Society, Religion & Daily Life",
+          "sharePct": 2.5,
+          "distinctMarkets": 6
+        },
+        {
+          "id": "c_kpop",
+          "label": "K-Pop & Idols",
+          "sharePct": 2.2,
+          "distinctMarkets": 5
+        },
+        {
+          "id": "c_etiquette",
+          "label": "Etiquette & Social Norms",
+          "sharePct": 2,
+          "distinctMarkets": 3
+        },
+        {
+          "id": "c_education",
+          "label": "Education & Study",
+          "sharePct": 1.8,
+          "distinctMarkets": 3
+        },
+        {
+          "id": "c_basics",
+          "label": "Country Basics & Identity",
+          "sharePct": 1.4,
+          "distinctMarkets": 5
+        }
+      ],
+      "note": "Concepts with narrow market or low share — candidate under-served curiosity."
+    },
+    "newQuestions": {
+      "author": "human",
+      "filled": false,
+      "value": null,
+      "prompt": "Author the new questions these gaps should seed back into the cycle.",
+      "section": "§9,§14,§15"
+    }
+  }
+}
