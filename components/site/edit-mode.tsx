@@ -377,6 +377,16 @@ export function EditMode() {
 
   useEffect(() => {
     if (!active) return;
+    const blockLinks = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(".edit-mode-ui")) return;
+      const link = target.closest("a[href]");
+      if (link && link.closest("main")) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.closest("[data-edit-handle]")) return;
@@ -476,6 +486,7 @@ export function EditMode() {
       saveToStorage();
     };
 
+    document.addEventListener("click", blockLinks, true);
     document.addEventListener("click", onClick);
     document.addEventListener("dblclick", onDblClick);
     document.addEventListener("mousemove", onMouseMove);
@@ -484,6 +495,7 @@ export function EditMode() {
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
+      document.removeEventListener("click", blockLinks, true);
       document.removeEventListener("click", onClick);
       document.removeEventListener("dblclick", onDblClick);
       document.removeEventListener("mousemove", onMouseMove);
