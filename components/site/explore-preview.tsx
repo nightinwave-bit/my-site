@@ -10,8 +10,8 @@ export function ExplorePreview() {
   const { locale } = useLanguage();
 
   return (
-    <section id="explore" className="scroll-mt-20 border-b border-border bg-tint">
-      <div className="container py-24 sm:py-32">
+    <section id="explore" className="scroll-mt-20 border-b border-border bg-[#F3F7FF]">
+      <div className="container py-28 sm:py-36">
         <div className="max-w-3xl">
           <Reveal>
             <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
@@ -19,8 +19,8 @@ export function ExplorePreview() {
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-5 text-balance text-[2rem] font-semibold leading-[1.14] tracking-tight text-navy sm:text-[2.6rem]">
-              {locale === "ko" ? "서로 다른 질문은 어디서 만날까?" : "Where do different questions meet?"}
+            <h2 className="mt-6 whitespace-pre-line text-[1.9rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2.4rem]">
+              {locale === "ko" ? "서로 다른 질문은\n어디서 만날까?" : "Where do different\nquestions meet?"}
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -34,21 +34,13 @@ export function ExplorePreview() {
 
         {/* the map — the site's central asset, given real room */}
         <Reveal delay={0.1} className="mt-14">
-          <figure className="overflow-hidden rounded-2xl border border-border bg-white shadow-card">
-            <div className="flex items-center justify-between gap-3 border-b border-border px-5 py-3.5 sm:px-7">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                질문 지도 · The question map
-              </span>
-              <span className="hidden items-center gap-1.5 rounded-full border border-border bg-tint px-2.5 py-1 text-[11px] font-medium text-muted-foreground sm:inline-flex">
-                {locale === "ko" ? "질문 → 개념 → 주제 → 서사 → 인식" : "Question → Concept → Theme → Narrative → Perception"}
-              </span>
-            </div>
+          <div className="overflow-hidden rounded-2xl">
             <div className="overflow-x-auto px-4 py-8 sm:px-10 sm:py-12">
               <div className="mx-auto min-w-[760px] max-w-5xl">
                 <ForceGraph interactive={false} />
               </div>
             </div>
-          </figure>
+          </div>
         </Reveal>
 
         <Reveal delay={0.1}>

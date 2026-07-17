@@ -46,7 +46,7 @@ export function DatasetSection() {
 
   return (
     <section id="dataset" className="scroll-mt-20 border-b border-border bg-navy text-white">
-      <div className="container py-24 sm:py-32">
+      <div className="container py-28 sm:py-36">
         <div className="max-w-3xl">
           <Reveal>
             <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand-hi">
@@ -54,10 +54,10 @@ export function DatasetSection() {
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-5 text-balance text-[2rem] font-semibold leading-[1.18] tracking-tight text-white sm:text-[2.4rem]">
+            <h2 className="mt-6 whitespace-pre-line text-[1.9rem] font-semibold leading-[1.28] tracking-[-0.01em] text-white sm:text-[2.4rem]">
               {locale === "ko"
-                ? "질문이 무엇을 뜻하는지 읽기 전에, 우리는 먼저 질문을 수집했습니다."
-                : "Before reading what the questions mean, we first collected them."}
+                ? "질문이 무엇을 뜻하는지 읽기 전에,\n우리는 먼저 질문을 수집했습니다."
+                : "Before reading what the questions mean,\nwe first collected them."}
             </h2>
           </Reveal>
         </div>
@@ -67,7 +67,7 @@ export function DatasetSection() {
           {stats.map((s, i) => (
             <Reveal key={s.label.en} delay={i * 0.06}>
               <div>
-                <div className="font-mono text-[2.6rem] font-semibold tabular-nums leading-none text-white sm:text-[3.4rem]">
+                <div className="font-mono text-[3rem] font-semibold tabular-nums leading-none text-white sm:text-[4.2rem]">
                   {s.value}
                 </div>
                 <div className="mt-3 text-[13px] font-medium uppercase tracking-[0.1em] text-white/55">

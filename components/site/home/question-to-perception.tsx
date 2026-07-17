@@ -33,25 +33,25 @@ const STEPS: { label: L; desc: L; terminal?: boolean }[] = [
 export function QuestionToPerception() {
   const { locale } = useLanguage();
   return (
-    <section className="border-b border-border bg-tint">
-      <div className="container py-24 sm:py-32">
-        <div className="max-w-3xl">
+    <section className="border-b border-border">
+      <div className="container py-28 sm:py-36">
+        <div className="max-w-2xl">
           <Reveal>
-            <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
+            <div className="text-[13px] font-semibold uppercase tracking-[0.16em] text-brand">
               {locale === "ko" ? "질문은 어떻게 인식이 되는가" : "How a question becomes a perception"}
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-5 text-balance text-[2rem] font-semibold leading-[1.15] tracking-tight text-navy sm:text-[2.4rem]">
+            <h2 className="mt-6 whitespace-pre-line text-[1.9rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2.4rem]">
               {locale === "ko"
-                ? "하나의 질문은 다섯 단계를 지나 국가 이미지가 됩니다."
-                : "A single question travels five steps to become a national image."}
+                ? "하나의 질문은 다섯 단계를 지나\n국가 이미지가 됩니다."
+                : "A single question travels five steps\nto become a national image."}
             </h2>
           </Reveal>
         </div>
 
         {/* horizontal flow: 5 nodes with arrows, 1-line description each */}
-        <div className="mt-16 grid grid-cols-1 gap-y-4 md:grid-cols-9 md:items-start md:gap-y-0">
+        <div className="mt-20 grid grid-cols-1 gap-y-4 md:grid-cols-9 md:items-start md:gap-y-0">
           {STEPS.map((s, i) => (
             <Reveal
               key={i}

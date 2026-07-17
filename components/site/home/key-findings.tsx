@@ -7,12 +7,12 @@ type L = { ko: string; en: string };
 const D = (ko: string, en: string): L => ({ ko, en });
 
 // The single most important homepage section: what the questions revealed,
-// stated as findings — a 2×2 research matrix, not marketing cards.
+// as an editorial findings list — no cards, big numerals (Our World in Data).
 const FINDINGS: { n: string; claim: L; note: L }[] = [
   {
     n: "01",
     claim: D(
-      "1,540개의 질문은 하나의 한국이 아니라 여러 개의 한국을 보여준다.",
+      "1,540개의 질문은 하나의 한국이 아니라\n여러 개의 한국을 보여준다.",
       "1,540 questions reveal not one Korea, but several.",
     ),
     note: D(
@@ -23,7 +23,7 @@ const FINDINGS: { n: string; claim: L; note: L }[] = [
   {
     n: "02",
     claim: D(
-      "문화는 가장 큰 입구였지만, 가장 큰 질문은 문화가 아니었다.",
+      "문화는 가장 큰 입구였지만,\n가장 큰 질문은 아니었다.",
       "Culture was the widest entrance — but not the biggest question.",
     ),
     note: D(
@@ -34,7 +34,7 @@ const FINDINGS: { n: string; claim: L; note: L }[] = [
   {
     n: "03",
     claim: D(
-      "국가마다 질문이 달랐다.",
+      "국가마다 묻는 질문이\n서로 달랐다.",
       "Each country asked differently.",
     ),
     note: D(
@@ -45,7 +45,7 @@ const FINDINGS: { n: string; claim: L; note: L }[] = [
   {
     n: "04",
     claim: D(
-      "질문은 검색에서 끝나지 않는다.",
+      "질문은 검색창에서\n끝나지 않는다.",
       "A question does not end at the search box.",
     ),
     note: D(
@@ -58,39 +58,38 @@ const FINDINGS: { n: string; claim: L; note: L }[] = [
 export function KeyFindings() {
   const { locale } = useLanguage();
   return (
-    <section id="findings" className="scroll-mt-20 border-b border-border">
-      <div className="container py-24 sm:py-32">
-        <div className="max-w-3xl">
+    <section id="findings" className="scroll-mt-20 border-b border-border bg-[#F7F9FC]">
+      <div className="container py-28 sm:py-36">
+        <div className="max-w-2xl">
           <Reveal>
-            <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
+            <div className="text-[13px] font-semibold uppercase tracking-[0.16em] text-brand">
               {locale === "ko" ? "핵심 발견" : "Key findings"}
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-5 text-balance text-[2rem] font-semibold leading-[1.18] tracking-tight text-navy sm:text-[2.6rem]">
+            <h2 className="mt-6 whitespace-pre-line text-[1.9rem] font-semibold leading-[1.32] tracking-[-0.01em] text-navy sm:text-[2.5rem] sm:leading-[1.28]">
               {locale === "ko"
-                ? "한국에 대한 답을 찾기 전에, 세계가 어떤 질문을 하는지부터 조사했습니다."
-                : "Before answering questions about Korea, we studied which questions the world is asking."}
+                ? "한국에 대한 답을 찾기 전에,\n세계가 어떤 질문을 하는지부터\n조사했습니다."
+                : "Before answering questions about Korea,\nwe studied which questions the world is asking."}
             </h2>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 border-t border-border sm:grid-cols-2">
+        <div className="mt-20 grid grid-cols-1 gap-x-16 gap-y-16 md:grid-cols-2 lg:gap-y-20">
           {FINDINGS.map((f, i) => (
             <Reveal key={f.n} delay={(i % 2) * 0.08}>
-              <div
-                className={
-                  "flex h-full flex-col border-b border-border px-1 py-9 sm:px-8 " +
-                  (i % 2 === 0 ? "sm:border-r" : "")
-                }
-              >
-                <div className="font-mono text-sm font-bold tabular-nums text-brand">{f.n}</div>
-                <h3 className="mt-4 text-pretty text-[22px] font-semibold leading-[1.32] text-navy sm:text-[26px]">
-                  {f.claim[locale]}
-                </h3>
-                <p className="mt-4 max-w-md text-[15px] leading-relaxed text-secondary">
-                  {f.note[locale]}
-                </p>
+              <div className="flex gap-6 sm:gap-8">
+                <div className="shrink-0 font-mono text-[2.25rem] font-semibold leading-none tabular-nums text-brand/70 sm:text-[2.75rem]">
+                  {f.n}
+                </div>
+                <div className="pt-1">
+                  <h3 className="whitespace-pre-line text-pretty text-[1.4rem] font-semibold leading-[1.42] text-navy sm:text-[1.7rem] sm:leading-[1.4]">
+                    {f.claim[locale]}
+                  </h3>
+                  <p className="mt-4 max-w-md text-[15px] leading-relaxed text-secondary">
+                    {f.note[locale]}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}

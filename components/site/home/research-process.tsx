@@ -22,8 +22,8 @@ export function ResearchProcess() {
   const docs = [...RESEARCH_DOCS].sort((a, b) => a.rung - b.rung);
 
   return (
-    <section id="research" className="scroll-mt-20 border-b border-border">
-      <div className="container py-24 sm:py-32">
+    <section id="research" className="scroll-mt-20 border-b border-border bg-[#FAFAFA]">
+      <div className="container py-28 sm:py-36">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <Reveal>
@@ -32,10 +32,10 @@ export function ResearchProcess() {
               </div>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 className="mt-5 text-balance text-[2rem] font-semibold leading-[1.15] tracking-tight text-navy sm:text-[2.4rem]">
+              <h2 className="mt-6 whitespace-pre-line text-[1.9rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2.4rem]">
                 {locale === "ko"
-                  ? "질문을 데이터로 끝내지 않았습니다."
-                  : "We did not stop at the data."}
+                  ? "질문을 데이터로\n끝내지 않았습니다."
+                  : "We did not stop\nat the data."}
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -60,13 +60,13 @@ export function ResearchProcess() {
         {/* connected 4-stage process */}
         <div className="relative mt-16">
           {/* connecting line */}
-          <div className="pointer-events-none absolute left-0 right-0 top-[15px] hidden h-px bg-border lg:block" aria-hidden />
+          <div className="pointer-events-none absolute left-0 right-0 top-[15px] hidden h-[2px] bg-border-strong lg:block" aria-hidden />
           <div className="grid gap-8 lg:grid-cols-4 lg:gap-6">
             {docs.map((doc, i) => (
               <Reveal key={doc.slug} delay={i * 0.08}>
                 <Link href={`/research/${doc.slug}`} className="group block">
                   <div className="relative flex items-center gap-3 lg:block">
-                    <span className="relative z-10 inline-flex h-8 w-8 items-center justify-center rounded-full border border-border-strong bg-white font-mono text-[13px] font-bold tabular-nums text-brand">
+                    <span className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-brand bg-white font-mono text-[13px] font-bold tabular-nums text-brand">
                       {String(doc.rung).padStart(2, "0")}
                     </span>
                   </div>

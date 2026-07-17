@@ -84,7 +84,7 @@ export const dict: Dict = {
     en: "Reading Korea through the world's questions",
   },
   "hero.title": {
-    ko: "세계는 한국을\n어떻게 이해하고 있을까?",
+    ko: "세계는 한국을 어떻게\n이해하고 있을까?",
     en: "How does the world\nunderstand Korea?",
   },
   "hero.subtitle": {
