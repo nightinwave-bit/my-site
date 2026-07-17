@@ -106,7 +106,17 @@ export function FrameworkPaper() {
   return (
     <>
       <DocSection>
-        <Kicker>{locale === "ko" ? "출발점" : "Where we start"}</Kicker>
+        <Kicker>{locale === "ko" ? "출발점 · 왜 질문에서 시작하는가" : "Starting point · Why we begin with questions"}</Kicker>
+        <H2>{locale === "ko" ? "한국을 이해하는 일은 이제 콘텐츠가 아니라 질문에서 시작된다" : "Understanding a country now begins with questions, not content"}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "AI가 정보의 첫 관문이 된 뒤로, 사람들이 한 나라를 이해하기 시작하는 지점은 우리가 내보낸 콘텐츠가 아니라 그 나라에 직접 던지는 질문으로 옮겨갔고, 그래서 우리는 세계가 한국에 대해 실제로 던진 질문 1,540개를 모아 개념과 주제로 구조화한 뒤 그 구조에서 드러나는 인식을 읽었다. 이 페이퍼는 그 인식을 국가가 어떻게 관리할 수 있는가라는 물음에서 출발하며, 그 물음을 따라가다 보면 지금 한국이 쓰는 도구 자체가 잘못된 모양이라는 사실과 마주치게 된다."
+            : "Once AI became the first gate to information, the place where people begin to understand a country shifted from the content it broadcasts to the questions they put directly to it — so we gathered the 1,540 questions the world actually asked about Korea, structured them into concepts and themes, and read the perceptions that structure reveals. This paper begins from the question of how a state can manage those perceptions, and following that question leads straight into the discovery that the tools Korea currently uses are the wrong shape."}
+        </Lead>
+      </DocSection>
+
+      <DocSection>
+        <Kicker>{locale === "ko" ? "전제" : "The premise"}</Kicker>
         <H2>{locale === "ko" ? "우리는 세계가 같은 한국을 본다고 생각한다. 하지만 질문은 다르게 나타난다 — 나라마다 다른 한국을 보고 있다." : "We assume the world sees the same Korea. But the questions say otherwise — each country is looking at a different Korea."}</H2>
         <Lead>
           {locale === "ko"

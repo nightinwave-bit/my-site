@@ -137,6 +137,16 @@ export function DiplomacyBrief() {
   return (
     <>
       <DocSection>
+        <Kicker>{locale === "ko" ? "출발점 · 왜 질문에서 시작하는가" : "Starting point · Why we begin with questions"}</Kicker>
+        <H2>{locale === "ko" ? "세계가 한국을 이해하기 시작하는 지점이 바뀌었다" : "Where the world begins to understand Korea has shifted"}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "AI가 정보의 첫 관문이 되면서, 세계가 한국을 이해하기 시작하는 지점은 우리가 내보낸 콘텐츠가 아니라 사람들이 검색창과 AI에 직접 던지는 질문으로 옮겨갔고, 그래서 한국의 이미지를 진단하려면 우리가 무엇을 보여주었는지가 아니라 세계가 무엇을 묻는지에서 출발해야 한다. 이 브리프는 그렇게 모은 질문들을 개념과 주제로 구조화하고, 그 구조가 드러내는 인식을 읽은 뒤, 그 인식이 공공외교에 대해 무엇을 함의하는지까지 따라간 결과다."
+            : "As AI became the first gate to information, the place where the world begins to understand a country shifted from the content we broadcast to the questions people put directly to search engines and AI — so to diagnose Korea's image you have to start not from what Korea showed, but from what the world asks. This brief takes those collected questions, structures them into concepts and themes, reads the perceptions that structure reveals, and follows those perceptions to what they imply for public diplomacy."}
+        </Lead>
+      </DocSection>
+
+      <DocSection>
         <Kicker>{locale === "ko" ? "핵심 주장" : "The main point"}</Kicker>
         <H2>{locale === "ko" ? "사람들은 한국을 많이 본다. 하지만 많이 안다고 보긴 어렵다." : "People see a lot of Korea. But that isn’t the same as knowing it."}</H2>
         <Lead>
@@ -163,15 +173,16 @@ export function DiplomacyBrief() {
             <h2 className="text-2xl font-semibold tracking-tight text-navy sm:text-[28px]">{d.name[locale]}</h2>
           </div>
           <div className="mt-2 text-[12px] font-medium uppercase tracking-[0.08em] text-muted-foreground">{d.salience[locale]}</div>
-          <p className="mt-5 max-w-[60ch] text-[19px] leading-snug text-navy">
-            <span className="font-semibold text-[color:var(--accent)]">{locale === "ko" ? "흔한 오해: " : "The common misunderstanding: "}</span>
-            {d.misread[locale]}
-          </p>
+          {/* 관찰 → 세계의 가정 → 두 인식의 간극. 독자가 사고를 먼저 따라간다. */}
           <div className="mt-6 grid gap-5">
             <Q label={locale === "ko" ? "왜 이런 질문이 나올까" : "Why people ask this"}>{d.why[locale]}</Q>
             <Q label={locale === "ko" ? "이 질문 속에 숨은 생각" : "The belief hidden inside it"}>{d.assumption[locale]}</Q>
             <Q label={locale === "ko" ? "한국 생각과 세계 생각의 차이" : "Where Korea and the world disagree"}>{d.gap[locale]}</Q>
           </div>
+          {/* 여기까지 따라오면, 오해는 저자가 규정하지 않아도 독자가 스스로 도달한다. */}
+          <p className="mt-6 max-w-[62ch] border-l-[3px] border-[color:var(--accent)] pl-5 text-[19px] font-medium leading-snug text-navy">
+            {d.misread[locale]}
+          </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-border bg-white">
             <div className="border-b border-border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
               {locale === "ko" ? "이것이 뜻하는 것" : "What this means"}
