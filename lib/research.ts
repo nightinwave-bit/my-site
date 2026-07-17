@@ -27,7 +27,7 @@ export const RESEARCH_DOCS: ResearchDocMeta[] = [
     slug: "data-report",
     rung: 1,
     accent: "#1f5fd6",
-    kicker: { ko: "1단계 · 서술", en: "Rung 1 · Description" },
+    kicker: { ko: "1단계 · 발견", en: "Rung 1 · Discovery" },
     title: { ko: "세계는 어떤 한국을 질문하는가", en: "What Korea Does the World Question?" },
     question: { ko: "무엇이 있는가?", en: "What is there?" },
     oneLine: {
@@ -40,7 +40,7 @@ export const RESEARCH_DOCS: ResearchDocMeta[] = [
     slug: "diplomacy-brief",
     rung: 2,
     accent: "#2f6f62",
-    kicker: { ko: "2단계 · 해석", en: "Rung 2 · Interpretation" },
+    kicker: { ko: "2단계 · 전략", en: "Rung 2 · Strategy" },
     title: { ko: "질문은 공공외교의 출발점이다", en: "Questions Are Where Public Diplomacy Begins" },
     question: { ko: "그래서 무엇을 의미하는가?", en: "So what?" },
     oneLine: {
@@ -53,7 +53,7 @@ export const RESEARCH_DOCS: ResearchDocMeta[] = [
     slug: "framework-paper",
     rung: 3,
     accent: "#a9781a",
-    kicker: { ko: "3단계 · 제도", en: "Rung 3 · Institutions" },
+    kicker: { ko: "3단계 · 이론", en: "Rung 3 · Theory" },
     title: { ko: "국가 이미지는 질문에서 시작된다", en: "National Image Begins with Questions" },
     question: { ko: "이제 무엇을 만들 것인가?", en: "Now what?" },
     oneLine: {

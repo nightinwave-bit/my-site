@@ -129,10 +129,10 @@ const PROCESS_META: Record<string, {
 };
 
 const PHASE_LABELS = [
-  { ko: "발견", en: "Discover" },
-  { ko: "해석", en: "Interpret" },
-  { ko: "설계", en: "Design" },
-  { ko: "참여", en: "Participate" },
+  { ko: "발견", en: "Discovery" },
+  { ko: "전략", en: "Strategy" },
+  { ko: "이론", en: "Theory" },
+  { ko: "실행 모델", en: "Implementation" },
 ];
 
 export function ResearchIndex() {
@@ -298,8 +298,8 @@ export function ResearchIndex() {
                 style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "질문을 해석하는 네 단계"
-                  : "Four steps of interpreting questions"}
+                  ? "질문을 읽는 네 단계"
+                  : "Four steps of reading questions"}
               </h2>
             </Reveal>
 
