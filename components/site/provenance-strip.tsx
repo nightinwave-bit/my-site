@@ -3,13 +3,14 @@
 import { Database } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { PROVENANCE } from "@/lib/ontology";
+import { MARKETS } from "@/lib/markets";
 import { cn } from "@/lib/utils";
 
 /** Compact dataset-provenance strip. Values come from the generated ontology
  *  (scripts/ontology-to-site.mjs → lib/ontology.generated.ts::PROVENANCE), so
  *  they stay in sync with the collected data. */
 export function ProvenanceStrip({ className }: { className?: string }) {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   const items: { value: string; label: string; small?: boolean }[] = [
     { value: PROVENANCE.rawQueries.toLocaleString(), label: t("prov.raw") },
@@ -45,6 +46,22 @@ export function ProvenanceStrip({ className }: { className?: string }) {
           </div>
         ))}
       </dl>
+      {/* Explicit market names — no opaque "8 markets" (spec §8) */}
+      <div className="flex flex-col gap-2 border-t border-border px-5 py-4 sm:flex-row sm:items-center sm:px-6">
+        <span className="shrink-0 text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+          {t("prov.marketList")}
+        </span>
+        <div className="flex flex-wrap gap-x-2 gap-y-1 text-[13px] text-navy">
+          {MARKETS.map((m, i) => (
+            <span key={m.code} className="inline-flex items-center gap-2">
+              {m.name[locale]}
+              {i < MARKETS.length - 1 && (
+                <span className="text-border-strong" aria-hidden>·</span>
+              )}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

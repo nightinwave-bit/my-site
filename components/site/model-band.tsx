@@ -6,11 +6,11 @@ import { Reveal } from "./reveal";
 import { cn } from "@/lib/utils";
 
 const STEPS = [
-  { key: "model.step1", n: "01", tag: "type.question" },
-  { key: "model.step2", n: "02", tag: "type.concept" },
-  { key: "model.step3", n: "03", tag: "type.theme" },
-  { key: "model.step4", n: "04", tag: "type.narrative" },
-  { key: "model.step5", n: "05", tag: "type.perception" },
+  { key: "model.step1", n: "01", tag: "type.question", human: "layer.question" },
+  { key: "model.step2", n: "02", tag: "type.concept", human: "layer.concept" },
+  { key: "model.step3", n: "03", tag: "type.theme", human: "layer.theme" },
+  { key: "model.step4", n: "04", tag: "type.narrative", human: "layer.narrative" },
+  { key: "model.step5", n: "05", tag: "type.perception", human: "layer.perception" },
 ];
 
 export function ModelBand() {
@@ -51,7 +51,10 @@ export function ModelBand() {
                     {t(step.tag)}
                   </span>
                 </div>
-                <h3 className="mt-5 text-base font-semibold leading-snug text-navy">
+                <div className="mt-5 text-[13px] font-semibold leading-snug text-brand">
+                  {t(step.human)}
+                </div>
+                <h3 className="mt-1.5 text-base font-semibold leading-snug text-navy">
                   {t(`${step.key}.title`)}
                 </h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-secondary">

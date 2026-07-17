@@ -8,6 +8,7 @@ import { LanguageSwitch } from "./language-switch";
 
 const LINKS = [
   { key: "nav.pathways", href: "/#pathways" },
+  { key: "nav.topics", href: "/topics" },
   { key: "nav.explore", href: "/explore" },
   { key: "nav.research", href: "/research" },
   { key: "nav.method", href: "/method" },

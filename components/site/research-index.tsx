@@ -43,7 +43,31 @@ export function ResearchIndex() {
           </div>
         </section>
 
+        {/* 왜 이 연구인가 — 질문에서 출발한 이유를 관찰 → 해석으로 */}
         <section className="border-b border-border">
+          <div className="container py-16 sm:py-20">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
+              {t("research.why.eyebrow")}
+            </div>
+            <p className="mt-4 max-w-3xl text-balance text-2xl font-semibold leading-snug text-navy sm:text-[28px] sm:leading-[1.35]">
+              {t("research.why.lede")}
+            </p>
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
+              {[
+                { q: "research.why.autocomplete.q", a: "research.why.autocomplete.a" },
+                { q: "research.why.markets.q", a: "research.why.markets.a" },
+                { q: "research.why.found.q", a: "research.why.found.a" },
+              ].map((it) => (
+                <div key={it.q} className="flex h-full flex-col rounded-xl border border-border bg-white p-6 shadow-card sm:p-7">
+                  <h3 className="text-[15px] font-semibold text-brand">{t(it.q)}</h3>
+                  <p className="mt-3 text-[17px] font-medium leading-relaxed text-navy">{t(it.a)}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border bg-tint">
           <div className="container py-14 sm:py-16">
             <div className="mb-8 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
               {t("research.ladder")}
