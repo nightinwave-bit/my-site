@@ -2,11 +2,10 @@
 
 import React, { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Network, Search, Database, ChevronDown, ChevronRight, X, Sparkles, Globe } from "lucide-react";
+import { ArrowLeft, Search, Database, ChevronDown, ChevronRight, X, Sparkles, Globe } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
-import { getPathway, getNode, PROVENANCE, GRAPH_EDGES } from "@/lib/ontology";
-import { topicLead, type Topic, type TopicSlug } from "@/lib/topics";
-import { insightFor } from "@/lib/interpretation";
+import { getNode, PROVENANCE } from "@/lib/ontology";
+import { type Topic, type TopicSlug } from "@/lib/topics";
 import { MARKETS } from "@/lib/markets";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
@@ -45,36 +44,36 @@ const LANG_LABEL: Record<string, { ko: string; en: string }> = {
 
 const TOPIC_INTRO: Record<TopicSlug, { ko: string; en: string }> = {
   hallyu: {
-    ko: "세계는 K-pop만 궁금했던 것이 아니다. 332개의 실제 질문으로 읽는 세계의 한국 인식.",
-    en: "The world wasn't only curious about K-pop. 332 real questions reveal how the world perceives Korea.",
+    ko: "한류는 세계가 한국에 접근하는 가장 강력한 입구다. 그러나 질문은 K-pop에서 끝나지 않는다. 음식, 언어, 역사, 사회로 확장된다. 한류는 문화 현상이 아니라 국가 이해의 출발점이다.",
+    en: "Hallyu is the world's most powerful gateway to Korea. But the questions don't stop at K-pop — they expand into food, language, history, and society. Hallyu is not a cultural phenomenon; it's the starting point of understanding a country.",
   },
   diplomacy: {
-    ko: "분단, 안보, 이웃 나라와의 관계 — 여전히 한국 이해의 중심축.",
-    en: "Division, security, and regional relations — still the central axis of understanding Korea.",
+    ko: "세계에게 한국은 아직 분단 국가다. 소프트파워가 아무리 강해도, 안보 프레임은 대체되지 않았다. 외교 질문은 한국 이미지의 또 다른 기저를 보여준다.",
+    en: "To the world, Korea is still a divided nation. No matter how strong its soft power, the security frame has not been displaced. Diplomatic questions reveal another foundation of Korea's image.",
   },
   society: {
-    ko: "사람들이 한국인의 일상과 관계 문화를 얼마나 궁금해하는지 보여주는 질문들.",
-    en: "Questions that show how much people want to know about Korean daily life and social norms.",
+    ko: "관심이 깊어질수록 질문은 콘텐츠에서 사회로 이동한다. '한국인은 어떤 사람들인가'는 문화 소비의 다음 단계다.",
+    en: "As interest deepens, questions move from content to society. 'What are Koreans like?' is the next stage beyond cultural consumption.",
   },
   language: {
-    ko: "한국어 배우기는 문화 관심이 실질적 행동으로 바뀌는 전환점.",
-    en: "Learning Korean is where cultural interest turns into practical commitment.",
+    ko: "한국어에 대한 첫 번째 프레임은 '어려움'이다. 관심은 학습보다 빠르게 자라고 있고, 장벽은 어려운 언어가 아니라 부족한 입구다.",
+    en: "The first frame for Korean is 'difficulty.' Interest is outrunning access — the barrier is not a hard language but the missing on-ramps.",
   },
   history: {
-    ko: "과거와 전통은 오늘의 한국을 설명하는 또 하나의 축.",
-    en: "History and tradition form another axis for understanding today's Korea.",
+    ko: "가까운 국가는 현재보다 유산을 질문한다. 역사는 과거가 아니라 한국을 이해하는 또 하나의 입구다.",
+    en: "Close countries ask about heritage over the present. History is not the past — it's another doorway into understanding Korea.",
   },
   tourism: {
-    ko: "한국 여행은 콘텐츠 소비의 물리적 확장.",
-    en: "Visiting Korea is the physical extension of consuming its content.",
+    ko: "한국 여행은 콘텐츠 소비의 물리적 확장이다. 디지털에서 시작된 관심이 실제 공간으로 이동하는 순간이다.",
+    en: "Visiting Korea is the physical extension of content consumption — the moment digital interest moves into real space.",
   },
   technology: {
-    ko: "기술 강국 이미지는 질문보다 인식에 가까운 것.",
-    en: "Korea's tech reputation exists more as perception than as curiosity.",
+    ko: "기술 강국 이미지는 질문보다 인식에 가깝다. 사람들은 삼성을 알지만, 한국의 기술 생태계를 질문하지는 않는다.",
+    en: "Korea's tech reputation exists more as perception than as curiosity. People know Samsung, but they don't question Korea's tech ecosystem.",
   },
   economy: {
-    ko: "경제 질문은 적지만, 경제 인식은 모든 주제에 스며들어 있다.",
-    en: "While economic questions are few, economic perception pervades every topic.",
+    ko: "경제 질문은 적지만, 경제 인식은 모든 주제에 스며들어 있다. 경제는 독립된 관심사가 아니라 다른 주제의 배경이다.",
+    en: "Economic questions are few, but economic perception pervades every topic. Economy is not a standalone interest — it's the backdrop of other themes.",
   },
 };
 
@@ -101,40 +100,10 @@ interface TopicData {
   concepts: Record<string, ConceptQuestion[]>;
 }
 
-function traceConceptToPerception(conceptId: string): { id: string; label: { ko: string; en: string }; type: string }[] {
-  const result: { id: string; label: { ko: string; en: string }; type: string }[] = [];
-  const concept = getNode(conceptId);
-  if (!concept) return result;
-  result.push({ id: conceptId, label: concept.label, type: "concept" });
-
-  const themeEdge = GRAPH_EDGES.find((e) => e.from === conceptId);
-  if (!themeEdge) return result;
-  const theme = getNode(themeEdge.to);
-  result.push({ id: themeEdge.to, label: theme.label, type: "theme" });
-
-  const narrEdge = GRAPH_EDGES.find((e) => e.from === themeEdge.to && e.to.startsWith("n_"));
-  if (!narrEdge) return result;
-  const narrative = getNode(narrEdge.to);
-  result.push({ id: narrEdge.to, label: narrative.label, type: "narrative" });
-
-  const percEdge = GRAPH_EDGES.find((e) => e.from === narrEdge.to);
-  if (!percEdge) return result;
-  const perception = getNode(percEdge.to);
-  result.push({ id: percEdge.to, label: perception.label, type: "perception" });
-
-  return result;
-}
-
 const PAGE_SIZE = 30;
 
 export function TopicView({ topic }: { topic: Topic }) {
   const { t, locale } = useLanguage();
-
-  const lead = topicLead(topic.slug);
-  const pathway = lead ? getPathway(lead.pathway) : undefined;
-  const nodes = pathway ? pathway.steps.map((s) => getNode(s.nodeId)) : [];
-  const perception = nodes[nodes.length - 1];
-  const insight = perception ? insightFor(perception.id) : undefined;
 
   const topicData = (allTopicQuestions as unknown as Record<string, TopicData>)[topic.slug];
   const allQuestions = useMemo(() => topicData?.questions ?? [], [topicData]);
@@ -267,7 +236,7 @@ export function TopicView({ topic }: { topic: Topic }) {
                 className="mt-4 max-w-[760px] text-[18px] leading-relaxed text-secondary sm:text-[20px]"
                 style={{ wordBreak: "keep-all" } as React.CSSProperties}
               >
-                {lead?.question[locale]}
+                {topic.tagline[locale]}
               </p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -567,7 +536,6 @@ export function TopicView({ topic }: { topic: Topic }) {
               {visible.map((q) => {
                 const conceptNode = getNode(q.conceptId);
                 const isExpanded = expandedQuestion === q.id;
-                const pathTrace = isExpanded ? traceConceptToPerception(q.conceptId) : [];
                 const related = isExpanded ? relatedQuestions : [];
 
                 return (
@@ -607,56 +575,23 @@ export function TopicView({ topic }: { topic: Topic }) {
                       </div>
                     </button>
 
-                    {/* ── Expanded: pathway + related questions ── */}
-                    {isExpanded && (
-                      <div className="ml-6 mt-1.5 space-y-3 rounded-xl border border-brand/15 bg-brand/[0.02] px-4 py-4">
-                        {/* Perception pathway */}
-                        {pathTrace.length > 0 && (
-                          <div>
-                            <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">
-                              {locale === "ko" ? "이 질문이 만드는 인식" : "How this question shapes perception"}
-                            </div>
-                            <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                              <span className="rounded-md border border-border bg-white px-2 py-1 text-[12px] font-medium text-navy">
-                                {q.text}
-                              </span>
-                              {pathTrace.map((step, i) => (
-                                <React.Fragment key={step.id}>
-                                  <ArrowRight className="h-3 w-3 shrink-0 text-muted-foreground/50" />
-                                  <span
-                                    className={`rounded-md px-2 py-1 text-[12px] font-medium ${
-                                      step.type === "perception"
-                                        ? "border border-navy bg-navy text-white"
-                                        : "border border-border bg-white text-navy"
-                                    }`}
-                                  >
-                                    {step.label[locale]}
-                                  </span>
-                                </React.Fragment>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Related questions */}
-                        {related.length > 0 && (
-                          <div>
-                            <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                              {locale === "ko" ? "관련 질문" : "Related questions"}
-                            </div>
-                            <div className="mt-1.5 flex flex-wrap gap-1.5">
-                              {related.map((rq) => (
-                                <button
-                                  key={rq.id}
-                                  onClick={() => setExpandedQuestion(rq.id)}
-                                  className="rounded-lg border border-border bg-white px-2.5 py-1 text-[11px] font-medium text-secondary transition-colors hover:border-brand/30 hover:text-navy"
-                                >
-                                  {rq.text}
-                                </button>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+                    {/* ── Expanded: related questions ── */}
+                    {isExpanded && related.length > 0 && (
+                      <div className="ml-6 mt-1.5 rounded-xl border border-brand/15 bg-brand/[0.02] px-4 py-4">
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                          {locale === "ko" ? "관련 질문" : "Related questions"}
+                        </div>
+                        <div className="mt-1.5 flex flex-wrap gap-1.5">
+                          {related.map((rq) => (
+                            <button
+                              key={rq.id}
+                              onClick={() => setExpandedQuestion(rq.id)}
+                              className="rounded-lg border border-border bg-white px-2.5 py-1 text-[11px] font-medium text-secondary transition-colors hover:border-brand/30 hover:text-navy"
+                            >
+                              {rq.text}
+                            </button>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -699,119 +634,6 @@ export function TopicView({ topic }: { topic: Topic }) {
           </div>
         </section>
 
-        {/* ── 질문→인식 흐름 (가로 타임라인) ── */}
-        {perception && (
-          <section className="border-b border-border bg-white">
-            <div className="container max-w-[1280px] py-14 sm:py-16">
-              <Reveal>
-                <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
-                  {t("topic.pathLabel")}
-                </div>
-              </Reveal>
-              <Reveal delay={0.05}>
-                <h2
-                  className="mt-3 text-[1.5rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[1.8rem]"
-                  style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
-                >
-                  {locale === "ko" ? "하나의 질문이 인식이 되기까지" : "From a single question to a perception"}
-                </h2>
-              </Reveal>
-
-              {(() => {
-                const chain = [
-                  { label: "type.question", value: lead?.question[locale] ?? "" },
-                  ...nodes.slice(1).map((n, i) => ({ label: ["type.concept", "type.theme", "type.narrative", "type.perception"][i], value: n.label[locale] })),
-                  ...(insight ? [{ label: "layer.insight", value: insight[locale], accent: true }] : []),
-                ];
-                return (
-                  <>
-                    <div className="mt-8 hidden overflow-x-auto lg:block">
-                      <div className="flex min-w-[700px] items-stretch gap-0">
-                        {chain.map((step, i) => (
-                          <React.Fragment key={i}>
-                            <Reveal delay={i * 0.06} className="flex-1">
-                              <div
-                                className={
-                                  "flex h-full flex-col rounded-2xl border px-4 py-4 " +
-                                  ((step as { accent?: boolean }).accent
-                                    ? "border-brand bg-brand/5"
-                                    : i === chain.length - 2
-                                      ? "border-navy bg-navy"
-                                      : "border-border bg-[#F7F9FD]")
-                                }
-                              >
-                                <div
-                                  className={
-                                    "text-[10px] font-semibold uppercase tracking-[0.14em] " +
-                                    ((step as { accent?: boolean }).accent
-                                      ? "text-brand"
-                                      : i === chain.length - 2
-                                        ? "text-brand-hi"
-                                        : "text-muted-foreground")
-                                  }
-                                >
-                                  {t(step.label)}
-                                </div>
-                                <div
-                                  className={
-                                    "mt-1.5 text-[13px] font-medium leading-snug " +
-                                    (i === chain.length - 2 ? "text-white" : "text-navy")
-                                  }
-                                >
-                                  {step.value}
-                                </div>
-                              </div>
-                            </Reveal>
-                            {i < chain.length - 1 && (
-                              <div className="flex shrink-0 items-center px-1 text-muted-foreground" aria-hidden>
-                                <ArrowRight className="h-3.5 w-3.5" />
-                              </div>
-                            )}
-                          </React.Fragment>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="mt-8 space-y-1.5 lg:hidden">
-                      {chain.map((step, i) => (
-                        <Reveal key={`m-${i}`} delay={i * 0.04}>
-                          <div
-                            className={
-                              "rounded-xl border px-4 py-3 " +
-                              ((step as { accent?: boolean }).accent
-                                ? "border-brand bg-brand/5"
-                                : i === chain.length - 2
-                                  ? "border-navy bg-navy"
-                                  : "border-border bg-[#F7F9FD]")
-                            }
-                          >
-                            <div
-                              className={
-                                "text-[10px] font-semibold uppercase tracking-[0.14em] " +
-                                ((step as { accent?: boolean }).accent
-                                  ? "text-brand"
-                                  : i === chain.length - 2
-                                    ? "text-brand-hi"
-                                    : "text-muted-foreground")
-                              }
-                            >
-                              {t(step.label)}
-                            </div>
-                            <div className={"mt-1 text-[14px] font-medium leading-snug " + (i === chain.length - 2 ? "text-white" : "text-navy")}>
-                              {step.value}
-                            </div>
-                          </div>
-                          {i < chain.length - 1 && (
-                            <div className="py-0.5 pl-5 text-muted-foreground/50" aria-hidden>↓</div>
-                          )}
-                        </Reveal>
-                      ))}
-                    </div>
-                  </>
-                );
-              })()}
-            </div>
-          </section>
-        )}
 
         {/* ── 데이터 출처 ── */}
         <section className="border-b border-border bg-[#F3F6FB]">
@@ -847,38 +669,6 @@ export function TopicView({ topic }: { topic: Topic }) {
           </div>
         </section>
 
-        {/* ── Insight CTA ── */}
-        {insight && (
-          <section className="border-b border-border bg-white">
-            <div className="container max-w-[1280px] py-10 sm:py-12">
-              <div className="max-w-[720px]">
-                <Reveal>
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand">
-                    {t("layer.insight")}
-                  </div>
-                </Reveal>
-                <Reveal delay={0.05}>
-                  <p
-                    className="mt-3 text-[1.3rem] font-semibold leading-[1.45] text-navy sm:text-[1.5rem]"
-                    style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
-                  >
-                    {insight[locale]}
-                  </p>
-                </Reveal>
-                <Reveal delay={0.1}>
-                  <Link
-                    href="/explore"
-                    className="mt-6 inline-flex h-10 items-center gap-2 rounded-full bg-brand px-4 text-[13px] font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
-                  >
-                    <Network className="h-3.5 w-3.5" />
-                    {t("topic.explore.cta")}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </Reveal>
-              </div>
-            </div>
-          </section>
-        )}
       </main>
       <Footer />
     </>
