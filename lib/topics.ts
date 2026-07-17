@@ -81,8 +81,26 @@ export const TOPICS: Topic[] = [
   },
 ];
 
+// Each topic's representative question (the one the world most recognizably
+// asks) and the pathway whose perception the topic converges on. Used by the
+// Home "여덟 개의 질문" section and each topic's "대표 경로" / "대표 인식".
+export const TOPIC_LEAD: Record<TopicSlug, { question: Localized; pathway: string }> = {
+  hallyu: { question: { ko: "K-팝은 왜 이렇게 인기가 많을까?", en: "Why is K-pop so popular?" }, pathway: "cultural-force" },
+  language: { question: { ko: "한국어는 일본어보다 어려울까?", en: "Is Korean harder than Japanese?" }, pathway: "enigma" },
+  tourism: { question: { ko: "한국 여행은 얼마나 비쌀까?", en: "How expensive is Korea to visit?" }, pathway: "aspiration" },
+  history: { question: { ko: "한복은 무엇일까?", en: "What is Hanbok?" }, pathway: "cultural-force" },
+  diplomacy: { question: { ko: "한국은 왜 둘로 나뉘었을까?", en: "Why are there two Koreas?" }, pathway: "division" },
+  society: { question: { ko: "한국인은 왜 나이를 중요하게 여길까?", en: "Why do Koreans care about age?" }, pathway: "enigma" },
+  economy: { question: { ko: "삼성은 얼마나 큰 기업일까?", en: "How big is Samsung?" }, pathway: "tech-success" },
+  technology: { question: { ko: "한국 인터넷은 왜 이렇게 빠를까?", en: "Why is Korea's internet so fast?" }, pathway: "tech-success" },
+};
+
 export function getTopic(slug: string): Topic | undefined {
   return TOPICS.find((t) => t.slug === slug);
+}
+
+export function topicLead(slug: string): { question: Localized; pathway: string } | undefined {
+  return TOPIC_LEAD[slug as TopicSlug];
 }
 
 /** Topics that actually have at least one present concept (defensive: no empties). */

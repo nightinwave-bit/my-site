@@ -128,8 +128,38 @@ export const MEANING_BY_PATHWAY: Record<string, PathwayMeaning> = {
   },
 };
 
+// Insight — the sixth layer. Not another perception, but its strategic
+// implication: given that the world understands Korea this way, what does that
+// require? Short and actionable (e.g. "문화를 기술·경제·외교로 연결할 필요").
+export const INSIGHT_BY_PERCEPTION: Record<string, Localized> = {
+  p_cultural: {
+    ko: "문화로 얻은 관심을 기술·경제·외교로 연결할 필요",
+    en: "The attention won through culture needs to be connected into technology, economy, and diplomacy.",
+  },
+  p_aspirational: {
+    ko: "동경을 실제 방문·거주·소비로 잇는 통로를 만들 필요",
+    en: "Aspiration needs pathways that turn it into real visits, living, and everyday choices.",
+  },
+  p_divided: {
+    ko: "분단을 향한 관심을 ‘안전하고 정상적인 나라’라는 이해로 재구성할 필요",
+    en: "Attention drawn to division needs to be reframed toward Korea as a safe, normal country.",
+  },
+  p_advanced: {
+    ko: "제품·브랜드에 대한 신뢰를 사회와 사람에 대한 이해로 확장할 필요",
+    en: "Trust in products and brands needs to be extended into understanding of the society and its people.",
+  },
+  p_enigmatic: {
+    ko: "관심을 실제 이해로 잇는 진입로(언어·맥락)를 놓을 필요",
+    en: "Interest needs on-ramps — language and context — that carry it into real understanding.",
+  },
+};
+
 export function discoveryFor(perceptionId: string): Localized | undefined {
   return DISCOVERY_BY_PERCEPTION[perceptionId];
+}
+
+export function insightFor(perceptionId: string): Localized | undefined {
+  return INSIGHT_BY_PERCEPTION[perceptionId];
 }
 
 export function meaningFor(pathwayId: string): PathwayMeaning | undefined {

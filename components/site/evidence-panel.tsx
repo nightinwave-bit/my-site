@@ -10,8 +10,10 @@ import {
   type NodeType,
   PLATFORM_LABEL,
   graphNeighbors,
+  getNode,
+  GRAPH_EDGES,
 } from "@/lib/ontology";
-import { discoveryFor } from "@/lib/interpretation";
+import { discoveryFor, insightFor } from "@/lib/interpretation";
 import { PLATFORM_ICON } from "./icon";
 import { cn } from "@/lib/utils";
 
@@ -22,6 +24,26 @@ const LAYER_LABEL: Record<string, string> = {
   narrative: "layer.narrative",
   perception: "layer.perception",
 };
+
+// Interpretation layers (narrative / perception) have no real questions of
+// their own — they are formed from the questions upstream. Trace those source
+// questions by walking predecessors through the directed graph.
+function traceSourceQuestions(startId: string, max = 6): OntologyNode[] {
+  const seen = new Set<string>([startId]);
+  const out: OntologyNode[] = [];
+  const queue = [startId];
+  while (queue.length && out.length < max) {
+    const cur = queue.shift()!;
+    for (const e of GRAPH_EDGES) {
+      if (e.to !== cur || seen.has(e.from)) continue;
+      seen.add(e.from);
+      const n = getNode(e.from);
+      if (n.type === "question") out.push(n);
+      else queue.push(e.from);
+    }
+  }
+  return out.slice(0, max);
+}
 
 const TYPE_TAG: Record<string, string> = {
   question: "type.question",
@@ -135,6 +157,18 @@ export function EvidencePanel({
                 </div>
               )}
 
+              {/* Insight — the sixth layer: the strategic implication */}
+              {node.type === "perception" && insightFor(node.id) && (
+                <div className="mt-3 rounded-xl border-l-[3px] border-navy bg-navy/[0.04] p-4">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-navy">
+                    {t("layer.insight")}
+                  </div>
+                  <p className="mt-1.5 text-[15px] font-semibold leading-relaxed text-navy">
+                    {insightFor(node.id)![locale]}
+                  </p>
+                </div>
+              )}
+
               {/* bridge into the Research reading (rung by node type) */}
               {(node.type === "perception" || node.type === "narrative") && (
                 <Link
@@ -155,15 +189,17 @@ export function EvidencePanel({
                 </Link>
               )}
 
-              <div className="mt-7">
-                <div className="text-sm font-semibold text-navy">
-                  {t("evidence.title")}
-                </div>
-                <div className="mt-1 text-xs text-muted-foreground">
-                  {t("evidence.subtitle")}
-                </div>
-
-                {node.evidence?.length ? (
+              {/* Real questions only exist at Question / Concept / Theme.
+                  Narrative / Perception are formed FROM questions — so instead of
+                  an empty state, show which questions formed them. */}
+              {(node.type === "question" || node.type === "concept" || node.type === "theme") && node.evidence?.length ? (
+                <div className="mt-7">
+                  <div className="text-sm font-semibold text-navy">
+                    {t("evidence.title")}
+                  </div>
+                  <div className="mt-1 text-xs text-muted-foreground">
+                    {t("evidence.subtitle")}
+                  </div>
                   <ul className="mt-4 space-y-2.5">
                     {node.evidence.map((e, i) => {
                       const Icon = PLATFORM_ICON[e.platform];
@@ -183,12 +219,33 @@ export function EvidencePanel({
                       );
                     })}
                   </ul>
-                ) : (
-                  <p className="mt-4 rounded-lg border border-dashed border-border bg-tint px-4 py-3 text-sm text-muted-foreground">
-                    {t("evidence.empty")}
-                  </p>
-                )}
-              </div>
+                </div>
+              ) : (
+                (() => {
+                  const sources = traceSourceQuestions(node.id);
+                  if (!sources.length) return null;
+                  const formedKey =
+                    node.type === "perception"
+                      ? "evidence.formed.perception"
+                      : node.type === "narrative"
+                      ? "evidence.formed.narrative"
+                      : "evidence.formed.generic";
+                  return (
+                    <div className="mt-7">
+                      <div className="text-sm font-semibold text-navy">{t(formedKey)}</div>
+                      <ul className="mt-4 space-y-2.5">
+                        {sources.map((qn) => (
+                          <li key={qn.id} className="rounded-lg border border-border bg-tint px-4 py-3">
+                            <p className="text-[15px] font-medium leading-snug text-navy">
+                              {qn.label[locale]}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })()
+              )}
 
               {relatedByType.length > 0 && (
                 <div className="mt-7">

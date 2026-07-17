@@ -11,7 +11,7 @@ import {
   type Pathway,
   type OntologyNode,
 } from "@/lib/ontology";
-import { meaningFor, discoveryFor } from "@/lib/interpretation";
+import { meaningFor, discoveryFor, insightFor } from "@/lib/interpretation";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { PathwayDiagram } from "./pathway-diagram";
@@ -33,6 +33,7 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
 
   const meaning = meaningFor(pathway.id);
   const discovery = discoveryFor(terminal.id);
+  const insight = insightFor(terminal.id);
   const meaningCards = meaning
     ? [
         { key: "pathway.meaning.what", value: meaning.whatHappened },
@@ -204,6 +205,18 @@ export function PathwayView({ pathway }: { pathway: Pathway }) {
                     {discovery[locale]}
                   </p>
                 </Reveal>
+                {insight && (
+                  <Reveal delay={0.08}>
+                    <div className="mt-8 border-t border-white/15 pt-6">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-hi">
+                        {t("layer.insight")}
+                      </div>
+                      <p className="mt-2 text-pretty text-lg font-medium leading-relaxed text-white/85 sm:text-xl">
+                        {insight[locale]}
+                      </p>
+                    </div>
+                  </Reveal>
+                )}
               </div>
             </div>
           </section>
