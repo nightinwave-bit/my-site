@@ -4,7 +4,7 @@ import React, { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRight, Search, X, ChevronRight, ChevronDown, Shuffle, Globe, Database, Sparkles, BarChart3, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
-import { getNode, PROVENANCE, GRAPH_EDGES, NODES } from "@/lib/ontology";
+import { getNode, PROVENANCE } from "@/lib/ontology";
 import { TOPICS, getTopic, type TopicSlug } from "@/lib/topics";
 import { MARKETS, marketName } from "@/lib/markets";
 import { Navbar } from "./navbar";
@@ -51,29 +51,6 @@ function getTranslation(qId: string, locale: "ko" | "en"): string | null {
   return t ? t[locale] : null;
 }
 
-function traceConceptToPerception(conceptId: string): { id: string; label: { ko: string; en: string }; type: string; blurb?: { ko: string; en: string } }[] {
-  const result: { id: string; label: { ko: string; en: string }; type: string; blurb?: { ko: string; en: string } }[] = [];
-  const concept = getNode(conceptId);
-  if (!concept) return result;
-  result.push({ id: conceptId, label: concept.label, type: "concept", blurb: concept.blurb });
-
-  const themeEdge = GRAPH_EDGES.find((e) => e.from === conceptId);
-  if (!themeEdge) return result;
-  const theme = getNode(themeEdge.to);
-  result.push({ id: themeEdge.to, label: theme.label, type: "theme", blurb: theme.blurb });
-
-  const narrEdge = GRAPH_EDGES.find((e) => e.from === themeEdge.to && e.to.startsWith("n_"));
-  if (!narrEdge) return result;
-  const narrative = getNode(narrEdge.to);
-  result.push({ id: narrEdge.to, label: narrative.label, type: "narrative", blurb: narrative.blurb });
-
-  const percEdge = GRAPH_EDGES.find((e) => e.from === narrEdge.to);
-  if (!percEdge) return result;
-  const perception = getNode(percEdge.to);
-  result.push({ id: percEdge.to, label: perception.label, type: "perception", blurb: perception.blurb });
-
-  return result;
-}
 
 const ALL_QUESTIONS: TopicQuestion[] = (() => {
   const data = allTopicQuestions as unknown as Record<string, TopicData>;
@@ -206,13 +183,12 @@ export function ExploreView() {
     }
     countryDist.sort((a, b) => b.count - a.count);
 
-    const pathway = traceConceptToPerception(q.conceptId);
     const topicSlug = topicConceptMap[q.conceptId];
     const topic = topicSlug ? getTopic(topicSlug) : undefined;
 
     const relatedQuestions = sameConceptQs.slice(0, 10);
 
-    return { q, countryDist, pathway, topic, relatedQuestions };
+    return { q, countryDist, topic, relatedQuestions };
   }, [expandedQuestion, topicConceptMap]);
 
   const countryProfile = useMemo(() => {
@@ -262,8 +238,8 @@ export function ExploreView() {
                 style={{ wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "8개 국가, 7개 언어로 수집된 실제 검색 질문. 각 질문의 출처, 분포, 의미 경로를 확인할 수 있습니다."
-                  : "Real search questions collected across 8 countries and 7 languages. See each question's origin, distribution, and meaning pathway."}
+                  ? "8개 국가, 7개 언어로 수집된 실제 검색 질문. 각 질문의 출처, 분포, 관련 질문을 확인할 수 있습니다."
+                  : "Real search questions collected across 8 countries and 7 languages. See each question's origin, distribution, and related questions."}
               </p>
             </Reveal>
 
@@ -610,34 +586,6 @@ export function ExploreView() {
                             {LANG_LABEL[expandedData.q.language]?.[locale] ?? expandedData.q.language}
                           </span>
                         </div>
-
-                        {/* Perception pathway */}
-                        {expandedData.pathway.length > 0 && (
-                          <div>
-                            <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand">
-                              {locale === "ko" ? "이 질문이 만드는 인식 경로" : "Perception pathway"}
-                            </div>
-                            <div className="mt-2 space-y-1.5">
-                              {expandedData.pathway.map((step, i) => (
-                                <div key={step.id} className="flex items-start gap-2">
-                                  <div className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded text-[9px] font-bold ${
-                                    step.type === "perception" ? "bg-navy text-white" : "bg-border/50 text-muted-foreground"
-                                  }`}>
-                                    {i + 1}
-                                  </div>
-                                  <div>
-                                    <div className={`text-[12px] font-semibold ${
-                                      step.type === "perception" ? "text-navy" : "text-navy"
-                                    }`}>{step.label[locale]}</div>
-                                    {step.blurb && (
-                                      <div className="text-[10px] leading-snug text-muted-foreground">{step.blurb[locale]}</div>
-                                    )}
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
 
                         {/* Related questions */}
                         {expandedData.relatedQuestions.length > 0 && (

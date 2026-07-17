@@ -1,8 +1,7 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { DocSection, Kicker, H2, Lead, type L } from "./parts";
 
@@ -12,10 +11,9 @@ interface FindingData {
   title: L;
   data: L;
   interpretation: L;
-  implication: L;
 }
 
-// ── findings (4-layer: 데이터→해석→함의) ─────────────────────────────────────
+// ── findings (2-layer: 데이터→해석) ──────────────────────────────────────────
 const FINDINGS: FindingData[] = [
   {
     n: "01",
@@ -30,10 +28,6 @@ const FINDINGS: FindingData[] = [
     interpretation: {
       ko: "세계는 한국을 정치나 경제보다 콘텐츠를 통해 먼저 만난다. 문화는 관심 분야가 아니라 한국이라는 국가에 접근하는 입구 역할을 한다.",
       en: "The world first meets Korea through content, not politics or economics. Culture is not a topic of interest — it's the doorway to the country itself.",
-    },
-    implication: {
-      ko: "문화 정책의 목표는 콘텐츠 소비 확대가 아니다. 문화를 통해 형성된 관심을 역사, 사회, 기술, 외교 이해로 연결하는 구조가 필요하다.",
-      en: "The goal of cultural policy shouldn't be wider content consumption. What's needed is a structure that connects culture-driven attention into understanding of history, society, technology, and diplomacy.",
     },
   },
   {
@@ -50,10 +44,6 @@ const FINDINGS: FindingData[] = [
       ko: "한류가 전체 주제로는 1위이지만, 사람들이 한국에 대해 던지는 가장 무거운 단일 질문은 문화가 아니라 분단이다. 소프트파워는 안보 프레임을 대체하지 못했다.",
       en: "Hallyu leads as a theme, but the single heaviest question people ask about Korea is not about culture — it's about division. Soft power has not displaced the security frame.",
     },
-    implication: {
-      ko: "분단은 과거의 유산이 아니라 현재의 프레임이다. 한국을 설명하는 전략은 이 질문에서 시작해야 한다.",
-      en: "Division is not a legacy of the past — it's the present frame. Any strategy for explaining Korea must start from this question.",
-    },
   },
   {
     n: "03",
@@ -68,10 +58,6 @@ const FINDINGS: FindingData[] = [
     interpretation: {
       ko: "대부분의 사람들은 '한국어를 배우고 싶다'가 아니라 '한국어가 얼마나 어려운가'로 한국어를 처음 만난다. 관심은 학습이 아니라 어려움으로 프레임된다.",
       en: "Most people first encounter Korean not through 'I want to learn it' but through 'how hard is it?' Interest is framed as difficulty, not as learning.",
-    },
-    implication: {
-      ko: "관심이 진입로보다 빠르게 자라고 있다. 장벽은 어려운 언어가 아니라 부족한 입구다.",
-      en: "Interest is outrunning access. The barrier is not a hard language — it's the missing on-ramps.",
     },
   },
   {
@@ -88,10 +74,6 @@ const FINDINGS: FindingData[] = [
       ko: "음식과 사람은 가장 마찰이 적은 진입점이다. 언어도 역사도 모르는 상태에서도 사람들은 '무엇을 먹는가'와 '어떤 사람들인가'를 질문한다.",
       en: "Food and people are the lowest-friction entry points. Even when people know nothing about the language or history, they ask 'what do they eat?' and 'what are they like?'",
     },
-    implication: {
-      ko: "보편적 진입점은 한국을 처음 설명할 때의 출발 지점이다. 음식과 사람에서 시작해 더 깊은 이해로 연결하는 경로가 필요하다.",
-      en: "Universal entry points are the starting position for first explanations. Pathways are needed from food and people into deeper understanding.",
-    },
   },
   {
     n: "05",
@@ -106,10 +88,6 @@ const FINDINGS: FindingData[] = [
     interpretation: {
       ko: "한류와 안보는 세계가 한국을 이해하는 두 개의 축이다. 문화적 매력과 지정학적 불안이 동시에 존재한다.",
       en: "Hallyu and security are the two axes through which the world understands Korea. Cultural appeal and geopolitical anxiety coexist.",
-    },
-    implication: {
-      ko: "문화만으로 한국을 설명하는 전략은 절반만 설명하는 것이다. 안보 프레임에 대한 응답이 함께 설계되어야 한다.",
-      en: "A strategy that explains Korea only through culture is explaining only half. A response to the security frame must be designed alongside it.",
     },
   },
   {
@@ -126,10 +104,6 @@ const FINDINGS: FindingData[] = [
       ko: "세계는 '하나의 한국'을 질문하지 않는다. 국가마다 다른 한국을 질문하고, 다른 이미지를 형성한다.",
       en: "The world does not question 'one Korea.' Each country asks about a different Korea and forms a different image.",
     },
-    implication: {
-      ko: "하나의 메시지로 하나의 한국을 설명하는 전략은 작동하지 않는다. 시장별로 다른 시작점에서 출발하는 설명이 필요하다.",
-      en: "A strategy that explains one Korea with one message won't work. Explanations must start from different starting points in each market.",
-    },
   },
   {
     n: "07",
@@ -144,10 +118,6 @@ const FINDINGS: FindingData[] = [
     interpretation: {
       ko: "모든 국가가 한국을 K-pop으로 만나는 것은 아니다. 일부 국가에게 한국은 문화 강국이기 전에 분단 국가, 안보 국가, 지정학적 행위자이다.",
       en: "Not every country meets Korea through K-pop. For some, Korea is a divided nation, a security actor, a geopolitical player — before it is a cultural power.",
-    },
-    implication: {
-      ko: "하나의 한국 이미지를 전제로 한 공공외교는 한계를 가진다. 국가마다 다른 출발점에서 한국을 설명해야 한다.",
-      en: "Public diplomacy premised on a single Korean image has limits. Korea must be explained from each country's starting point.",
     },
   },
   {
@@ -164,10 +134,6 @@ const FINDINGS: FindingData[] = [
       ko: "가까운 국가는 한국을 낯선 문화로 소비하지 않는다. 오히려 어떤 역사와 기억이 지금의 한국을 만들었는가를 질문한다.",
       en: "Close countries don't consume Korea as an exotic culture. Instead, they ask what history and memory made today's Korea.",
     },
-    implication: {
-      ko: "문화유산은 과거가 아니다. 한국을 이해하는 또 하나의 입구다.",
-      en: "Cultural heritage is not the past. It's another doorway into understanding Korea.",
-    },
   },
   {
     n: "09",
@@ -183,10 +149,6 @@ const FINDINGS: FindingData[] = [
       ko: "관심이 깊어질수록 질문은 콘텐츠에서 사회로 이동한다.",
       en: "As interest deepens, questions migrate from content to society.",
     },
-    implication: {
-      ko: "공공외교의 목표는 문화 소비가 아니라 사회 이해로 이어져야 한다.",
-      en: "Public diplomacy should lead not to cultural consumption but to social understanding.",
-    },
   },
   {
     n: "10",
@@ -201,10 +163,6 @@ const FINDINGS: FindingData[] = [
     interpretation: {
       ko: "정보가 많은 사회는 세부 질문을 남긴다. 정보가 적은 사회는 국가 자체를 이해하려고 한다. 질문의 수준은 관심의 수준이 아니라 접촉의 단계일 수 있다.",
       en: "Information-rich societies leave detailed questions. Information-sparse societies try to understand the country itself. The level of a question may reflect the stage of contact, not the level of interest.",
-    },
-    implication: {
-      ko: "새로운 시장에서는 깊은 설명보다 첫 번째 이해가 중요하다.",
-      en: "In new markets, the first understanding matters more than deep explanation.",
     },
   },
 ];
@@ -329,20 +287,6 @@ const COUNTRY_PROFILES: CountryProfile[] = [
   },
 ];
 
-// ── pathway example steps ────────────────────────────────────────────────────
-interface PathwayStep {
-  label: L;
-  level: L;
-}
-
-const PATHWAY_EXAMPLE: PathwayStep[] = [
-  { label: { ko: "Why is K-pop so popular?", en: "Why is K-pop so popular?" }, level: { ko: "질문", en: "Question" } },
-  { label: { ko: "K-팝", en: "K-Pop" }, level: { ko: "개념", en: "Concept" } },
-  { label: { ko: "한류", en: "The Korean Wave" }, level: { ko: "주제", en: "Theme" } },
-  { label: { ko: "세계적 문화 강국", en: "Global cultural force" }, level: { ko: "서사", en: "Narrative" } },
-  { label: { ko: "한국은 세계적 문화국가", en: "Korea as a world cultural power" }, level: { ko: "인식", en: "Perception" } },
-];
-
 // ── data strip ───────────────────────────────────────────────────────────────
 const DATA_STRIP: { value: string; label: L }[] = [
   { value: "1,540", label: { ko: "개 질문", en: "Questions" } },
@@ -406,7 +350,7 @@ function FindingCard({
         </div>
 
         {/* interpretation */}
-        <div className="px-6 py-5 sm:px-7">
+        <div className="rounded-b-2xl px-6 py-5 sm:px-7">
           <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
             {locale === "ko" ? "해석" : "Interpretation"}
           </div>
@@ -414,57 +358,7 @@ function FindingCard({
             {finding.interpretation[locale]}
           </p>
         </div>
-
-        {/* implication */}
-        <div
-          className="rounded-b-2xl px-6 py-5 sm:px-7"
-          style={{
-            background:
-              "color-mix(in srgb, var(--accent) 5%, transparent)",
-          }}
-        >
-          <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
-            {locale === "ko" ? "함의" : "Implication"}
-          </div>
-          <p className="text-[15px] leading-relaxed text-navy">
-            {finding.implication[locale]}
-          </p>
-        </div>
       </div>
-    </div>
-  );
-}
-
-function PathwayTrace({ locale }: { locale: "ko" | "en" }) {
-  return (
-    <div className="flex flex-wrap items-center gap-y-3">
-      {PATHWAY_EXAMPLE.map((step, i) => (
-        <React.Fragment key={step.level.en}>
-          <div className="flex flex-col items-center">
-            <span className="mb-1 text-[10px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
-              {step.level[locale]}
-            </span>
-            <span
-              className="rounded-lg border px-3 py-2 text-center text-[13px] font-medium leading-tight text-navy"
-              style={{
-                borderColor:
-                  i === 0
-                    ? "var(--border-strong)"
-                    : "color-mix(in srgb, var(--accent) 40%, transparent)",
-                background:
-                  i === PATHWAY_EXAMPLE.length - 1
-                    ? "color-mix(in srgb, var(--accent) 10%, transparent)"
-                    : "white",
-              }}
-            >
-              {step.label[locale]}
-            </span>
-          </div>
-          {i < PATHWAY_EXAMPLE.length - 1 && (
-            <ChevronRight className="mx-1 h-4 w-4 flex-shrink-0 text-muted-foreground" />
-          )}
-        </React.Fragment>
-      ))}
     </div>
   );
 }
@@ -592,38 +486,8 @@ export function DataReport() {
         </div>
       </DocSection>
 
-      {/* ── section: question → perception pathway ── */}
-      <DocSection tint>
-        <Kicker>
-          {locale === "ko"
-            ? "질문은 어떻게 국가 이미지가 되는가"
-            : "How a question becomes a national image"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "질문에서 인식으로"
-            : "From question to perception"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "하나의 질문이 반복되면 개념이 되고, 개념이 모이면 주제가 되고, 주제가 쌓이면 서사가 되고, 서사는 국가 이미지가 된다."
-            : "A question repeated becomes a concept. Concepts cluster into themes. Themes build narratives. Narratives become a national image."}
-        </Lead>
-        <div className="mt-8 rounded-2xl border border-border bg-white p-6 sm:p-8">
-          <div className="mb-4 text-[13px] font-semibold text-navy">
-            {locale === "ko" ? "실제 질문 경로" : "A real question's path"}
-          </div>
-          <PathwayTrace locale={locale} />
-          <p className="mt-5 text-[14px] leading-relaxed text-secondary">
-            {locale === "ko"
-              ? "\"왜 K-pop이 인기인가요?\"라는 하나의 질문은, K-팝 개념에 합류하고, 한류라는 주제 안에서 다른 질문들과 만나고, 문화 강국이라는 서사를 강화하고, 결국 '한국은 세계적 문화국가'라는 인식을 만든다."
-              : "A single question — 'Why is K-pop so popular?' — joins the K-Pop concept, meets other questions inside the Korean Wave theme, reinforces the cultural-force narrative, and ultimately shapes the perception: 'Korea is a world cultural power.'"}
-          </p>
-        </div>
-      </DocSection>
-
       {/* ── section: unexpected questions ── */}
-      <DocSection>
+      <DocSection tint>
         <Kicker>
           {locale === "ko"
             ? "우리가 예상하지 못했던 질문들"
@@ -666,37 +530,6 @@ export function DataReport() {
         </div>
       </DocSection>
 
-      {/* ── section: policy implications ── */}
-      <DocSection tint>
-        <Kicker>
-          {locale === "ko"
-            ? "정책적 함의"
-            : "Policy implications"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "질문은 공공외교의 출발점이다"
-            : "Questions are where public diplomacy begins"}
-        </H2>
-        <div className="mt-6 max-w-2xl">
-          <p className="text-[17px] leading-[1.8] text-navy">
-            {locale === "ko"
-              ? "질문은 단순한 호기심이 아니다."
-              : "Questions are not mere curiosity."}
-          </p>
-          <p className="mt-3 text-[17px] leading-[1.8] text-secondary">
-            {locale === "ko"
-              ? "사람들은 질문을 통해 국가를 이해한다. 따라서 공공외교는 '무엇을 말할 것인가'보다 '사람들이 무엇을 묻고 있는가'에서 시작해야 한다."
-              : "People understand a country through questions. Public diplomacy must begin not with 'what shall we say?' but with 'what are people asking?'"}
-          </p>
-          <p className="mt-3 text-[17px] font-medium leading-[1.8] text-navy">
-            {locale === "ko"
-              ? "한국을 설명하는 전략보다 질문에 응답하는 전략이 필요하다."
-              : "What's needed is not a strategy for explaining Korea, but a strategy for answering questions."}
-          </p>
-        </div>
-      </DocSection>
-
       {/* ── conclusion ── */}
       <DocSection>
         <Kicker>
@@ -704,8 +537,8 @@ export function DataReport() {
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "질문은 국가 이미지를 만든다"
-            : "Questions build a national image"}
+            ? "세계는 질문을 통해 한국을 만난다"
+            : "The world meets Korea through its questions"}
         </H2>
         <div className="mt-6 max-w-2xl">
           <p className="text-[17px] leading-[1.8] text-secondary">
@@ -715,13 +548,13 @@ export function DataReport() {
           </p>
           <p className="mt-3 text-[17px] leading-[1.8] text-secondary">
             {locale === "ko"
-              ? "그 질문이 반복될수록 개념이 되고, 주제가 되고, 서사가 되고, 국가 이미지가 된다."
-              : "As those questions repeat, they become concepts, then themes, then narratives, then a national image."}
+              ? "그 질문들은 문화, 분단, 언어, 음식, 사람이라는 진입점에 몰려 있고, 시장마다 다른 조합으로 나타난다."
+              : "Those questions cluster around the entry points of culture, division, language, food, and people — in a different mix in every market."}
           </p>
           <p className="mt-4 text-lg font-semibold leading-relaxed text-navy">
             {locale === "ko"
-              ? "이 보고서는 1,540개의 질문을 통해 세계가 한국을 어떻게 이해하고 있는지 읽은 결과다."
-              : "This report is the result of reading how the world understands Korea through 1,540 questions."}
+              ? "이 보고서는 세계가 한국을 어떻게 이해하고 있는지를 질문을 통해 읽은 결과다."
+              : "This report reads how the world understands Korea, through its questions."}
           </p>
         </div>
       </DocSection>
@@ -734,8 +567,8 @@ export function DataReport() {
           </div>
           <p className="mt-2 max-w-2xl text-lg leading-relaxed text-navy">
             {locale === "ko"
-              ? "여기까지가 '세계가 무엇을 질문하는가'입니다. 이 질문들이 한국의 이미지에 대해 무엇을 의미하는지는 공공외교 브리프에서 다룹니다."
-              : "This is 'what the world asks.' What these questions mean for Korea's image is the work of the Diplomacy Brief."}
+              ? "여기까지가 '세계가 무엇을 질문하는가'입니다. 이 질문들이 공공외교에 무엇을 요구하는지는 공공외교 브리프에서 다룹니다."
+              : "This is 'what the world asks.' What these questions demand of public diplomacy is the work of the Diplomacy Brief."}
           </p>
           <Link
             href="/research/diplomacy-brief"
