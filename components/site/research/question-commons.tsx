@@ -1,317 +1,420 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
-import { PATHWAYS, getPathway, getNode } from "@/lib/ontology";
-import { topicLead } from "@/lib/topics";
-import { insightFor } from "@/lib/interpretation";
-import { DocSection, Kicker, H2, Lead, type L } from "./parts";
+import { DocSection, Kicker, H2, Lead, Accented, type L } from "./parts";
 
 const D = (ko: string, en: string): L => ({ ko, en });
 
-// The six ontology layers a question travels through, in order.
-const FLOW_LABEL: L[] = [
-  D("질문", "Question"),
-  D("개념", "Concept"),
-  D("주제", "Theme"),
-  D("서사", "Narrative"),
-  D("인식", "Perception"),
-  D("발견", "Insight"),
+/* ── data strip ── */
+const DATA_STRIP: { value: string; label: L }[] = [
+  { value: "1,540", label: D("수집된 질문", "questions collected") },
+  { value: "7", label: D("언어", "languages") },
+  { value: "8", label: D("주제 영역", "topic areas") },
+  { value: "0", label: D("체계적 응답 시스템", "systematic answer systems") },
 ];
 
-const STAGES: { n: string; name: L; sub: L; who: L; role: L; value: L; ai: L; loop: L }[] = [
-  { n: "01", name: D("질문", "Question"), sub: D("원자", "the atom"), who: D("누구든, 어디서든 — 세계, 그리고 자신에 대한 한국", "Anyone, anywhere — the world, and Korea about itself"), role: D("이해의 실제 공백이 입력된 질문으로 떠오른다 — 시스템이 움직이는 불가분의 단위.", "A real gap surfaces as a typed question — the indivisible unit the system moves."), value: D("원(原)신호: 이해하려는 진정한 미충족 욕구.", "Raw signal: an authentic, unmet need to understand."), ai: D("AI가 흔히 첫 응답자다 — 질문자가 받는 답이 점점 AI 형태다. 그렇기에 질문은 인간 커먼즈로 들어와야 한다.", "AI is now often the first responder — which is exactly why the question must enter a human commons."), loop: D("다른 모든 단계가 새 질문을 여기로 방출한다.", "Every other stage emits new questions back here.") },
-  { n: "02", name: D("발견", "Discovery"), sub: D("표면화", "surfacing"), who: D("연구자 · 시민 · 교육자 · 디아스포라 · 도처의 센서", "Researchers · citizens · educators · diaspora · sensors everywhere"), role: D("소음에서 실제 질문을 수확해 보이고 공유되게 한다 — 주기적 연구가 아니라 상시 흐름.", "Harvesting the real question from noise, making it visible and shared — an ambient stream, not a periodic study."), value: D("사적 호기심이 커먼즈의 공적·공유 객체가 된다.", "A private curiosity becomes a public, shared object."), ai: D("AI가 실시간으로 군집·중복제거·번역하고 신흥 질문을 감지해 발견 비용을 0에 가깝게 낮춘다 — 누구나 발견자가 된다.", "AI clusters, dedupes, translates and detects emergent questions in real time — everyone can be a discoverer."), loop: D("사용이 기여를 끌어온다: 쓸수록 더 많은 질문이 유입된다.", "Usage attracts contribution: the more it's used, the more flows in.") },
-  { n: "03", name: D("해석", "Interpretation"), sub: D("의미", "meaning"), who: D("연구자 · 디아스포라 · 교육자 · 커뮤니티", "Researchers · diaspora · educators · communities"), role: D("질문에 맥락을 준다 — 왜, 어떤 프레임으로, 정직하고 논쟁적인 답은 무엇인지. 단일 권위가 아닌 다원.", "Giving the question context — why, through what frame, what the honest and contested answers are. A plurality, not one authority."), value: D("의미: 질문이 해석 층을 얻는다(개념→주제→인식).", "Meaning: the question gains an interpretive layer."), ai: D("AI가 1차 해석 초안을 쓰고 7개 언어로 번역하며, 인간 — 특히 디아스포라 — 이 검증·교정한다. AI가 제안하고 커뮤니티가 결정한다.", "AI drafts first-pass interpretations and translates; humans — especially diaspora — validate. AI proposes, the community disposes."), loop: D("해석이 평가·논쟁되어 나은 것이 부상, 해석 커먼즈가 형성된다.", "Interpretations are rated and contested; better ones rise.") },
-  { n: "04", name: D("콘텐츠", "Content"), sub: D("창작", "creation"), who: D("창작자 · 학생 · 교육자 · 기업", "Creators · students · educators · companies"), role: D("해석된 질문을 소비 가능한 것으로 — 영상·에세이·스레드·제품·수업 — 만들어 전파한다.", "Turning the interpreted question into something consumable that travels."), value: D("도달과 공명: 의미가 청중을 찾는다.", "Reach and resonance: meaning finds an audience."), ai: D("공동 창작자·번역가로서 제작 비용을 무너뜨려, 스튜디오뿐 아니라 학생·소규모 창작자가 만들고, 콘텐츠가 각 질문자에 맞춰진다.", "As co-creator and translator it collapses production cost — students and small creators produce, and content personalizes."), loop: D("공명하는 것이 발견으로 가는 수요 신호이며, 댓글이 새 질문을 낳는다.", "What resonates is a demand signal to Discovery; comments spawn new questions.") },
-  { n: "05", name: D("교육", "Education"), sub: D("학습", "learning"), who: D("교육자 · 학생 · 기관 · AI 튜터", "Educators · students · institutions · AI tutors"), role: D("호기심을 역량으로 전환한다 — ‘한국어 어렵나’ 질문이 학습 경로가 된다.", "Converting curiosity into competence — “is Korean hard” becomes a learning pathway."), value: D("지속되는 역량 — 언어·문화 리터러시: 시스템 최고 잔존 성과.", "Durable capability — the highest-retention outcome."), ai: D("AI 튜터가 학습자의 언어·수준에 맞춰 1:1로 개인화하고, 커리큘럼이 고정 강의계획이 아니라 학습자의 실제 질문에서 시작한다.", "AI tutors personalize 1:1, and the curriculum starts from the learner's real question, not a fixed syllabus."), loop: D("학습자가 어려워하고 다음에 묻는 것이 새 질문으로 재유입되고, 학습자가 다음 창작자가 된다.", "What learners ask next re-enters as new questions; learners become the next creators.") },
-  { n: "06", name: D("커뮤니티", "Community"), sub: D("토론", "discussion"), who: D("커뮤니티 · 디아스포라 · 시민 · 학생", "Communities · diaspora · citizens · students"), role: D("의미를 논쟁·지역화·검증한다 — 신뢰와 뉘앙스가 사회적으로 협상되는 곳.", "Contesting, localizing and stress-testing meaning — where trust and nuance are negotiated."), value: D("정당성: 의미가 발부되지 않고 논쟁되었기에 신뢰된다.", "Legitimacy: meaning becomes credible because it was argued, not issued."), ai: D("실시간 번역이 브라질인·인도네시아인·한국인이 같은 질문을 언어를 넘어 토론하게 한다 — 진정한 초국가적 호기심 공중.", "Real-time translation lets people discuss the same question across languages — genuinely transnational publics of curiosity."), loop: D("이견이 공백을 드러내 새 질문과 더 나은 해석 수요를 낳는다.", "Disagreement surfaces gaps, feeding new questions and better interpretation.") },
-  { n: "07", name: D("시민 참여", "Civic participation"), sub: D("목소리와 행동", "voice & action"), who: D("시민 · 디아스포라 · 커뮤니티 · 공공기관", "Citizens · diaspora · communities · public institutions"), role: D("이해를 기여로 전환한다 — 답하고, 지식을 더하고, 정책을 형성한다. 모든 참여자가 미시 외교관.", "Turning understanding into contribution — answering, adding knowledge, shaping policy. Every participant a micro-diplomat."), value: D("공공재와 주체성: 국가 이미지가 참여적이 된다.", "Public good and agency: national image becomes participatory."), ai: D("AI가 장벽을 낮춘다 — 초안·번역·답할 수 있는 질문 매칭 — 참여가 활동가에서 누구에게로 확장된다.", "AI lowers the barrier — draft, translate, match to a question you can answer — so participation scales to anyone."), loop: D("기여가 소속감과 정체성을 키우고, 그것이 더 많은 기여를 낳는다.", "Contributing builds belonging, which produces more contribution.") },
-  { n: "08", name: D("새 지식", "New knowledge"), sub: D("종합", "synthesis"), who: D("연구자 · 기관 · AI · 모두", "Researchers · institutions · AI · everyone"), role: D("축적된 답·토론·콘텐츠를 새 지식으로 종합한다 — 더 나은 온톨로지, 무엇이 이해됐는지의 지도.", "Synthesizing accumulated answers, discussions and content into new knowledge — better ontologies, a map of what's understood."), value: D("복리로 쌓이는 공공 지식 — 생태계가 자신을 학습한다.", "Compounding public knowledge — the ecosystem learns about itself."), ai: D("AI가 수백만 상호작용을 메타 지식으로 종합하고 해소–열림 질문을 추적한다 — 살아 있는 점수판.", "AI synthesizes across millions of interactions and tracks resolved-vs-open — the living scoreboard."), loop: D("종합이 무엇이 안착됐고 무엇이 새로 열렸는지를 드러낸다.", "Synthesis reveals what is settled and what is newly open.") },
-  { n: "09", name: D("새 질문", "New questions"), sub: D("재생", "regeneration"), who: D("모든 단계가 동시에 방출", "Emitted by every stage at once"), role: D("학습·토론·콘텐츠·지식이 각기 새 질문을 낳아 커먼즈를 재파종한다 — 나선이 돈다.", "Learning, discussion, content and knowledge each generate fresh questions that re-seed the commons — the spiral turns."), value: D("재생: 커먼즈가 시작보다 풍요롭게 각 순환을 마친다.", "Regeneration: the commons ends each loop richer than it began."), ai: D("AI가 흐름 어디서든 신흥 질문이 나타나는 순간 감지해 루프를 즉시 닫는다.", "AI detects the emergent question the moment it appears, closing the loop instantly."), loop: D("→ 한 바퀴 더 깊이, 1단계로 돌아간다.", "→ returns to Stage 01, one turn deeper.") },
+/* ── two models ── */
+interface ModelStep { label: L; sub: L }
+const GOV_MODEL: ModelStep[] = [
+  { label: D("국가", "State"), sub: D("메시지를 설계한다", "designs a message") },
+  { label: D("매체", "Media"), sub: D("메시지를 전달한다", "delivers the message") },
+  { label: D("대중", "Public"), sub: D("수신한다", "receives it") },
+];
+const COMMONS_MODEL: ModelStep[] = [
+  { label: D("질문", "Question"), sub: D("세계가 묻는다", "the world asks") },
+  { label: D("참여", "Participation"), sub: D("시민·디아스포라·AI가 답한다", "citizens, diaspora, AI answer") },
+  { label: D("축적", "Accumulation"), sub: D("답변이 공동지식이 된다", "answers become shared knowledge") },
+  { label: D("재생", "Regeneration"), sub: D("지식이 새 질문을 낳는다", "knowledge generates new questions") },
 ];
 
-const DYN: [L, L, L][] = [
-  [D("참여", "Participation"), D("모두가, 어디서든, 다른 역할로", "Everyone, everywhere, in different roles"), D("아홉 행위자 유형이 모든 단계에 존재하고 역할만 회전한다. 참여는 정체성이 아니라 흐름 속 위치로 배정된다.", "The nine actor-types are present at every stage; only the role rotates. Participation is assigned by position in the flow, not identity.")],
-  [D("가치", "Value"), D("추출이 아니라 순환", "Circulation, not extraction"), D("각 인계가 층을 더하고 — 신호·의미·도달·역량·정당성·주체성·지식 — 포착이 아니라 커먼즈로 되돌린다.", "Each handoff adds a layer and returns it to the commons rather than capturing it.")],
-  [D("AI", "AI"), D("답이 아니라 결합 조직", "Connective tissue, not the answer"), D("AI가 발견·번역·해석·창작·튜터링·종합 비용을 0으로 무너뜨려 누구나 어떤 역할도 할 수 있게 한다. 위험은 단일 목소리가 되는 것 — 커먼즈가 인간을 루프 안에 둔다.", "AI collapses the cost of every role toward zero so anyone can perform any role. Its danger is becoming the single voice; the commons keeps humans in the loop.")],
-  [D("가교", "Bridges"), D("디아스포라가 최고 가치 노드", "Diaspora are the highest-value node"), D("디아스포라는 두 프레임 안에 동시에 살기에 묻는 시장과 한국을 잇는 자연스러운 번역자다 — 결합하는 인간, 순환할수록 기여가 커진다.", "Living inside two frames at once, diaspora are the natural translators between the asking market and Korea — their contribution rises with every loop.")],
+/* ── principles ── */
+interface Principle { n: string; title: L; description: L }
+const PRINCIPLES: Principle[] = [
+  {
+    n: "01",
+    title: D("질문은 공공재다", "Questions are public goods"),
+    description: D(
+      "질문은 묻는 순간 개인의 것이지만, 같은 질문을 수천 명이 공유한다면 그것은 사회적 자산이다. 커먼즈는 이 공유된 질문을 관리하고 축적하는 구조를 만든다.",
+      "A question belongs to the individual at the moment of asking — but when thousands share the same question, it becomes a social asset. The commons creates a structure to steward and accumulate these shared questions.",
+    ),
+  },
+  {
+    n: "02",
+    title: D("답변은 순환한다", "Answers circulate"),
+    description: D(
+      "답변은 한 번 전달되고 끝나는 메시지가 아니다. 답변은 해석되고, 논쟁되고, 번역되고, 재해석되면서 더 풍부한 지식이 된다. 커먼즈에서 답변은 축적의 단위다.",
+      "An answer is not a message delivered once and done. It is interpreted, contested, translated, and reinterpreted — becoming richer knowledge. In the commons, answers are units of accumulation.",
+    ),
+  },
+  {
+    n: "03",
+    title: D("참여가 권위를 대체한다", "Participation replaces authority"),
+    description: D(
+      "누가 '정확한 답'을 소유하는가라는 질문 자체가 잘못되었다. 커먼즈에서 신뢰는 단일 권위가 아니라 다양한 관점의 축적과 논쟁에서 나온다.",
+      "The question 'who owns the correct answer' is itself wrong. In the commons, trust comes not from a single authority but from the accumulation and contestation of diverse perspectives.",
+    ),
+  },
+  {
+    n: "04",
+    title: D("생태계는 자기강화한다", "The ecosystem is self-reinforcing"),
+    description: D(
+      "좋은 답변은 새로운 질문을 낳고, 새로운 질문은 더 많은 참여자를 끌어들인다. 이 순환이 반복될수록 커먼즈는 더 깊어지고 넓어진다.",
+      "Good answers generate new questions, and new questions attract more participants. The more this cycle repeats, the deeper and wider the commons becomes.",
+    ),
+  },
 ];
 
-const FORMS: [L, L, L][] = [
-  [D("학습", "Learning"), D("질문 기반 커리큘럼", "Question-native curricula"), D("실제 질문을 입양해 답하며 한국을 배운다 — 수요 주도, 전 지구적으로 조달되고 개인화된. 강의계획이 아니라 내가 실제로 가진 질문에서 시작하는 언어 학습.", "You learn Korea by adopting a real question and answering it — demand-driven, globally sourced, personalized. Language study that begins from the question you actually have.")],
-  [D("커뮤니티", "Community-building"), D("호기심의 공동체", "Communities of curiosity"), D("사람들이 공유된 지리가 아니라 공유된 질문을 중심으로 모인다 — 브라질·인도네시아·한국·독일에 걸친 ‘질문 서클’.", "People gather around a shared question rather than a shared geography — a “question circle” spanning Brazil, Indonesia, Korea and Germany.")],
-  [D("공공외교", "Public diplomacy"), D("공동 저술된 국가 이미지", "Co-authored national image"), D("한국의 이미지가 방송이 아니라 지속적으로 편집되는 공공 작업이 되고, 인간이 AI가 한국을 어떻게 말하게 되는지의 루프 안에 남는 곳.", "Korea's image becomes a continuously edited public work, not a broadcast — and where humans stay in the loop of what AI learns to say about Korea.")],
-  [D("디아스포라 참여", "Diaspora engagement"), D("가교를 통한 소속", "Belonging through bridging"), D("디아스포라가 정의된 고가치 역할을 얻는다 — 두 세계를 잇는 가교-해석자 — 정체성을 기여로, 기여를 소속으로 바꾼다.", "The diaspora gain a defined, high-value role — bridge-interpreters between their two worlds — turning identity into contribution and contribution into belonging.")],
-  [D("지식 생산", "Knowledge production"), D("살아 있는 다원적 사회과학", "A living, plural social science"), D("세계가 한 나라를 어떻게 인식하는지에 대한 열린 누적 지식 기반이 학자만이 아니라 참여자에 의해 생산되고, 다른 나라가 포크할 수 있다.", "An open, cumulative knowledge base of how the world perceives a nation, produced by participants rather than only scholars — forkable by any other nation.")],
-  [D("시민 참여", "Civic participation"), D("외교 시민권", "Diplomatic citizenship"), D("답하기가 누구에게나 — 관심 있는 비한국인 포함 — 열린 시민 행위가 되어, 커먼즈가 이해를 형성하는 것이 참여의 한 형태인 공적 공간이 된다.", "Answering becomes a civic act open to everyone — including non-Koreans who care — making the commons a public space where shaping understanding is a form of participation.")],
-];
-
-function Ring({ locale }: { locale: "ko" | "en" }) {
-  const C = 310, R = 212, N = STAGES.length;
-  const pt = (a: number, r: number) => [C + r * Math.cos(a), C + r * Math.sin(a)];
-  return (
-    <svg viewBox="-98 0 816 620" className="mx-auto w-full" style={{ maxWidth: 720 }} role="img" aria-label={locale === "ko" ? "질문 순환 생태계 다이어그램" : "Question-circulation ecosystem diagram"}>
-      <circle cx={C} cy={C} r={R} fill="none" stroke="var(--line-2, #c9d2e0)" strokeWidth={2} strokeDasharray="2 9" strokeLinecap="round" />
-      {[0, 1, 2, 3].map((a) => {
-        const ang = -Math.PI / 2 + a * (Math.PI / 2) + 0.2;
-        const [x, y] = pt(ang, R);
-        const tang = ang + Math.PI / 2, s = 6.5;
-        const p = (o: number) => `${x + s * Math.cos(tang + o)} ${y + s * Math.sin(tang + o)}`;
-        return <path key={a} d={`M ${p(0)} L ${p(2.5)} L ${p(-2.5)} Z`} fill="var(--accent)" opacity={0.7} />;
-      })}
-      <circle cx={C} cy={C} r={66} fill="color-mix(in srgb, var(--accent) 12%, #fff)" stroke="var(--accent)" strokeWidth={2} />
-      <text x={C} y={C - 4} textAnchor="middle" fontSize={22} fontWeight={800} fill="var(--accent)">AI</text>
-      <text x={C} y={C + 15} textAnchor="middle" fontSize={10.5} fill="var(--accent)" fontFamily="monospace">{locale === "ko" ? "결합 조직" : "connective"}</text>
-      {STAGES.map((s, i) => {
-        const ang = -Math.PI / 2 + i * (2 * Math.PI / N);
-        const [nx, ny] = pt(ang, R);
-        const [hx, hy] = pt(ang, 72);
-        const [lx, ly] = pt(ang, R + 40);
-        const cosA = Math.cos(ang);
-        const anchor = Math.abs(cosA) < 0.34 ? "middle" : cosA > 0 ? "start" : "end";
-        return (
-          <g key={s.n}>
-            <line x1={hx} y1={hy} x2={nx} y2={ny} stroke="var(--accent)" strokeWidth={1} strokeDasharray="1 6" opacity={0.5} />
-            <circle cx={nx} cy={ny} r={21} fill="#fff" stroke="var(--accent)" strokeWidth={2} />
-            <text x={nx} y={ny + 5} textAnchor="middle" fontFamily="monospace" fontWeight={700} fontSize={15} fill="var(--accent)">{i + 1}</text>
-            <text x={lx} y={ly} textAnchor={anchor} fontSize={15} fontWeight={650} fill="var(--navy, #0d1b31)">{s.name[locale]}</text>
-            <text x={lx} y={ly + 16} textAnchor={anchor} fontSize={12} fill="var(--muted-foreground, #6b7890)">{s.sub[locale]}</text>
-          </g>
-        );
-      })}
-    </svg>
-  );
+/* ── roles ── */
+interface RoleData {
+  role: L;
+  who: L;
+  contribution: L;
+  uniqueValue: L;
 }
+const ROLES: RoleData[] = [
+  {
+    role: D("시민", "Citizens"),
+    who: D("한국에 관심 있는 모든 사람 — 한국인과 비한국인 모두", "Anyone with interest in Korea — Korean and non-Korean alike"),
+    contribution: D(
+      "경험에서 나온 답변을 제공한다. 전문가가 아니어도 된다. '한국은 안전한가'에 한국에서 3년 산 외국인이 쓴 답변은 외교부 보도자료보다 더 많은 사람에게 닿을 수 있다.",
+      "They provide answers born from experience. No expertise required. An expat's answer to 'is Korea safe' can reach more people than a ministry press release.",
+    ),
+    uniqueValue: D("진정성 — 삶에서 나온 답변은 설계된 메시지보다 신뢰된다", "Authenticity — answers from lived experience are trusted more than designed messages"),
+  },
+  {
+    role: D("디아스포라", "Diaspora"),
+    who: D("두 개의 문화적 프레임 안에서 동시에 사는 사람들", "People living inside two cultural frames at once"),
+    contribution: D(
+      "질문하는 세계와 답변하는 한국 사이의 번역자 역할을 한다. 왜 이 질문이 나오는지를 한국에 설명하고, 한국의 맥락을 질문자에게 전달할 수 있는 유일한 위치에 있다.",
+      "They serve as translators between the asking world and answering Korea. They are uniquely positioned to explain why a question arises to Korea, and to convey Korean context to the questioner.",
+    ),
+    uniqueValue: D("가교 — 질문의 맥락과 답변의 맥락을 동시에 이해한다", "Bridging — they understand both the context of the question and the context of the answer"),
+  },
+  {
+    role: D("AI", "AI"),
+    who: D("대규모 언어 모델과 번역·요약·매칭 시스템", "Large language models and translation, summarization, matching systems"),
+    contribution: D(
+      "결합 조직이지 권위가 아니다. 질문을 분류하고, 번역하고, 유사 질문을 연결하고, 초안 답변을 제안한다. 그러나 최종 답변의 신뢰성은 인간 참여자의 검증에서 나온다.",
+      "Connective tissue, not authority. It classifies questions, translates, connects similar questions, and drafts answers. But the credibility of final answers comes from human participants' validation.",
+    ),
+    uniqueValue: D("규모 — 비용을 0에 가깝게 낮춰 누구나 어떤 역할이든 할 수 있게 한다", "Scale — it collapses costs toward zero so anyone can perform any role"),
+  },
+  {
+    role: D("기관", "Institutions"),
+    who: D("정부·대학·재단·국제기구", "Government, universities, foundations, international organizations"),
+    contribution: D(
+      "커먼즈의 주인이 아니라 촉진자다. 인프라를 제공하고, 참여 규칙을 설계하고, 품질을 보증하되, 답변을 통제하지 않는다. 정부가 '한국은 이런 나라다'라고 선언하는 것이 아니라 '이 질문에 대한 다양한 답변이 있다'는 것을 보여주는 것이다.",
+      "Facilitators, not owners. They provide infrastructure, design participation rules, and assure quality — but do not control answers. Government shows 'here are diverse answers to this question,' not 'this is what Korea is.'",
+    ),
+    uniqueValue: D("정당성과 지속성 — 커먼즈가 개인 프로젝트가 아닌 공적 인프라가 되게 한다", "Legitimacy and sustainability — they make the commons public infrastructure, not a personal project"),
+  },
+];
 
-/** One concrete question carried through all six ontology layers. */
-function OntologyFlow({ locale }: { locale: "ko" | "en" }) {
-  const lead = topicLead("hallyu");
-  const pathway = lead ? getPathway(lead.pathway) : undefined;
-  if (!lead || !pathway) return null;
-  const nodes = pathway.steps.map((s) => getNode(s.nodeId));
-  const perception = nodes[nodes.length - 1];
-  const insight = insightFor(perception.id);
+/* ── policy implications ── */
+interface PolicyMove { n: string; title: L; description: L }
+const POLICIES: PolicyMove[] = [
+  {
+    n: "01",
+    title: D("질문 인프라 구축", "Build question infrastructure"),
+    description: D(
+      "질문을 수집하고, 분류하고, 번역하고, 연결하는 공공 인프라가 필요하다. 이것은 Q&A 플랫폼이 아니라 질문의 흐름을 관리하는 시스템이다.",
+      "Public infrastructure is needed to collect, classify, translate, and connect questions. This is not a Q&A platform but a system that manages the flow of questions.",
+    ),
+  },
+  {
+    n: "02",
+    title: D("답변 생태계 설계", "Design the answer ecosystem"),
+    description: D(
+      "누가, 어떻게, 어떤 인센티브로 답변에 참여하는가를 설계해야 한다. 답변은 정부의 의무가 아니라 시민의 기회가 되어야 한다.",
+      "Who answers, how, and with what incentives must be designed. Answering should be a citizen's opportunity, not a government's obligation.",
+    ),
+  },
+  {
+    n: "03",
+    title: D("디아스포라를 가교 역할로 공식화", "Formalize diaspora as bridge agents"),
+    description: D(
+      "디아스포라의 이중 문화적 위치를 공공외교 자산으로 인정하고, 가교-해석자로서의 역할을 제도적으로 지원해야 한다.",
+      "Recognize the diaspora's bicultural position as a public diplomacy asset and institutionally support their role as bridge-interpreters.",
+    ),
+  },
+  {
+    n: "04",
+    title: D("AI 협업 프로토콜 수립", "Establish AI collaboration protocols"),
+    description: D(
+      "AI가 한국을 어떻게 설명하는지는 이미 국가 이미지에 영향을 주고 있다. AI의 답변 품질을 높이려면 커먼즈에 축적된 인간의 답변이 AI의 학습 데이터가 되는 순환 구조가 필요하다.",
+      "How AI explains Korea already affects national image. To improve AI answer quality, a circular structure is needed where human answers accumulated in the commons become AI training data.",
+    ),
+  },
+  {
+    n: "05",
+    title: D("성과 지표 전환", "Transform performance metrics"),
+    description: D(
+      "공공외교의 성과를 '전달한 메시지 수'가 아니라 '답변된 질문 수', '참여한 시민 수', '축적된 공동지식의 깊이'로 측정해야 한다.",
+      "Measure public diplomacy outcomes not by 'messages delivered' but by 'questions answered,' 'citizens participating,' and 'depth of accumulated shared knowledge.'",
+    ),
+  },
+];
 
-  const chain: { layer: L; value: string; accent?: boolean }[] = [
-    { layer: FLOW_LABEL[0], value: lead.question[locale] },
-    ...nodes.slice(1).map((n, i) => ({ layer: FLOW_LABEL[i + 1], value: n.label[locale] })),
-    ...(insight ? [{ layer: FLOW_LABEL[5], value: insight[locale], accent: true }] : []),
-  ];
+/* ── components ── */
 
+function DataStrip({ locale }: { locale: "ko" | "en" }) {
   return (
-    <div className="mt-8 grid gap-2.5 lg:grid-cols-6 lg:gap-3">
-      {chain.map((step, i) => (
-        <div
-          key={i}
-          className={
-            "relative rounded-xl border p-4 " +
-            (step.accent
-              ? "border-[color:var(--accent)] bg-[color-mix(in_srgb,var(--accent)_8%,#fff)]"
-              : "border-border bg-white")
-          }
-        >
-          <div
-            className={
-              "font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] " +
-              (step.accent ? "text-[color:var(--accent)]" : "text-muted-foreground")
-            }
-          >
-            {String(i + 1).padStart(2, "0")} · {step.layer[locale]}
-          </div>
-          <div className="mt-1.5 text-[14.5px] font-medium leading-snug text-navy">
-            {step.value}
-          </div>
-          {i < chain.length - 1 && (
-            <div
-              className="pointer-events-none absolute z-10 text-[color:var(--accent)] left-1/2 top-full -translate-x-1/2 lg:left-full lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2"
-              aria-hidden
-            >
-              <span className="lg:hidden">↓</span>
-              <span className="hidden lg:inline">→</span>
-            </div>
-          )}
+    <div className="mb-10 flex flex-wrap gap-x-8 gap-y-3">
+      {DATA_STRIP.map((d) => (
+        <div key={d.value} className="flex items-baseline gap-2">
+          <span className="font-mono text-2xl font-bold text-[color:var(--accent)]">{d.value}</span>
+          <span className="text-sm text-muted-foreground">{d.label[locale]}</span>
         </div>
       ))}
     </div>
   );
 }
 
-/** The distinct perceptions the questions formed — "이 질문들이 만든 한국". */
-function PerceptionsFormed({ locale }: { locale: "ko" | "en" }) {
-  const seen = new Set<string>();
-  const items: { label: string; blurb: string; insight?: string }[] = [];
-  for (const p of PATHWAYS) {
-    const terminal = getNode(p.steps[p.steps.length - 1].nodeId);
-    if (seen.has(terminal.id)) continue;
-    seen.add(terminal.id);
-    items.push({
-      label: terminal.label[locale],
-      blurb: terminal.blurb[locale],
-      insight: insightFor(terminal.id)?.[locale],
-    });
-  }
+function ModelFlow({ steps, locale }: { steps: ModelStep[]; locale: "ko" | "en" }) {
   return (
-    <div className="mt-7 grid gap-4 sm:grid-cols-2">
-      {items.map((it) => (
-        <div key={it.label} className="flex flex-col rounded-xl border border-border bg-white p-5 sm:p-6">
-          <div className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-[color:var(--accent)]">
-            {locale === "ko" ? "인식" : "Perception"}
+    <div className="flex flex-wrap items-center gap-2">
+      {steps.map((s, i) => (
+        <React.Fragment key={i}>
+          <div className="flex flex-col items-center rounded-xl border border-border bg-white px-5 py-3 text-center">
+            <span className="text-[15px] font-semibold text-navy">{s.label[locale]}</span>
+            <span className="mt-0.5 text-[12px] text-muted-foreground">{s.sub[locale]}</span>
           </div>
-          <h4 className="mt-1.5 text-[17px] font-semibold leading-snug text-navy">{it.label}</h4>
-          <p className="mt-1.5 text-[14.5px] leading-relaxed text-secondary">{it.blurb}</p>
-          {it.insight && (
-            <div className="mt-4 border-t border-border pt-3">
-              <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-[color:var(--accent)]">
-                {locale === "ko" ? "발견" : "Insight"}
-              </div>
-              <p className="mt-1 text-[14px] leading-relaxed text-navy">{it.insight}</p>
-            </div>
+          {i < steps.length - 1 && (
+            <ChevronRight className="h-4 w-4 shrink-0 text-[color:var(--accent)]" />
           )}
-        </div>
+        </React.Fragment>
       ))}
     </div>
   );
 }
+
+/* ── main ── */
 
 export function QuestionCommons() {
   const { locale } = useLanguage();
   return (
     <>
-      {/* The ontology grounding — a real question carried to perception, before the abstract commons */}
+      {/* ── problem statement ── */}
       <DocSection>
-        <Kicker>{locale === "ko" ? "질문에서 인식까지" : "From question to perception"}</Kicker>
-        <H2>{locale === "ko" ? "질문은 단순한 호기심이 아니다. 한국을 이해하는 출발점이다." : "A question is not idle curiosity. It is where understanding of Korea begins."}</H2>
+        <DataStrip locale={locale} />
+        <Kicker>{locale === "ko" ? "문제" : "The problem"}</Kicker>
+        <H2>{locale === "ko" ? "1,540개의 질문은 존재한다. 답변 생태계는 없다." : "1,540 questions exist. No answer ecosystem does."}</H2>
         <Lead>
           {locale === "ko"
-            ? "하나의 질문은 홀로 머물지 않는다. 개념으로 묶이고, 주제로 모이고, 서사를 이루고, 하나의 인식이 되고, 마침내 우리가 무엇을 해야 하는지에 대한 발견으로 닫힌다. ‘K-팝은 왜 이렇게 인기가 많을까’라는 질문이 어디까지 가는지 따라가 보면 이렇다."
-            : "A single question does not stay where it landed. It clusters into a concept, gathers into a theme, forms a narrative, becomes a perception, and finally closes as a discovery about what we should do. Here is how far one question — “why is K-pop so popular” — actually travels."}
+            ? "세계는 한국에 대해 끊임없이 묻고 있다. 그러나 이 질문들에 체계적으로 답변하는 구조는 존재하지 않는다. 정부는 메시지를 설계하고, 관광 기관은 홍보물을 만들고, 문화원은 행사를 개최한다. 그 어느 것도 '사람들이 실제로 무엇을 묻고 있는가'에서 시작하지 않는다."
+            : "The world keeps asking about Korea. But no structure systematically answers these questions. Government designs messages, tourism agencies produce brochures, cultural centers host events. None of them start from 'what are people actually asking.'"}
         </Lead>
-        <OntologyFlow locale={locale} />
-        <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+        <Lead>
           {locale === "ko"
-            ? "실제 질문은 처음 세 층 — 질문·개념·주제 — 에서 드러난다. 그다음 서사·인식·발견은 개별 질문이 아니라 그 질문들이 함께 형성한 것이다. 이 구조 전체를 직접 다루려면 "
-            : "Real questions surface in the first three layers — question, concept, theme. What follows — narrative, perception, insight — is not any single question but what those questions formed together. To handle the whole structure directly, open "}
-          <Link href="/explore" className="font-medium text-[color:var(--accent)] hover:underline">
-            {locale === "ko" ? "온톨로지 탐색" : "the ontology explorer"}
-          </Link>
-          {locale === "ko" ? "을 여세요." : "."}
+            ? "이것은 정보 부족의 문제가 아니다. 한국에 대한 정보는 넘쳐난다. 문제는 질문과 답변이 연결되지 않는다는 것이다. 질문은 검색창에서 사라지고, 답변은 보도자료에서 시작된다. 이 둘 사이의 간극이 국가 이미지의 가장 큰 구조적 결함이다."
+            : "This is not a problem of insufficient information. Information about Korea overflows. The problem is that questions and answers are not connected. Questions vanish in search bars; answers begin in press releases. The gap between the two is the biggest structural flaw in national image formation."}
+        </Lead>
+      </DocSection>
+
+      {/* ── core declaration ── */}
+      <DocSection tint>
+        <Kicker>{locale === "ko" ? "핵심 선언" : "Core declaration"}</Kicker>
+        <p className="max-w-[44ch] text-[26px] font-bold leading-snug tracking-tight text-[color:var(--accent)] sm:text-[32px]">
+          {locale === "ko"
+            ? "질문은 데이터가 아니다. 질문은 참여의 초대장이다."
+            : "Questions are not data. They are invitations to participate."}
         </p>
-      </DocSection>
-
-      {/* What the questions formed — the perceptions of Korea */}
-      <DocSection tint>
-        <Kicker>{locale === "ko" ? "이 질문들이 만든 한국" : "The Korea these questions formed"}</Kicker>
-        <H2>{locale === "ko" ? "질문이 쌓여 하나의 상(像)이 된다" : "Questions accumulate into an image"}</H2>
         <Lead>
           {locale === "ko"
-            ? "수천 개의 질문은 흩어진 호기심이 아니다. 그것들은 한국에 대한 몇 개의 또렷한 인식으로 수렴하며, 각 인식은 우리가 다음에 무엇을 해야 하는지에 대한 발견을 안고 있다."
-            : "Thousands of questions are not scattered curiosity. They converge into a handful of distinct perceptions of Korea — and each perception carries a discovery about what to do next."}
+            ? "질문은 개인의 것이지만 답변은 공동의 자산이 될 수 있다. 이 전환 — 사적 호기심에서 공적 지식으로 — 이 Question Commons의 핵심이다."
+            : "Questions belong to individuals, but answers can become shared assets. This transformation — from private curiosity to public knowledge — is the core of the Question Commons."}
         </Lead>
-        <PerceptionsFormed locale={locale} />
-        <div className="mt-8">
-          <Link
-            href="/topics"
-            className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[color:var(--accent)] hover:underline"
-          >
-            {locale === "ko" ? "여덟 개의 주제로 인식을 탐험하기" : "Explore the perceptions across eight topics"}
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
       </DocSection>
 
-      <DocSection tint>
-        <Kicker>{locale === "ko" ? "재구성" : "The reframe"}</Kicker>
-        <H2>{locale === "ko" ? "질문은 누구나 함께 쥘 수 있는 단 하나의 공통물이다" : "A question is the one thing everyone can hold together"}</H2>
-        <Lead>
-          {locale === "ko"
-            ? "제도는 사람을 역할로 나눈다. 질문은 그러지 않는다. 같은 질문 — ‘한국은 안전한가’, ‘한국어는 어렵나’ — 을 연구자가 발견하고, 디아스포라가 해석하고, 창작자가 영상으로 만들고, 교육자가 가르치고, 커뮤니티가 논쟁하고, 시민이 답하고, 새 질문을 낳는 지식으로 종합할 수 있다. 질문은 경계 객체다 — 누구의 것도 아니면서 모두를 잇는다."
-            : "Institutions divide people by role. A question doesn't. The same question — “is Korea safe,” “is Korean hard” — can be discovered by a researcher, interpreted by a diaspora member, made into a video by a creator, taught by an educator, argued in a community, answered by a citizen, and synthesized into knowledge that raises new questions. The question is a boundary object: it belongs to no one and connects everyone."}
-        </Lead>
-        <Lead>
-          {locale === "ko"
-            ? "그래서 설계 단위는 조직이 아니라 흐름이며, 가치는 체인의 끝에서 추출되지 않고 매 인계마다 더해져 커먼즈로 돌아간다. 밸류체인은 제품으로 끝나고, 순환은 더 풍요로운 커먼즈와 새 질문으로 끝난다."
-            : "So the design unit is the flow, not the organization — and value is not extracted at the end of a chain but added at every handoff and returned to the commons. A value chain ends in a product; a circulation ends in a richer commons and a new question."}
-        </Lead>
-        <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[13.5px] text-secondary">
-          <span className="inline-flex items-center gap-2"><span className="inline-block h-3 w-3 rounded-full bg-[color:var(--accent)]" />{locale === "ko" ? "인간 참여 — 흐르는 질문, 더해지는 가치" : "Human participation — the question flowing, value added"}</span>
-          <span className="inline-flex items-center gap-2"><span className="inline-block h-3 w-3 rounded-full" style={{ background: "#6b62c6" }} />{locale === "ko" ? "AI — 모든 단계에 엮인 결합 조직" : "AI — the connective tissue woven through every stage"}</span>
-        </div>
-      </DocSection>
-
-      <DocSection tint>
-        <Kicker>{locale === "ko" ? "순환" : "The circulation"}</Kicker>
-        <H2>{locale === "ko" ? "질문은 사회를 어떻게 순환하며, 어떻게 더 커져 돌아오는가" : "How a question travels through society — and comes back larger"}</H2>
-        <Lead>{locale === "ko" ? "선이 아니라 나선이다: 매 순환이 커먼즈를 더 깊게, 참여를 더 넓게, 이해를 더 낫게 한다. AI는 중심에 있다 — 답이 아니라 어떤 행위자든 어떤 단계에 닿게 하는 조직으로서." : "Not a line but a spiral: each pass leaves the commons deeper, participation wider, understanding better. AI sits at the centre — not as the answer, but as the tissue that lets any actor reach any stage."}</Lead>
-        <div className="mt-6 rounded-2xl border border-border bg-white p-4 sm:p-6"><Ring locale={locale} /></div>
-      </DocSection>
-
+      {/* ── two models compared ── */}
       <DocSection>
-        <Kicker>{locale === "ko" ? "단계" : "The stages"}</Kicker>
-        <H2>{locale === "ko" ? "아홉 단계 · 모든 행위자 존재 · 역할 회전" : "Nine stages · every actor present · roles rotate"}</H2>
+        <Kicker>{locale === "ko" ? "두 개의 모델" : "Two models"}</Kicker>
+        <H2>{locale === "ko" ? "메시지 전달에서 지식 순환으로" : "From message delivery to knowledge circulation"}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "기존 모델은 국가가 메시지를 설계하고 대중에게 전달하는 일방향 구조다. 커먼즈 모델은 질문에서 시작하여 다양한 참여자의 답변이 축적되고, 그 지식이 다시 새로운 질문을 낳는 순환 구조다."
+            : "The existing model is one-directional: the state designs a message and delivers it to the public. The commons model is circular: it starts from questions, accumulates answers from diverse participants, and that knowledge generates new questions."}
+        </Lead>
+
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <div>
+            <div className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+              {locale === "ko" ? "기존: 전달 모델" : "Current: delivery model"}
+            </div>
+            <ModelFlow steps={GOV_MODEL} locale={locale} />
+            <p className="mt-3 text-[13.5px] text-muted-foreground">
+              {locale === "ko"
+                ? "선형. 일방향. 질문자의 맥락과 무관하게 작동한다."
+                : "Linear. One-directional. Operates regardless of the questioner's context."}
+            </p>
+          </div>
+          <div>
+            <div className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-[color:var(--accent)]">
+              {locale === "ko" ? "전환: 순환 모델" : "Shift: circulation model"}
+            </div>
+            <ModelFlow steps={COMMONS_MODEL} locale={locale} />
+            <p className="mt-3 text-[13.5px] text-muted-foreground">
+              {locale === "ko"
+                ? "순환. 다방향. 매 순환이 커먼즈를 더 깊고 넓게 만든다."
+                : "Circular. Multi-directional. Each cycle makes the commons deeper and wider."}
+            </p>
+          </div>
+        </div>
+      </DocSection>
+
+      {/* ── what makes a commons ── */}
+      <DocSection tint>
+        <Kicker>{locale === "ko" ? "커먼즈의 원리" : "Principles of a commons"}</Kicker>
+        <H2>{locale === "ko" ? "질문이 공공재가 되려면" : "For questions to become public goods"}</H2>
         <div className="mt-7 grid gap-3">
-          {STAGES.map((s) => (
-            <div key={s.n} className="rounded-xl border border-border bg-white p-5 sm:p-6">
-              <div className="flex flex-wrap items-baseline gap-x-3">
-                <span className="font-mono text-[15px] font-bold text-[color:var(--accent)]">{s.n}</span>
-                <h3 className="text-[19px] font-semibold text-navy">{s.name[locale]} <span className="text-sm font-normal text-muted-foreground">· {s.sub[locale]}</span></h3>
-              </div>
-              <div className="mt-1 text-[12.5px] text-muted-foreground">{locale === "ko" ? "주도: " : "Who leads: "}{s.who[locale]}</div>
-              <div className="mt-4 grid gap-x-8 gap-y-4 sm:grid-cols-2">
-                {([["역할", "Role", s.role], ["더해지는 가치", "Value added", s.value], ["AI가 바꾸는 것", "How AI changes it", s.ai], ["피드백 루프", "Feedback loop", s.loop]] as [string, string, L][]).map(([ko, en, v], j) => (
-                  <div key={en}>
-                    <div className={"mb-1 font-mono text-[10.5px] font-semibold uppercase tracking-[0.09em] " + (j === 2 ? "text-[#6b62c6]" : j === 3 ? "text-[color:var(--accent)]" : "text-muted-foreground")}>{locale === "ko" ? ko : en}</div>
-                    <p className="text-[14.5px] leading-relaxed text-secondary">{v[locale]}</p>
-                  </div>
-                ))}
+          {PRINCIPLES.map((p) => (
+            <div key={p.n} className="grid grid-cols-[40px_1fr] gap-x-4 rounded-xl border border-border bg-white p-5 sm:grid-cols-[52px_1fr] sm:p-6">
+              <div className="pt-0.5 font-mono text-sm font-bold text-[color:var(--accent)]">{p.n}</div>
+              <div>
+                <h3 className="text-[17px] font-semibold leading-snug text-navy">{p.title[locale]}</h3>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-secondary">{p.description[locale]}</p>
               </div>
             </div>
           ))}
         </div>
       </DocSection>
 
-      <DocSection tint>
-        <Kicker>{locale === "ko" ? "역학" : "The dynamics"}</Kicker>
-        <H2>{locale === "ko" ? "순환을 붙드는 것" : "What holds the circulation together"}</H2>
-        <div className="mt-7 grid gap-4 sm:grid-cols-2">
-          {DYN.map(([tag, h, b]) => (
-            <div key={tag.en} className="rounded-xl border border-border bg-white p-5">
-              <span className="mb-2 block font-mono text-[10.5px] font-semibold uppercase tracking-[0.08em] text-[color:var(--accent)]">{tag[locale]}</span>
-              <h4 className="text-[16.5px] font-bold text-navy">{h[locale]}</h4>
-              <p className="mt-1.5 text-[15px] text-secondary">{b[locale]}</p>
-            </div>
-          ))}
-        </div>
-      </DocSection>
-
+      {/* ── who answers ── */}
       <DocSection>
-        <Kicker>{locale === "ko" ? "전환" : "The shift"}</Kicker>
-        <H2>{locale === "ko" ? "1,540개 질문이 데이터셋이 아니라 커먼즈라면" : "If the 1,540 questions are a commons, not a dataset"}</H2>
-        <Lead>{locale === "ko" ? "연구 산출물은 읽히고 소유된다. 커먼즈는 그 위에 지어진다 — 열리고, 포크되고, 귀속되고, 기여된다. 질문들을 한 나라의 첫 재배 ‘질문 게놈’으로 다루면, 어떤 제도도 발주할 수 없었던 새 형태가 가능해진다:" : "A research output is read and owned. A commons is built on — open, forkable, attributable, contributable. Treat the questions as the world's first cultivated “question-genome” for a nation, and new forms become possible that no institution could have commissioned:"}</Lead>
-        <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-border bg-border">
-          {FORMS.map(([dom, sub, txt]) => (
-            <div key={dom.en} className="grid gap-2 bg-white p-5 sm:grid-cols-[190px_1fr] sm:gap-5 sm:p-6">
-              <div><div className="text-[16px] font-bold text-navy">{dom[locale]}</div><div className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.05em] text-[color:var(--accent)]">{sub[locale]}</div></div>
-              <p className="text-[15.5px] leading-relaxed text-secondary">{txt[locale]}</p>
+        <Kicker>{locale === "ko" ? "누가 답하는가" : "Who answers"}</Kicker>
+        <H2>{locale === "ko" ? "정부가 아니라 생태계가 답한다" : "The ecosystem answers, not the government"}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "커먼즈에서 답변은 하나의 권위가 발행하는 것이 아니다. 서로 다른 위치에서 서로 다른 깊이로, 서로 다른 언어로 답변이 축적된다. 이 다원성이 신뢰를 만든다."
+            : "In the commons, answers are not issued by a single authority. They accumulate from different positions, at different depths, in different languages. This plurality creates trust."}
+        </Lead>
+        <div className="mt-7 grid gap-4 sm:grid-cols-2">
+          {ROLES.map((r) => (
+            <div key={r.role.en} className="flex flex-col rounded-xl border border-border bg-white p-5 sm:p-6">
+              <h3 className="text-[19px] font-semibold text-navy">{r.role[locale]}</h3>
+              <p className="mt-1 text-[12.5px] text-muted-foreground">{r.who[locale]}</p>
+              <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-secondary">{r.contribution[locale]}</p>
+              <div
+                className="mt-4 rounded-lg border p-3"
+                style={{
+                  borderColor: "color-mix(in srgb, var(--accent) 32%, transparent)",
+                  background: "color-mix(in srgb, var(--accent) 6%, transparent)",
+                }}
+              >
+                <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-[color:var(--accent)]">
+                  {locale === "ko" ? "고유 가치" : "Unique value"}
+                </div>
+                <p className="mt-1 text-[13.5px] leading-snug text-navy">{r.uniqueValue[locale]}</p>
+              </div>
             </div>
           ))}
         </div>
       </DocSection>
 
+      {/* ── why "commons" ── */}
       <DocSection tint>
-        <Kicker>{locale === "ko" ? "나선" : "The spiral"}</Kicker>
-        <p className="max-w-[66ch] text-[18px] leading-relaxed text-secondary">
+        <Kicker>{locale === "ko" ? "왜 '커먼즈'인가" : "Why 'Commons'"}</Kicker>
+        <H2>{locale === "ko" ? "플랫폼이 아니라 공유지다" : "A commons, not a platform"}</H2>
+        <Lead>
           {locale === "ko"
-            ? "생태계의 산출물은 답이 아니다. 그것은 자신의 호기심을 대사(代謝)하는 법을 배운 사회다 — 세계 어디서 입력되든 한국에 대한 질문이 갈 곳이 있고, 만날 사람이 있으며, 지식과 더 나은 질문으로 돌아올 길이 있는 곳."
-            : "The ecosystem's product is not answers. It is a society that has learned to metabolize its own curiosity — where a question about Korea, wherever it is typed, has somewhere to go, someone to meet, and a way to come back as knowledge and a better question."}
-        </p>
-        <div className="mt-5 text-[22px] font-semibold leading-snug text-navy max-w-[54ch]">
-          {locale === "ko"
-            ? "데이터셋은 한국이 세계에 대해 아는 것에서, 세계가 한국과 함께 짓는 것으로 바뀐다 — 한 번에 한 질문씩, 영원히 재생하면서."
-            : "The dataset stops being something Korea knows about the world, and becomes something the world builds with Korea — one question at a time, forever regenerating."}
+            ? "Question Commons는 질문 게시판이 아니다. Q&A 사이트가 아니다. FAQ 데이터베이스가 아니다. '커먼즈'라는 단어를 쓰는 이유는 이것이 소유되지 않고 공유되는 자원이기 때문이다."
+            : "The Question Commons is not a question board. Not a Q&A site. Not an FAQ database. We use the word 'commons' because this is a resource that is shared, not owned."}
+        </Lead>
+        <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
+          {([
+            [
+              D("플랫폼", "Platform"),
+              D("사용자가 콘텐츠를 생산하고 플랫폼이 가치를 추출한다", "Users produce content; the platform extracts value"),
+            ],
+            [
+              D("아카이브", "Archive"),
+              D("지식을 보존하지만 순환시키지 않는다", "Preserves knowledge but does not circulate it"),
+            ],
+            [
+              D("커먼즈", "Commons"),
+              D("모두가 기여하고 모두가 사용하며, 사용할수록 풍요로워진다", "Everyone contributes, everyone uses, and use makes it richer"),
+            ],
+          ] as [L, L][]).map(([name, desc], i) => (
+            <div
+              key={name.en}
+              className={"bg-white p-5 sm:p-6" + (i === 2 ? " border-l-2 border-l-[color:var(--accent)]" : "")}
+            >
+              <h4 className={"text-[16px] font-bold" + (i === 2 ? " text-[color:var(--accent)]" : " text-navy")}>{name[locale]}</h4>
+              <p className="mt-1.5 text-[14px] leading-relaxed text-secondary">{desc[locale]}</p>
+            </div>
+          ))}
         </div>
+        <Lead>
+          {locale === "ko"
+            ? "질문은 경합재가 아니다 — 한 사람이 질문을 써도 다른 사람의 질문이 줄어들지 않는다. 오히려 질문이 공유될수록 답변의 가능성이 넓어진다. 이것이 커먼즈의 경제학이다."
+            : "Questions are non-rivalrous — one person asking doesn't diminish another's question. On the contrary, the more questions are shared, the wider the space for answers becomes. This is the economics of the commons."}
+        </Lead>
+      </DocSection>
+
+      {/* ── AI era ── */}
+      <DocSection>
+        <Kicker>{locale === "ko" ? "AI 시대" : "The AI era"}</Kicker>
+        <H2>{locale === "ko" ? "AI가 답하는 시대에 인간의 답변이 더 중요해진다" : "In an era when AI answers, human answers matter more"}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "AI는 이미 한국에 대한 질문의 첫 번째 응답자가 되고 있다. 검색 엔진 대신 ChatGPT에 '한국은 안전한가'를 묻는 사용자가 늘어나고 있다. AI의 답변 품질은 학습 데이터에 의존한다. 그런데 그 학습 데이터는 누가 만드는가?"
+            : "AI is already becoming the first responder to questions about Korea. More users ask ChatGPT 'is Korea safe' instead of a search engine. AI answer quality depends on training data. But who creates that training data?"}
+        </Lead>
+        <Lead>
+          {locale === "ko"
+            ? "커먼즈에 축적된 다원적이고 맥락 풍부한 인간의 답변이 AI의 학습 데이터가 될 때, AI는 더 정확하고 균형 잡힌 한국 이미지를 전달할 수 있다. 인간이 답하지 않으면, AI는 기존의 편향된 데이터로 한국을 설명할 수밖에 없다."
+            : "When plural, context-rich human answers accumulated in the commons become AI training data, AI can deliver a more accurate and balanced image of Korea. If humans do not answer, AI has no choice but to explain Korea from existing biased data."}
+        </Lead>
+        <Accented label={locale === "ko" ? "순환 구조" : "Circular structure"}>
+          {locale === "ko"
+            ? "인간이 질문에 답한다 → 답변이 커먼즈에 축적된다 → AI가 더 나은 답변을 학습한다 → AI의 답변이 새로운 질문을 유발한다 → 인간이 다시 답한다. 이 순환에서 인간과 AI는 경쟁하지 않는다. 서로를 강화한다."
+            : "Humans answer questions → Answers accumulate in the commons → AI learns better answers → AI answers provoke new questions → Humans answer again. In this cycle, humans and AI do not compete. They reinforce each other."}
+        </Accented>
+      </DocSection>
+
+      {/* ── policy implications ── */}
+      <DocSection tint>
+        <Kicker>{locale === "ko" ? "정책 함의" : "Policy implications"}</Kicker>
+        <H2>{locale === "ko" ? "커먼즈를 만들기 위해" : "To build a commons"}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "Question Commons는 저절로 만들어지지 않는다. 의도적인 설계와 제도적 지원이 필요하다. 다만 정부가 소유하거나 통제하는 것이 아니라 촉진하고 지원하는 방식이어야 한다."
+            : "A Question Commons does not emerge by itself. It requires intentional design and institutional support — but in a mode of facilitation and support, not ownership and control."}
+        </Lead>
+        <div className="mt-7 grid gap-3">
+          {POLICIES.map((p) => (
+            <div key={p.n} className="grid grid-cols-[40px_1fr] gap-x-4 rounded-xl border border-border bg-white p-5 sm:grid-cols-[52px_1fr] sm:p-6">
+              <div className="pt-0.5 font-mono text-sm font-bold text-[color:var(--accent)]">{p.n}</div>
+              <div>
+                <h3 className="text-[17px] font-semibold leading-snug text-navy">{p.title[locale]}</h3>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-secondary">{p.description[locale]}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </DocSection>
+
+      {/* ── conclusion ── */}
+      <DocSection>
+        <Kicker>{locale === "ko" ? "결론" : "Conclusion"}</Kicker>
+        <H2>{locale === "ko" ? "질문에서 공동지식으로" : "From questions to shared knowledge"}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "이 연구는 네 단계의 사다리를 따랐다. 먼저 세계가 한국에 대해 무엇을 묻는지 발견했다. 그 질문이 공공외교에 무엇을 요구하는지 해석했다. 질문을 국가 이미지의 출발점으로 보는 새로운 프레임워크를 제안했다. 그리고 마지막으로, 질문을 공동지식으로 전환하는 실행 모델을 설계했다."
+            : "This research followed a four-rung ladder. First, we discovered what the world asks about Korea. Then we interpreted what those questions demand of public diplomacy. We proposed a new framework that sees questions as the starting point of national image. And finally, we designed an implementation model that transforms questions into shared knowledge."}
+        </Lead>
+        <Lead>
+          {locale === "ko"
+            ? "발견에서 해석으로, 해석에서 이론으로, 이론에서 실행 모델로. 이 사다리의 끝에서 우리가 제안하는 것은 단순하다: 질문을 무시하지 말라. 질문에 답하라. 그리고 그 답변을 모두의 자산으로 만들라."
+            : "From discovery to interpretation, from interpretation to theory, from theory to implementation. What we propose at the end of this ladder is simple: do not ignore the questions. Answer them. And make those answers everyone's asset."}
+        </Lead>
+        <p className="mt-8 max-w-[48ch] text-[22px] font-semibold leading-snug tracking-tight text-navy">
+          {locale === "ko"
+            ? "국가 이미지는 국가가 만드는 것이 아니다. 질문하는 사람과 답변하는 사람이 함께 만든다. 그 만남의 장소가 커먼즈다."
+            : "National image is not made by the state. It is made together by those who ask and those who answer. The commons is where they meet."}
+        </p>
       </DocSection>
     </>
   );
