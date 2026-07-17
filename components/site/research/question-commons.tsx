@@ -1,10 +1,25 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { PATHWAYS, getPathway, getNode } from "@/lib/ontology";
+import { topicLead } from "@/lib/topics";
+import { insightFor } from "@/lib/interpretation";
 import { DocSection, Kicker, H2, Lead, type L } from "./parts";
 
 const D = (ko: string, en: string): L => ({ ko, en });
+
+// The six ontology layers a question travels through, in order.
+const FLOW_LABEL: L[] = [
+  D("질문", "Question"),
+  D("개념", "Concept"),
+  D("주제", "Theme"),
+  D("서사", "Narrative"),
+  D("인식", "Perception"),
+  D("발견", "Insight"),
+];
 
 const STAGES: { n: string; name: L; sub: L; who: L; role: L; value: L; ai: L; loop: L }[] = [
   { n: "01", name: D("질문", "Question"), sub: D("원자", "the atom"), who: D("누구든, 어디서든 — 세계, 그리고 자신에 대한 한국", "Anyone, anywhere — the world, and Korea about itself"), role: D("이해의 실제 공백이 입력된 질문으로 떠오른다 — 시스템이 움직이는 불가분의 단위.", "A real gap surfaces as a typed question — the indivisible unit the system moves."), value: D("원(原)신호: 이해하려는 진정한 미충족 욕구.", "Raw signal: an authentic, unmet need to understand."), ai: D("AI가 흔히 첫 응답자다 — 질문자가 받는 답이 점점 AI 형태다. 그렇기에 질문은 인간 커먼즈로 들어와야 한다.", "AI is now often the first responder — which is exactly why the question must enter a human commons."), loop: D("다른 모든 단계가 새 질문을 여기로 방출한다.", "Every other stage emits new questions back here.") },
@@ -71,11 +86,143 @@ function Ring({ locale }: { locale: "ko" | "en" }) {
   );
 }
 
+/** One concrete question carried through all six ontology layers. */
+function OntologyFlow({ locale }: { locale: "ko" | "en" }) {
+  const lead = topicLead("hallyu");
+  const pathway = lead ? getPathway(lead.pathway) : undefined;
+  if (!lead || !pathway) return null;
+  const nodes = pathway.steps.map((s) => getNode(s.nodeId));
+  const perception = nodes[nodes.length - 1];
+  const insight = insightFor(perception.id);
+
+  const chain: { layer: L; value: string; accent?: boolean }[] = [
+    { layer: FLOW_LABEL[0], value: lead.question[locale] },
+    ...nodes.slice(1).map((n, i) => ({ layer: FLOW_LABEL[i + 1], value: n.label[locale] })),
+    ...(insight ? [{ layer: FLOW_LABEL[5], value: insight[locale], accent: true }] : []),
+  ];
+
+  return (
+    <div className="mt-8 grid gap-2.5 lg:grid-cols-6 lg:gap-3">
+      {chain.map((step, i) => (
+        <div
+          key={i}
+          className={
+            "relative rounded-xl border p-4 " +
+            (step.accent
+              ? "border-[color:var(--accent)] bg-[color-mix(in_srgb,var(--accent)_8%,#fff)]"
+              : "border-border bg-white")
+          }
+        >
+          <div
+            className={
+              "font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] " +
+              (step.accent ? "text-[color:var(--accent)]" : "text-muted-foreground")
+            }
+          >
+            {String(i + 1).padStart(2, "0")} · {step.layer[locale]}
+          </div>
+          <div className="mt-1.5 text-[14.5px] font-medium leading-snug text-navy">
+            {step.value}
+          </div>
+          {i < chain.length - 1 && (
+            <div
+              className="pointer-events-none absolute z-10 text-[color:var(--accent)] left-1/2 top-full -translate-x-1/2 lg:left-full lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2"
+              aria-hidden
+            >
+              <span className="lg:hidden">↓</span>
+              <span className="hidden lg:inline">→</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** The distinct perceptions the questions formed — "이 질문들이 만든 한국". */
+function PerceptionsFormed({ locale }: { locale: "ko" | "en" }) {
+  const seen = new Set<string>();
+  const items: { label: string; blurb: string; insight?: string }[] = [];
+  for (const p of PATHWAYS) {
+    const terminal = getNode(p.steps[p.steps.length - 1].nodeId);
+    if (seen.has(terminal.id)) continue;
+    seen.add(terminal.id);
+    items.push({
+      label: terminal.label[locale],
+      blurb: terminal.blurb[locale],
+      insight: insightFor(terminal.id)?.[locale],
+    });
+  }
+  return (
+    <div className="mt-7 grid gap-4 sm:grid-cols-2">
+      {items.map((it) => (
+        <div key={it.label} className="flex flex-col rounded-xl border border-border bg-white p-5 sm:p-6">
+          <div className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-[color:var(--accent)]">
+            {locale === "ko" ? "인식" : "Perception"}
+          </div>
+          <h4 className="mt-1.5 text-[17px] font-semibold leading-snug text-navy">{it.label}</h4>
+          <p className="mt-1.5 text-[14.5px] leading-relaxed text-secondary">{it.blurb}</p>
+          {it.insight && (
+            <div className="mt-4 border-t border-border pt-3">
+              <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-[color:var(--accent)]">
+                {locale === "ko" ? "발견" : "Insight"}
+              </div>
+              <p className="mt-1 text-[14px] leading-relaxed text-navy">{it.insight}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function QuestionCommons() {
   const { locale } = useLanguage();
   return (
     <>
+      {/* The ontology grounding — a real question carried to perception, before the abstract commons */}
       <DocSection>
+        <Kicker>{locale === "ko" ? "질문에서 인식까지" : "From question to perception"}</Kicker>
+        <H2>{locale === "ko" ? "질문은 단순한 호기심이 아니다. 한국을 이해하는 출발점이다." : "A question is not idle curiosity. It is where understanding of Korea begins."}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "하나의 질문은 홀로 머물지 않는다. 개념으로 묶이고, 주제로 모이고, 서사를 이루고, 하나의 인식이 되고, 마침내 우리가 무엇을 해야 하는지에 대한 발견으로 닫힌다. ‘K-팝은 왜 이렇게 인기가 많을까’라는 질문이 어디까지 가는지 따라가 보면 이렇다."
+            : "A single question does not stay where it landed. It clusters into a concept, gathers into a theme, forms a narrative, becomes a perception, and finally closes as a discovery about what we should do. Here is how far one question — “why is K-pop so popular” — actually travels."}
+        </Lead>
+        <OntologyFlow locale={locale} />
+        <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+          {locale === "ko"
+            ? "실제 질문은 처음 세 층 — 질문·개념·주제 — 에서 드러난다. 그다음 서사·인식·발견은 개별 질문이 아니라 그 질문들이 함께 형성한 것이다. 이 구조 전체를 직접 다루려면 "
+            : "Real questions surface in the first three layers — question, concept, theme. What follows — narrative, perception, insight — is not any single question but what those questions formed together. To handle the whole structure directly, open "}
+          <Link href="/explore" className="font-medium text-[color:var(--accent)] hover:underline">
+            {locale === "ko" ? "온톨로지 탐색" : "the ontology explorer"}
+          </Link>
+          {locale === "ko" ? "을 여세요." : "."}
+        </p>
+      </DocSection>
+
+      {/* What the questions formed — the perceptions of Korea */}
+      <DocSection tint>
+        <Kicker>{locale === "ko" ? "이 질문들이 만든 한국" : "The Korea these questions formed"}</Kicker>
+        <H2>{locale === "ko" ? "질문이 쌓여 하나의 상(像)이 된다" : "Questions accumulate into an image"}</H2>
+        <Lead>
+          {locale === "ko"
+            ? "수천 개의 질문은 흩어진 호기심이 아니다. 그것들은 한국에 대한 몇 개의 또렷한 인식으로 수렴하며, 각 인식은 우리가 다음에 무엇을 해야 하는지에 대한 발견을 안고 있다."
+            : "Thousands of questions are not scattered curiosity. They converge into a handful of distinct perceptions of Korea — and each perception carries a discovery about what to do next."}
+        </Lead>
+        <PerceptionsFormed locale={locale} />
+        <div className="mt-8">
+          <Link
+            href="/topics"
+            className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[color:var(--accent)] hover:underline"
+          >
+            {locale === "ko" ? "여덟 개의 주제로 인식을 탐험하기" : "Explore the perceptions across eight topics"}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </DocSection>
+
+      <DocSection tint>
         <Kicker>{locale === "ko" ? "재구성" : "The reframe"}</Kicker>
         <H2>{locale === "ko" ? "질문은 누구나 함께 쥘 수 있는 단 하나의 공통물이다" : "A question is the one thing everyone can hold together"}</H2>
         <Lead>
