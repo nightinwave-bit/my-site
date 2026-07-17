@@ -88,8 +88,8 @@ export const dict: Dict = {
     en: "How does the world\nunderstand Korea?",
   },
   "hero.subtitle": {
-    ko: "세계는 한국에 대해 질문합니다. 우리는 그 질문을 읽고, 그것이 무엇을 뜻하는지 해석합니다.",
-    en: "The world asks questions about Korea. We read those questions — and interpret what they mean.",
+    ko: "세계는 한국을 콘텐츠로만 만나지 않습니다. 검색하고, 질문하고, AI에게 묻습니다. Ask About Korea는 8개 시장·7개 언어에서 수집한 1,540개의 실제 질문으로, 세계가 한국을 어떻게 이해하는지를 연구합니다.",
+    en: "The world doesn't meet Korea through content alone. It searches, it asks, it queries AI. Ask About Korea studies how the world understands Korea through 1,540 real questions collected across 8 markets and 7 languages.",
   },
   "hero.spine.label": { ko: "질문에서 의미까지", en: "From question to meaning" },
   // The homepage thesis — short, memorable, human-readable.

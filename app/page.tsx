@@ -1,33 +1,29 @@
 import { Navbar } from "@/components/site/navbar";
 import { Hero } from "@/components/site/hero";
-import { TopicsHome } from "@/components/site/topics-home";
+import { KeyFindings } from "@/components/site/home/key-findings";
+import { QuestionToPerception } from "@/components/site/home/question-to-perception";
+import { WorldCuriosity } from "@/components/site/home/world-curiosity";
 import { ExplorePreview } from "@/components/site/explore-preview";
-import { ModelBand } from "@/components/site/model-band";
-import { FeaturedPathways } from "@/components/site/featured-pathways";
-import { ResearchTeaser } from "@/components/site/research-teaser";
-import { SiteMap } from "@/components/site/site-map";
-import { MethodSection } from "@/components/site/method-section";
+import { DatasetSection } from "@/components/site/home/dataset-section";
+import { ResearchProcess } from "@/components/site/home/research-process";
 import { Footer } from "@/components/site/footer";
 
+// Home IA — a research platform, not an introduction:
+// 01 Hero → 02 Key findings → 03 How a question becomes a perception →
+// 04 What the world is curious about → 05 The question map →
+// 06 The dataset → 07 Research → 08 Footer
 export default function Home() {
   return (
     <>
       <Navbar />
       <main>
-        {/* identity — the world asks questions about Korea; we read them */}
         <Hero />
-        {/* orientation — everything this site contains, at a glance */}
-        <SiteMap />
-        {/* entry — start with a topic */}
-        <TopicsHome />
-        {/* INTERPRETATION FIRST — representative questions, each ending in an insight */}
-        <FeaturedPathways />
-        <ResearchTeaser />
-        {/* STRUCTURE SECOND — the question map + how a question becomes a perception */}
+        <KeyFindings />
+        <QuestionToPerception />
+        <WorldCuriosity />
         <ExplorePreview />
-        <ModelBand />
-        {/* METHODOLOGY & DATA LAST */}
-        <MethodSection />
+        <DatasetSection />
+        <ResearchProcess />
       </main>
       <Footer />
     </>
