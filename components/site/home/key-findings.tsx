@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useLanguage } from "@/lib/i18n";
 import { Reveal } from "../reveal";
 
@@ -58,7 +59,7 @@ const FINDINGS: { n: string; claim: L; note: L }[] = [
 export function KeyFindings() {
   const { locale } = useLanguage();
   return (
-    <section id="findings" className="scroll-mt-20 border-b border-border bg-[#F7F9FC]">
+    <section id="findings" className="scroll-mt-20 border-b border-border bg-[#f7f9fc]">
       <div className="container py-28 sm:py-36">
         <div className="max-w-2xl">
           <Reveal>
@@ -67,10 +68,10 @@ export function KeyFindings() {
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-6 whitespace-pre-line text-[1.9rem] font-semibold leading-[1.32] tracking-[-0.01em] text-navy sm:text-[2.5rem] sm:leading-[1.28]">
+            <h2 className="mt-6 text-[1.9rem] font-semibold leading-[1.32] tracking-[-0.01em] text-navy sm:text-[2.5rem] sm:leading-[1.28]" style={{ textWrap: "balance" } as React.CSSProperties}>
               {locale === "ko"
-                ? "한국에 대한 답을 찾기 전에,\n세계가 어떤 질문을 하는지부터\n조사했습니다."
-                : "Before answering questions about Korea,\nwe studied which questions the world is asking."}
+                ? "한국에 대한 답을 찾기 전에, 세계가 어떤 질문을 하는지부터 조사했습니다."
+                : "Before answering questions about Korea, we studied which questions the world is asking."}
             </h2>
           </Reveal>
         </div>

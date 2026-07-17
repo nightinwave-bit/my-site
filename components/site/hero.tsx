@@ -57,7 +57,7 @@ export function Hero() {
             {t("hero.eyebrow")}
           </motion.div>
 
-          <h1 className="text-balance font-semibold tracking-[-0.03em]">
+          <h1 className="font-semibold tracking-[-0.03em]" style={{ textWrap: "balance" } as React.CSSProperties}>
             {headlineLines.map((line, i) => (
               <motion.span
                 key={i}
