@@ -3,7 +3,7 @@ import { SITE_URL, RAW_SLUGS } from "@/lib/research-raw";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = "2026-07-15";
-  const core = ["", "/topics", "/explore", "/research", "/method"];
+  const core = ["", "/topics", "/explore", "/research", "/method", "/ai.html"];
   // Every research doc plus its AI-readable raw twin.
   const research = RAW_SLUGS.flatMap((s) => [
     `/research/${s}`,
