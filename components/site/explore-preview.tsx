@@ -40,9 +40,11 @@ export function ExplorePreview() {
 
         {/* the map — visualization is the hero */}
         <Reveal delay={0.1} className="mt-16">
-          <div className="overflow-x-auto py-4 sm:py-8">
-            <div className="mx-auto min-w-[760px] max-w-5xl">
-              <ForceGraph interactive={false} />
+          <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
+            <div className="overflow-x-auto py-4 sm:py-8">
+              <div className="mx-auto min-w-[760px] max-w-5xl">
+                <ForceGraph interactive={false} />
+              </div>
             </div>
           </div>
         </Reveal>

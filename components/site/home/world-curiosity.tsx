@@ -110,13 +110,13 @@ export function WorldCuriosity() {
                   href={`/topics/${topic.slug}`}
                   className="group grid grid-cols-[auto_1fr_auto] items-center gap-x-5 border-b border-border py-6 transition-colors hover:bg-white/60 sm:gap-x-8"
                 >
-                  <div className="w-[5.5rem] sm:w-36">
-                    <div className="font-mono text-[2.5rem] font-semibold tabular-nums leading-[0.95] text-navy sm:text-[3.4rem]">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-mono text-[2.5rem] font-semibold tabular-nums leading-[0.95] text-navy sm:text-[3.4rem]">
                       {count.toLocaleString()}
-                    </div>
-                    <div className="mt-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    </span>
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground sm:text-[12px]">
                       {locale === "ko" ? "개 질문" : "questions"}
-                    </div>
+                    </span>
                   </div>
                   <div className="min-w-0">
                     <h3 className="text-lg font-semibold text-navy sm:text-[1.35rem]">
