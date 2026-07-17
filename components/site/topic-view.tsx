@@ -12,6 +12,36 @@ import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { Reveal } from "./reveal";
 import allTopicQuestions from "@/lib/topic-questions.generated.json";
+import translationData from "@/lib/translations.generated.json";
+
+const translations = translationData as Record<string, { ko: string; en: string }>;
+
+function getTranslation(qId: string, locale: "ko" | "en"): string | null {
+  const t = translations[qId];
+  return t ? t[locale] : null;
+}
+
+function QuestionTranslation({ qId, language, locale }: { qId: string; language: string; locale: "ko" | "en" }) {
+  const needsTranslation = (locale === "ko" && language !== "ko") || (locale === "en" && language !== "en");
+  if (!needsTranslation) return null;
+  const tr = getTranslation(qId, locale);
+  if (!tr) return null;
+  return (
+    <div className="mt-0.5 text-[12px] leading-snug text-muted-foreground">
+      {tr}
+    </div>
+  );
+}
+
+const LANG_LABEL: Record<string, { ko: string; en: string }> = {
+  de: { ko: "독일어", en: "German" },
+  en: { ko: "영어", en: "English" },
+  pt: { ko: "포르투갈어", en: "Portuguese" },
+  ar: { ko: "아랍어", en: "Arabic" },
+  id: { ko: "인도네시아어", en: "Indonesian" },
+  ko: { ko: "한국어", en: "Korean" },
+  ja: { ko: "일본어", en: "Japanese" },
+};
 
 const TOPIC_INTRO: Record<TopicSlug, { ko: string; en: string }> = {
   hallyu: {
@@ -130,7 +160,11 @@ export function TopicView({ topic }: { topic: Topic }) {
     if (selectedCountry) qs = qs.filter((q) => q.countries.includes(selectedCountry));
     if (searchQuery.trim()) {
       const lower = searchQuery.toLowerCase();
-      qs = qs.filter((q) => q.text.toLowerCase().includes(lower));
+      qs = qs.filter((q) => {
+        if (q.text.toLowerCase().includes(lower)) return true;
+        const tr = getTranslation(q.id, locale);
+        return tr ? tr.toLowerCase().includes(lower) : false;
+      });
     }
     return qs;
   }, [allQuestions, selectedConcept, selectedCountry, searchQuery]);
@@ -335,7 +369,10 @@ export function TopicView({ topic }: { topic: Topic }) {
                   <div className="mt-4 space-y-3">
                     {discoveries.wide.map((q) => (
                       <div key={q.id} className="flex items-start justify-between gap-3">
-                        <span className="text-[14px] font-medium text-navy">{q.text}</span>
+                        <div className="min-w-0 flex-1">
+                          <span className="text-[14px] font-medium text-navy">{q.text}</span>
+                          <QuestionTranslation qId={q.id} language={q.language} locale={locale} />
+                        </div>
                         <span className="shrink-0 text-[12px] text-muted-foreground">
                           {q.countries.map((c) => COUNTRY_FLAG[c] ?? c).join(" ")}
                         </span>
@@ -354,7 +391,10 @@ export function TopicView({ topic }: { topic: Topic }) {
                   <div className="mt-4 space-y-3">
                     {discoveries.surprises.map((q) => (
                       <div key={q.id} className="flex items-start justify-between gap-3">
-                        <span className="text-[14px] font-medium text-navy">{q.text}</span>
+                        <div className="min-w-0 flex-1">
+                          <span className="text-[14px] font-medium text-navy">{q.text}</span>
+                          <QuestionTranslation qId={q.id} language={q.language} locale={locale} />
+                        </div>
                         <span className="shrink-0 rounded-full bg-brand/8 px-2 py-0.5 text-[11px] font-semibold text-brand">
                           {COUNTRY_FLAG[q.countries[0]]} {MARKETS.find((m) => m.code === q.countries[0])?.name[locale] ?? q.countries[0]}
                         </span>
@@ -511,7 +551,10 @@ export function TopicView({ topic }: { topic: Topic }) {
                     </div>
                     <div className="mt-2 space-y-1.5">
                       {countryProfile.topQuestions.map((q) => (
-                        <div key={q.id} className="text-[13px] font-medium text-navy">{q.text}</div>
+                        <div key={q.id}>
+                          <div className="text-[13px] font-medium text-navy">{q.text}</div>
+                          <QuestionTranslation qId={q.id} language={q.language} locale={locale} />
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -540,7 +583,10 @@ export function TopicView({ topic }: { topic: Topic }) {
                       <ChevronRight className={`mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-foreground/50 transition-transform ${isExpanded ? "rotate-90" : ""}`} />
                       <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
-                          <span className="text-[14px] font-medium leading-snug text-navy">{q.text}</span>
+                          <div className="min-w-0 flex-1">
+                            <span className="text-[14px] font-medium leading-snug text-navy">{q.text}</span>
+                            <QuestionTranslation qId={q.id} language={q.language} locale={locale} />
+                          </div>
                           <span className="mt-0.5 flex shrink-0 items-center gap-1 text-[10px] text-muted-foreground">
                             {q.countries.map((c) => COUNTRY_FLAG[c] ?? c).join(" ")}
                           </span>
@@ -549,6 +595,11 @@ export function TopicView({ topic }: { topic: Topic }) {
                           <span className="rounded bg-brand/8 px-1.5 py-0.5 text-[10px] font-medium text-brand">
                             {conceptNode.label[locale]}
                           </span>
+                          {q.language !== locale && LANG_LABEL[q.language] && (
+                            <span className="rounded bg-muted/50 px-1.5 py-0.5 text-[10px] text-muted-foreground">
+                              {LANG_LABEL[q.language][locale]}
+                            </span>
+                          )}
                           <span className="text-[10px] tabular-nums text-muted-foreground">
                             {q.countries.length}{locale === "ko" ? "개국" : " countries"}
                           </span>
