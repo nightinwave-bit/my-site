@@ -1,22 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Network, Search, Database } from "lucide-react";
+import { ArrowLeft, ArrowRight, Network, Search, Database, ChevronDown, X } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { getPathway, getNode, PROVENANCE, type Evidence } from "@/lib/ontology";
 import { topicLead, type Topic, type TopicSlug } from "@/lib/topics";
 import { insightFor } from "@/lib/interpretation";
+import { MARKETS } from "@/lib/markets";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { Reveal } from "./reveal";
+import allTopicQuestions from "@/lib/topic-questions.generated.json";
 
 const CHAIN_LABEL = ["type.question", "type.concept", "type.theme", "type.narrative", "type.perception", "layer.insight"];
 
 const TOPIC_INTRO: Record<TopicSlug, { ko: string; en: string }> = {
   hallyu: {
-    ko: "333개의 질문은 K-pop, 드라마, 영화, 뷰티, 음식으로 이어지는 하나의 관심 지도를 보여준다.",
-    en: "333 questions reveal a single map of curiosity — from K-pop, drama, film, beauty, to food.",
+    ko: "세계는 K-pop만 궁금했던 것이 아니다. 332개의 실제 질문으로 읽는 세계의 한국 인식.",
+    en: "The world wasn't only curious about K-pop. 332 real questions reveal how the world perceives Korea.",
   },
   diplomacy: {
     ko: "309개의 질문은 분단, 안보, 그리고 이웃 나라와의 관계가 여전히 한국 이해의 중심축임을 보여준다.",
@@ -69,6 +71,31 @@ const CONCEPT_BLURB: Record<string, { ko: string; en: string }> = {
   c_tech: { ko: "브랜드와 기술 뒤의 나라", en: "The country behind the brands and tech" },
 };
 
+const COUNTRY_FLAG: Record<string, string> = {
+  US: "🇺🇸", DE: "🇩🇪", IN: "🇮🇳", ID: "🇮🇩",
+  JP: "🇯🇵", BR: "🇧🇷", AE: "🇦🇪", KR: "🇰🇷",
+};
+
+interface ConceptQuestion {
+  id: string;
+  text: string;
+  countries: string[];
+  language: string;
+  frequency: number;
+}
+
+interface TopicQuestion extends ConceptQuestion {
+  conceptId: string;
+}
+
+interface TopicData {
+  count: number;
+  questions: TopicQuestion[];
+  concepts: Record<string, ConceptQuestion[]>;
+}
+
+const PAGE_SIZE = 30;
+
 export function TopicView({ topic }: { topic: Topic }) {
   const { t, locale } = useLanguage();
 
@@ -78,10 +105,36 @@ export function TopicView({ topic }: { topic: Topic }) {
   const perception = nodes[nodes.length - 1];
   const insight = perception ? insightFor(perception.id) : undefined;
 
-  const questionCount = topic.concepts.reduce(
-    (sum, cid) => sum + (getNode(cid).count ?? 0),
-    0,
-  );
+  const topicData = (allTopicQuestions as unknown as Record<string, TopicData>)[topic.slug];
+  const allQuestions = useMemo(() => topicData?.questions ?? [], [topicData]);
+  const conceptCounts = topicData?.concepts ?? {};
+
+  const questionCount = allQuestions.length;
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedConcept, setSelectedConcept] = useState<string | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [showCount, setShowCount] = useState(PAGE_SIZE);
+
+  const countriesInTopic = useMemo(() => {
+    const set = new Set<string>();
+    for (const q of allQuestions) for (const c of q.countries) set.add(c);
+    return MARKETS.filter((m) => set.has(m.code)).map((m) => m.code);
+  }, [allQuestions]);
+
+  const filtered = useMemo(() => {
+    let qs = allQuestions;
+    if (selectedConcept) qs = qs.filter((q) => q.conceptId === selectedConcept);
+    if (selectedCountry) qs = qs.filter((q) => q.countries.includes(selectedCountry));
+    if (searchQuery.trim()) {
+      const lower = searchQuery.toLowerCase();
+      qs = qs.filter((q) => q.text.toLowerCase().includes(lower));
+    }
+    return qs;
+  }, [allQuestions, selectedConcept, selectedCountry, searchQuery]);
+
+  const visible = filtered.slice(0, showCount);
+  const hasMore = showCount < filtered.length;
 
   const chain: { label: string; value: string; accent?: boolean }[] = [
     { label: CHAIN_LABEL[0], value: lead?.question[locale] ?? "" },
@@ -89,19 +142,24 @@ export function TopicView({ topic }: { topic: Topic }) {
     ...(insight ? [{ label: CHAIN_LABEL[5], value: insight[locale], accent: true }] : []),
   ];
 
-  const realQuestions: string[] = [];
-  const seenQ = new Set<string>();
-  for (const cid of topic.concepts) {
-    const ev = (getNode(cid).evidence ?? []) as Evidence[];
-    for (const e of ev) {
-      const q = e.q[locale];
-      if (q && !seenQ.has(q)) { seenQ.add(q); realQuestions.push(q); }
-      if (realQuestions.length >= 6) break;
-    }
-    if (realQuestions.length >= 6) break;
-  }
-
   const intro = TOPIC_INTRO[topic.slug as TopicSlug];
+
+  const conceptDistribution = topic.concepts.map((cid) => ({
+    id: cid,
+    label: getNode(cid).label[locale],
+    count: (conceptCounts[cid] ?? []).length,
+  })).sort((a, b) => b.count - a.count);
+
+  const maxConceptCount = conceptDistribution[0]?.count ?? 1;
+
+  const clearFilters = () => {
+    setSelectedConcept(null);
+    setSelectedCountry(null);
+    setSearchQuery("");
+    setShowCount(PAGE_SIZE);
+  };
+
+  const hasActiveFilter = selectedConcept || selectedCountry || searchQuery.trim();
 
   return (
     <>
@@ -110,14 +168,14 @@ export function TopicView({ topic }: { topic: Topic }) {
         {/* ── Hero ── */}
         <section className="relative border-b border-border" style={{ background: "linear-gradient(180deg, #F8FAFF, #F2F6FF)" }}>
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[320px] bg-grid opacity-50 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
-          <div className="container relative py-[120px]">
+          <div className="container relative pb-14 pt-24 sm:pb-16 sm:pt-28">
             <Link href="/topics" className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary transition-colors hover:text-navy">
               <ArrowLeft className="h-4 w-4" />
               {t("topic.back")}
             </Link>
             <Reveal>
               <h1
-                className="mt-8 text-[3.5rem] font-bold leading-[1.08] tracking-[-0.03em] text-navy sm:text-[4.5rem]"
+                className="mt-6 text-[2.8rem] font-bold leading-[1.08] tracking-[-0.03em] text-navy sm:text-[3.5rem]"
                 style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {topic.title[locale]}
@@ -125,25 +183,23 @@ export function TopicView({ topic }: { topic: Topic }) {
             </Reveal>
             <Reveal delay={0.05}>
               <p
-                className="mt-6 max-w-[760px] text-[20px] leading-relaxed text-secondary sm:text-[22px]"
+                className="mt-4 max-w-[760px] text-[18px] leading-relaxed text-secondary sm:text-[20px]"
                 style={{ wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {lead?.question[locale]}
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="mt-8 flex items-baseline gap-2">
-                <span className="font-mono text-[4.5rem] font-bold tabular-nums leading-none text-navy">
-                  {questionCount.toLocaleString()}
+              <p className="mt-6 text-[2rem] font-bold text-navy sm:text-[2.5rem]">
+                {questionCount.toLocaleString()}
+                <span className="text-[1.1rem] font-semibold text-muted-foreground sm:text-[1.25rem]">
+                  {locale === "ko" ? "개 실제 질문" : " real questions"}
                 </span>
-                <span className="text-[1.5rem] font-medium text-muted-foreground">
-                  {locale === "ko" ? "개 질문" : "questions"}
-                </span>
-              </div>
+              </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p
-                className="mt-6 max-w-[760px] text-[17px] leading-relaxed text-secondary"
+                className="mt-4 max-w-[760px] text-[15px] leading-relaxed text-secondary sm:text-[16px]"
                 style={{ wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {intro?.[locale] ?? topic.tagline[locale]}
@@ -152,41 +208,228 @@ export function TopicView({ topic }: { topic: Topic }) {
           </div>
         </section>
 
-        {/* ── 대표 질문 (검색 UI) ── */}
-        {realQuestions.length > 0 && (
-          <section className="border-b border-border bg-white">
-            <div className="container max-w-[1280px] py-[120px]">
-              <Reveal>
-                <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
-                  {t("topic.realQuestions")}
-                </div>
-              </Reveal>
-              <Reveal delay={0.05}>
-                <h2
-                  className="mt-4 text-[1.9rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2.4rem]"
-                  style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
-                >
-                  {locale === "ko" ? "세계가 실제로 검색한 질문" : "Questions the world actually searched"}
-                </h2>
-              </Reveal>
-              <div className="mt-10 grid gap-3 sm:grid-cols-2">
-                {realQuestions.map((q, i) => (
-                  <Reveal key={q} delay={(i % 2) * 0.05}>
-                    <div className="flex items-start gap-3.5 rounded-2xl border border-border bg-[#F7F9FD] px-5 py-4 transition-all duration-200 hover:scale-[1.02] hover:shadow-md">
-                      <Search className="mt-0.5 h-4.5 w-4.5 shrink-0 text-muted-foreground/60" />
-                      <span className="text-[15.5px] font-medium leading-snug text-navy">{q}</span>
-                    </div>
-                  </Reveal>
-                ))}
+        {/* ── Concept Distribution ── */}
+        <section className="border-b border-border bg-white">
+          <div className="container max-w-[1280px] py-16 sm:py-20">
+            <Reveal>
+              <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
+                {locale === "ko" ? "개념 분포" : "Concept distribution"}
               </div>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2
+                className="mt-4 text-[1.6rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2rem]"
+                style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
+              >
+                {locale === "ko"
+                  ? `${questionCount.toLocaleString()}개 질문의 구성`
+                  : `Breakdown of ${questionCount.toLocaleString()} questions`}
+              </h2>
+            </Reveal>
+            <div className="mt-10 space-y-4">
+              {conceptDistribution.map((cd, i) => (
+                <Reveal key={cd.id} delay={i * 0.03}>
+                  <button
+                    onClick={() => {
+                      setSelectedConcept(selectedConcept === cd.id ? null : cd.id);
+                      setShowCount(PAGE_SIZE);
+                    }}
+                    className="group flex w-full items-center gap-4 text-left transition-opacity hover:opacity-80"
+                  >
+                    <div className="w-24 shrink-0 text-right text-[13px] font-medium text-secondary sm:w-32">
+                      {cd.label}
+                    </div>
+                    <div className="flex-1">
+                      <div className="h-8 overflow-hidden rounded-lg bg-border/30">
+                        <div
+                          className={`flex h-full items-center rounded-lg px-3 transition-all duration-500 ${
+                            selectedConcept === cd.id ? "bg-brand" : "bg-brand/60 group-hover:bg-brand/80"
+                          }`}
+                          style={{ width: `${Math.max(8, Math.round((cd.count / maxConceptCount) * 100))}%` }}
+                        >
+                          <span className="text-[12px] font-bold tabular-nums text-white">
+                            {cd.count}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                </Reveal>
+              ))}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
+
+        {/* ── Question Archive ── */}
+        <section className="border-b border-border bg-[#F7F9FD]">
+          <div className="container max-w-[1280px] py-16 sm:py-20">
+            <Reveal>
+              <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
+                {locale === "ko" ? "질문 아카이브" : "Question archive"}
+              </div>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2
+                className="mt-4 text-[1.6rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2rem]"
+                style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
+              >
+                {locale === "ko"
+                  ? "세계는 실제로 무엇을 검색했을까?"
+                  : "What did the world actually search?"}
+              </h2>
+            </Reveal>
+
+            {/* Search + Filters */}
+            <div className="mt-8 space-y-4">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-muted-foreground/60" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => { setSearchQuery(e.target.value); setShowCount(PAGE_SIZE); }}
+                  placeholder={locale === "ko" ? "질문 검색..." : "Search questions..."}
+                  className="h-12 w-full rounded-xl border border-border bg-white pl-11 pr-4 text-[15px] text-navy outline-none transition-shadow placeholder:text-muted-foreground/50 focus:border-brand/40 focus:ring-2 focus:ring-brand/10"
+                />
+                {searchQuery && (
+                  <button onClick={() => setSearchQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-muted-foreground hover:text-navy">
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {/* Concept filter pills */}
+                <button
+                  onClick={() => { setSelectedConcept(null); setShowCount(PAGE_SIZE); }}
+                  className={`rounded-full px-3.5 py-1.5 text-[13px] font-medium transition-colors ${
+                    !selectedConcept ? "bg-navy text-white" : "bg-white text-secondary hover:bg-navy/5"
+                  }`}
+                >
+                  {locale === "ko" ? "전체" : "All"}
+                </button>
+                {topic.concepts.map((cid) => {
+                  const node = getNode(cid);
+                  const count = (conceptCounts[cid] ?? []).length;
+                  return (
+                    <button
+                      key={cid}
+                      onClick={() => { setSelectedConcept(selectedConcept === cid ? null : cid); setShowCount(PAGE_SIZE); }}
+                      className={`rounded-full px-3.5 py-1.5 text-[13px] font-medium transition-colors ${
+                        selectedConcept === cid ? "bg-brand text-white" : "bg-white text-secondary hover:bg-brand/5"
+                      }`}
+                    >
+                      {node.label[locale]} <span className="ml-0.5 opacity-70">{count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Country filter */}
+              <div className="flex flex-wrap gap-1.5">
+                <button
+                  onClick={() => { setSelectedCountry(null); setShowCount(PAGE_SIZE); }}
+                  className={`rounded-full px-3 py-1.5 text-[12px] font-medium transition-colors ${
+                    !selectedCountry ? "bg-navy text-white" : "bg-white text-secondary hover:bg-navy/5"
+                  }`}
+                >
+                  {locale === "ko" ? "모든 국가" : "All countries"}
+                </button>
+                {countriesInTopic.map((code) => {
+                  const market = MARKETS.find((m) => m.code === code);
+                  return (
+                    <button
+                      key={code}
+                      onClick={() => { setSelectedCountry(selectedCountry === code ? null : code); setShowCount(PAGE_SIZE); }}
+                      className={`rounded-full px-3 py-1.5 text-[12px] font-medium transition-colors ${
+                        selectedCountry === code ? "bg-brand text-white" : "bg-white text-secondary hover:bg-navy/5"
+                      }`}
+                    >
+                      {COUNTRY_FLAG[code]} {market?.name[locale] ?? code}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {hasActiveFilter && (
+                <div className="flex items-center gap-2 text-[13px] text-secondary">
+                  <span>
+                    {locale === "ko"
+                      ? `${filtered.length.toLocaleString()}개 결과`
+                      : `${filtered.length.toLocaleString()} results`}
+                  </span>
+                  <button onClick={clearFilters} className="text-brand hover:underline">
+                    {locale === "ko" ? "초기화" : "Clear filters"}
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Question List */}
+            <div className="mt-6 space-y-2">
+              {visible.map((q, i) => {
+                const conceptNode = getNode(q.conceptId);
+                return (
+                  <div
+                    key={q.id}
+                    className="flex items-start gap-3.5 rounded-xl border border-border/60 bg-white px-5 py-3.5 transition-all duration-200 hover:shadow-sm"
+                  >
+                    <Search className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/40" />
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[15px] font-medium leading-snug text-navy">{q.text}</span>
+                      <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <span className="rounded bg-brand/8 px-1.5 py-0.5 text-[11px] font-medium text-brand">
+                          {conceptNode.label[locale]}
+                        </span>
+                        <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+                          {q.countries.map((c) => COUNTRY_FLAG[c] ?? c).join(" ")}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {visible.length === 0 && (
+                <div className="py-16 text-center text-[15px] text-muted-foreground">
+                  {locale === "ko" ? "검색 결과가 없습니다" : "No questions found"}
+                </div>
+              )}
+            </div>
+
+            {/* Load More */}
+            {hasMore && (
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => setShowCount((c) => c + PAGE_SIZE)}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-[14px] font-semibold text-navy transition-all hover:shadow-md"
+                >
+                  <ChevronDown className="h-4 w-4" />
+                  {locale === "ko"
+                    ? `더 보기 (${Math.min(PAGE_SIZE, filtered.length - showCount)}개 더)`
+                    : `Show more (${Math.min(PAGE_SIZE, filtered.length - showCount)} more)`}
+                </button>
+                <div className="mt-2 text-[12px] text-muted-foreground">
+                  {locale === "ko"
+                    ? `${visible.length}/${filtered.length}개 표시`
+                    : `Showing ${visible.length} of ${filtered.length}`}
+                </div>
+              </div>
+            )}
+
+            {!hasMore && filtered.length > 0 && (
+              <div className="mt-6 text-center text-[12px] text-muted-foreground">
+                {locale === "ko"
+                  ? `${filtered.length.toLocaleString()}개 질문 전체 표시`
+                  : `Showing all ${filtered.length.toLocaleString()} questions`}
+              </div>
+            )}
+          </div>
+        </section>
 
         {/* ── 질문→인식 흐름 (가로 타임라인) ── */}
         {perception && (
-          <section className="border-b border-border bg-[#F7F9FD]">
-            <div className="container max-w-[1280px] py-[120px]">
+          <section className="border-b border-border bg-white">
+            <div className="container max-w-[1280px] py-16 sm:py-20">
               <Reveal>
                 <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
                   {t("topic.pathLabel")}
@@ -194,26 +437,26 @@ export function TopicView({ topic }: { topic: Topic }) {
               </Reveal>
               <Reveal delay={0.05}>
                 <h2
-                  className="mt-4 text-[1.9rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2.4rem]"
+                  className="mt-4 text-[1.6rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2rem]"
                   style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
                 >
                   {locale === "ko" ? "하나의 질문이 인식이 되기까지" : "From a single question to a perception"}
                 </h2>
               </Reveal>
 
-              <div className="mt-12 hidden overflow-x-auto lg:block">
+              <div className="mt-10 hidden overflow-x-auto lg:block">
                 <div className="flex min-w-[700px] items-stretch gap-0">
                   {chain.map((step, i) => (
                     <React.Fragment key={i}>
                       <Reveal delay={i * 0.06} className="flex-1">
                         <div
                           className={
-                            "flex h-full flex-col rounded-3xl border px-5 py-5 " +
+                            "flex h-full flex-col rounded-2xl border px-5 py-5 " +
                             (step.accent
                               ? "border-brand bg-brand/5"
                               : i === chain.length - 2
                                 ? "border-navy bg-navy"
-                                : "border-border bg-white")
+                                : "border-border bg-[#F7F9FD]")
                           }
                         >
                           <div
@@ -249,17 +492,17 @@ export function TopicView({ topic }: { topic: Topic }) {
               </div>
 
               {/* mobile: vertical */}
-              <div className="mt-12 space-y-2 lg:hidden">
+              <div className="mt-10 space-y-2 lg:hidden">
                 {chain.map((step, i) => (
                   <Reveal key={`m-${i}`} delay={i * 0.04}>
                     <div
                       className={
-                        "rounded-2xl border px-5 py-4 " +
+                        "rounded-xl border px-5 py-4 " +
                         (step.accent
                           ? "border-brand bg-brand/5"
                           : i === chain.length - 2
                             ? "border-navy bg-navy"
-                            : "border-border bg-white")
+                            : "border-border bg-[#F7F9FD]")
                       }
                     >
                       <div
@@ -288,55 +531,58 @@ export function TopicView({ topic }: { topic: Topic }) {
           </section>
         )}
 
-        {/* ── 주요 개념 ── */}
-        <section className="border-b border-border bg-white">
-          <div className="container max-w-[1280px] py-[120px]">
+        {/* ── 데이터 신뢰성 (50% height reduction) ── */}
+        <section className="border-b border-border bg-[#F7F9FD]">
+          <div className="container max-w-[1280px] py-10 sm:py-14">
             <Reveal>
-              <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
-                {t("topic.keyConcepts")}
+              <div className="rounded-2xl border border-border bg-white p-6 sm:p-8">
+                <div className="flex items-center gap-2.5">
+                  <Database className="h-4 w-4 text-brand" />
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    {locale === "ko" ? "데이터 출처" : "Data source"}
+                  </span>
+                </div>
+                <p
+                  className="mt-3 max-w-[720px] text-[15px] leading-relaxed text-navy"
+                  style={{ wordBreak: "keep-all" } as React.CSSProperties}
+                >
+                  {locale === "ko"
+                    ? `이 주제는 ${questionCount.toLocaleString()}개의 실제 질문을 바탕으로 구성되었습니다.`
+                    : `This topic is built from ${questionCount.toLocaleString()} real questions.`}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-x-10 gap-y-3">
+                  <div>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                      {locale === "ko" ? "질문 출처" : "Source"}
+                    </div>
+                    <div className="mt-0.5 text-[14px] font-semibold text-navy">{PROVENANCE.method}</div>
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                      {locale === "ko" ? "언어" : "Languages"}
+                    </div>
+                    <div className="mt-0.5 text-[14px] font-semibold text-navy">
+                      {PROVENANCE.languages}{locale === "ko" ? "개 언어" : " languages"}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                      {locale === "ko" ? "국가" : "Markets"}
+                    </div>
+                    <div className="mt-0.5 text-[14px] font-semibold text-navy">
+                      {PROVENANCE.markets}{locale === "ko" ? "개 국가" : " markets"}
+                    </div>
+                  </div>
+                </div>
               </div>
             </Reveal>
-            <Reveal delay={0.05}>
-              <h2
-                className="mt-4 text-[1.9rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[2.4rem]"
-                style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
-              >
-                {locale === "ko"
-                  ? "이 주제를 구성하는 개념들"
-                  : "The concepts that form this topic"}
-              </h2>
-            </Reveal>
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              {topic.concepts.map((cid, i) => {
-                const c = getNode(cid);
-                const blurb = CONCEPT_BLURB[cid];
-                return (
-                  <Reveal key={cid} delay={(i % 2) * 0.06} className="h-full">
-                    <div className="flex h-full min-h-[180px] flex-col rounded-3xl border border-border bg-[#F4F8FF] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/70">
-                        {locale === "ko" ? "주요 개념" : "Key concept"}
-                      </div>
-                      <h3 className="mt-2 text-xl font-bold leading-snug text-navy">{c.label[locale]}</h3>
-                      {typeof c.count === "number" && (
-                        <span className="mt-2.5 inline-flex w-fit items-center rounded-full bg-[#EEF4FF] px-3 py-1 text-[12px] font-semibold tabular-nums text-brand">
-                          {c.count.toLocaleString()}{locale === "ko" ? "개 질문" : " questions"}
-                        </span>
-                      )}
-                      <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-secondary">
-                        {blurb?.[locale] ?? c.blurb[locale]}
-                      </p>
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
           </div>
         </section>
 
-        {/* ── 발견 (Insight) ── */}
+        {/* ── Explore CTA ── */}
         {insight && (
-          <section className="border-b border-border bg-[#F7F9FD]">
-            <div className="container max-w-[1280px] py-[120px]">
+          <section className="border-b border-border bg-white">
+            <div className="container max-w-[1280px] py-14 sm:py-16">
               <div className="max-w-[720px]">
                 <Reveal>
                   <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">
@@ -345,7 +591,7 @@ export function TopicView({ topic }: { topic: Topic }) {
                 </Reveal>
                 <Reveal delay={0.05}>
                   <p
-                    className="mt-5 text-[1.7rem] font-semibold leading-[1.45] text-navy sm:text-[2rem]"
+                    className="mt-4 text-[1.5rem] font-semibold leading-[1.45] text-navy sm:text-[1.75rem]"
                     style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
                   >
                     {insight[locale]}
@@ -354,7 +600,7 @@ export function TopicView({ topic }: { topic: Topic }) {
                 <Reveal delay={0.1}>
                   <Link
                     href="/explore"
-                    className="mt-10 inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
+                    className="mt-8 inline-flex h-11 items-center gap-2 rounded-full bg-brand px-5 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hi"
                   >
                     <Network className="h-4 w-4" />
                     {t("topic.explore.cta")}
@@ -365,54 +611,6 @@ export function TopicView({ topic }: { topic: Topic }) {
             </div>
           </section>
         )}
-
-        {/* ── 데이터 신뢰성 ── */}
-        <section className="border-b border-border bg-white">
-          <div className="container max-w-[1280px] py-[120px]">
-            <Reveal>
-              <div className="rounded-3xl border border-border bg-[#F7F9FD] p-8 sm:p-10">
-                <div className="flex items-center gap-2.5">
-                  <Database className="h-4 w-4 text-brand" />
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                    {locale === "ko" ? "데이터 출처" : "Data source"}
-                  </span>
-                </div>
-                <p
-                  className="mt-4 max-w-[720px] text-[17px] leading-relaxed text-navy"
-                  style={{ wordBreak: "keep-all" } as React.CSSProperties}
-                >
-                  {locale === "ko"
-                    ? `이 주제는 ${questionCount.toLocaleString()}개의 실제 질문을 바탕으로 구성되었습니다.`
-                    : `This topic is built from ${questionCount.toLocaleString()} real questions.`}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-x-10 gap-y-4">
-                  <div>
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                      {locale === "ko" ? "질문 출처" : "Source"}
-                    </div>
-                    <div className="mt-1 text-[15px] font-semibold text-navy">{PROVENANCE.method}</div>
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                      {locale === "ko" ? "언어" : "Languages"}
-                    </div>
-                    <div className="mt-1 text-[15px] font-semibold text-navy">
-                      {PROVENANCE.languages}{locale === "ko" ? "개 언어" : " languages"}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                      {locale === "ko" ? "국가" : "Markets"}
-                    </div>
-                    <div className="mt-1 text-[15px] font-semibold text-navy">
-                      {PROVENANCE.markets}{locale === "ko" ? "개 국가" : " markets"}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
