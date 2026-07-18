@@ -4,28 +4,27 @@ import { getDoc } from "@/lib/research";
 import { articleJsonLd, SITE_URL } from "@/lib/research-raw";
 
 export function generateMetadata(): Metadata {
-  const d = getDoc("framework-paper")!;
+  const d = getDoc("understanding-model")!;
   return {
     title: `${d.title.ko} · ${d.title.en} — Ask About Korea`,
     description: d.oneLine.en,
     alternates: {
-      canonical: `${SITE_URL}/research/framework-paper`,
-      types: { "text/html": `${SITE_URL}/research/framework-paper/raw` },
+      canonical: `${SITE_URL}/research/understanding-model`,
+      types: { "text/html": `${SITE_URL}/research/understanding-model/raw` },
     },
     robots: { index: true, follow: true },
   };
 }
 
 export default function Page() {
-  // Server-rendered Article schema — present in the HTML source before any JS.
-  const ld = JSON.stringify(articleJsonLd("framework-paper"));
+  const ld = JSON.stringify(articleJsonLd("understanding-model"));
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: ld }}
       />
-      <ResearchDoc slug="framework-paper" />
+      <ResearchDoc slug="understanding-model" />
     </>
   );
 }

@@ -559,6 +559,50 @@ export function DataReport() {
         </div>
       </DocSection>
 
+      {/* ── section: why it matters ── */}
+      <DocSection tint>
+        <Kicker>
+          {locale === "ko" ? "왜 중요한가" : "Why it matters"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "발견이 남기는 질문"
+            : "Questions the discovery leaves behind"}
+        </H2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-xl border border-border bg-white p-5">
+            <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
+              {locale === "ko" ? "정책적 함의" : "Policy implications"}
+            </div>
+            <p className="text-[15px] leading-relaxed text-secondary">
+              {locale === "ko"
+                ? "질문 데이터는 세계가 한국의 어떤 측면에 관심을 갖고 있는지를 보여준다. 이 관심 지도 없이 설계된 국가 전략은 세계의 궁금증과 어긋날 수밖에 없다."
+                : "Question data reveals which aspects of Korea the world cares about. National strategies designed without this map of interest are bound to miss what the world is actually curious about."}
+            </p>
+          </div>
+          <div className="rounded-xl border border-border bg-white p-5">
+            <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
+              {locale === "ko" ? "사회적 함의" : "Social implications"}
+            </div>
+            <p className="text-[15px] leading-relaxed text-secondary">
+              {locale === "ko"
+                ? "한국인이 중요하게 여기는 한국과 세계가 궁금해하는 한국 사이에는 구조적 차이가 존재한다. 이 차이를 인식하는 것이 상호 이해의 출발점이다."
+                : "There is a structural gap between the Korea Koreans value and the Korea the world is curious about. Recognizing this gap is the starting point of mutual understanding."}
+            </p>
+          </div>
+          <div className="rounded-xl border border-border bg-white p-5">
+            <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
+              {locale === "ko" ? "공공외교 함의" : "Public diplomacy implications"}
+            </div>
+            <p className="text-[15px] leading-relaxed text-secondary">
+              {locale === "ko"
+                ? "공공외교는 무엇을 전달할 것인가에서 시작하지만, 이 데이터는 무엇이 궁금해지고 있는가에서 시작할 것을 제안한다."
+                : "Public diplomacy starts with what to communicate, but this data suggests starting with what people are becoming curious about."}
+            </p>
+          </div>
+        </div>
+      </DocSection>
+
       {/* ── bridge to next rung ── */}
       <DocSection tint>
         <div className="rounded-2xl border border-border bg-white p-6 sm:p-8">
@@ -567,8 +611,8 @@ export function DataReport() {
           </div>
           <p className="mt-2 max-w-2xl text-lg leading-relaxed text-navy">
             {locale === "ko"
-              ? "여기까지가 '세계가 무엇을 질문하는가'입니다. 이 질문들이 공공외교에 무엇을 요구하는지는 공공외교 브리프에서 다룹니다."
-              : "This is 'what the world asks.' What these questions demand of public diplomacy is the work of the Diplomacy Brief."}
+              ? "여기까지가 발견입니다. 이 질문 패턴이 무엇을 의미하는지는 공공외교 브리프에서 다룹니다."
+              : "This is the discovery. What these question patterns mean is covered in the Diplomacy Brief."}
           </p>
           <Link
             href="/research/diplomacy-brief"
