@@ -367,6 +367,50 @@ export function DiplomacyBrief() {
         </div>
       </DocSection>
 
+      {/* ── why it matters ── */}
+      <DocSection tint>
+        <Kicker>
+          {locale === "ko" ? "왜 중요한가" : "Why it matters"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "해석이 남기는 질문"
+            : "Questions the interpretation leaves behind"}
+        </H2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          <div className="rounded-2xl border border-border bg-white p-6">
+            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
+              {locale === "ko" ? "정책적 함의" : "Policy implications"}
+            </div>
+            <p className="mt-3 text-[15.5px] leading-relaxed text-navy">
+              {locale === "ko"
+                ? "세계의 관심은 문화에 집중되지만, 한국은 이를 기술·산업·외교 이해로 연결할 필요가 있다."
+                : "The world's interest concentrates on culture, but Korea needs to connect this to understanding of its technology, industry, and diplomacy."}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-white p-6">
+            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
+              {locale === "ko" ? "사회적 함의" : "Social implications"}
+            </div>
+            <p className="mt-3 text-[15.5px] leading-relaxed text-navy">
+              {locale === "ko"
+                ? "한국인이 익숙한 한국과 세계가 궁금해하는 한국 사이에는 차이가 존재한다."
+                : "There is a gap between the Korea Koreans are familiar with and the Korea the world is curious about."}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-white p-6">
+            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
+              {locale === "ko" ? "공공외교 함의" : "Public diplomacy implications"}
+            </div>
+            <p className="mt-3 text-[15.5px] leading-relaxed text-navy">
+              {locale === "ko"
+                ? "설명 중심 홍보보다 질문에 답하는 방식의 국가 커뮤니케이션이 필요하다."
+                : "National communication that answers questions is more effective than explanation-centered promotion."}
+            </p>
+          </div>
+        </div>
+      </DocSection>
+
       {/* ── bridge to next rung ── */}
       <DocSection>
         <div className="rounded-2xl border border-border bg-white p-6 sm:p-8">
@@ -375,14 +419,14 @@ export function DiplomacyBrief() {
           </div>
           <p className="mt-2 max-w-2xl text-lg leading-relaxed text-navy">
             {locale === "ko"
-              ? "여기까지가 공공외교가 지금 실행해야 할 전략입니다. 이 전략을 뒷받침할 제도적 아키텍처는 프레임워크 페이퍼에서 다룹니다."
-              : "This is the strategy public diplomacy must act on now. The institutional architecture that supports this strategy is the work of the Framework Paper."}
+              ? "여기까지가 해석입니다. 세계가 한국을 이해하는 구조 자체를 모델로 재구성한 것은 한국 이해 모델에서 다룹니다."
+              : "This is the interpretation. How the structure of understanding Korea is reconstructed as a model is covered in the Korea Understanding Model."}
           </p>
           <Link
-            href="/research/framework-paper"
+            href="/research/understanding-model"
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--accent)] transition-opacity hover:opacity-80"
           >
-            {locale === "ko" ? "프레임워크 페이퍼 읽기" : "Read the Framework Paper"}
+            {locale === "ko" ? "한국 이해 모델 읽기" : "Read the Korea Understanding Model"}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -9,12 +9,11 @@ import { Reveal } from "../reveal";
 type L = { ko: string; en: string };
 const D = (ko: string, en: string): L => ({ ko, en });
 
-// One research process, four stages — not four cards.
 const STAGE_SUB: Record<string, L> = {
   "data-report": D("무엇이 보이는가", "What is there"),
   "diplomacy-brief": D("그것은 무엇을 의미하는가", "What it means"),
-  "framework-paper": D("그래서 무엇을 바꿔야 하는가", "What must change"),
-  "question-commons": D("누가 답할 것인가", "Who answers"),
+  "understanding-model": D("어떻게 이해가 만들어지는가", "How understanding forms"),
+  "question-observatory": D("앞으로 무엇이 바뀌는가", "What changes next"),
 };
 
 export function ResearchProcess() {
@@ -41,8 +40,8 @@ export function ResearchProcess() {
             <Reveal delay={0.1}>
               <p className="mt-4 text-[15px] leading-relaxed text-secondary">
                 {locale === "ko"
-                  ? "같은 1,540개의 질문을 네 단계로 읽습니다 — 관찰에서 해석으로, 해석에서 제도로, 그리고 누가 답할 것인가로."
-                  : "The same 1,540 questions, read through four stages — from observation to interpretation, from interpretation to institutions, and finally to who answers."}
+                  ? "같은 1,540개의 질문을 네 단계로 읽습니다 — 발견에서 해석으로, 해석에서 모델로, 그리고 미래의 질문을 관찰하는 것으로."
+                  : "The same 1,540 questions, read through four stages — from discovery to interpretation, from interpretation to model, and on to observing future questions."}
               </p>
             </Reveal>
           </div>
@@ -59,7 +58,6 @@ export function ResearchProcess() {
 
         {/* connected 4-stage process */}
         <div className="relative mt-16">
-          {/* connecting line — thicker, brand color */}
           <div
             className="pointer-events-none absolute left-0 right-0 top-[19px] hidden h-[2px] bg-brand lg:block"
             aria-hidden
@@ -69,14 +67,12 @@ export function ResearchProcess() {
             {docs.map((doc, i) => (
               <Reveal key={doc.slug} delay={i * 0.08}>
                 <Link href={`/research/${doc.slug}`} className="group block h-full">
-                  {/* numbered circle — larger */}
                   <div className="relative flex items-center gap-3 lg:block">
                     <span className="relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand bg-white font-mono text-[14px] font-bold tabular-nums text-brand">
                       {String(doc.rung).padStart(2, "0")}
                     </span>
                   </div>
 
-                  {/* card body — research report style */}
                   <div className="mt-4 flex h-[calc(100%-3.5rem)] flex-col rounded-xl border border-border bg-[#f7f9fc] p-5 transition-all duration-200 group-hover:translate-y-[-2px] group-hover:shadow-md">
                     <div className="text-[12px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
                       {STAGE_SUB[doc.slug]?.[locale]}

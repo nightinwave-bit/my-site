@@ -16,8 +16,8 @@ const CONTENT = rawContent as Record<string, DocContent>;
 export const RAW_SLUGS = [
   "data-report",
   "diplomacy-brief",
-  "framework-paper",
-  "question-commons",
+  "understanding-model",
+  "question-observatory",
 ] as const;
 export type RawSlug = (typeof RAW_SLUGS)[number];
 

@@ -9,14 +9,14 @@ import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { DataReport } from "./research/data-report";
 import { DiplomacyBrief } from "./research/diplomacy-brief";
-import { FrameworkPaper } from "./research/framework-paper";
-import { QuestionCommons } from "./research/question-commons";
+import { UnderstandingModel } from "./research/framework-paper";
+import { QuestionObservatory } from "./research/question-commons";
 
 const CONTENT: Record<ResearchSlug, React.ComponentType> = {
   "data-report": DataReport,
   "diplomacy-brief": DiplomacyBrief,
-  "framework-paper": FrameworkPaper,
-  "question-commons": QuestionCommons,
+  "understanding-model": UnderstandingModel,
+  "question-observatory": QuestionObservatory,
 };
 
 export function ResearchDoc({ slug }: { slug: ResearchSlug }) {
@@ -73,20 +73,20 @@ export function ResearchDoc({ slug }: { slug: ResearchSlug }) {
         {/* the document */}
         <Content />
 
-        {/* ladder pager */}
+        {/* ladder pager — redesigned with large titles */}
         <section className="border-t border-border bg-tint">
           <div className="container grid gap-3 py-12 sm:grid-cols-2">
             {prev ? (
               <Link
                 href={`/research/${prev.slug}`}
-                className="group flex flex-col gap-1 rounded-xl border border-border bg-white p-5 transition-colors hover:border-border-strong"
+                className="group flex flex-col gap-2 rounded-xl border border-border bg-white p-6 transition-colors hover:border-border-strong"
               >
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   <ArrowLeft className="h-3.5 w-3.5" />
                   {t("research.prev")}
                 </span>
-                <span className="text-lg font-semibold text-navy">{prev.title[locale]}</span>
-                <span className="text-sm text-secondary">{prev.question[locale]}</span>
+                <span className="text-xl font-bold leading-snug text-navy">{prev.pagerTitle[locale]}</span>
+                <span className="text-[13px] text-secondary">{prev.title[locale]}</span>
               </Link>
             ) : (
               <span className="hidden sm:block" />
@@ -94,25 +94,25 @@ export function ResearchDoc({ slug }: { slug: ResearchSlug }) {
             {next ? (
               <Link
                 href={`/research/${next.slug}`}
-                className="group flex flex-col items-end gap-1 rounded-xl border border-border bg-white p-5 text-right transition-colors hover:border-border-strong"
+                className="group flex flex-col items-end gap-2 rounded-xl border border-border bg-white p-6 text-right transition-colors hover:border-border-strong"
               >
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   {t("research.next")}
                   <ArrowRight className="h-3.5 w-3.5" />
                 </span>
-                <span className="text-lg font-semibold text-navy">{next.title[locale]}</span>
-                <span className="text-sm text-secondary">{next.question[locale]}</span>
+                <span className="text-xl font-bold leading-snug text-navy">{next.pagerTitle[locale]}</span>
+                <span className="text-[13px] text-secondary">{next.title[locale]}</span>
               </Link>
             ) : (
               <Link
                 href="/research"
-                className="group flex flex-col items-end gap-1 rounded-xl border border-border bg-white p-5 text-right transition-colors hover:border-border-strong"
+                className="group flex flex-col items-end gap-2 rounded-xl border border-border bg-white p-6 text-right transition-colors hover:border-border-strong"
               >
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   {t("research.crumb")}
                   <FileText className="h-3.5 w-3.5" />
                 </span>
-                <span className="text-lg font-semibold text-navy">{t("research.title")}</span>
+                <span className="text-xl font-bold leading-snug text-navy">{t("research.title")}</span>
               </Link>
             )}
           </div>
