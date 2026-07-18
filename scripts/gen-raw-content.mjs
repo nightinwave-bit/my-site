@@ -9,7 +9,7 @@
 //   BASE=http://127.0.0.1:4994 node scripts/gen-raw-content.mjs   # from server
 import { readFileSync, writeFileSync } from "node:fs";
 
-const SLUGS = ["data-report", "diplomacy-brief", "framework-paper", "question-commons"];
+const SLUGS = ["data-report", "diplomacy-brief", "understanding-model", "question-observatory"];
 const BASE = process.env.BASE || "";
 const SAVED = "/tmp/claude-0/-home-user-my-site/b4f07048-5245-525c-b1d1-b49f315b32fc/scratchpad";
 

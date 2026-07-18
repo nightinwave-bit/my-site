@@ -23,8 +23,8 @@ const SECTIONS = [
   ["기술", "/topics/technology"],
   ["데이터 리포트", "/research/data-report"],
   ["공공외교 브리프", "/research/diplomacy-brief"],
-  ["프레임워크 페이퍼", "/research/framework-paper"],
-  ["질문 커먼즈", "/research/question-commons"],
+  ["한국 이해 모델", "/research/understanding-model"],
+  ["질문 관측소", "/research/question-observatory"],
 ];
 
 const decode = (s) =>
