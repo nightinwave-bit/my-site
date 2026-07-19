@@ -203,52 +203,6 @@ const FLOW_STEPS: L[] = [
   D("인식", "Perception"),
 ];
 
-/* ── data: limitations & compensations ── */
-
-interface Finding {
-  title: L;
-  desc: L;
-}
-
-const LIMITATIONS: Finding[] = [
-  {
-    title: D("검색량 미제공", "No search volume"),
-    desc: D(
-      "어떤 질문이 더 자주 발생하는지 알 수 없다",
-      "Cannot determine which questions occur more frequently",
-    ),
-  },
-  {
-    title: D("알고리즘 영향", "Algorithm influence"),
-    desc: D(
-      "플랫폼 변화에 따라 결과가 달라질 수 있다",
-      "Results may vary with platform changes",
-    ),
-  },
-  {
-    title: D("비검색 인구", "Non-searching population"),
-    desc: D(
-      "검색하지 않는 사람들의 궁금증은 포착하지 못한다",
-      "Cannot capture the curiosity of those who do not search",
-    ),
-  },
-];
-
-const COMPENSATIONS: Finding[] = [
-  {
-    title: D("People Also Ask", "People Also Ask"),
-    desc: D("질문 확장 구조를 보완", "Supplements question expansion structure"),
-  },
-  {
-    title: D("Ontology 구조화", "Ontology structuring"),
-    desc: D("질문 간 관계를 체계화", "Systematizes relationships between questions"),
-  },
-  {
-    title: D("Pathway 분석", "Pathway analysis"),
-    desc: D("질문이 연결되는 경로를 추적", "Traces paths through which questions connect"),
-  },
-];
-
 /* ── verdict badge ── */
 
 function VerdictBadge({
@@ -274,38 +228,6 @@ function VerdictBadge({
     >
       {tx(labels[verdict], locale)}
     </span>
-  );
-}
-
-/* ── finding row ── */
-
-function FindingRow({
-  index,
-  title,
-  desc,
-  accent,
-}: {
-  index: number;
-  title: string;
-  desc: string;
-  accent?: boolean;
-}) {
-  return (
-    <div className="grid grid-cols-[40px_1fr] gap-x-4 rounded-xl border border-border bg-white p-5">
-      <span
-        className={`flex h-8 w-8 items-center justify-center rounded-full text-[13px] font-bold ${
-          accent
-            ? "bg-brand/10 text-brand"
-            : "bg-gray-100 text-gray-500"
-        }`}
-      >
-        {String(index + 1).padStart(2, "0")}
-      </span>
-      <div>
-        <h4 className="text-[15px] font-semibold text-navy">{title}</h4>
-        <p className="mt-1 text-[14px] text-secondary">{desc}</p>
-      </div>
-    </div>
   );
 }
 
@@ -565,50 +487,6 @@ export function MethodView() {
                   : "Five layers allow tracking how micro-level curiosity aggregates into macro-level perception"}
               </li>
             </ul>
-          </div>
-        </Section>
-
-        {/* ── 6. limitations & compensation ── */}
-        <Section tint>
-          <Kicker>{locale === "ko" ? "한계" : "Limitations"}</Kicker>
-          <H2>
-            {locale === "ko"
-              ? "Autocomplete만으로 충분하지 않다"
-              : "Autocomplete alone is not enough"}
-          </H2>
-          <Lead>
-            {locale === "ko"
-              ? "핵심 데이터로 선택한 Google Autocomplete에도 명확한 한계가 있다. 이 한계를 인식하고 보완 방법을 설계했다."
-              : "Google Autocomplete, chosen as our core data, has clear limitations. We recognized these limits and designed compensation methods."}
-          </Lead>
-
-          <h3 className="mt-8 text-[13px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
-            {locale === "ko" ? "한계" : "Limitations"}
-          </h3>
-          <div className="mt-3 grid gap-3">
-            {LIMITATIONS.map((item, i) => (
-              <FindingRow
-                key={i}
-                index={i}
-                title={tx(item.title, locale)}
-                desc={tx(item.desc, locale)}
-              />
-            ))}
-          </div>
-
-          <h3 className="mt-8 text-[13px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
-            {locale === "ko" ? "보완" : "Compensation"}
-          </h3>
-          <div className="mt-3 grid gap-3">
-            {COMPENSATIONS.map((item, i) => (
-              <FindingRow
-                key={i}
-                index={i}
-                title={tx(item.title, locale)}
-                desc={tx(item.desc, locale)}
-                accent
-              />
-            ))}
           </div>
         </Section>
 
