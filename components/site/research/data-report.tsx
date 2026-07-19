@@ -2,16 +2,9 @@
 
 import React from "react";
 import { useLanguage } from "@/lib/i18n";
-import { DocSection, Kicker, H2, Lead, Finding, Accented, type L } from "./parts";
+import { DocSection, Kicker, H2, Accented, type L } from "./parts";
 
 const D = (ko: string, en: string): L => ({ ko, en });
-
-/* ─── Stat strip data ─── */
-const STATS: { value: string; label: L }[] = [
-  { value: "1,540", label: D("질문", "Questions") },
-  { value: "7", label: D("언어", "Languages") },
-  { value: "8", label: D("국가", "Countries") },
-];
 
 /* ─── Heatmap data (country x topic) ─── */
 const HEATMAP_TOPICS = ["Hallyu", "Lang", "Tourism", "History", "Diplomacy", "Society", "Economy", "Tech"] as const;
@@ -42,131 +35,6 @@ const HEATMAP_DATA: HeatmapRow[] = [
   { code: "KR", name: D("한국", "Korea"), values: [20, 10, 10, 28, 19, 49, 13, 9] },
 ];
 
-/* ─── Country entry paths ─── */
-interface EntryPath {
-  code: string;
-  name: L;
-  entries: { topic: L; width: number }[];
-}
-
-const ENTRY_PATHS: EntryPath[] = [
-  {
-    code: "JP",
-    name: D("일본", "Japan"),
-    entries: [
-      { topic: D("사회", "Society"), width: 80 },
-      { topic: D("한류", "Hallyu"), width: 65 },
-      { topic: D("역사", "History"), width: 55 },
-    ],
-  },
-  {
-    code: "DE",
-    name: D("독일", "Germany"),
-    entries: [
-      { topic: D("언어", "Language"), width: 95 },
-      { topic: D("외교", "Diplomacy"), width: 45 },
-      { topic: D("사회", "Society"), width: 25 },
-    ],
-  },
-  {
-    code: "ID",
-    name: D("인도네시아", "Indonesia"),
-    entries: [
-      { topic: D("외교", "Diplomacy"), width: 75 },
-      { topic: D("한류", "Hallyu"), width: 70 },
-      { topic: D("역사", "History"), width: 30 },
-    ],
-  },
-  {
-    code: "BR",
-    name: D("브라질", "Brazil"),
-    entries: [
-      { topic: D("외교", "Diplomacy"), width: 85 },
-      { topic: D("한류", "Hallyu"), width: 60 },
-      { topic: D("역사", "History"), width: 30 },
-    ],
-  },
-  {
-    code: "AE",
-    name: D("아랍권", "Arab"),
-    entries: [
-      { topic: D("외교", "Diplomacy"), width: 80 },
-      { topic: D("한류", "Hallyu"), width: 45 },
-      { topic: D("언어", "Language"), width: 20 },
-    ],
-  },
-];
-
-/* ─── Question flow paths ─── */
-interface FlowPath {
-  label: L;
-  steps: L[];
-}
-
-const FLOW_PATHS: FlowPath[] = [
-  {
-    label: D("한류 경로", "Hallyu path"),
-    steps: [
-      D("K-pop", "K-pop"),
-      D("문화", "Culture"),
-      D("사회", "Society"),
-      D("국가", "Nation"),
-    ],
-  },
-  {
-    label: D("음식 경로", "Food path"),
-    steps: [
-      D("김치", "Kimchi"),
-      D("음식", "Food"),
-      D("생활문화", "Lifestyle"),
-      D("한국인", "Korean people"),
-      D("한국", "Korea"),
-    ],
-  },
-  {
-    label: D("분단 경로", "Division path"),
-    steps: [
-      D("북한", "North Korea"),
-      D("분단", "Division"),
-      D("지정학", "Geopolitics"),
-      D("국가 정체성", "National identity"),
-    ],
-  },
-];
-
-/* ─── Common vs Unique questions ─── */
-interface QuestionExample {
-  text: L;
-  countries?: string;
-}
-
-const COMMON_QUESTIONS: QuestionExample[] = [
-  { text: D("왜 한국은 둘로 나뉘었는가?", "Why is Korea divided?"), countries: "7" },
-  { text: D("한국어는 배우기 어려운가?", "Is Korean hard to learn?"), countries: "6" },
-  { text: D("왜 K-pop이 인기 있는가?", "Why is K-pop popular?"), countries: "5" },
-  { text: D("한국인은 왜 김치를 먹는가?", "Why do Koreans eat kimchi?"), countries: "5" },
-  { text: D("한국의 교육 시스템은 왜 힘든가?", "Why is Korean education so intense?"), countries: "4" },
-  { text: D("한국은 안전한가?", "Is Korea safe?"), countries: "4" },
-];
-
-const UNIQUE_QUESTIONS: QuestionExample[] = [
-  { text: D("한국의 높임말은 왜 어려운가?", "Why is Korean honorific speech hard?"), countries: "JP" },
-  { text: D("한국어 발음이 독일어와 비슷한가?", "Is Korean pronunciation similar to German?"), countries: "DE" },
-  { text: D("한국 드라마의 삼각관계는 왜 반복되는가?", "Why do love triangles repeat in K-dramas?"), countries: "ID" },
-  { text: D("한국은 왜 징병제를 유지하는가?", "Why does Korea maintain conscription?"), countries: "BR" },
-  { text: D("한국 스킨케어 루틴은 왜 10단계인가?", "Why is Korean skincare 10 steps?"), countries: "AE" },
-  { text: D("외국인이 한국에서 놀라는 것은?", "What surprises foreigners in Korea?"), countries: "KR" },
-];
-
-/* ─── Network layers ─── */
-const NETWORK_LAYERS: { count: string; label: L }[] = [
-  { count: "1,540", label: D("질문", "Questions") },
-  { count: "18", label: D("개념", "Concepts") },
-  { count: "6", label: D("주제", "Themes") },
-  { count: "5", label: D("서사", "Narratives") },
-  { count: "5", label: D("인식", "Perceptions") },
-];
-
 /* ─── Helper: heatmap cell opacity ─── */
 function cellOpacity(value: number, max: number): number {
   if (value === 0) return 0.04;
@@ -179,108 +47,169 @@ function cellOpacity(value: number, max: number): number {
   return 1;
 }
 
+function Prose({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mt-6 max-w-2xl space-y-4 text-[15px] leading-[1.85] text-secondary sm:text-[16px]" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+      {children}
+    </div>
+  );
+}
+
+function QuestionExamples({ questions, locale }: { questions: L[]; locale: "ko" | "en" }) {
+  return (
+    <div className="mt-5 space-y-1.5">
+      {questions.map((q, i) => (
+        <div key={i} className="rounded-lg border border-border bg-white px-4 py-2.5">
+          <span className="text-[14px] font-medium text-navy">{q[locale]}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function KeyMessage({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mt-6 rounded-xl border border-border bg-white px-5 py-4">
+      <div className="text-[15px] font-semibold leading-relaxed text-navy" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export function DataReport() {
   const { locale } = useLanguage();
 
-  // Find max value in heatmap for normalization
   const heatmapMax = Math.max(...HEATMAP_DATA.flatMap((r) => r.values));
 
   return (
     <>
-      {/* Section 1: Overview stat strip */}
+      {/* ── Finding 1 ── */}
       <DocSection>
-        <div className="grid grid-cols-3 gap-4">
-          {STATS.map((s) => (
-            <div
-              key={s.label.en}
-              className="rounded-xl border border-border bg-white px-4 py-5 text-center"
-            >
-              <div className="text-3xl font-bold tabular-nums text-navy sm:text-4xl">
-                {s.value}
-              </div>
-              <div className="mt-1 text-[13px] text-secondary">
-                {s.label[locale]}
-              </div>
+        <Kicker>{locale === "ko" ? "발견 1" : "Finding 1"}</Kicker>
+        <H2>
+          {locale === "ko"
+            ? "한류는 가장 큰 주제지만 가장 강한 인식은 아니다"
+            : "Hallyu is the biggest topic, but not the strongest perception"}
+        </H2>
+        <Prose>
+          {locale === "ko" ? (
+            <>
+              <p>한류는 전체 질문에서 가장 큰 비중을 차지한다.</p>
+              <p>K-pop. 드라마. 뷰티. 음식. 문화.</p>
+              <p>개별로 보면 가장 많은 질문이 모여 있다.</p>
+              <p>하지만 흥미로운 점은 따로 있다.</p>
+              <p>가장 큰 주제는 한류인데, 가장 큰 단일 개념은 여전히 분단이다.</p>
+              <p>사람들은 K-pop을 묻고, 드라마를 묻고, 김치를 묻는다. 그런데 한국을 설명해야 하는 순간이 오면 북한. 분단. 전쟁. 통일. 로 돌아간다.</p>
+              <p>이 차이는 중요하다. 사람들이 가장 많이 소비하는 한국과 사람들이 가장 먼저 설명하는 한국이 다르기 때문이다.</p>
+              <p>1,540개 질문은 한류가 한국에 대한 관심을 넓혔지만, 한국을 규정하는 가장 강한 인식까지 바꾸지는 못했다는 사실을 보여준다.</p>
+            </>
+          ) : (
+            <>
+              <p>Hallyu commands the largest share of all questions.</p>
+              <p>K-pop. Drama. Beauty. Food. Culture.</p>
+              <p>Individually, they gather the most questions of any cluster.</p>
+              <p>But the interesting point lies elsewhere.</p>
+              <p>The biggest topic is Hallyu, yet the biggest single concept is still Division.</p>
+              <p>People ask about K-pop, ask about dramas, ask about kimchi. But when the moment comes to explain Korea, they return to North Korea. Division. War. Reunification.</p>
+              <p>This gap matters — because the Korea people consume most and the Korea people explain first are not the same.</p>
+              <p>1,540 questions show that Hallyu has broadened interest in Korea, but has not yet displaced the strongest perception that defines it.</p>
+            </>
+          )}
+        </Prose>
+
+        {/* Visualization: Culture vs Division comparison */}
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-xl border border-border bg-white p-5">
+            <div className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
+              {locale === "ko" ? "문화 질문 (한류 전체)" : "Culture questions (all Hallyu)"}
             </div>
-          ))}
+            <div className="mt-2 flex items-baseline gap-2">
+              <span className="text-[2.5rem] font-bold tabular-nums text-navy">332</span>
+              <span className="text-[13px] text-secondary">{locale === "ko" ? "개 질문" : "questions"}</span>
+            </div>
+            <div className="mt-2 text-[12px] text-muted-foreground">
+              K-pop 34 + K-drama 77 + K-beauty 81 + {locale === "ko" ? "음식" : "Food"} 140
+            </div>
+            <div className="mt-3 h-3 overflow-hidden rounded-full bg-border/30">
+              <div className="h-full rounded-full" style={{ width: "100%", backgroundColor: "color-mix(in srgb, var(--accent) 50%, transparent)" }} />
+            </div>
+          </div>
+          <div className="rounded-xl border-2 border-navy/20 bg-white p-5">
+            <div className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
+              {locale === "ko" ? "분단 (단일 개념)" : "Division (single concept)"}
+            </div>
+            <div className="mt-2 flex items-baseline gap-2">
+              <span className="text-[2.5rem] font-bold tabular-nums text-navy">242</span>
+              <span className="text-[13px] text-secondary">{locale === "ko" ? "개 질문" : "questions"}</span>
+            </div>
+            <div className="mt-2 text-[12px] text-muted-foreground">
+              {locale === "ko" ? "하나의 개념으로 가장 큰 규모" : "Largest single concept"}
+            </div>
+            <div className="mt-3 h-3 overflow-hidden rounded-full bg-border/30">
+              <div className="h-full rounded-full bg-navy/70" style={{ width: "73%" }} />
+            </div>
+          </div>
         </div>
+
+        <KeyMessage>
+          {locale === "ko"
+            ? "가장 큰 주제 ≠ 가장 강한 인식"
+            : "Biggest topic ≠ strongest perception"}
+        </KeyMessage>
       </DocSection>
 
-      {/* Finding 1: Culture is the entry point, not the destination */}
-      <DocSection>
-        <Kicker>
-          {locale === "ko" ? "발견 1" : "Finding 1"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "문화는 진입점이다, 목적지가 아니다"
-            : "Culture is the entry point, not the destination"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "1,540개 질문 중 문화 관련 질문이 약 69%를 차지한다. 그러나 문화 질문을 추적하면, 그것은 언어에서 역사로, 사회에서 정치로 확장된다."
-            : "About 69% of 1,540 questions relate to culture. But when you trace cultural questions, they expand from language to history, from society to politics."}
-        </Lead>
-        <div className="mt-8 space-y-4">
-          <Finding
-            n="69%"
-            head={locale === "ko" ? "문화 관련 질문" : "Culture-related questions"}
-            body={locale === "ko"
-              ? "한류, 음식, 언어, 관광, 생활문화를 포함하는 넓은 의미의 문화 질문이 전체의 약 69%를 구성한다."
-              : "Broadly defined cultural questions including Hallyu, food, language, tourism, and lifestyle make up about 69% of the total."}
-          />
-          <Finding
-            n="31%"
-            head={locale === "ko" ? "사회 · 정치 · 경제 질문" : "Society, politics, and economy questions"}
-            body={locale === "ko"
-              ? "분단, 외교, 경제, 사회 구조에 관한 질문은 31%에 불과하지만, 문화 질문의 종착점이기도 하다."
-              : "Questions about division, diplomacy, economy, and social structure make up only 31%, yet they are also where cultural questions ultimately lead."}
-          />
-          <Finding
-            n="-->"
-            head={locale === "ko" ? "확장의 증거" : "Evidence of expansion"}
-            body={locale === "ko"
-              ? "K-pop에서 시작한 질문은 아이돌 군대→징병제→분단으로, 김치에서 시작한 질문은 음식→생활→한국인→한국 사회로 확장된다. 문화는 시작이지 끝이 아니다."
-              : "Questions starting from K-pop expand through idol military service to conscription to division. Questions from kimchi expand through food to lifestyle to Korean people to Korean society. Culture is the beginning, not the end."}
-          />
-        </div>
-      </DocSection>
-
-      {/* Finding 2: The world does not ask about one Korea — with Heatmap */}
+      {/* ── Finding 2 ── */}
       <DocSection tint>
-        <Kicker>
-          {locale === "ko" ? "발견 2" : "Finding 2"}
-        </Kicker>
+        <Kicker>{locale === "ko" ? "발견 2" : "Finding 2"}</Kicker>
         <H2>
           {locale === "ko"
-            ? "같은 한국을 묻지 않는다"
-            : "The world does not ask about one Korea"}
+            ? "세계가 묻는 한국은 생각보다 정치적이다"
+            : "The world’s Korea is more political than expected"}
         </H2>
-        <Lead>
-          {locale === "ko"
-            ? "각 국가는 자신의 맥락에서 서로 다른 한국을 구성한다. 일본은 사회를, 독일은 언어를, 인도네시아는 한류를, 브라질은 분단을 묻는다."
-            : "Each country constructs a different Korea from its own context. Japan asks about society, Germany about language, Indonesia about Hallyu, Brazil about division."}
-        </Lead>
+        <Prose>
+          {locale === "ko" ? (
+            <>
+              <p>한국을 처음 떠올리면 K-pop, 드라마, 뷰티를 예상하기 쉽다.</p>
+              <p>그러나 질문 데이터는 다른 결과를 보여준다.</p>
+              <p>분단. 북한. 전쟁. 통일. 관련 질문은 모든 시장에서 반복적으로 등장한다.</p>
+              <p>특히 브라질, 아랍권, 인도네시아에서 강하게 나타난다.</p>
+              <p>흥미로운 점은 일본이나 독일보다 오히려 한국과 거리가 먼 국가들에서 더 강하다는 점이다.</p>
+              <p>이 국가들은 한국을 일상적으로 경험하지 않는다. 대신 국제 뉴스와 세계 정치 속에서 한국을 먼저 만난다.</p>
+              <p>그래서 한국은 문화 국가 이전에 분단 국가로 인식되는 경우가 많다.</p>
+              <p>1,540개 질문은 한류가 한국에 대한 관심을 만들었다는 사실과 한국이 여전히 지정학적 국가로 읽힌다는 사실이 동시에 존재함을 보여준다.</p>
+            </>
+          ) : (
+            <>
+              <p>When you first think of Korea, you might expect K-pop, drama, beauty.</p>
+              <p>But the question data tells a different story.</p>
+              <p>Division. North Korea. War. Reunification. These questions appear repeatedly across every market.</p>
+              <p>They are especially strong in Brazil, the Arab world, and Indonesia.</p>
+              <p>What makes this interesting is that they are stronger in countries far from Korea than in Japan or Germany.</p>
+              <p>These countries do not experience Korea in daily life. Instead, they first encounter Korea through international news and world politics.</p>
+              <p>So Korea is often perceived as a divided nation before a cultural one.</p>
+              <p>1,540 questions show that two facts coexist: Hallyu has created interest in Korea, and Korea is still read as a geopolitical state.</p>
+            </>
+          )}
+        </Prose>
 
-        {/* Visualization 1: Country x Topic Heatmap */}
+        {/* Heatmap with division column highlighted */}
         <div className="mt-10 overflow-x-auto">
           <div className="min-w-[600px]">
             <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-secondary">
-              {locale === "ko" ? "국가 x 주제 히트맵" : "Country x Topic Heatmap"}
+              {locale === "ko" ? "국가 × 주제 히트맵" : "Country × Topic Heatmap"}
             </div>
-            {/* Header row */}
             <div className="grid gap-px" style={{ gridTemplateColumns: "100px repeat(8, 1fr)" }}>
               <div className="p-2" />
               {HEATMAP_TOPICS.map((t) => (
                 <div
                   key={t}
-                  className="p-2 text-center text-[11px] font-medium text-secondary"
+                  className={`p-2 text-center text-[11px] font-medium ${t === "Diplomacy" ? "font-bold text-navy" : "text-secondary"}`}
                 >
                   {HEATMAP_TOPIC_LABELS[t][locale]}
                 </div>
               ))}
             </div>
-            {/* Data rows */}
             {HEATMAP_DATA.map((row) => (
               <div
                 key={row.code}
@@ -290,376 +219,395 @@ export function DataReport() {
                 <div className="flex items-center p-2 text-[13px] font-medium text-navy">
                   {row.name[locale]}
                 </div>
-                {row.values.map((val, i) => (
-                  <div key={i} className="flex items-center justify-center p-1.5">
-                    <div
-                      className="flex h-9 w-full items-center justify-center rounded text-[11px] font-mono text-white"
-                      style={{
-                        backgroundColor: `color-mix(in srgb, var(--accent) ${Math.round(cellOpacity(val, heatmapMax) * 100)}%, transparent)`,
-                        color: cellOpacity(val, heatmapMax) > 0.5 ? "white" : "var(--color-navy)",
-                      }}
-                    >
-                      {val > 0 ? val : ""}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-6">
-          <Finding
-            n="01"
-            head={locale === "ko" ? "각 나라가 보는 한국은 다르다" : "Each country sees a different Korea"}
-            body={locale === "ko"
-              ? "일본은 한류와 역사를, 독일은 언어를, 인도네시아와 브라질은 외교(분단)를, 영어권은 사회를 가장 많이 질문한다. 하나의 한국은 존재하지 않는다."
-              : "Japan asks most about Hallyu and history, Germany about language, Indonesia and Brazil about diplomacy (division), English speakers about society. There is no single Korea."}
-          />
-        </div>
-      </DocSection>
-
-      {/* Finding 3: Question maturity differs by country — with Entry Path Comparison */}
-      <DocSection>
-        <Kicker>
-          {locale === "ko" ? "발견 3" : "Finding 3"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "질문의 성숙도는 국가마다 다르다"
-            : "Question maturity differs by country"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "'가까운 나라=사회, 먼 나라=문화'라는 단순 공식이 아니다. 각 국가는 자신만의 깊이와 초점으로 질문한다."
-            : "It is not a simple formula of 'close country = society, far country = culture.' Each country asks with its own depth and focus."}
-        </Lead>
-
-        <div className="mt-8 space-y-4">
-          <Finding
-            n="JP"
-            head={locale === "ko" ? "깊고 구체적 (사회 밀착형)" : "Deep and specific (life-oriented)"}
-            body={locale === "ko"
-              ? "\"한국은 왜 매운가\" / \"한국의 예절은 무엇인가\" / \"한국어 높임말은 왜 어려운가\" — 이미 알고 있는 전제 위에서 구체적으로 묻는다."
-              : "\"Why is Korean food spicy?\" / \"What is Korean etiquette?\" / \"Why is Korean honorific speech difficult?\" — asking specifically atop existing knowledge."}
-          />
-          <Finding
-            n="DE"
-            head={locale === "ko" ? "학습 중심 (언어 집중형)" : "Learning-focused (language-centered)"}
-            body={locale === "ko"
-              ? "\"한국어는 왜 어려운가\" / \"한국어 문법\" / \"한국어 발음\" — 한국어를 배우는 과정에서 발생하는 실용적 질문이 지배적이다."
-              : "\"Why is Korean hard?\" / \"Korean grammar\" / \"Korean pronunciation\" — practical questions arising from the process of learning Korean dominate."}
-          />
-          <Finding
-            n="ID"
-            head={locale === "ko" ? "입문형 (소개 질문)" : "Introductory (overview questions)"}
-            body={locale === "ko"
-              ? "\"한국은 무엇으로 유명한가\" / \"왜 K-pop이 인기인가\" — 한국을 처음 알아가는 단계의 넓고 기초적인 질문이다."
-              : "\"What is Korea famous for?\" / \"Why is K-pop popular?\" — broad, foundational questions from the stage of first discovering Korea."}
-          />
-        </div>
-
-        {/* Visualization 2: Country Entry Path Comparison */}
-        <div className="mt-10">
-          <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
-            {locale === "ko" ? "국가별 상위 진입 주제" : "Top entry topics by country"}
-          </div>
-          <div className="space-y-5">
-            {ENTRY_PATHS.map((country) => (
-              <div key={country.code}>
-                <div className="mb-2 text-[13px] font-semibold text-navy">
-                  {country.name[locale]}
-                </div>
-                <div className="space-y-1.5">
-                  {country.entries.map((entry, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-16 shrink-0 text-right text-[12px] text-secondary">
-                        {entry.topic[locale]}
-                      </span>
-                      <div className="relative h-6 flex-1">
-                        <div
-                          className="absolute inset-y-0 left-0 rounded"
-                          style={{
-                            width: `${entry.width}%`,
-                            backgroundColor: `color-mix(in srgb, var(--accent) ${70 - i * 20}%, transparent)`,
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </DocSection>
-
-      {/* Finding 4: Each country has a different entry gate — with Flow Diagram */}
-      <DocSection tint>
-        <Kicker>
-          {locale === "ko" ? "발견 4" : "Finding 4"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "질문은 국가마다 다른 입구를 가진다"
-            : "Each country has a different entry gate"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "같은 한국이지만 들어가는 문이 다르다. 그리고 그 문은 각 나라의 맥락이 결정한다."
-            : "It is the same Korea, but the door of entry differs. And that door is determined by each country's context."}
-        </Lead>
-
-        {/* Entry gate summary */}
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {[
-            { country: D("일본", "Japan"), gate: D("사회", "Society") },
-            { country: D("독일", "Germany"), gate: D("언어", "Language") },
-            { country: D("인도네시아", "Indonesia"), gate: D("한류", "Hallyu") },
-            { country: D("브라질", "Brazil"), gate: D("분단", "Division") },
-          ].map((item) => (
-            <div
-              key={item.country.en}
-              className="rounded-xl border border-border bg-white p-4 text-center"
-            >
-              <div className="text-[13px] text-secondary">{item.country[locale]}</div>
-              <div className="mt-1 text-[17px] font-bold text-navy">{item.gate[locale]}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Visualization 3: Question Flow Diagram */}
-        <div className="mt-10">
-          <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
-            {locale === "ko" ? "질문 흐름도" : "Question flow diagram"}
-          </div>
-          <div className="space-y-6">
-            {FLOW_PATHS.map((path, pathIdx) => (
-              <div key={pathIdx}>
-                <div className="mb-2 text-[12px] font-medium text-secondary">
-                  {path.label[locale]}
-                </div>
-                <div className="flex items-center gap-0 overflow-x-auto">
-                  {path.steps.map((step, stepIdx) => (
-                    <React.Fragment key={stepIdx}>
+                {row.values.map((val, i) => {
+                  const isDiplomacy = i === 4;
+                  return (
+                    <div key={i} className="flex items-center justify-center p-1.5">
                       <div
-                        className="shrink-0 rounded-lg border border-border bg-white px-3 py-2 text-[13px] font-medium text-navy"
+                        className="flex h-9 w-full items-center justify-center rounded text-[11px] font-mono"
                         style={{
-                          borderColor: stepIdx === 0
-                            ? "color-mix(in srgb, var(--accent) 60%, transparent)"
-                            : undefined,
-                          backgroundColor: stepIdx === 0
-                            ? "color-mix(in srgb, var(--accent) 8%, transparent)"
-                            : undefined,
+                          backgroundColor: isDiplomacy
+                            ? `rgba(30, 41, 59, ${Math.max(0.08, cellOpacity(val, heatmapMax))})`
+                            : `color-mix(in srgb, var(--accent) ${Math.round(cellOpacity(val, heatmapMax) * 100)}%, transparent)`,
+                          color: cellOpacity(val, heatmapMax) > 0.5 ? "white" : "var(--color-navy)",
                         }}
                       >
-                        {step[locale]}
+                        {val > 0 ? val : ""}
                       </div>
-                      {stepIdx < path.steps.length - 1 && (
-                        <div
-                          className="shrink-0 h-px w-6"
-                          style={{ backgroundColor: "color-mix(in srgb, var(--accent) 40%, transparent)" }}
-                        />
-                      )}
-                    </React.Fragment>
-                  ))}
-                </div>
+                    </div>
+                  );
+                })}
               </div>
             ))}
           </div>
         </div>
-
-        <div className="mt-8">
-          <Finding
-            n="-->"
-            head={locale === "ko" ? "입구가 다르면 경로가 다르다" : "Different entry, different path"}
-            body={locale === "ko"
-              ? "K-pop으로 진입한 인도네시아는 문화→사회→국가로, 분단으로 진입한 브라질은 지정학→역사→국가 정체성으로 이동한다. 입구가 도착지를 결정한다."
-              : "Indonesia, entering through K-pop, moves from culture to society to nation. Brazil, entering through division, moves from geopolitics to history to national identity. The entry determines the destination."}
-          />
-        </div>
       </DocSection>
 
-      {/* Finding 5: Questions are connected — with Common vs Unique */}
+      {/* ── Finding 3 ── */}
       <DocSection>
-        <Kicker>
-          {locale === "ko" ? "발견 5" : "Finding 5"}
-        </Kicker>
+        <Kicker>{locale === "ko" ? "발견 3" : "Finding 3"}</Kicker>
         <H2>
           {locale === "ko"
-            ? "질문은 연결된다"
-            : "Questions are connected"}
+            ? "일본은 한국 문화를 묻지 않는다. 한국 사회를 묻는다"
+            : "Japan doesn&apos;t ask about Korean culture. It asks about Korean society"}
         </H2>
-        <Lead>
-          {locale === "ko"
-            ? "개별 질문 분석이 아니라 네트워크 분석이다. 어떤 질문은 세계 공통이고, 어떤 질문은 한 국가에서만 나타난다."
-            : "This is not individual question analysis but network analysis. Some questions are universal; others appear only in one country."}
-        </Lead>
+        <Prose>
+          {locale === "ko" ? (
+            <>
+              <p>일본 질문은 한류에 집중되지 않는다.</p>
+              <p>음식. 예절. 언어. 생활문화. 역사. 관광.</p>
+              <p>질문이 여러 영역으로 퍼져 있다.</p>
+              <p>이것은 다른 시장과 비교하면 더욱 분명하다. 독일은 언어에 집중되고, 인도네시아는 한류에 집중되며, 브라질은 분단에 집중된다. 반면 일본은 특정 주제가 두드러지지 않는다.</p>
+              <p>실제 질문을 보면 한국은 왜 매운가. 한국 예절은 무엇인가. 한국어 높임말은 왜 복잡한가. 같은 질문이 반복된다.</p>
+              <p>일본이 궁금해하는 것은 특정 콘텐츠가 아니다. 한국 사회가 어떻게 작동하는가다.</p>
+              <p>질문 범위가 넓다는 것은 이미 어느 정도 알고 있는 대상이라는 뜻이기도 하다.</p>
+              <p>일본은 한국을 새로운 문화로 보기보다 비교 가능한 사회로 이해하려는 경향이 강하게 나타난다.</p>
+            </>
+          ) : (
+            <>
+              <p>Japan&apos;s questions do not concentrate on Hallyu.</p>
+              <p>Food. Etiquette. Language. Daily culture. History. Tourism.</p>
+              <p>Questions spread across many domains.</p>
+              <p>This becomes clearer when compared with other markets. Germany concentrates on language, Indonesia on Hallyu, Brazil on division. Japan has no single dominant topic.</p>
+              <p>Looking at the actual questions: Why is Korean food spicy? What is Korean etiquette? Why is Korean honorific speech so complex? These kinds of questions repeat.</p>
+              <p>What Japan is curious about is not specific content. It&apos;s how Korean society works.</p>
+              <p>A wide question range also means this is a subject they already know to some degree.</p>
+              <p>Japan shows a strong tendency to understand Korea not as a novel culture, but as a comparable society.</p>
+            </>
+          )}
+        </Prose>
 
-        {/* Visualization 4: Common vs Unique Questions */}
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {/* Common questions */}
-          <div>
-            <div className="mb-3 flex items-center gap-2">
-              <div
-                className="h-3 w-3 rounded-full"
-                style={{ backgroundColor: "color-mix(in srgb, var(--accent) 80%, transparent)" }}
-              />
-              <span className="text-[13px] font-semibold text-navy">
-                {locale === "ko" ? "세계 공통 질문" : "Universal questions"}
-              </span>
-              <span className="text-[11px] text-secondary">
-                {locale === "ko" ? "(4개국 이상)" : "(4+ countries)"}
-              </span>
-            </div>
-            <div className="space-y-2">
-              {COMMON_QUESTIONS.map((q, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 rounded-lg border border-border bg-white p-3"
-                >
-                  <span
-                    className="mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold"
-                    style={{
-                      backgroundColor: "color-mix(in srgb, var(--accent) 12%, transparent)",
-                      color: "var(--accent)",
-                    }}
-                  >
-                    {q.countries}
-                  </span>
-                  <span className="text-[13px] leading-snug text-navy">
-                    {q.text[locale]}
-                  </span>
-                </div>
-              ))}
-            </div>
+        <QuestionExamples
+          locale={locale}
+          questions={[
+            D("한국은 왜 매운 음식을 먹는가?", "Why do Koreans eat spicy food?"),
+            D("한국 예절은 무엇인가?", "What is Korean etiquette?"),
+            D("한국어 높임말은 왜 복잡한가?", "Why is Korean honorific speech complex?"),
+            D("한국인은 왜 나이를 묻는가?", "Why do Koreans ask about age?"),
+            D("한국의 교육 시스템은 왜 치열한가?", "Why is Korea's education system so intense?"),
+          ]}
+        />
+
+        {/* Japan topic distribution mini-chart */}
+        <div className="mt-6 rounded-xl border border-border bg-white p-5">
+          <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
+            {locale === "ko" ? "일본 질문 분포" : "Japan question distribution"}
           </div>
-
-          {/* Unique questions */}
-          <div>
-            <div className="mb-3 flex items-center gap-2">
-              <div
-                className="h-3 w-3 rounded-full border-2"
-                style={{ borderColor: "color-mix(in srgb, var(--accent) 60%, transparent)" }}
-              />
-              <span className="text-[13px] font-semibold text-navy">
-                {locale === "ko" ? "국가 고유 질문" : "Country-unique questions"}
-              </span>
-              <span className="text-[11px] text-secondary">
-                {locale === "ko" ? "(1개국만)" : "(1 country only)"}
-              </span>
-            </div>
-            <div className="space-y-2">
-              {UNIQUE_QUESTIONS.map((q, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 rounded-lg border border-border bg-white p-3"
-                >
-                  <span className="mt-0.5 shrink-0 rounded bg-muted px-1.5 py-0.5 text-[10px] font-bold text-secondary">
-                    {q.countries}
-                  </span>
-                  <span className="text-[13px] leading-snug text-navy">
-                    {q.text[locale]}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8">
-          <Finding
-            n="01"
-            head={locale === "ko" ? "공통 질문은 프레임이다" : "Shared questions are frames"}
-            body={locale === "ko"
-              ? "분단, 언어 난이도, K-pop 인기 — 세계 공통 질문은 '사실'이 아니라 '프레임'이다. 한국을 바라보는 기본 렌즈가 된다."
-              : "Division, language difficulty, K-pop popularity — universal questions are not 'facts' but 'frames.' They become the default lens for viewing Korea."}
-          />
-          <div className="mt-4">
-            <Finding
-              n="02"
-              head={locale === "ko" ? "고유 질문은 맥락이다" : "Unique questions are context"}
-              body={locale === "ko"
-                ? "일본만의 높임말 질문, 독일만의 발음 비교, 인도네시아만의 드라마 구조 질문 — 고유 질문은 그 나라의 고유한 관계를 드러낸다."
-                : "Japan's honorific questions, Germany's pronunciation comparisons, Indonesia's drama structure questions — unique questions reveal each country's distinct relationship with Korea."}
-            />
-          </div>
-        </div>
-      </DocSection>
-
-      {/* Visualization 5: Question Network */}
-      <DocSection tint>
-        <Kicker>
-          {locale === "ko" ? "구조" : "Structure"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "1,540개의 질문은 하나의 네트워크다"
-            : "1,540 questions form a single network"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "질문은 개념으로, 개념은 주제로, 주제는 서사로, 서사는 인식으로 수렴한다."
-            : "Questions converge into concepts, concepts into themes, themes into narratives, narratives into perceptions."}
-        </Lead>
-
-        {/* Network flow visualization */}
-        <div className="mt-10 overflow-x-auto">
-          <div className="flex min-w-[500px] items-center justify-between gap-0">
-            {NETWORK_LAYERS.map((layer, idx) => (
-              <React.Fragment key={idx}>
-                <div className="flex flex-col items-center">
+          <div className="space-y-2">
+            {[
+              { topic: D("한류", "Hallyu"), w: 45, max: 45 },
+              { topic: D("역사", "History"), w: 35, max: 45 },
+              { topic: D("관광", "Tourism"), w: 21, max: 45 },
+              { topic: D("사회", "Society"), w: 21, max: 45 },
+              { topic: D("언어", "Language"), w: 12, max: 45 },
+              { topic: D("외교", "Diplomacy"), w: 12, max: 45 },
+              { topic: D("경제", "Economy"), w: 10, max: 45 },
+              { topic: D("기술", "Tech"), w: 10, max: 45 },
+            ].map((d) => (
+              <div key={d.topic.en} className="flex items-center gap-3">
+                <span className="w-14 shrink-0 text-right text-[12px] text-secondary">{d.topic[locale]}</span>
+                <div className="h-5 flex-1 overflow-hidden rounded bg-border/20">
                   <div
-                    className="flex items-center justify-center rounded-full text-[15px] font-bold"
+                    className="h-full rounded"
                     style={{
-                      width: `${64 - idx * 8}px`,
-                      height: `${64 - idx * 8}px`,
-                      backgroundColor: `color-mix(in srgb, var(--accent) ${90 - idx * 15}%, transparent)`,
-                      color: idx < 2 ? "white" : "var(--color-navy)",
+                      width: `${Math.round((d.w / d.max) * 100)}%`,
+                      backgroundColor: "color-mix(in srgb, var(--accent) 55%, transparent)",
                     }}
-                  >
-                    {layer.count}
-                  </div>
-                  <div className="mt-2 text-center text-[12px] font-medium text-secondary">
-                    {layer.label[locale]}
-                  </div>
+                  />
                 </div>
-                {idx < NETWORK_LAYERS.length - 1 && (
-                  <div className="flex flex-1 items-center justify-center px-1">
-                    <div
-                      className="h-px w-full"
-                      style={{ backgroundColor: "color-mix(in srgb, var(--accent) 30%, transparent)" }}
-                    />
-                    <div
-                      className="ml-[-6px] h-0 w-0 shrink-0 border-y-[4px] border-l-[6px] border-y-transparent"
-                      style={{ borderLeftColor: "color-mix(in srgb, var(--accent) 30%, transparent)" }}
-                    />
-                  </div>
-                )}
-              </React.Fragment>
+                <span className="w-8 shrink-0 text-right text-[11px] tabular-nums text-muted-foreground">{d.w}</span>
+              </div>
             ))}
           </div>
-        </div>
-
-        <div className="mt-8">
-          <Finding
-            n="-->"
-            head={locale === "ko" ? "수렴의 구조" : "Structure of convergence"}
-            body={locale === "ko"
-              ? "1,540개의 질문이 18개 개념으로 압축되고, 6개 주제로 묶이며, 5개의 서사를 거쳐 5개의 인식 프레임으로 수렴한다. 이것이 이해 모델의 기초다."
-              : "1,540 questions compress into 18 concepts, group into 6 themes, pass through 5 narratives, and converge into 5 perception frames. This is the foundation of the understanding model."}
-          />
+          <div className="mt-3 text-[11px] text-muted-foreground">
+            {locale === "ko" ? "특정 주제가 지배하지 않는 균등한 분포" : "Evenly spread — no single topic dominates"}
+          </div>
         </div>
       </DocSection>
 
-      {/* Conclusion */}
+      {/* ── Finding 4 ── */}
+      <DocSection tint>
+        <Kicker>{locale === "ko" ? "발견 4" : "Finding 4"}</Kicker>
+        <H2>
+          {locale === "ko"
+            ? "독일은 한국을 배우기 전에 한국어를 이해하려 한다"
+            : "Germany tries to understand Korean before learning about Korea"}
+        </H2>
+        <Prose>
+          {locale === "ko" ? (
+            <>
+              <p>독일은 언어 난이도가 가장 큰 개념인 유일한 시장이다.</p>
+              <p>중요한 것은 숫자가 아니다. 질문의 내용이다.</p>
+              <p>한국어는 왜 어려운가. 한글은 왜 만들어졌는가. 한국어 문법은 어떻게 다른가.</p>
+              <p>질문은 단순한 학습 방법보다 언어 자체를 이해하려는 방향으로 이어진다.</p>
+              <p>다른 국가들이 한국은 무엇으로 유명한가, 왜 K-pop이 인기 있는가를 묻는 동안, 독일은 한국어가 어떤 언어인지를 묻는다.</p>
+              <p>즉 한국을 설명받기보다 한국을 이해하는 방법부터 찾는다.</p>
+              <p>1,540개 질문은 독일이 한국을 문화보다 구조를 통해 접근하는 경향을 보여준다.</p>
+            </>
+          ) : (
+            <>
+              <p>Germany is the only market where language difficulty is the largest concept.</p>
+              <p>What matters is not the number. It&apos;s the content of the questions.</p>
+              <p>Why is Korean hard? Why was Hangul created? How is Korean grammar different?</p>
+              <p>Questions lead toward understanding the language itself, not just learning methods.</p>
+              <p>While other countries ask what Korea is famous for or why K-pop is popular, Germany asks what kind of language Korean is.</p>
+              <p>In other words, it seeks the method of understanding Korea before being told about Korea.</p>
+              <p>1,540 questions show that Germany tends to approach Korea through structure rather than culture.</p>
+            </>
+          )}
+        </Prose>
+
+        <QuestionExamples
+          locale={locale}
+          questions={[
+            D("한국어는 왜 어려운가?", "Why is Korean hard?"),
+            D("한글은 왜 만들어졌는가?", "Why was Hangul created?"),
+            D("한국어 문법은 어떻게 다른가?", "How is Korean grammar different?"),
+            D("한국어 발음이 독일어와 비슷한가?", "Is Korean pronunciation similar to German?"),
+            D("한국어를 배우는 가장 좋은 방법은?", "What is the best way to learn Korean?"),
+          ]}
+        />
+
+        {/* Germany: language dominance comparison */}
+        <div className="mt-6 rounded-xl border border-border bg-white p-5">
+          <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
+            {locale === "ko" ? "독일 상위 3개 개념" : "Germany’s top 3 concepts"}
+          </div>
+          <div className="space-y-3">
+            {[
+              { label: D("언어", "Language"), val: 71, accent: true },
+              { label: D("외교", "Diplomacy"), val: 34, accent: false },
+              { label: D("사회", "Society"), val: 17, accent: false },
+            ].map((d) => (
+              <div key={d.label.en} className="flex items-center gap-3">
+                <span className="w-14 shrink-0 text-right text-[13px] font-medium text-navy">{d.label[locale]}</span>
+                <div className="h-6 flex-1 overflow-hidden rounded bg-border/20">
+                  <div
+                    className="h-full rounded"
+                    style={{
+                      width: `${Math.round((d.val / 71) * 100)}%`,
+                      backgroundColor: d.accent
+                        ? "color-mix(in srgb, var(--accent) 75%, transparent)"
+                        : "color-mix(in srgb, var(--accent) 35%, transparent)",
+                    }}
+                  />
+                </div>
+                <span className="w-8 shrink-0 text-right text-[12px] tabular-nums font-medium text-navy">{d.val}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 text-[11px] text-muted-foreground">
+            {locale === "ko" ? "언어가 2위의 두 배 이상 — 다른 어떤 시장에도 없는 패턴" : "Language is more than double the second — a pattern unique to Germany"}
+          </div>
+        </div>
+      </DocSection>
+
+      {/* ── Finding 5 ── */}
+      <DocSection>
+        <Kicker>{locale === "ko" ? "발견 5" : "Finding 5"}</Kicker>
+        <H2>
+          {locale === "ko"
+            ? "인도네시아는 한국 자체를 이해하려 한다"
+            : "Indonesia wants to understand Korea itself"}
+        </H2>
+        <Prose>
+          {locale === "ko" ? (
+            <>
+              <p>인도네시아는 한류 질문 비중이 높다.</p>
+              <p>하지만 질문을 자세히 보면 팬덤 질문보다 입문 질문이 많다.</p>
+              <p>한국은 무엇으로 유명한가. 왜 K-pop이 인기 있는가. 한국 문화는 어떤 특징이 있는가.</p>
+              <p>질문은 특정 가수나 특정 작품보다 한국이라는 나라 자체로 향한다.</p>
+              <p>일본이 한국 사회를 묻고, 독일이 한국어를 묻는다면, 인도네시아는 한국 그 자체를 묻는다.</p>
+              <p>1,540개 질문은 한류가 끝이 아니라 한국을 이해하기 위한 출발점으로 작동하고 있음을 보여준다.</p>
+            </>
+          ) : (
+            <>
+              <p>Indonesia has a high share of Hallyu questions.</p>
+              <p>But look closer and introductory questions outnumber fandom questions.</p>
+              <p>What is Korea famous for? Why is K-pop popular? What are the characteristics of Korean culture?</p>
+              <p>Questions point not toward specific artists or specific works, but toward Korea as a country.</p>
+              <p>If Japan asks about Korean society and Germany asks about Korean language, Indonesia asks about Korea itself.</p>
+              <p>1,540 questions show that Hallyu is not the end — it is functioning as a starting point for understanding Korea.</p>
+            </>
+          )}
+        </Prose>
+
+        <QuestionExamples
+          locale={locale}
+          questions={[
+            D("한국은 무엇으로 유명한가?", "What is Korea known for?"),
+            D("왜 K-pop이 인기 있는가?", "Why is K-pop popular?"),
+            D("한국 문화는 어떤 특징이 있는가?", "What are the characteristics of Korean culture?"),
+            D("한국은 어떤 나라인가?", "What kind of country is Korea?"),
+          ]}
+        />
+      </DocSection>
+
+      {/* ── Finding 6 ── */}
+      <DocSection tint>
+        <Kicker>{locale === "ko" ? "발견 6" : "Finding 6"}</Kicker>
+        <H2>
+          {locale === "ko"
+            ? "브라질은 K-pop과 북한을 동시에 본다"
+            : "Brazil sees K-pop and North Korea at the same time"}
+        </H2>
+        <Prose>
+          {locale === "ko" ? (
+            <>
+              <p>브라질 질문에는 두 개의 흐름이 존재한다.</p>
+              <p>하나는 한류다. K-pop. 드라마. 음식.</p>
+              <p>다른 하나는 분단이다. 북한. 전쟁. 통일.</p>
+              <p>대부분 시장은 하나의 흐름에 집중된다. 그러나 브라질은 두 흐름이 동시에 강하게 나타난다.</p>
+              <p>한국을 묻다가 북한으로 이동하고, 드라마를 묻다가 분단으로 이동한다.</p>
+              <p>브라질에서 한국은 문화 국가이면서 동시에 지정학적 국가다.</p>
+              <p>1,540개 질문은 국가 이미지가 하나의 이야기로 만들어지지 않는다는 사실을 보여준다.</p>
+            </>
+          ) : (
+            <>
+              <p>In Brazil&apos;s questions, two currents exist.</p>
+              <p>One is Hallyu. K-pop. Drama. Food.</p>
+              <p>The other is Division. North Korea. War. Reunification.</p>
+              <p>Most markets concentrate on one current. But in Brazil, both currents appear strongly at the same time.</p>
+              <p>Questions about Korea shift to North Korea; questions about drama shift to division.</p>
+              <p>In Brazil, Korea is simultaneously a cultural nation and a geopolitical one.</p>
+              <p>1,540 questions show that a country&apos;s image is not built from a single story.</p>
+            </>
+          )}
+        </Prose>
+
+        {/* Brazil dual-flow visualization */}
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-xl border border-border bg-white p-5">
+            <div className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: "var(--accent)" }}>
+              {locale === "ko" ? "흐름 1: 한류" : "Current 1: Hallyu"}
+            </div>
+            <div className="mt-2 flex items-baseline gap-1">
+              <span className="text-[2rem] font-bold tabular-nums text-navy">46</span>
+              <span className="text-[12px] text-secondary">{locale === "ko" ? "개 질문" : "questions"}</span>
+            </div>
+            <div className="mt-1 text-[12px] text-muted-foreground">K-pop · {locale === "ko" ? "드라마" : "Drama"} · {locale === "ko" ? "뷰티" : "Beauty"} · {locale === "ko" ? "음식" : "Food"}</div>
+          </div>
+          <div className="rounded-xl border-2 border-navy/20 bg-white p-5">
+            <div className="text-[11px] font-semibold uppercase tracking-wider text-navy">
+              {locale === "ko" ? "흐름 2: 분단" : "Current 2: Division"}
+            </div>
+            <div className="mt-2 flex items-baseline gap-1">
+              <span className="text-[2rem] font-bold tabular-nums text-navy">62</span>
+              <span className="text-[12px] text-secondary">{locale === "ko" ? "개 질문" : "questions"}</span>
+            </div>
+            <div className="mt-1 text-[12px] text-muted-foreground">{locale === "ko" ? "북한 · 전쟁 · 통일 · 분단" : "North Korea · War · Reunification · Division"}</div>
+          </div>
+        </div>
+      </DocSection>
+
+      {/* ── Finding 7 ── */}
+      <DocSection>
+        <Kicker>{locale === "ko" ? "발견 7" : "Finding 7"}</Kicker>
+        <H2>
+          {locale === "ko"
+            ? "한국인은 한국보다 한국의 이미지를 검색한다"
+            : "Koreans search for Korea&apos;s image more than Korea itself"}
+        </H2>
+        <Prose>
+          {locale === "ko" ? (
+            <>
+              <p>한국 시장에서 가장 많이 등장한 질문은 국민성과 이미지다.</p>
+              <p>외국인은 한국인을 어떻게 보는가. 한국인의 특징은 무엇인가. 한국은 어떤 이미지인가.</p>
+              <p>이 질문들은 다른 시장에서는 거의 나타나지 않는다.</p>
+              <p>흥미로운 점은 한국인은 한국을 설명하기보다 한국이 어떻게 보이는지를 궁금해한다는 점이다.</p>
+              <p>다른 나라가 한국을 이해하려 한다면, 한국은 자신이 어떻게 이해되고 있는지를 확인하려 한다.</p>
+              <p>1,540개 질문은 한국 시장이 가장 자의식적인 시장임을 보여준다.</p>
+            </>
+          ) : (
+            <>
+              <p>The most frequent questions from the Korean market are about national character and image.</p>
+              <p>How do foreigners see Koreans? What are Korean characteristics? What image does Korea have?</p>
+              <p>These questions barely appear in other markets.</p>
+              <p>What is interesting is that Koreans are curious not about explaining Korea, but about how Korea is perceived.</p>
+              <p>While other countries try to understand Korea, Korea tries to verify how it is being understood.</p>
+              <p>1,540 questions show that the Korean market is the most self-conscious market of all.</p>
+            </>
+          )}
+        </Prose>
+
+        {/* Korea self-image vs others */}
+        <div className="mt-6 rounded-xl border border-border bg-white p-5">
+          <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
+            {locale === "ko" ? "한국 시장 상위 개념" : "Korean market top concepts"}
+          </div>
+          <div className="space-y-2">
+            {[
+              { label: D("사회·종교·일상", "Society & Daily Life"), val: 49 },
+              { label: D("한국인과 국민성", "People & Character"), val: 34 },
+              { label: D("문화·전통·유산", "Culture & Heritage"), val: 28 },
+              { label: D("한국 음식", "Korean Cuisine"), val: 22 },
+              { label: D("한류", "Hallyu"), val: 20 },
+              { label: D("분단", "Division"), val: 19 },
+            ].map((d) => (
+              <div key={d.label.en} className="flex items-center gap-3">
+                <span className="w-28 shrink-0 text-right text-[12px] text-secondary sm:w-36">{d.label[locale]}</span>
+                <div className="h-5 flex-1 overflow-hidden rounded bg-border/20">
+                  <div
+                    className="h-full rounded"
+                    style={{
+                      width: `${Math.round((d.val / 49) * 100)}%`,
+                      backgroundColor: d.label.en === "People & Character"
+                        ? "var(--color-navy, #1e293b)"
+                        : "color-mix(in srgb, var(--accent) 50%, transparent)",
+                    }}
+                  />
+                </div>
+                <span className="w-8 shrink-0 text-right text-[11px] tabular-nums text-muted-foreground">{d.val}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 text-[11px] text-muted-foreground">
+            {locale === "ko"
+              ? "\"한국인과 국민성\" — 다른 시장에서는 이 개념이 1위가 되는 경우가 없다"
+              : "\"People & Character\" — no other market has this concept at #1"}
+          </div>
+        </div>
+      </DocSection>
+
+      {/* ── Finding 8 ── */}
+      <DocSection tint>
+        <Kicker>{locale === "ko" ? "발견 8" : "Finding 8"}</Kicker>
+        <H2>
+          {locale === "ko"
+            ? "질문은 한국을 설명하는 데이터가 아니다"
+            : "Questions are not data that explains Korea"}
+        </H2>
+        <Prose>
+          {locale === "ko" ? (
+            <>
+              <p>처음에는 한국을 분석하려 했다.</p>
+              <p>하지만 질문을 읽을수록 다른 사실이 보인다.</p>
+              <p>일본 질문에는 일본이 보인다. 독일 질문에는 독일이 보인다. 브라질 질문에는 브라질이 보인다. 인도네시아 질문에는 인도네시아가 보인다.</p>
+              <p>사람들은 한국에 대해 질문한다. 하지만 실제로는 자신이 중요하게 생각하는 문제를 통해 한국을 이해한다.</p>
+              <p>어떤 국가는 언어를 통해 접근하고, 어떤 국가는 사회를 통해 접근하며, 어떤 국가는 한류를 통해 접근한다.</p>
+              <p>1,540개의 질문은 한국에 대한 데이터이면서 동시에 세상이 무엇을 중요하게 생각하는지 보여주는 데이터다.</p>
+            </>
+          ) : (
+            <>
+              <p>At first, we tried to analyze Korea.</p>
+              <p>But the more we read the questions, the more a different fact emerged.</p>
+              <p>In Japan&apos;s questions, you see Japan. In Germany&apos;s questions, you see Germany. In Brazil&apos;s questions, you see Brazil. In Indonesia&apos;s questions, you see Indonesia.</p>
+              <p>People ask questions about Korea. But in reality, they understand Korea through whatever they consider important.</p>
+              <p>Some countries approach through language, some through society, some through Hallyu.</p>
+              <p>1,540 questions are data about Korea and, at the same time, data about what the world considers important.</p>
+            </>
+          )}
+        </Prose>
+      </DocSection>
+
+      {/* ── Conclusion ── */}
       <DocSection>
         <div className="py-4 sm:py-8">
           <Accented label={locale === "ko" ? "결론" : "Conclusion"}>
-            <p className="text-[19px] font-bold leading-[1.7] sm:text-[22px]">
+            <p className="text-[19px] font-bold leading-[1.7] sm:text-[22px]" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
               {locale === "ko"
-                ? "세계는 한국을 문화로 시작하지만, 거기서 멈추지 않는다. 각 국가는 자신의 맥락에서, 자신의 깊이로, 자신만의 한국을 구성한다. 1,540개의 질문은 하나의 답이 아니라 하나의 네트워크를 형성한다."
-                : "The world begins with Korea through culture, but does not stop there. Each country constructs its own Korea, from its own context, at its own depth. 1,540 questions form not a single answer, but a single network."}
+                ? "우리는 한국을 분석한 것이 아니다. 세상이 한국을 이해하는 방식을 관찰했다."
+                : "We did not analyze Korea. We observed how the world understands Korea."}
             </p>
           </Accented>
         </div>
