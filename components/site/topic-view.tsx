@@ -77,15 +77,133 @@ const TOPIC_INTRO: Record<TopicSlug, { ko: string; en: string }> = {
   },
 };
 
-const TOPIC_PATHS: Record<TopicSlug, string[]> = {
-  hallyu: ["Why is K-pop popular?", "K-pop", "Korean drama", "Korean food", "Korean language", "Korean society", "Korea"],
-  language: ["Is Korean hard?", "Korean alphabet", "Korean grammar", "Korean culture", "Korea"],
-  tourism: ["Is Korea safe?", "Seoul", "Korean food", "Korean people", "Living in Korea"],
-  history: ["What is hanbok?", "Korean traditions", "Korean dynasties", "Korean identity"],
-  diplomacy: ["Why is Korea divided?", "Korean War", "North Korea", "Security", "Geopolitics"],
-  society: ["Why do Koreans care about age?", "Korean etiquette", "Korean norms", "Korean values"],
-  economy: ["How big is Samsung?", "Korean brands", "Korean industry", "Korean development"],
-  technology: ["Why is Korean internet fast?", "Samsung", "Semiconductors", "Tech nation"],
+type L = { ko: string; en: string };
+type ExpansionData = {
+  title: L; intro: L; entry: L;
+  steps: { label: L; note: L; desc: L }[];
+};
+
+const TOPIC_EXPANSION: Record<TopicSlug, ExpansionData> = {
+  hallyu: {
+    title: { ko: "한류가 연결하는 한국", en: "Korea through Hallyu" },
+    intro: {
+      ko: "한류 질문은 하나의 콘텐츠에서 끝나지 않는다.\n\n사람들은 K-pop과 드라마를 계기로 한국을 만나지만, 관심은 음식과 생활문화로 확장되고, 언어와 사회에 대한 이해로 이어진다.\n\n아래 구조는 332개의 한류 질문을 분석해 정리한 대표적인 관심 확장 구조다.",
+      en: "Hallyu questions don’t end with a single piece of content.\n\nPeople first encounter Korea through K-pop and dramas, but their interest expands into food and daily culture, then deepens into language and society.\n\nThe structure below maps the representative expansion of interest, organized from 332 Hallyu questions.",
+    },
+    entry: { ko: "Why is K-pop popular?", en: "Why is K-pop popular?" },
+    steps: [
+      { label: { ko: "K-pop · 아이돌", en: "K-pop · Idols" }, note: { ko: "첫 관심", en: "First interest" }, desc: { ko: "세계가 한국을 처음 만나는 가장 강력한 진입점. 아티스트, 음악, 팬덤, 공연 관련 질문이 집중된다.", en: "The world’s most powerful entry point to Korea. Questions concentrate on artists, music, fandoms, and performances." } },
+      { label: { ko: "드라마 · 영상 콘텐츠", en: "Drama · Visual content" }, note: { ko: "문화 이해", en: "Cultural understanding" }, desc: { ko: "관심은 음악을 넘어 이야기와 캐릭터로 확장된다. 드라마, 영화, 예능 관련 질문이 등장한다.", en: "Interest expands beyond music into stories and characters. Questions about dramas, films, and variety shows emerge." } },
+      { label: { ko: "음식 · 생활문화", en: "Food · Daily culture" }, note: { ko: "일상 관심", en: "Daily life" }, desc: { ko: "콘텐츠 속에서 본 음식과 일상이 궁금해진다. 김치, 한식, 식사 문화, 생활 습관 질문이 증가한다.", en: "Curiosity grows about the food and daily life seen in content. Questions about kimchi, Korean cuisine, dining culture, and lifestyle habits increase." } },
+      { label: { ko: "한국어", en: "Korean language" }, note: { ko: "직접 이해", en: "Direct understanding" }, desc: { ko: "콘텐츠를 더 깊게 이해하기 위해 언어 자체에 대한 관심이 시작된다.", en: "Interest in the language itself begins, driven by the desire to understand content more deeply." } },
+      { label: { ko: "한국 사회", en: "Korean society" }, note: { ko: "사회 이해", en: "Social understanding" }, desc: { ko: "관심은 결국 사람과 사회로 이동한다. 교육, 예절, 관계 문화, 한국인의 생활 방식에 대한 질문으로 확장된다.", en: "Interest ultimately moves to people and society. Questions expand into education, etiquette, relationship culture, and Korean lifestyles." } },
+    ],
+  },
+  language: {
+    title: { ko: "언어가 연결하는 한국", en: "Korea through Language" },
+    intro: {
+      ko: "한국어에 대한 관심은 문자와 발음에서 시작되지만 거기서 끝나지 않는다.\n\n문법과 표현을 익히면서 한국의 역사와 정체성에 닿고, 결국 한국 사회 자체를 이해하는 방향으로 확장된다.",
+      en: "Interest in Korean starts with its alphabet and pronunciation, but doesn’t end there.\n\nAs learners explore grammar and expressions, they touch on Korea’s history and identity, ultimately expanding toward understanding Korean society itself.",
+    },
+    entry: { ko: "Is Korean hard?", en: "Is Korean hard?" },
+    steps: [
+      { label: { ko: "발음 · 문자", en: "Pronunciation · Script" }, note: { ko: "첫 관심", en: "First interest" }, desc: { ko: "한글의 구조와 발음 체계가 첫 번째 관심사다. 배우기 쉬운가, 어떻게 읽는가에서 시작된다.", en: "Hangul’s structure and phonetic system are the first objects of curiosity. It starts with: is it easy to learn, how do you read it?" } },
+      { label: { ko: "문법 · 표현", en: "Grammar · Expressions" }, note: { ko: "체계 이해", en: "Systematic understanding" }, desc: { ko: "문자를 넘어 문장 구조와 표현 방식으로 관심이 이동한다. 존댓말, 어순, 조사 등이 핵심 질문이다.", en: "Interest moves beyond script into sentence structure and expression. Honorifics, word order, and particles become key questions." } },
+      { label: { ko: "역사", en: "History" }, note: { ko: "배경 이해", en: "Background" }, desc: { ko: "한글이 왜 만들어졌는가, 한국어는 어디서 왔는가. 언어의 기원이 역사적 맥락으로 확장된다.", en: "Why was Hangul created? Where does Korean come from? The origin of the language expands into historical context." } },
+      { label: { ko: "정체성", en: "Identity" }, note: { ko: "깊은 이해", en: "Deeper understanding" }, desc: { ko: "언어가 한국인의 사고방식과 문화적 정체성에 어떤 영향을 미치는지 질문이 깊어진다.", en: "Questions deepen into how the language shapes Korean ways of thinking and cultural identity." } },
+      { label: { ko: "한국 사회", en: "Korean society" }, note: { ko: "사회 이해", en: "Social understanding" }, desc: { ko: "언어를 통해 한국의 관계 문화, 위계, 소통 방식을 이해하게 된다.", en: "Through language, one comes to understand Korea’s relationship culture, hierarchy, and communication norms." } },
+    ],
+  },
+  tourism: {
+    title: { ko: "관광이 연결하는 한국", en: "Korea through Tourism" },
+    intro: {
+      ko: "한국 여행에 대한 질문은 관광지에서 시작되지만, 도시와 안전, 생활환경으로 확장된다.\n\n디지털에서 시작된 관심이 실제 공간으로 이동하는 과정이다.",
+      en: "Questions about visiting Korea start with destinations, but expand into cities, safety, and living conditions.\n\nIt’s the process of digital interest moving into physical space.",
+    },
+    entry: { ko: "Is Korea safe?", en: "Is Korea safe?" },
+    steps: [
+      { label: { ko: "여행지", en: "Destinations" }, note: { ko: "첫 관심", en: "First interest" }, desc: { ko: "어디를 가야 하는가, 무엇을 봐야 하는가. 관광의 출발점은 구체적인 장소다.", en: "Where to go, what to see. Tourism starts with specific places." } },
+      { label: { ko: "도시", en: "Cities" }, note: { ko: "공간 이해", en: "Spatial understanding" }, desc: { ko: "서울을 넘어 부산, 제주 등 도시 단위의 관심으로 확장된다.", en: "Interest expands beyond Seoul into city-level curiosity about Busan, Jeju, and more." } },
+      { label: { ko: "안전", en: "Safety" }, note: { ko: "생활 관심", en: "Practical concern" }, desc: { ko: "실제로 방문하기 전에 안전과 치안에 대한 질문이 나타난다.", en: "Questions about safety and security appear before an actual visit." } },
+      { label: { ko: "생활환경", en: "Living environment" }, note: { ko: "일상 이해", en: "Daily life" }, desc: { ko: "여행을 넘어 한국에서의 생활 자체에 대한 관심으로 이동한다.", en: "Interest moves beyond tourism into what it’s like to actually live in Korea." } },
+      { label: { ko: "한국 사회", en: "Korean society" }, note: { ko: "사회 이해", en: "Social understanding" }, desc: { ko: "공간에서 시작된 관심이 결국 한국 사람과 사회에 대한 이해로 이어진다.", en: "Curiosity that started with space ultimately leads to understanding Korean people and society." } },
+    ],
+  },
+  history: {
+    title: { ko: "역사가 연결하는 한국", en: "Korea through History" },
+    intro: {
+      ko: "역사에 대한 질문은 특정 사건에서 시작되지만, 인물과 기억을 거쳐 한국의 정체성과 현재로 이어진다.\n\n역사는 과거가 아니라 한국을 이해하는 또 하나의 경로다.",
+      en: "Questions about history start with specific events, but lead through figures and memory to Korea’s identity and present.\n\nHistory is not the past — it’s another pathway to understanding Korea.",
+    },
+    entry: { ko: "What is hanbok?", en: "What is hanbok?" },
+    steps: [
+      { label: { ko: "사건", en: "Events" }, note: { ko: "첫 관심", en: "First interest" }, desc: { ko: "한국전쟁, 일제강점기, 민주화 운동 등 구체적 사건이 첫 번째 질문이다.", en: "The Korean War, Japanese occupation, democratization — specific events are the first questions." } },
+      { label: { ko: "인물", en: "Figures" }, note: { ko: "인물 이해", en: "People" }, desc: { ko: "사건 속 인물로 관심이 이동한다. 역사적 지도자, 문화적 인물에 대한 질문이 나타난다.", en: "Interest moves to figures within events. Questions emerge about historical leaders and cultural figures." } },
+      { label: { ko: "기억", en: "Memory" }, note: { ko: "시간 이해", en: "Temporal understanding" }, desc: { ko: "과거의 사건이 현재 한국인에게 어떤 의미인지 질문이 깊어진다.", en: "Questions deepen into what past events mean to present-day Koreans." } },
+      { label: { ko: "정체성", en: "Identity" }, note: { ko: "깊은 이해", en: "Deeper understanding" }, desc: { ko: "역사적 경험이 한국의 국가 정체성과 자기 인식에 어떻게 작용하는지 묻는다.", en: "Questions ask how historical experience shapes Korea’s national identity and self-perception." } },
+      { label: { ko: "현대 한국", en: "Modern Korea" }, note: { ko: "현재 이해", en: "Present understanding" }, desc: { ko: "역사는 결국 오늘의 한국을 이해하는 배경이 된다.", en: "History ultimately becomes the backdrop for understanding today’s Korea." } },
+    ],
+  },
+  diplomacy: {
+    title: { ko: "외교가 연결하는 한국", en: "Korea through Diplomacy" },
+    intro: {
+      ko: "외교 질문은 국제관계에서 시작되지만, 분단과 안보를 거쳐 한국의 국가 이미지와 역할로 이어진다.\n\n소프트파워 너머에 있는 한국의 또 다른 인식 구조다.",
+      en: "Diplomatic questions start with international relations, but lead through division and security to Korea’s national image and role.\n\nIt’s the perception structure that lies beyond soft power.",
+    },
+    entry: { ko: "Why is Korea divided?", en: "Why is Korea divided?" },
+    steps: [
+      { label: { ko: "국제관계", en: "International relations" }, note: { ko: "첫 관심", en: "First interest" }, desc: { ko: "한국과 주변국의 관계, 동맹 구조가 첫 번째 질문이다.", en: "Relations between Korea and its neighbors, alliance structures — these are the first questions." } },
+      { label: { ko: "분단", en: "Division" }, note: { ko: "구조 이해", en: "Structural understanding" }, desc: { ko: "왜 나뉘었는가, 통일은 가능한가. 분단 자체가 핵심 질문이 된다.", en: "Why was it divided? Is reunification possible? Division itself becomes the central question." } },
+      { label: { ko: "안보", en: "Security" }, note: { ko: "안보 이해", en: "Security understanding" }, desc: { ko: "북한의 핵, 군사적 긴장, 징병제 등 안보 관련 질문으로 확장된다.", en: "Questions expand into North Korean nuclear issues, military tensions, and conscription." } },
+      { label: { ko: "국가 이미지", en: "National image" }, note: { ko: "인식 이해", en: "Perception" }, desc: { ko: "한국은 분단 국가인가, 문화 강국인가. 국가 이미지에 대한 질문이 등장한다.", en: "Is Korea a divided nation or a cultural powerhouse? Questions about national image emerge." } },
+      { label: { ko: "한국의 역할", en: "Korea’s role" }, note: { ko: "역할 이해", en: "Role understanding" }, desc: { ko: "동아시아와 세계에서 한국이 어떤 위치에 있는지 묻는다.", en: "Questions ask about Korea’s position in East Asia and the world." } },
+    ],
+  },
+  society: {
+    title: { ko: "사회가 연결하는 한국", en: "Korea through Society" },
+    intro: {
+      ko: "사회에 대한 질문은 예절과 관계에서 시작되지만, 가족과 교육을 거쳐 한국 사회의 구조 자체로 이어진다.\n\n콘텐츠 소비의 다음 단계에서 나타나는 질문들이다.",
+      en: "Questions about society start with etiquette and relationships, but lead through family and education to the structure of Korean society itself.\n\nThese are the questions that emerge in the stage beyond content consumption.",
+    },
+    entry: { ko: "Why do Koreans care about age?", en: "Why do Koreans care about age?" },
+    steps: [
+      { label: { ko: "예절", en: "Etiquette" }, note: { ko: "첫 관심", en: "First interest" }, desc: { ko: "인사법, 식사 예절, 나이 문화 등 가장 눈에 띄는 사회적 규범이 첫 질문이다.", en: "Greetings, dining manners, age culture — the most visible social norms are the first questions." } },
+      { label: { ko: "관계", en: "Relationships" }, note: { ko: "관계 이해", en: "Relational understanding" }, desc: { ko: "선후배, 존댓말, 위계 등 한국 특유의 관계 구조에 대한 질문이 나타난다.", en: "Questions appear about Korea’s distinctive relationship structures: seniority, honorifics, hierarchy." } },
+      { label: { ko: "가족", en: "Family" }, note: { ko: "가족 이해", en: "Family understanding" }, desc: { ko: "가족 관계, 결혼 문화, 세대 차이 등 사적 영역으로 관심이 확장된다.", en: "Interest expands into the private sphere: family relationships, marriage culture, generational gaps." } },
+      { label: { ko: "교육", en: "Education" }, note: { ko: "제도 이해", en: "Institutional understanding" }, desc: { ko: "한국의 교육열, 입시 문화, 학업 스트레스에 대한 질문이 등장한다.", en: "Questions emerge about Korea’s educational fervor, exam culture, and academic stress." } },
+      { label: { ko: "한국 사회 구조", en: "Korean social structure" }, note: { ko: "구조 이해", en: "Structural understanding" }, desc: { ko: "개별 현상을 넘어 한국 사회가 왜 이렇게 작동하는지 묻는다.", en: "Beyond individual phenomena, questions ask why Korean society operates the way it does." } },
+    ],
+  },
+  economy: {
+    title: { ko: "경제가 연결하는 한국", en: "Korea through Economy" },
+    intro: {
+      ko: "경제에 대한 질문은 기업과 브랜드에서 시작되지만, 산업 구조와 성장 모델을 거쳐 한국 경제 전체의 구조로 이어진다.\n\n경제는 독립된 관심사가 아니라 다른 주제의 배경이기도 하다.",
+      en: "Questions about the economy start with companies and brands, but lead through industrial structure and growth models to the structure of Korea’s economy as a whole.\n\nEconomy is not a standalone interest — it’s also the backdrop of other themes.",
+    },
+    entry: { ko: "How big is Samsung?", en: "How big is Samsung?" },
+    steps: [
+      { label: { ko: "기업", en: "Companies" }, note: { ko: "첫 관심", en: "First interest" }, desc: { ko: "삼성, 현대, LG 등 글로벌 기업이 한국 경제의 첫 번째 진입점이다.", en: "Samsung, Hyundai, LG — global corporations are the first entry point to Korea’s economy." } },
+      { label: { ko: "산업", en: "Industry" }, note: { ko: "산업 이해", en: "Industrial understanding" }, desc: { ko: "개별 기업을 넘어 반도체, 자동차, 조선 등 산업 단위로 관심이 확장된다.", en: "Interest expands beyond individual companies into industries: semiconductors, automotive, shipbuilding." } },
+      { label: { ko: "성장", en: "Growth" }, note: { ko: "성장 이해", en: "Growth understanding" }, desc: { ko: "한강의 기적, 압축 성장 등 한국의 경제 발전 과정에 대한 질문이 나타난다.", en: "Questions emerge about Korea’s economic development: the Miracle on the Han River, compressed growth." } },
+      { label: { ko: "일자리", en: "Employment" }, note: { ko: "생활 관심", en: "Livelihood" }, desc: { ko: "청년 실업, 근무 환경, 워라밸 등 경제의 일상적 측면으로 이동한다.", en: "Interest moves to the everyday side: youth unemployment, working conditions, work-life balance." } },
+      { label: { ko: "한국 경제 구조", en: "Korean economic structure" }, note: { ko: "구조 이해", en: "Structural understanding" }, desc: { ko: "재벌 체제, 수출 의존, 내수 시장 등 한국 경제의 구조적 특성을 묻는다.", en: "Questions address structural characteristics: chaebol system, export dependence, domestic market." } },
+    ],
+  },
+  technology: {
+    title: { ko: "기술이 연결하는 한국", en: "Korea through Technology" },
+    intro: {
+      ko: "기술에 대한 질문은 브랜드와 제품에서 시작되지만, 혁신과 산업을 거쳐 한국의 발전 모델 자체로 이어진다.\n\n기술 강국이라는 인식이 어떤 층위로 구성되어 있는지 보여준다.",
+      en: "Questions about technology start with brands and products, but lead through innovation and industry to Korea’s development model itself.\n\nIt reveals the layers that compose the perception of Korea as a tech powerhouse.",
+    },
+    entry: { ko: "Why is Korean internet fast?", en: "Why is Korean internet fast?" },
+    steps: [
+      { label: { ko: "브랜드", en: "Brands" }, note: { ko: "첫 관심", en: "First interest" }, desc: { ko: "삼성, LG 등 글로벌 브랜드가 한국 기술의 첫 번째 인식이다.", en: "Samsung, LG — global brands are the first perception of Korean technology." } },
+      { label: { ko: "혁신", en: "Innovation" }, note: { ko: "혁신 이해", en: "Innovation understanding" }, desc: { ko: "초고속 인터넷, 디지털 인프라, 스마트 시티 등 혁신 사례로 관심이 확장된다.", en: "Interest expands into innovation cases: ultra-fast internet, digital infrastructure, smart cities." } },
+      { label: { ko: "산업", en: "Industry" }, note: { ko: "산업 이해", en: "Industrial understanding" }, desc: { ko: "반도체, 디스플레이, 배터리 등 기술 산업의 구조로 질문이 깊어진다.", en: "Questions deepen into tech industry structure: semiconductors, displays, batteries." } },
+      { label: { ko: "국가 경쟁력", en: "National competitiveness" }, note: { ko: "경쟁 이해", en: "Competitive understanding" }, desc: { ko: "한국이 기술 분야에서 어떤 위치에 있는지, 어떻게 경쟁하는지 묻는다.", en: "Questions ask where Korea stands in the tech landscape and how it competes." } },
+      { label: { ko: "한국의 발전 모델", en: "Korea’s development model" }, note: { ko: "모델 이해", en: "Model understanding" }, desc: { ko: "기술 발전이 한국의 국가 발전과 어떻게 연결되는지 묻는 질문으로 확장된다.", en: "Questions expand into how technological advancement connects to Korea’s national development." } },
+    ],
+  },
 };
 
 const COUNTRY_FLAG: Record<string, string> = {
@@ -207,7 +325,7 @@ export function TopicView({ topic }: { topic: Topic }) {
 
   const market = selectedCountry ? MARKETS.find((m) => m.code === selectedCountry) : null;
 
-  const expansionPath = TOPIC_PATHS[topic.slug as TopicSlug] ?? [];
+  const expansion = TOPIC_EXPANSION[topic.slug as TopicSlug];
 
   return (
     <>
@@ -256,7 +374,8 @@ export function TopicView({ topic }: { topic: Topic }) {
           </div>
         </section>
 
-        {/* -- Question Expansion Path -- */}
+        {/* -- Topic Expansion Structure -- */}
+        {expansion && (
         <section className="border-b border-border bg-white">
           <div className="container max-w-[1280px] py-14 sm:py-16">
             <Reveal>
@@ -269,22 +388,47 @@ export function TopicView({ topic }: { topic: Topic }) {
                 className="mt-3 text-[1.5rem] font-semibold leading-[1.28] tracking-[-0.01em] text-navy sm:text-[1.8rem]"
                 style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
               >
-                {locale === "ko" ? "질문의 확장 경로" : "Question expansion path"}
+                {expansion.title[locale]}
               </h2>
             </Reveal>
-            <div className="mx-auto mt-8 max-w-[520px]">
-              {expansionPath.map((step, i) => (
-                <Reveal key={i} delay={i * 0.04}>
+            <Reveal delay={0.1}>
+              <div className="mt-4 max-w-[640px]">
+                {expansion.intro[locale].split("\n\n").map((para, i) => (
+                  <p key={i} className="mt-3 text-[15px] leading-relaxed text-secondary first:mt-0" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </Reveal>
+            <div className="mx-auto mt-10 max-w-[520px]">
+              <Reveal delay={0.12}>
+                <div className="flex flex-col items-center">
+                  <div className="rounded-xl border border-dashed border-brand/40 bg-brand/[0.03] px-5 py-3 text-center">
+                    <span className="text-[14px] font-medium italic text-brand">{expansion.entry[locale]}</span>
+                  </div>
+                  <div className="flex h-7 items-center justify-center">
+                    <ChevronDown className="h-4 w-4 text-muted-foreground/50" />
+                  </div>
+                </div>
+              </Reveal>
+              {expansion.steps.map((step, i) => (
+                <Reveal key={i} delay={0.14 + i * 0.04}>
                   <div className="flex flex-col items-center">
-                    <div className="flex w-full items-center gap-3 rounded-xl border border-border bg-white px-5 py-3.5 shadow-sm" style={{ borderLeft: "3px solid var(--color-brand, #3B5BDB)" }}>
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand/10 text-[11px] font-bold text-brand">
-                        {i + 1}
-                      </span>
-                      <span className="text-[14px] font-medium leading-snug text-navy">
-                        {step}
-                      </span>
+                    <div className="w-full rounded-xl border border-border bg-white px-5 py-3.5 shadow-sm" style={{ borderLeft: "3px solid var(--color-brand, #3B5BDB)" }}>
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand/10 text-[11px] font-bold text-brand">
+                          {i + 1}
+                        </span>
+                        <span className="text-[14px] font-medium leading-snug text-navy">
+                          {step.label[locale]}
+                        </span>
+                        <span className="text-[11px] text-muted-foreground">({step.note[locale]})</span>
+                      </div>
+                      <p className="mt-1.5 pl-9 text-[13px] leading-relaxed text-secondary" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+                        {step.desc[locale]}
+                      </p>
                     </div>
-                    {i < expansionPath.length - 1 && (
+                    {i < expansion.steps.length - 1 && (
                       <div className="flex h-7 items-center justify-center">
                         <ChevronDown className="h-4 w-4 text-muted-foreground/50" />
                       </div>
@@ -295,6 +439,7 @@ export function TopicView({ topic }: { topic: Topic }) {
             </div>
           </div>
         </section>
+        )}
 
         {/* -- Concept Distribution -- */}
         <section className="border-b border-border bg-[#F7F9FD]">
