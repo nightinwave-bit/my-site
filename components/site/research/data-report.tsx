@@ -170,7 +170,7 @@ export function DataReport() {
           GROUP A: 전체 구조 발견
       ══════════════════════════════════════════════════════════════ */}
       <DocSection>
-        <GroupHeader label="A" title={D("전체 구조 발견", "Structural Patterns")} count={7} locale={locale} />
+        <GroupHeader label="A" title={D("전체 구조 발견", "Structural Patterns")} count={6} locale={locale} />
         <div className="space-y-3">
 
           {/* ── Finding 1 ── */}
@@ -313,74 +313,17 @@ export function DataReport() {
             </div>
           </FindingCard>
 
-          {/* ── Finding 3 (was 9): US & India broad ── */}
+          {/* ── Finding 3: Same Hallyu different meaning ── */}
           <FindingCard
             n={3}
-            title={locale === "ko"
-              ? "미국과 인도는 한국을 가장 넓게 소비한다"
-              : "The US and India consume Korea most broadly"}
-            summary={locale === "ko"
-              ? "8개 주제가 모두 의미 있는 비중을 가진 유일한 시장."
-              : "The only markets where all 8 topics carry meaningful weight."}
-            open={isOpen(3)}
-            onToggle={() => toggle(3)}
-          >
-            <Prose>
-              {locale === "ko" ? (
-                <>
-                  <p>미국과 인도는 각각 466개 질문으로 가장 큰 시장이다. 두 시장은 같은 영어 검색어를 사용하므로 질문이 100% 동일하다.</p>
-                  <p>사회 24%, 한류 20%, 외교 15%, 관광 14%, 언어 9%, 역사 9%, 경제 6%, 기술 4%. 8개 주제가 모두 의미 있는 비중을 가진다. 1위 사회(111)와 8위 기술(19) 사이에 6배 차이밖에 나지 않는다.</p>
-                  <p>다른 시장과 비교하면 이례적이다. 독일은 1위(언어 71)와 3위(사회 17) 사이에 4배 차이. 아랍권은 하위 6개 주제가 전체의 34%에 불과하다.</p>
-                  <p>영어는 특정 국가의 언어가 아니라 글로벌 정보 접근 언어다. 영어로 한국을 검색하는 사람은 한국에 대한 모든 종류의 관심사를 가지고 들어온다.</p>
-                </>
-              ) : (
-                <>
-                  <p>The US and India are each the largest market at 466 questions. They use the same English search terms, so their question sets are 100% identical.</p>
-                  <p>Society 24%, Hallyu 20%, Diplomacy 15%, Tourism 14%, Language 9%, History 9%, Economy 6%, Tech 4%. All 8 topics carry meaningful weight. The gap between #1 Society (111) and #8 Tech (19) is only 6x.</p>
-                  <p>This is unusual. Germany&apos;s gap between #1 (Language, 71) and #3 (Society, 17) is 4x. The Arab world&apos;s bottom 6 topics account for just 34%.</p>
-                  <p>English is not a single country&apos;s language &mdash; it is a global information-access language. People searching Korea in English bring every kind of interest.</p>
-                </>
-              )}
-            </Prose>
-
-            <div className="mt-6 rounded-xl border border-border bg-white p-5">
-              <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
-                {locale === "ko" ? "미국·인도 주제 분포 — 균등한 확산" : "US & India topic distribution — even spread"}
-              </div>
-              <div className="space-y-2">
-                {[
-                  { label: D("사회", "Society"), val: 111, pct: "24%" },
-                  { label: D("한류", "Hallyu"), val: 91, pct: "20%" },
-                  { label: D("외교", "Diplomacy"), val: 69, pct: "15%" },
-                  { label: D("관광", "Tourism"), val: 66, pct: "14%" },
-                  { label: D("언어", "Language"), val: 43, pct: "9%" },
-                  { label: D("역사", "History"), val: 41, pct: "9%" },
-                  { label: D("경제", "Economy"), val: 26, pct: "6%" },
-                  { label: D("기술", "Tech"), val: 19, pct: "4%" },
-                ].map((d) => (
-                  <div key={d.label.en} className="flex items-center gap-3">
-                    <span className="w-14 shrink-0 text-right text-[12px] text-secondary">{d.label[locale]}</span>
-                    <div className="h-5 flex-1 overflow-hidden rounded bg-border/20">
-                      <div className="h-full rounded" style={{ width: `${Math.round((d.val / 111) * 100)}%`, backgroundColor: "color-mix(in srgb, var(--accent) 50%, transparent)" }} />
-                    </div>
-                    <span className="w-12 shrink-0 text-right text-[11px] tabular-nums text-muted-foreground">{d.val} ({d.pct})</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FindingCard>
-
-          {/* ── Finding 4 (was 10): Same Hallyu different meaning ── */}
-          <FindingCard
-            n={4}
             title={locale === "ko"
               ? "같은 한류 질문도 국가마다 다르다"
               : "Same Hallyu questions, different meanings by country"}
             summary={locale === "ko"
               ? "한류는 각 국가에서 서로 다른 문을 통해 한국에 들어가는 입구다."
               : "Hallyu is a different door to Korea in each country."}
-            open={isOpen(4)}
-            onToggle={() => toggle(4)}
+            open={isOpen(3)}
+            onToggle={() => toggle(3)}
           >
             <Prose>
               {locale === "ko" ? (
@@ -423,17 +366,17 @@ export function DataReport() {
             </div>
           </FindingCard>
 
-          {/* ── Finding 5 (was 11): Same language different focus ── */}
+          {/* ── Finding 4: Same language different focus ── */}
           <FindingCard
-            n={5}
+            n={4}
             title={locale === "ko"
               ? "같은 언어 질문도 국가마다 다르다"
               : "Same language questions, different focus by country"}
             summary={locale === "ko"
               ? "같은 '한국어'를 놓고 구조, 사용, 도구, 평가, 비교라는 다른 관심이 작동한다."
               : "The same subject 'Korean language' activates entirely different interests."}
-            open={isOpen(5)}
-            onToggle={() => toggle(5)}
+            open={isOpen(4)}
+            onToggle={() => toggle(4)}
           >
             <Prose>
               {locale === "ko" ? (
@@ -474,17 +417,17 @@ export function DataReport() {
             </div>
           </FindingCard>
 
-          {/* ── Finding 6 (was 12): 69% exclusive ── */}
+          {/* ── Finding 5: 69% exclusive ── */}
           <FindingCard
-            n={6}
+            n={5}
             title={locale === "ko"
               ? "69%의 질문은 시장 고유 질문이다"
               : "69% of questions are market-exclusive"}
             summary={locale === "ko"
               ? "각 시장은 같은 한국을 보고 있지만 같은 것을 묻지 않는다."
               : "Each market looks at the same Korea but does not ask the same things."}
-            open={isOpen(6)}
-            onToggle={() => toggle(6)}
+            open={isOpen(5)}
+            onToggle={() => toggle(5)}
           >
             <Prose>
               {locale === "ko" ? (
@@ -523,17 +466,17 @@ export function DataReport() {
             </div>
           </FindingCard>
 
-          {/* ── Finding 7 (was 13): Expansion paths ── */}
+          {/* ── Finding 6: Expansion paths ── */}
           <FindingCard
-            n={7}
+            n={6}
             title={locale === "ko"
               ? "질문이 사회로 확장되는 속도가 국가마다 다르다"
               : "How fast questions expand toward society differs by country"}
             summary={locale === "ko"
               ? "일본은 1단계, 미국·인도는 즉시, 인도네시아는 3단계, 아랍권은 미도달."
               : "Japan: 1 step. US & India: immediate. Indonesia: 3 steps. Arab world: not reached."}
-            open={isOpen(7)}
-            onToggle={() => toggle(7)}
+            open={isOpen(6)}
+            onToggle={() => toggle(6)}
           >
             <Prose>
               {locale === "ko" ? (
@@ -594,8 +537,67 @@ export function DataReport() {
           GROUP B: 국가별 한국 이해 방식
       ══════════════════════════════════════════════════════════════ */}
       <DocSection tint>
-        <GroupHeader label="B" title={D("국가별 한국 이해 방식", "How Each Country Understands Korea")} count={6} locale={locale} />
+        <GroupHeader label="B" title={D("국가별 한국 이해 방식", "How Each Country Understands Korea")} count={7} locale={locale} />
         <div className="space-y-3">
+
+
+          {/* ── Finding 7: US & India broad ── */}
+          <FindingCard
+            n={7}
+            title={locale === "ko"
+              ? "미국과 인도는 한국을 가장 넓게 소비한다"
+              : "The US and India consume Korea most broadly"}
+            summary={locale === "ko"
+              ? "8개 주제가 모두 의미 있는 비중을 가진 유일한 시장."
+              : "The only markets where all 8 topics carry meaningful weight."}
+            open={isOpen(7)}
+            onToggle={() => toggle(7)}
+          >
+            <Prose>
+              {locale === "ko" ? (
+                <>
+                  <p>미국과 인도는 각각 466개 질문으로 가장 큰 시장이다. 두 시장은 같은 영어 검색어를 사용하므로 질문이 100% 동일하다.</p>
+                  <p>사회 24%, 한류 20%, 외교 15%, 관광 14%, 언어 9%, 역사 9%, 경제 6%, 기술 4%. 8개 주제가 모두 의미 있는 비중을 가진다. 1위 사회(111)와 8위 기술(19) 사이에 6배 차이밖에 나지 않는다.</p>
+                  <p>다른 시장과 비교하면 이례적이다. 독일은 1위(언어 71)와 3위(사회 17) 사이에 4배 차이. 아랍권은 하위 6개 주제가 전체의 34%에 불과하다.</p>
+                  <p>영어는 특정 국가의 언어가 아니라 글로벌 정보 접근 언어다. 영어로 한국을 검색하는 사람은 한국에 대한 모든 종류의 관심사를 가지고 들어온다.</p>
+                </>
+              ) : (
+                <>
+                  <p>The US and India are each the largest market at 466 questions. They use the same English search terms, so their question sets are 100% identical.</p>
+                  <p>Society 24%, Hallyu 20%, Diplomacy 15%, Tourism 14%, Language 9%, History 9%, Economy 6%, Tech 4%. All 8 topics carry meaningful weight. The gap between #1 Society (111) and #8 Tech (19) is only 6x.</p>
+                  <p>This is unusual. Germany&apos;s gap between #1 (Language, 71) and #3 (Society, 17) is 4x. The Arab world&apos;s bottom 6 topics account for just 34%.</p>
+                  <p>English is not a single country&apos;s language &mdash; it is a global information-access language. People searching Korea in English bring every kind of interest.</p>
+                </>
+              )}
+            </Prose>
+
+            <div className="mt-6 rounded-xl border border-border bg-white p-5">
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
+                {locale === "ko" ? "미국·인도 주제 분포 — 균등한 확산" : "US & India topic distribution — even spread"}
+              </div>
+              <div className="space-y-2">
+                {[
+                  { label: D("사회", "Society"), val: 111, pct: "24%" },
+                  { label: D("한류", "Hallyu"), val: 91, pct: "20%" },
+                  { label: D("외교", "Diplomacy"), val: 69, pct: "15%" },
+                  { label: D("관광", "Tourism"), val: 66, pct: "14%" },
+                  { label: D("언어", "Language"), val: 43, pct: "9%" },
+                  { label: D("역사", "History"), val: 41, pct: "9%" },
+                  { label: D("경제", "Economy"), val: 26, pct: "6%" },
+                  { label: D("기술", "Tech"), val: 19, pct: "4%" },
+                ].map((d) => (
+                  <div key={d.label.en} className="flex items-center gap-3">
+                    <span className="w-14 shrink-0 text-right text-[12px] text-secondary">{d.label[locale]}</span>
+                    <div className="h-5 flex-1 overflow-hidden rounded bg-border/20">
+                      <div className="h-full rounded" style={{ width: `${Math.round((d.val / 111) * 100)}%`, backgroundColor: "color-mix(in srgb, var(--accent) 50%, transparent)" }} />
+                    </div>
+                    <span className="w-12 shrink-0 text-right text-[11px] tabular-nums text-muted-foreground">{d.val} ({d.pct})</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FindingCard>
+
 
           {/* ── Finding 8 (was 3): Japan ── */}
           <FindingCard

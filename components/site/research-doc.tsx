@@ -32,8 +32,6 @@ export function ResearchDoc({ slug }: { slug: ResearchSlug }) {
               <Link href="/research" className="font-medium transition-colors hover:text-navy">
                 {t("research.crumb")}
               </Link>
-              <span className="text-muted-foreground">/</span>
-              <span className="text-navy">{doc.title[locale]}</span>
             </nav>
 
             <div className="mt-7 text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--accent)]">
