@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowRight, Search, X, ChevronRight, ChevronDown, Shuffle, Globe, Database, Sparkles, BarChart3, ArrowDown } from "lucide-react";
+import { ArrowRight, Search, X, ChevronRight, ChevronDown, Globe, Database, BarChart3 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { getNode, PROVENANCE } from "@/lib/ontology";
-import { TOPICS, getTopic, type TopicSlug } from "@/lib/topics";
+import { TOPICS, getTopic } from "@/lib/topics";
 import { MARKETS, marketName } from "@/lib/markets";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
@@ -14,12 +14,15 @@ import { ForceGraph } from "./force-graph";
 import allTopicQuestions from "@/lib/topic-questions.generated.json";
 import translationData from "@/lib/translations.generated.json";
 
+type L = { ko: string; en: string };
+const D = (ko: string, en: string): L => ({ ko, en });
+
 const COUNTRY_FLAG: Record<string, string> = {
   US: "\u{1F1FA}\u{1F1F8}", DE: "\u{1F1E9}\u{1F1EA}", IN: "\u{1F1EE}\u{1F1F3}", ID: "\u{1F1EE}\u{1F1E9}",
   JP: "\u{1F1EF}\u{1F1F5}", BR: "\u{1F1E7}\u{1F1F7}", AE: "\u{1F1E6}\u{1F1EA}", KR: "\u{1F1F0}\u{1F1F7}",
 };
 
-const LANG_LABEL: Record<string, { ko: string; en: string }> = {
+const LANG_LABEL: Record<string, L> = {
   de: { ko: "독일어", en: "German" },
   en: { ko: "영어", en: "English" },
   pt: { ko: "포르투갈어", en: "Portuguese" },
@@ -28,6 +31,66 @@ const LANG_LABEL: Record<string, { ko: string; en: string }> = {
   ko: { ko: "한국어", en: "Korean" },
   ja: { ko: "일본어", en: "Japanese" },
 };
+
+const COUNTRY_PROFILES: Record<string, {
+  interests: L[];
+  summary: L;
+}> = {
+  JP: {
+    interests: [D("사회", "Society"), D("언어", "Language"), D("생활문화", "Daily culture")],
+    summary: D(
+      "일본은 한국을 소비하는 문화보다 관찰하는 사회로 접근한다.",
+      "Japan approaches Korea as a society to observe rather than a culture to consume."
+    ),
+  },
+  ID: {
+    interests: [D("K-pop", "K-pop"), D("뷰티", "Beauty"), D("드라마", "Drama")],
+    summary: D(
+      "인도네시아는 한류를 통해 처음 한국에 진입한다.",
+      "Indonesia first enters Korea through Hallyu."
+    ),
+  },
+  BR: {
+    interests: [D("분단", "Division"), D("북한", "North Korea"), D("한국전쟁", "Korean War")],
+    summary: D(
+      "브라질은 지정학적 호기심으로 한국에 접근한다.",
+      "Brazil approaches Korea through geopolitical curiosity."
+    ),
+  },
+  DE: {
+    interests: [D("언어", "Language"), D("발음", "Pronunciation"), D("학습", "Learning")],
+    summary: D(
+      "독일은 한국어 자체를 통해 한국에 진입한다.",
+      "Germany enters Korea through the Korean language itself."
+    ),
+  },
+  "US+IN": {
+    interests: [D("사람", "People"), D("여행", "Travel"), D("분단", "Division"), D("언어", "Language")],
+    summary: D(
+      "영어권은 넓게 그러나 얕게 한국을 질문한다.",
+      "The English-speaking world asks about Korea widely but shallowly."
+    ),
+  },
+  AE: {
+    interests: [D("스킨케어", "Skincare"), D("생활", "Lifestyle"), D("관광", "Tourism")],
+    summary: D(
+      "아랍권은 라이프스타일을 통해 한국에 접근한다.",
+      "The Arab world approaches Korea through lifestyle."
+    ),
+  },
+  KR: {
+    interests: [D("사람", "People"), D("문화유산", "Heritage"), D("사회", "Society")],
+    summary: D(
+      "한국은 외국인의 시선으로 자신을 질문한다.",
+      "Korea asks about itself through foreign eyes."
+    ),
+  },
+};
+
+function getCountryProfile(code: string) {
+  if (code === "US" || code === "IN") return COUNTRY_PROFILES["US+IN"];
+  return COUNTRY_PROFILES[code] ?? null;
+}
 
 interface TopicQuestion {
   id: string;
@@ -44,13 +107,12 @@ interface TopicData {
   concepts: Record<string, TopicQuestion[]>;
 }
 
-const translations = translationData as Record<string, { ko: string; en: string }>;
+const translations = translationData as Record<string, L>;
 
 function getTranslation(qId: string, locale: "ko" | "en"): string | null {
   const t = translations[qId];
   return t ? t[locale] : null;
 }
-
 
 const ALL_QUESTIONS: TopicQuestion[] = (() => {
   const data = allTopicQuestions as unknown as Record<string, TopicData>;
@@ -85,13 +147,11 @@ export function ExploreView() {
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
   const [showCount, setShowCount] = useState(PAGE_SIZE);
   const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
-  const [showGraph, setShowGraph] = useState(false);
-  const [randomSeed, setRandomSeed] = useState(0);
 
   const topicConceptMap = useMemo(() => {
     const map: Record<string, string> = {};
-    for (const t of TOPICS) {
-      for (const c of t.concepts) map[c] = t.slug;
+    for (const tp of TOPICS) {
+      for (const c of tp.concepts) map[c] = tp.slug;
     }
     return map;
   }, []);
@@ -138,82 +198,46 @@ export function ExploreView() {
     return MARKETS.filter((m) => set.has(m.code)).map((m) => m.code);
   }, []);
 
-  const widestQuestions = useMemo(() =>
-    [...ALL_QUESTIONS].sort((a, b) => b.countries.length - a.countries.length).slice(0, 5),
-  []);
-
-  const singleCountryQuestions = useMemo(() => {
-    const byCountry: Record<string, TopicQuestion[]> = {};
+  // Country question counts for grid
+  const countryQuestionCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
     for (const q of ALL_QUESTIONS) {
-      if (q.countries.length === 1) {
-        const c = q.countries[0];
-        if (!byCountry[c]) byCountry[c] = [];
-        byCountry[c].push(q);
+      for (const c of q.countries) {
+        counts[c] = (counts[c] ?? 0) + 1;
       }
     }
-    const results: TopicQuestion[] = [];
-    for (const code of Object.keys(byCountry)) {
-      if (byCountry[code].length > 0) results.push(byCountry[code][0]);
-      if (results.length >= 8) break;
-    }
-    return results;
+    return counts;
   }, []);
 
-  const randomQuestions = useMemo(() => {
-    const shuffled = [...ALL_QUESTIONS];
-    let seed = randomSeed + 42;
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      seed = (seed * 1103515245 + 12345) & 0x7fffffff;
-      const j = seed % (i + 1);
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled.slice(0, 5);
-  }, [randomSeed]);
+  // Country profile data (when a country is selected)
+  const countryProfileData = useMemo(() => {
+    if (!selectedCountry) return null;
+    const qs = ALL_QUESTIONS.filter((q) => q.countries.includes(selectedCountry));
+    const uniqueQs = qs.filter((q) => q.countries.length === 1);
+    const topQuestions = qs.slice(0, 5); // already sorted by frequency
+    return { total: qs.length, uniqueCount: uniqueQs.length, topQuestions };
+  }, [selectedCountry]);
 
   const expandedData = useMemo(() => {
     if (!expandedQuestion) return null;
     const q = ALL_QUESTIONS.find((x) => x.id === expandedQuestion);
     if (!q) return null;
 
-    const countryDist: { code: string; count: number }[] = [];
     const sameConceptQs = ALL_QUESTIONS.filter((x) => x.conceptId === q.conceptId && x.id !== q.id);
-    for (const code of q.countries) {
-      const count = sameConceptQs.filter((x) => x.countries.includes(code)).length + 1;
-      countryDist.push({ code, count });
-    }
-    countryDist.sort((a, b) => b.count - a.count);
 
     const topicSlug = topicConceptMap[q.conceptId];
     const topic = topicSlug ? getTopic(topicSlug) : undefined;
 
     const relatedQuestions = sameConceptQs.slice(0, 10);
 
-    return { q, countryDist, topic, relatedQuestions };
+    return { q, topic, relatedQuestions };
   }, [expandedQuestion, topicConceptMap]);
-
-  const countryProfile = useMemo(() => {
-    if (!selectedCountry) return null;
-    const qs = ALL_QUESTIONS.filter((q) => q.countries.includes(selectedCountry));
-    const topicMap: Record<string, number> = {};
-    for (const q of qs) {
-      const t = topicConceptMap[q.conceptId] ?? "other";
-      topicMap[t] = (topicMap[t] ?? 0) + 1;
-    }
-    const distribution = Object.entries(topicMap)
-      .map(([slug, count]) => {
-        const topic = getTopic(slug);
-        return { slug, label: topic?.title[locale] ?? slug, count };
-      })
-      .sort((a, b) => b.count - a.count);
-    const uniqueQs = qs.filter((q) => q.countries.length === 1);
-    return { total: qs.length, distribution, uniqueQs };
-  }, [selectedCountry, topicConceptMap, locale]);
 
   return (
     <>
       <Navbar />
       <main>
-        {/* ── Hero ── */}
+        {/* -- Hero -- */}
         <section className="border-b border-border" style={{ background: "linear-gradient(180deg, #F8FAFF, #EFF3FB)" }}>
           <div className="container relative pb-10 pt-24 sm:pb-12 sm:pt-28">
             <Reveal>
@@ -261,97 +285,134 @@ export function ExploreView() {
           </div>
         </section>
 
-        {/* ── Highlights ── */}
+        {/* -- Country Grid (default) OR Country Profile Card (selected) -- */}
         <section className="border-b border-border bg-white">
           <div className="container max-w-[1280px] py-10 sm:py-12">
-            <div className="grid gap-4 md:grid-cols-3">
-              {/* Most countries */}
-              <Reveal>
-                <div className="rounded-xl border border-border bg-[#F8FAFF] p-4">
-                  <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand">
-                    <Globe className="h-3 w-3" />
-                    {locale === "ko" ? "가장 많은 나라가 물은 질문" : "Most countries asked"}
+            {!selectedCountry ? (
+              /* -- Country Grid: 8 cards -- */
+              <div>
+                <Reveal>
+                  <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
+                    <Globe className="h-3.5 w-3.5" />
+                    {locale === "ko" ? "국가별 탐색" : "Explore by country"}
                   </div>
-                  <div className="mt-3 space-y-2">
-                    {widestQuestions.map((q) => (
-                      <button
-                        key={q.id}
-                        onClick={() => setExpandedQuestion(q.id)}
-                        className="block w-full text-left"
-                      >
-                        <div className="text-[13px] font-medium leading-snug text-navy hover:text-brand">{q.text}</div>
-                        <QuestionTranslation qId={q.id} text={q.text} language={q.language} locale={locale} />
-                        <div className="mt-0.5 text-[10px] text-muted-foreground">
-                          {q.countries.map((c) => COUNTRY_FLAG[c]).join(" ")} · {q.countries.length}{locale === "ko" ? "개국" : " countries"}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
+                  <h2
+                    className="mt-2 text-[1.3rem] font-semibold leading-[1.3] text-navy sm:text-[1.5rem]"
+                    style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
+                  >
+                    {locale === "ko"
+                      ? "특정 국가는 한국을 어떻게 바라보는가?"
+                      : "How does a specific country view Korea?"}
+                  </h2>
+                </Reveal>
+                <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+                  {MARKETS.map((m) => {
+                    const profile = getCountryProfile(m.code);
+                    const topInterest = profile?.interests[0];
+                    const qCount = countryQuestionCounts[m.code] ?? 0;
+                    return (
+                      <Reveal key={m.code} delay={0.02}>
+                        <button
+                          onClick={() => { setSelectedCountry(m.code); setShowCount(PAGE_SIZE); }}
+                          className="flex w-full flex-col items-start rounded-xl border border-border bg-[#F8FAFF] p-4 text-left transition-all hover:border-brand/30 hover:shadow-md"
+                        >
+                          <span className="text-[2rem]">{COUNTRY_FLAG[m.code]}</span>
+                          <span className="mt-2 text-[14px] font-semibold text-navy">{m.name[locale]}</span>
+                          <span className="mt-0.5 text-[11px] tabular-nums text-muted-foreground">
+                            {qCount}{locale === "ko" ? "개 질문" : " questions"}
+                          </span>
+                          {topInterest && (
+                            <span className="mt-2 inline-block rounded-full bg-brand/8 px-2 py-0.5 text-[10px] font-medium text-brand">
+                              {topInterest[locale]}
+                            </span>
+                          )}
+                        </button>
+                      </Reveal>
+                    );
+                  })}
                 </div>
-              </Reveal>
-
-              {/* Single country only */}
-              <Reveal delay={0.05}>
-                <div className="rounded-xl border border-border bg-[#F8FAFF] p-4">
-                  <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand">
-                    <Sparkles className="h-3 w-3" />
-                    {locale === "ko" ? "한 나라만 물은 질문" : "Only one country asked"}
-                  </div>
-                  <div className="mt-3 space-y-2">
-                    {singleCountryQuestions.map((q) => (
-                      <button
-                        key={q.id}
-                        onClick={() => setExpandedQuestion(q.id)}
-                        className="block w-full text-left"
-                      >
-                        <div className="text-[13px] font-medium leading-snug text-navy hover:text-brand">{q.text}</div>
-                        <QuestionTranslation qId={q.id} text={q.text} language={q.language} locale={locale} />
-                        <div className="mt-0.5 text-[10px] text-muted-foreground">
-                          {COUNTRY_FLAG[q.countries[0]]} {marketName(q.countries[0])[locale]}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Random */}
-              <Reveal delay={0.1}>
-                <div className="rounded-xl border border-border bg-[#F8FAFF] p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand">
-                      <Shuffle className="h-3 w-3" />
-                      {locale === "ko" ? "랜덤 질문" : "Random questions"}
+              </div>
+            ) : (
+              /* -- Country Profile Card (prominent) -- */
+              <div>
+                <button
+                  onClick={() => { setSelectedCountry(null); setShowCount(PAGE_SIZE); }}
+                  className="mb-4 inline-flex items-center gap-1.5 text-[12px] font-medium text-brand hover:underline"
+                >
+                  <ChevronRight className="h-3 w-3 rotate-180" />
+                  {locale === "ko" ? "모든 국가 보기" : "All countries"}
+                </button>
+                <div className="rounded-2xl border border-brand/20 bg-[#F8FAFF] p-5 sm:p-7">
+                  {/* Header */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-[2.5rem]">{COUNTRY_FLAG[selectedCountry]}</span>
+                    <div>
+                      <h2 className="text-[1.3rem] font-bold text-navy sm:text-[1.5rem]">
+                        {marketName(selectedCountry)[locale]}
+                      </h2>
+                      <div className="mt-0.5 flex items-center gap-3 text-[12px] text-muted-foreground">
+                        <span>{countryProfileData?.total ?? 0}{locale === "ko" ? "개 질문" : " questions"}</span>
+                        <span>{countryProfileData?.uniqueCount ?? 0}{locale === "ko" ? "개 고유 질문" : " unique"}</span>
+                      </div>
                     </div>
-                    <button
-                      onClick={() => setRandomSeed((s) => s + 1)}
-                      className="rounded-full border border-border bg-white px-2.5 py-1 text-[10px] font-semibold text-brand transition-colors hover:bg-brand/5"
-                    >
-                      {locale === "ko" ? "다시 섞기" : "Shuffle"}
-                    </button>
                   </div>
-                  <div className="mt-3 space-y-2">
-                    {randomQuestions.map((q) => (
-                      <button
-                        key={q.id}
-                        onClick={() => setExpandedQuestion(q.id)}
-                        className="block w-full text-left"
-                      >
-                        <div className="text-[13px] font-medium leading-snug text-navy hover:text-brand">{q.text}</div>
-                        <QuestionTranslation qId={q.id} text={q.text} language={q.language} locale={locale} />
-                        <div className="mt-0.5 text-[10px] text-muted-foreground">
-                          {COUNTRY_FLAG[q.countries[0]]} {LANG_LABEL[q.language]?.[locale] ?? q.language}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
+
+                  {/* Summary */}
+                  {(() => {
+                    const profile = getCountryProfile(selectedCountry);
+                    if (!profile) return null;
+                    return (
+                      <p className="mt-4 text-[14px] leading-relaxed text-secondary" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+                        {profile.summary[locale]}
+                      </p>
+                    );
+                  })()}
+
+                  {/* Interest chips */}
+                  {(() => {
+                    const profile = getCountryProfile(selectedCountry);
+                    if (!profile) return null;
+                    return (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {profile.interests.map((interest, i) => (
+                          <span
+                            key={i}
+                            className="rounded-full border border-brand/15 bg-white px-3 py-1 text-[12px] font-medium text-brand"
+                          >
+                            {interest[locale]}
+                          </span>
+                        ))}
+                      </div>
+                    );
+                  })()}
+
+                  {/* Representative questions (top 5 by frequency) */}
+                  {countryProfileData && countryProfileData.topQuestions.length > 0 && (
+                    <div className="mt-5 border-t border-border pt-4">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                        {locale === "ko" ? "대표 질문" : "Representative questions"}
+                      </div>
+                      <div className="mt-2 space-y-2">
+                        {countryProfileData.topQuestions.map((q) => (
+                          <button
+                            key={q.id}
+                            onClick={() => setExpandedQuestion(expandedQuestion === q.id ? null : q.id)}
+                            className="block w-full text-left"
+                          >
+                            <div className="text-[13px] font-medium leading-snug text-navy hover:text-brand">{q.text}</div>
+                            <QuestionTranslation qId={q.id} text={q.text} language={q.language} locale={locale} />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </Reveal>
-            </div>
+              </div>
+            )}
           </div>
         </section>
 
-        {/* ── Question Database ── */}
+        {/* -- Question Archive -- */}
         <section className="border-b border-border bg-[#F7F9FD]">
           <div className="container max-w-[1280px] py-10 sm:py-12">
             <Reveal>
@@ -468,55 +529,7 @@ export function ExploreView() {
               )}
             </div>
 
-            {/* ── Country Report Card ── */}
-            {selectedCountry && countryProfile && (
-              <div className="mt-4 rounded-xl border border-brand/20 bg-white p-4 sm:p-5">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-xl">{COUNTRY_FLAG[selectedCountry]}</span>
-                  <div>
-                    <div className="text-[1rem] font-bold text-navy">
-                      {locale === "ko"
-                        ? `${marketName(selectedCountry).ko}은 한국을 어떻게 질문하는가?`
-                        : `How does ${marketName(selectedCountry).en} ask about Korea?`}
-                    </div>
-                    <div className="text-[11px] text-muted-foreground">
-                      {countryProfile.total}{locale === "ko" ? "개 질문" : " questions"} · {countryProfile.uniqueQs.length}{locale === "ko" ? "개 고유 질문" : " unique"}
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-3 space-y-1.5">
-                  {countryProfile.distribution.slice(0, 5).map((d) => {
-                    const pct = Math.round((d.count / countryProfile.total) * 100);
-                    return (
-                      <div key={d.slug} className="flex items-center gap-2">
-                        <span className="w-16 shrink-0 text-right text-[11px] font-medium text-navy sm:w-20">{d.label}</span>
-                        <div className="h-2 flex-1 overflow-hidden rounded-full bg-border/40">
-                          <div className="h-full rounded-full bg-brand/50" style={{ width: `${pct}%` }} />
-                        </div>
-                        <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-muted-foreground">{pct}%</span>
-                      </div>
-                    );
-                  })}
-                </div>
-                {countryProfile.uniqueQs.length > 0 && (
-                  <div className="mt-3 border-t border-border pt-3">
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                      {locale === "ko" ? `${marketName(selectedCountry).ko}만 물은 질문` : `Only ${marketName(selectedCountry).en} asked`}
-                    </div>
-                    <div className="mt-1.5 space-y-1">
-                      {countryProfile.uniqueQs.slice(0, 3).map((q) => (
-                        <div key={q.id}>
-                          <div className="text-[12px] font-medium text-navy">{q.text}</div>
-                          <QuestionTranslation qId={q.id} text={q.text} language={q.language} locale={locale} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* ── Question List ── */}
+            {/* -- Question List -- */}
             <div className="mt-4 space-y-1">
               {visible.map((q) => {
                 const conceptNode = getNode(q.conceptId);
@@ -559,7 +572,7 @@ export function ExploreView() {
                       </div>
                     </button>
 
-                    {/* ── Expanded Detail Panel ── */}
+                    {/* -- Expanded Detail Panel -- */}
                     {isExpanded && expandedData && (
                       <div className="ml-5 mt-1 space-y-3 rounded-xl border border-brand/15 bg-brand/[0.02] px-4 py-4">
                         {/* Country distribution */}
@@ -656,40 +669,29 @@ export function ExploreView() {
           </div>
         </section>
 
-        {/* ── Force Graph (Collapsible) ── */}
+        {/* -- Force Graph (always visible) -- */}
         <section className="border-b border-border bg-white">
           <div className="container max-w-[1280px] py-8 sm:py-10">
-            <button
-              onClick={() => setShowGraph(!showGraph)}
-              className="flex w-full items-center justify-between"
-            >
-              <div>
-                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
-                  {locale === "ko" ? "질문 지도" : "Question map"}
-                </div>
-                <h2 className="mt-1 text-[1.1rem] font-semibold text-navy sm:text-[1.2rem]">
-                  {locale === "ko" ? "질문들이 어떻게 연결되는가" : "How questions connect"}
-                </h2>
-              </div>
-              <ChevronDown className={`h-5 w-5 text-muted-foreground transition-transform ${showGraph ? "rotate-180" : ""}`} />
-            </button>
-
-            {showGraph && (
-              <div className="mt-4">
-                <figure className="overflow-hidden rounded-2xl border border-border bg-white shadow-card">
-                  <div className="overflow-x-auto px-4 py-6 sm:px-8 sm:py-8">
-                    <div className="min-w-[720px]">
-                      <ForceGraph interactive />
-                    </div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
+              {locale === "ko" ? "질문 연결 구조" : "How questions connect"}
+            </div>
+            <h2 className="mt-1 text-[1.1rem] font-semibold text-navy sm:text-[1.2rem]">
+              {locale === "ko" ? "질문들이 어떻게 연결되는가" : "How questions connect"}
+            </h2>
+            <div className="mt-4">
+              <figure className="overflow-hidden rounded-2xl border border-border bg-white shadow-card">
+                <div className="overflow-x-auto px-4 py-6 sm:px-8 sm:py-8">
+                  <div className="min-w-[720px]">
+                    <ForceGraph interactive />
                   </div>
-                </figure>
-                <p className="mt-2 text-[11px] text-muted-foreground">{t("explore.hint")}</p>
-              </div>
-            )}
+                </div>
+              </figure>
+              <p className="mt-2 text-[11px] text-muted-foreground">{t("explore.hint")}</p>
+            </div>
           </div>
         </section>
 
-        {/* ── Bridge → Research ── */}
+        {/* -- Bridge -> Research -- */}
         <section className="border-b border-border bg-[#F3F6FB]">
           <div className="container flex flex-col items-start justify-between gap-4 py-10 sm:flex-row sm:items-center">
             <p
