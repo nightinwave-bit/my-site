@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { DocSection, Kicker, H2, Lead, Finding, type L } from "./parts";
@@ -8,135 +8,7 @@ import { DocSection, Kicker, H2, Lead, Finding, type L } from "./parts";
 // ── helpers ─────────────────────────────────────────────────────────────────
 const D = (ko: string, en: string): L => ({ ko, en });
 
-// ── PART 1 data: findings ───────────────────────────────────────────────────
-
-interface FindingItem {
-  n: string;
-  head: L;
-  body: L;
-}
-
-const KEY_FINDINGS: FindingItem[] = [
-  {
-    n: "01",
-    head: D(
-      "문화는 가장 강력한 진입점이다",
-      "Culture is the strongest entry point",
-    ),
-    body: D(
-      "한류·K-pop·음식·드라마는 모든 시장에서 가장 큰 비중을 차지한다. 한국을 처음 질문하는 사람의 대다수는 문화를 통해 들어온다.",
-      "Hallyu, K-pop, food, and drama hold the largest share across all markets. The majority who first ask about Korea enter through culture.",
-    ),
-  },
-  {
-    n: "02",
-    head: D(
-      "단일 최대 질문은 '두 개의 한국'이다",
-      "The single largest question is 'the two Koreas'",
-    ),
-    body: D(
-      "242개 질문(15.7%)이 분단에 관한 것이다. 이는 단일 한류 개념보다 크다. 세계는 한국을 문화로 진입하되, 분단으로 정의한다.",
-      "242 questions (15.7%) concern division — larger than any single Hallyu concept. The world enters Korea through culture but defines it through division.",
-    ),
-  },
-  {
-    n: "03",
-    head: D(
-      "시장을 넘나드는 질문은 31%에 불과하다",
-      "Only 31% of questions cross markets",
-    ),
-    body: D(
-      "69%의 질문은 특정 시장에서만 나타난다. 각 나라는 서로 다른 한국을 질문하고 있다.",
-      "69% of questions appear in only one market. Each country is asking about a different Korea.",
-    ),
-  },
-  {
-    n: "04",
-    head: D(
-      "가까운 국가는 사회를, 먼 국가는 문화를 질문한다",
-      "Proximate countries ask about society; distant ones ask about culture",
-    ),
-    body: D(
-      "일본은 예절·규범·사회를 질문한다. 인도네시아와 브라질은 '한국이란 무엇인가'라는 입문적 질문을 던진다. 거리가 질문의 깊이를 결정한다.",
-      "Japan asks about etiquette, norms, and society. Indonesia and Brazil ask introductory 'What is Korea?' questions. Distance determines the depth of inquiry.",
-    ),
-  },
-  {
-    n: "05",
-    head: D(
-      "언어에 대한 첫 프레임은 '어려움'이다",
-      "The first frame for language is 'difficulty'",
-    ),
-    body: D(
-      "163개 질문(10.6%)이 한국어를 '어려움'으로 프레이밍한다. 학습 욕구가 아니라 장벽 인식이 언어 질문의 출발점이다.",
-      "163 questions (10.6%) frame Korean through difficulty. The starting point of language questions is barrier perception, not learning desire.",
-    ),
-  },
-];
-
-// ── country profiles ────────────────────────────────────────────────────────
-
-interface CountryProfile {
-  flag: string;
-  code: string;
-  name: L;
-  topics: L;
-  reading: L;
-}
-
-const COUNTRIES: CountryProfile[] = [
-  {
-    flag: "🇩🇪",
-    code: "DE",
-    name: D("독일", "Germany"),
-    topics: D("기술 · 역사 · 언어", "Technology · History · Language"),
-    reading: D("산업국가로 이해", "Understood as an industrial nation"),
-  },
-  {
-    flag: "🇧🇷",
-    code: "BR",
-    name: D("브라질", "Brazil"),
-    topics: D("음식 · 한류 · 뷰티", "Food · Hallyu · Beauty"),
-    reading: D("문화국가로 이해", "Understood as a cultural nation"),
-  },
-  {
-    flag: "🇯🇵",
-    code: "JP",
-    name: D("일본", "Japan"),
-    topics: D("예절 · 사회 · 문화", "Etiquette · Society · Culture"),
-    reading: D("생활세계로 이해", "Understood as a lived world"),
-  },
-  {
-    flag: "🇮🇩",
-    code: "ID",
-    name: D("인도네시아", "Indonesia"),
-    topics: D("분단 · 국가 기본 · 뷰티", "Division · National basics · Beauty"),
-    reading: D("알고 싶은 나라로 이해", "Understood as a country to discover"),
-  },
-  {
-    flag: "🇦🇪",
-    code: "AE",
-    name: D("아랍권", "Arab world"),
-    topics: D("분단 · 음식 · 드라마", "Division · Food · Drama"),
-    reading: D("지정학과 콘텐츠의 이중상", "A dual image of geopolitics and content"),
-  },
-  {
-    flag: "🇺🇸",
-    code: "US+IN",
-    name: D("영어권", "English-speaking"),
-    topics: D("사람 · 여행 · 분단 · 언어", "People · Travel · Division · Language"),
-    reading: D("넓게 그러나 얕게 이해", "Understood broadly but shallowly"),
-  },
-  {
-    flag: "🇰🇷",
-    code: "KR",
-    name: D("한국", "Korea"),
-    topics: D("사람 · 문화유산 · 사회", "People · Heritage · Society"),
-    reading: D("외국인의 시선으로 자신을 질문", "Questioning itself through foreign eyes"),
-  },
-];
-
-// ── PART 2 data: analytical model ───────────────────────────────────────────
+// ── data: 5 layers ──────────────────────────────────────────────────────────
 
 interface LayerStep {
   n: string;
@@ -187,13 +59,13 @@ const LAYERS: LayerStep[] = [
     ko: "인식",
     en: "Perception",
     desc: D(
-      "서사가 축적되어 형성되는 국가 이미지",
-      "National image formed as narratives accumulate",
+      "서사가 축적되어 형성되는 최종 이해",
+      "The final understanding formed as narratives accumulate",
     ),
   },
 ];
 
-// ── example flow ────────────────────────────────────────────────────────────
+// ── data: example flow ──────────────────────────────────────────────────────
 
 interface FlowStep {
   ko: string;
@@ -206,37 +78,6 @@ const EXAMPLE_FLOW: FlowStep[] = [
   { ko: "한류", en: "Hallyu" },
   { ko: "문화 강국", en: "Cultural powerhouse" },
   { ko: "문화 강국 한국", en: "Korea as cultural power" },
-];
-
-// ── analytical capabilities ─────────────────────────────────────────────────
-
-interface Capability {
-  head: L;
-  body: L;
-}
-
-const CAPABILITIES: Capability[] = [
-  {
-    head: D("진입점 식별", "Entry point identification"),
-    body: D(
-      "어떤 질문이 어떤 개념으로 연결되는지 추적할 수 있다.",
-      "Track which questions connect to which concepts.",
-    ),
-  },
-  {
-    head: D("서사 형성 감지", "Narrative formation detection"),
-    body: D(
-      "주제가 반복될 때 서사가 형성되는 시점을 포착할 수 있다.",
-      "Detect when recurring themes begin to form narratives.",
-    ),
-  },
-  {
-    head: D("국가별 경로 비교", "Cross-country path comparison"),
-    body: D(
-      "같은 질문이 국가마다 다른 인식으로 이어지는 이유를 분석할 수 있다.",
-      "Analyze why the same questions lead to different perceptions in each country.",
-    ),
-  },
 ];
 
 // ── sub-components ──────────────────────────────────────────────────────────
@@ -308,35 +149,6 @@ function LayerCard({
   );
 }
 
-function CountryCard({
-  country,
-  locale,
-}: {
-  country: CountryProfile;
-  locale: "ko" | "en";
-}) {
-  return (
-    <div className="rounded-xl border border-border bg-white p-5">
-      <div className="flex items-center gap-2.5">
-        <span className="text-xl">{country.flag}</span>
-        <span className="text-[15px] font-bold text-navy">
-          {country.name[locale]}
-        </span>
-        <span className="text-[12px] text-muted-foreground">{country.code}</span>
-      </div>
-      <p className="mt-2.5 text-[14px] leading-relaxed text-secondary">
-        {country.topics[locale]}
-      </p>
-      <p
-        className="mt-2 text-[13px] font-semibold"
-        style={{ color: "var(--accent)" }}
-      >
-        {country.reading[locale]}
-      </p>
-    </div>
-  );
-}
-
 // ── main component ──────────────────────────────────────────────────────────
 
 export function UnderstandingModel() {
@@ -344,78 +156,40 @@ export function UnderstandingModel() {
 
   return (
     <>
-      {/* ════════════════════════════════════════════════════════════════════
-          PART 1: 세계는 어떤 한국을 질문하는가 — What was found
-      ════════════════════════════════════════════════════════════════════ */}
-
-      {/* ── 1a. Key Findings ── */}
+      {/* ── Section 1: 왜 질문을 연결해서 읽는가 ── */}
       <DocSection>
         <Kicker>
-          {locale === "ko" ? "발견" : "Findings"}
+          {locale === "ko" ? "읽기 방식" : "Reading method"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "1,540개의 질문이 보여준 것"
-            : "What 1,540 questions revealed"}
+            ? "질문 하나는 아무것도 말해주지 않는다"
+            : "A single question tells you nothing"}
         </H2>
         <Lead>
           {locale === "ko"
-            ? "7개국에서 수집한 1,540개의 자동완성 질문은 일관된 패턴을 보여주었다. 아래는 데이터가 드러낸 핵심 사실이다."
-            : "1,540 autocomplete questions collected from seven countries showed consistent patterns. Below are the core facts the data revealed."}
+            ? "\"Why is K-pop popular?\"라는 질문 하나는 그저 호기심이다. 그러나 수백 개의 질문이 같은 영역을 가리킬 때, 거기에는 구조가 나타난다. 우리는 그 구조를 읽었다."
+            : "A single question like \"Why is K-pop popular?\" is just curiosity. But when hundreds of questions point to the same area, a structure appears. We read that structure."}
         </Lead>
-        <div className="mt-8 grid gap-4">
-          {KEY_FINDINGS.map((f) => (
-            <Finding
-              key={f.n}
-              n={f.n}
-              head={f.head[locale]}
-              body={f.body[locale]}
-            />
-          ))}
+        <div className="mt-6 max-w-2xl space-y-4">
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "개별 질문은 잡음이다. 연결된 질문은 패턴을 드러낸다. 이 페이지는 우리가 질문을 어떻게 연결했는지를 설명한다."
+              : "Individual questions are noise. Connected questions reveal patterns. This page explains how we connected them."}
+          </p>
         </div>
       </DocSection>
 
-      {/* ── 1b. Country Differences ── */}
+      {/* ── Section 2: 다섯 층위 ── */}
       <DocSection tint>
-        <Kicker>
-          {locale === "ko" ? "국가별 차이" : "Country differences"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "같은 나라, 다른 이미지"
-            : "Same country, different images"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "각 나라는 자신의 맥락에서 한국을 구성한다. 같은 대상을 질문하되 서로 다른 한국을 만들어낸다."
-            : "Each country constructs Korea from its own context. They ask about the same subject but produce different Koreas."}
-        </Lead>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {COUNTRIES.map((c) => (
-            <CountryCard key={c.code} country={c} locale={locale} />
-          ))}
-        </div>
-      </DocSection>
-
-      {/* ════════════════════════════════════════════════════════════════════
-          PART 2: 질문은 어떻게 국가 이해가 되는가 — How we read it
-      ════════════════════════════════════════════════════════════════════ */}
-
-      {/* ── 2a. The 5-Layer Model ── */}
-      <DocSection>
         <Kicker>
           {locale === "ko" ? "분석 구조" : "Analysis structure"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "질문에서 인식까지, 다섯 층위로 읽었다"
-            : "From question to perception, read through five layers"}
+            ? "질문에서 인식까지, 다섯 층위"
+            : "From question to perception, five layers"}
         </H2>
-        <Lead>
-          {locale === "ko"
-            ? "질문을 단순히 분류하지 않았다. 이해가 형성되는 경로 자체를 재구성했다."
-            : "We did not simply classify questions. We reconstructed the path through which understanding forms."}
-        </Lead>
 
         {/* flow visualization */}
         <div className="mt-8">
@@ -433,21 +207,16 @@ export function UnderstandingModel() {
         </div>
       </DocSection>
 
-      {/* ── 2b. Example ── */}
-      <DocSection tint>
+      {/* ── Section 3: 하나의 질문이 이해가 되기까지 ── */}
+      <DocSection>
         <Kicker>
-          {locale === "ko" ? "적용 사례" : "Application"}
+          {locale === "ko" ? "적용" : "Application"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "하나의 질문이 인식이 되기까지"
-            : "From a single question to perception"}
+            ? "Why is K-pop popular? → 문화 강국 한국"
+            : "Why is K-pop popular? → Korea as cultural power"}
         </H2>
-        <Lead>
-          {locale === "ko"
-            ? "이론적 도식이 아니라, 실제 질문이 축적을 통해 국가 이미지를 형성하는 과정이다."
-            : "This is not a theory diagram — it is how actual question accumulation produces a reading of Korea."}
-        </Lead>
 
         {/* vertical stepped flow */}
         <div className="mt-8 space-y-3">
@@ -483,52 +252,50 @@ export function UnderstandingModel() {
 
         <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-secondary">
           {locale === "ko"
-            ? "하나의 질문은 하나의 답으로 끝나지 않는다. 유사한 질문이 반복될 때 개념이 되고, 개념이 묶일 때 주제가 되고, 주제가 서사를 형성할 때 비로소 국가 이미지가 된다."
-            : "A single question does not end with a single answer. When similar questions recur they become concepts, when concepts cluster they become themes, and when themes form narratives they finally become national image."}
+            ? "이것은 이론이 아니다. 실제로 반복되는 질문들이 축적되어 한 나라에 대한 이해를 형성하는 과정이다."
+            : "This is not theory. This is how actual repeated questions accumulate into an understanding of a country."}
         </p>
       </DocSection>
 
-      {/* ── 2c. What the model enables ── */}
-      <DocSection>
+      {/* ── Section 4: 질문은 계속 변화한다 ── */}
+      <DocSection tint>
         <Kicker>
-          {locale === "ko" ? "분석적 가치" : "Analytical value"}
+          {locale === "ko" ? "관찰" : "Observation"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "이 구조가 가능하게 하는 것"
-            : "What this structure enables"}
+            ? "새로운 질문은 새로운 이해를 만든다"
+            : "New questions create new understanding"}
         </H2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
-          {CAPABILITIES.map((cap, i) => (
-            <div
-              key={i}
-              className="rounded-xl border p-5 sm:p-6"
-              style={{
-                borderColor: "color-mix(in srgb, var(--accent) 30%, transparent)",
-                background: "color-mix(in srgb, var(--accent) 4%, transparent)",
-              }}
-            >
-              <h3 className="text-[17px] font-bold text-navy">
-                {cap.head[locale]}
-              </h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-secondary">
-                {cap.body[locale]}
-              </p>
-            </div>
-          ))}
+        <div className="mt-6 max-w-2xl space-y-4">
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "우리는 고정된 국가 이미지를 측정하지 않는다. 이미지가 형성되기 이전의 질문을 관찰한다."
+              : "We do not measure a fixed national image. We observe questions before an image forms."}
+          </p>
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "질문은 변화한다. 새로운 사건은 새로운 질문을 만들고, 새로운 질문은 새로운 개념, 새로운 주제, 새로운 서사를 만든다."
+              : "Questions change. New events produce new questions. New questions create new concepts, new themes, new narratives."}
+          </p>
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "이 연구는 2024-2025년의 스냅샷이다. 세계의 호기심이 이동하면, 이 구조도 함께 이동할 것이다."
+              : "This research is a snapshot of 2024-2025. The structure will shift as the world's curiosity shifts."}
+          </p>
         </div>
       </DocSection>
 
-      {/* ── 2d. Conclusion ── */}
-      <DocSection tint>
+      {/* ── Section 5: Conclusion ── */}
+      <DocSection>
         <div className="py-4">
           <p
             className="max-w-2xl text-2xl font-bold leading-snug"
             style={{ color: "var(--accent)" }}
           >
             {locale === "ko"
-              ? "이 연구는 한국에 대한 평가가 아니라, 한국을 이해하는 과정 자체를 분석한 기록이다."
-              : "This research is not an evaluation of Korea, but a record of analyzing the process of understanding Korea itself."}
+              ? "이 연구는 질문을 분류한 것이 아니라, 질문이 연결되어 이해가 형성되는 구조를 읽은 것이다."
+              : "This research did not classify questions — it read the structure through which connected questions form understanding."}
           </p>
         </div>
       </DocSection>
