@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowRight, Search, X, ChevronRight, ChevronDown, Globe, Database, BarChart3 } from "lucide-react";
+import { ArrowRight, Search, X, ChevronRight, Globe, Database, BarChart3 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { getNode, PROVENANCE } from "@/lib/ontology";
 import { GRAPH_EDGES } from "@/lib/ontology.generated";
@@ -80,7 +80,7 @@ function buildOntologyPath(conceptId: string): string[] {
   return path;
 }
 
-const PAGE_SIZE = 40;
+const PAGE_SIZE = 10;
 
 function QuestionTranslation({ qId, text, language, locale }: { qId: string; text: string; language: string; locale: "ko" | "en" }) {
   const needsTranslation = (locale === "ko" && language !== "ko") || (locale === "en" && language !== "en");
@@ -121,7 +121,7 @@ export function ExploreView() {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
-  const [showCount, setShowCount] = useState(PAGE_SIZE);
+  const [currentPage, setCurrentPage] = useState(1);
   const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
 
   const topicConceptMap = useMemo(() => {
@@ -149,8 +149,9 @@ export function ExploreView() {
     return qs;
   }, [selectedTopic, selectedCountry, selectedLanguage, searchQuery, topicConceptMap]);
 
-  const visible = filtered.slice(0, showCount);
-  const hasMore = showCount < filtered.length;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const safePage = Math.min(currentPage, totalPages);
+  const visible = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const hasActiveFilter = selectedTopic || selectedCountry || selectedLanguage || searchQuery.trim();
 
@@ -159,7 +160,7 @@ export function ExploreView() {
     setSelectedCountry(null);
     setSelectedLanguage(null);
     setSearchQuery("");
-    setShowCount(PAGE_SIZE);
+    setCurrentPage(1);
   };
 
   const languagesInData = useMemo(() => {
@@ -303,7 +304,7 @@ export function ExploreView() {
                     return (
                       <Reveal key={m.code} delay={0.02}>
                         <button
-                          onClick={() => { setSelectedCountry(m.code); setShowCount(PAGE_SIZE); }}
+                          onClick={() => { setSelectedCountry(m.code); setCurrentPage(1); }}
                           className="flex w-full flex-col items-start rounded-xl border border-border bg-[#F8FAFF] p-4 text-left transition-all hover:border-brand/30 hover:shadow-md"
                         >
                           <span className="text-[2rem]">{COUNTRY_FLAG[m.code]}</span>
@@ -336,7 +337,7 @@ export function ExploreView() {
             ) : (
               <div>
                 <button
-                  onClick={() => { setSelectedCountry(null); setShowCount(PAGE_SIZE); }}
+                  onClick={() => { setSelectedCountry(null); setCurrentPage(1); }}
                   className="mb-4 inline-flex items-center gap-1.5 text-[12px] font-medium text-brand hover:underline"
                 >
                   <ChevronRight className="h-3 w-3 rotate-180" />
@@ -431,7 +432,7 @@ export function ExploreView() {
                 <input
                   type="text"
                   value={searchQuery}
-                  onChange={(e) => { setSearchQuery(e.target.value); setShowCount(PAGE_SIZE); }}
+                  onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
                   placeholder={locale === "ko" ? "질문 검색 (한국어·영어·원문 모두 검색 가능)..." : "Search questions (Korean, English, or original text)..."}
                   className="h-10 w-full rounded-xl border border-border bg-white pl-10 pr-4 text-[13px] text-navy outline-none transition-shadow placeholder:text-muted-foreground/50 focus:border-brand/40 focus:ring-2 focus:ring-brand/10"
                 />
@@ -445,7 +446,7 @@ export function ExploreView() {
               {/* Topic filters */}
               <div className="flex flex-wrap gap-1.5">
                 <button
-                  onClick={() => { setSelectedTopic(null); setShowCount(PAGE_SIZE); }}
+                  onClick={() => { setSelectedTopic(null); setCurrentPage(1); }}
                   className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
                     !selectedTopic ? "bg-navy text-white" : "bg-white text-secondary hover:bg-navy/5"
                   }`}
@@ -455,7 +456,7 @@ export function ExploreView() {
                 {TOPICS.map((tp) => (
                   <button
                     key={tp.slug}
-                    onClick={() => { setSelectedTopic(selectedTopic === tp.slug ? null : tp.slug); setShowCount(PAGE_SIZE); }}
+                    onClick={() => { setSelectedTopic(selectedTopic === tp.slug ? null : tp.slug); setCurrentPage(1); }}
                     className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
                       selectedTopic === tp.slug ? "bg-brand text-white" : "bg-white text-secondary hover:bg-brand/5"
                     }`}
@@ -468,7 +469,7 @@ export function ExploreView() {
               {/* Country filters */}
               <div className="flex flex-wrap gap-1.5">
                 <button
-                  onClick={() => { setSelectedCountry(null); setShowCount(PAGE_SIZE); }}
+                  onClick={() => { setSelectedCountry(null); setCurrentPage(1); }}
                   className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
                     !selectedCountry ? "bg-navy text-white" : "bg-white text-secondary hover:bg-navy/5"
                   }`}
@@ -478,7 +479,7 @@ export function ExploreView() {
                 {countriesInData.map((code) => (
                   <button
                     key={code}
-                    onClick={() => { setSelectedCountry(selectedCountry === code ? null : code); setShowCount(PAGE_SIZE); }}
+                    onClick={() => { setSelectedCountry(selectedCountry === code ? null : code); setCurrentPage(1); }}
                     className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
                       selectedCountry === code ? "bg-brand text-white" : "bg-white text-secondary hover:bg-navy/5"
                     }`}
@@ -491,7 +492,7 @@ export function ExploreView() {
               {/* Language filters */}
               <div className="flex flex-wrap gap-1.5">
                 <button
-                  onClick={() => { setSelectedLanguage(null); setShowCount(PAGE_SIZE); }}
+                  onClick={() => { setSelectedLanguage(null); setCurrentPage(1); }}
                   className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
                     !selectedLanguage ? "bg-navy text-white" : "bg-white text-secondary hover:bg-navy/5"
                   }`}
@@ -501,7 +502,7 @@ export function ExploreView() {
                 {languagesInData.map((lang) => (
                   <button
                     key={lang}
-                    onClick={() => { setSelectedLanguage(selectedLanguage === lang ? null : lang); setShowCount(PAGE_SIZE); }}
+                    onClick={() => { setSelectedLanguage(selectedLanguage === lang ? null : lang); setCurrentPage(1); }}
                     className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
                       selectedLanguage === lang ? "bg-brand text-white" : "bg-white text-secondary hover:bg-navy/5"
                     }`}
@@ -643,26 +644,56 @@ export function ExploreView() {
               )}
             </div>
 
-            {hasMore && (
-              <div className="mt-5 text-center">
-                <button
-                  onClick={() => setShowCount((c) => c + PAGE_SIZE)}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-5 py-2 text-[12px] font-semibold text-navy transition-all hover:shadow-md"
-                >
-                  <ChevronDown className="h-3 w-3" />
-                  {locale === "ko"
-                    ? `더 보기 (${Math.min(PAGE_SIZE, filtered.length - showCount)}개 더)`
-                    : `Show more (${Math.min(PAGE_SIZE, filtered.length - showCount)} more)`}
-                </button>
-                <div className="mt-1 text-[10px] text-muted-foreground">
-                  {visible.length}/{filtered.length.toLocaleString()}
+            {totalPages > 1 && (
+              <div className="mt-6 flex flex-col items-center gap-2">
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={() => { setCurrentPage((p) => Math.max(1, p - 1)); setExpandedQuestion(null); }}
+                    disabled={safePage <= 1}
+                    className="rounded-lg border border-border bg-white px-2.5 py-1.5 text-[12px] font-medium text-secondary transition-colors hover:bg-navy/5 disabled:opacity-30 disabled:hover:bg-white"
+                  >
+                    {locale === "ko" ? "이전" : "Prev"}
+                  </button>
+                  {(() => {
+                    const pages: (number | "...")[] = [];
+                    if (totalPages <= 7) {
+                      for (let i = 1; i <= totalPages; i++) pages.push(i);
+                    } else {
+                      pages.push(1);
+                      if (safePage > 3) pages.push("...");
+                      for (let i = Math.max(2, safePage - 1); i <= Math.min(totalPages - 1, safePage + 1); i++) pages.push(i);
+                      if (safePage < totalPages - 2) pages.push("...");
+                      pages.push(totalPages);
+                    }
+                    return pages.map((p, i) =>
+                      p === "..." ? (
+                        <span key={`dot-${i}`} className="px-1 text-[12px] text-muted-foreground">...</span>
+                      ) : (
+                        <button
+                          key={p}
+                          onClick={() => { setCurrentPage(p); setExpandedQuestion(null); }}
+                          className={`min-w-[32px] rounded-lg px-2 py-1.5 text-[12px] font-medium transition-colors ${
+                            p === safePage
+                              ? "bg-brand text-white"
+                              : "border border-border bg-white text-secondary hover:bg-navy/5"
+                          }`}
+                        >
+                          {p}
+                        </button>
+                      )
+                    );
+                  })()}
+                  <button
+                    onClick={() => { setCurrentPage((p) => Math.min(totalPages, p + 1)); setExpandedQuestion(null); }}
+                    disabled={safePage >= totalPages}
+                    className="rounded-lg border border-border bg-white px-2.5 py-1.5 text-[12px] font-medium text-secondary transition-colors hover:bg-navy/5 disabled:opacity-30 disabled:hover:bg-white"
+                  >
+                    {locale === "ko" ? "다음" : "Next"}
+                  </button>
                 </div>
-              </div>
-            )}
-
-            {!hasMore && filtered.length > 0 && (
-              <div className="mt-4 text-center text-[10px] text-muted-foreground">
-                {filtered.length.toLocaleString()}{locale === "ko" ? "개 질문 전체 표시" : " questions shown"}
+                <div className="text-[10px] text-muted-foreground">
+                  {(safePage - 1) * PAGE_SIZE + 1}–{Math.min(safePage * PAGE_SIZE, filtered.length)} / {filtered.length.toLocaleString()}
+                </div>
               </div>
             )}
           </div>
