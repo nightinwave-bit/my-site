@@ -10,7 +10,7 @@ type Dict = Record<string, { ko: string; en: string }>;
 
 export const dict: Dict = {
   "nav.brand": { ko: "Ask About Korea", en: "Ask About Korea" },
-  "nav.pathways": { ko: "대표 질문", en: "Key Questions" },
+  "nav.pathways": { ko: "Ask about Korea", en: "Ask about Korea" },
   "nav.topics": { ko: "주제", en: "Topics" },
   "nav.explore": { ko: "질문 지도", en: "Question Map" },
   "nav.research": { ko: "리서치", en: "Research" },

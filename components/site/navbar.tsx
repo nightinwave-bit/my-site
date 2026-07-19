@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import { TOPICS } from "@/lib/topics";
-import { PATHWAYS } from "@/lib/ontology";
 import { RESEARCH_DOCS } from "@/lib/research";
 import { cn } from "@/lib/utils";
 import { LanguageSwitch } from "./language-switch";
@@ -21,14 +20,7 @@ interface NavLink {
 }
 
 const LINKS: NavLink[] = [
-  {
-    key: "nav.pathways",
-    href: "/#pathways",
-    children: PATHWAYS.map((p) => ({
-      label: p.title,
-      href: `/#pathways`,
-    })),
-  },
+  { key: "nav.pathways", href: "/#pathways" },
   {
     key: "nav.topics",
     href: "/topics",
