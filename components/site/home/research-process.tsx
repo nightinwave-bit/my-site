@@ -10,10 +10,8 @@ type L = { ko: string; en: string };
 const D = (ko: string, en: string): L => ({ ko, en });
 
 const STAGE_SUB: Record<string, L> = {
-  "data-report": D("무엇이 보이는가", "What is there"),
-  "diplomacy-brief": D("그것은 무엇을 의미하는가", "What it means"),
-  "understanding-model": D("어떻게 이해가 만들어지는가", "How understanding forms"),
-  "question-observatory": D("앞으로 무엇이 바뀌는가", "What changes next"),
+  "data-report": D("왜 이 데이터를 선택했는가", "Why we chose this data"),
+  "understanding-model": D("무엇이 발견되었고, 어떻게 읽었는가", "What was found and how we read it"),
 };
 
 export function ResearchProcess() {
@@ -40,8 +38,8 @@ export function ResearchProcess() {
             <Reveal delay={0.1}>
               <p className="mt-4 text-[15px] leading-relaxed text-secondary">
                 {locale === "ko"
-                  ? "같은 1,540개의 질문을 네 단계로 읽습니다 — 발견에서 해석으로, 해석에서 모델로, 그리고 미래의 질문을 관찰하는 것으로."
-                  : "The same 1,540 questions, read through four stages — from discovery to interpretation, from interpretation to model, and on to observing future questions."}
+                  ? "데이터를 검증하고, 그 데이터에서 발견한 패턴을 분석 구조로 읽었습니다."
+                  : "We validated the data, then read the patterns we found through an analytical structure."}
               </p>
             </Reveal>
           </div>
@@ -56,14 +54,14 @@ export function ResearchProcess() {
           </Reveal>
         </div>
 
-        {/* connected 4-stage process */}
+        {/* connected 2-stage process */}
         <div className="relative mt-16">
           <div
             className="pointer-events-none absolute left-0 right-0 top-[19px] hidden h-[2px] bg-brand lg:block"
             aria-hidden
           />
 
-          <div className="grid gap-8 lg:grid-cols-4 lg:gap-6">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-6">
             {docs.map((doc, i) => (
               <Reveal key={doc.slug} delay={i * 0.08}>
                 <Link href={`/research/${doc.slug}`} className="group block h-full">

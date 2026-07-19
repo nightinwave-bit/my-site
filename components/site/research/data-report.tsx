@@ -5,620 +5,449 @@ import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { DocSection, Kicker, H2, Lead, type L } from "./parts";
 
-// ── types & helpers ──────────────────────────────────────────────────────────
-interface FindingData {
-  n: string;
-  title: L;
-  data: L;
-  interpretation: L;
-}
-
-// ── findings (2-layer: 데이터→해석) ──────────────────────────────────────────
-const FINDINGS: FindingData[] = [
-  {
-    n: "01",
-    title: {
-      ko: "문화는 가장 강력한 진입점이다",
-      en: "Culture is the most powerful entry point",
-    },
-    data: {
-      ko: "한류는 전체 질문 중 가장 높은 비중을 차지했다. K-pop, 드라마, 영화, 음식 관련 질문이 지속적으로 등장했다.",
-      en: "The Korean Wave accounted for the largest share of all questions. K-pop, drama, film, and food questions appeared consistently across markets.",
-    },
-    interpretation: {
-      ko: "세계는 한국을 정치나 경제보다 콘텐츠를 통해 먼저 만난다. 문화는 관심 분야가 아니라 한국이라는 국가에 접근하는 입구 역할을 한다.",
-      en: "The world first meets Korea through content, not politics or economics. Culture is not a topic of interest — it's the doorway to the country itself.",
-    },
-  },
-  {
-    n: "02",
-    title: {
-      ko: "가장 많이 묻는 단일 질문은 여전히 '두 개의 한국'이다",
-      en: "The single most-asked question is still 'the two Koreas'",
-    },
-    data: {
-      ko: "분단 관련 질문이 242개(전체의 15.7%)로 어떤 한류 개념보다 큰 단일 개념이었다. '왜 한국은 둘로 나뉘었나'가 가장 많은 시장에서 반복되었다.",
-      en: "Division-related questions totaled 242 (15.7% of all) — the single largest concept, bigger than any Hallyu topic. 'Why is Korea divided?' recurred across the most markets.",
-    },
-    interpretation: {
-      ko: "한류가 전체 주제로는 1위이지만, 사람들이 한국에 대해 던지는 가장 무거운 단일 질문은 문화가 아니라 분단이다. 소프트파워는 안보 프레임을 대체하지 못했다.",
-      en: "Hallyu leads as a theme, but the single heaviest question people ask about Korea is not about culture — it's about division. Soft power has not displaced the security frame.",
-    },
-  },
-  {
-    n: "03",
-    title: {
-      ko: "언어에 대한 첫 번째 프레임은 '어려움'이다",
-      en: "The first frame for language is 'difficulty'",
-    },
-    data: {
-      ko: "언어와 난이도 관련 질문이 163개(10.6%)로 두 번째로 큰 개념이었다. '한국어는 어렵나요?', '한국어는 일본어보다 어렵나요?'가 반복되었다.",
-      en: "Language and difficulty questions totaled 163 (10.6%) — the second-largest concept. 'Is Korean hard?' and 'Is Korean harder than Japanese?' recurred across markets.",
-    },
-    interpretation: {
-      ko: "대부분의 사람들은 '한국어를 배우고 싶다'가 아니라 '한국어가 얼마나 어려운가'로 한국어를 처음 만난다. 관심은 학습이 아니라 어려움으로 프레임된다.",
-      en: "Most people first encounter Korean not through 'I want to learn it' but through 'how hard is it?' Interest is framed as difficulty, not as learning.",
-    },
-  },
-  {
-    n: "04",
-    title: {
-      ko: "음식과 '한국인은 어떤 사람들인가'는 거의 보편적이다",
-      en: "Food and 'what are Koreans like' are near-universal",
-    },
-    data: {
-      ko: "음식(140)과 국민성(143)이 3–4위에 올랐다. 이 두 개념은 거의 모든 시장에 등장하는 유일한 개념이었다.",
-      en: "Cuisine (140) and national character (143) ranked 3rd–4th. These two concepts were the only ones that appeared in nearly every market.",
-    },
-    interpretation: {
-      ko: "음식과 사람은 가장 마찰이 적은 진입점이다. 언어도 역사도 모르는 상태에서도 사람들은 '무엇을 먹는가'와 '어떤 사람들인가'를 질문한다.",
-      en: "Food and people are the lowest-friction entry points. Even when people know nothing about the language or history, they ask 'what do they eat?' and 'what are they like?'",
-    },
-  },
-  {
-    n: "05",
-    title: {
-      ko: "지정학이 전체 호기심의 23%를 차지한다",
-      en: "Geopolitics accounts for 23% of all curiosity",
-    },
-    data: {
-      ko: "분단·역사·지정학 주제가 348개로 한류(459)에 이어 2위였다. '한국은 안전한가', '전쟁이 일어날 수 있나', '왜 핵을 가지나'가 반복되었다.",
-      en: "Division, history, and geopolitics totaled 348 questions — second only to Hallyu (459). 'Is Korea safe?', 'Could there be a war?', 'Why do they have nukes?' recurred across markets.",
-    },
-    interpretation: {
-      ko: "한류와 안보는 세계가 한국을 이해하는 두 개의 축이다. 문화적 매력과 지정학적 불안이 동시에 존재한다.",
-      en: "Hallyu and security are the two axes through which the world understands Korea. Cultural appeal and geopolitical anxiety coexist.",
-    },
-  },
-  {
-    n: "06",
-    title: {
-      ko: "시장을 넘나드는 질문은 31%에 불과하다",
-      en: "Only 31% of questions cross markets",
-    },
-    data: {
-      ko: "1,540개 중 477개만 둘 이상의 시장에 등장했다. 나머지 69%는 시장 고유의 질문이었다.",
-      en: "Only 477 of 1,540 appeared in more than one market. The remaining 69% were market-specific questions.",
-    },
-    interpretation: {
-      ko: "세계는 '하나의 한국'을 질문하지 않는다. 국가마다 다른 한국을 질문하고, 다른 이미지를 형성한다.",
-      en: "The world does not question 'one Korea.' Each country asks about a different Korea and forms a different image.",
-    },
-  },
-  {
-    n: "07",
-    title: {
-      ko: "일부 국가는 한국을 문화보다 분단 국가로 먼저 만난다",
-      en: "Some countries meet Korea through division before culture",
-    },
-    data: {
-      ko: "브라질, 아랍권, 인도네시아에서는 북한, 분단, 전쟁 관련 질문 비중이 높게 나타났다.",
-      en: "In Brazil, the Arab market, and Indonesia, questions about North Korea, division, and war appeared at notably high rates.",
-    },
-    interpretation: {
-      ko: "모든 국가가 한국을 K-pop으로 만나는 것은 아니다. 일부 국가에게 한국은 문화 강국이기 전에 분단 국가, 안보 국가, 지정학적 행위자이다.",
-      en: "Not every country meets Korea through K-pop. For some, Korea is a divided nation, a security actor, a geopolitical player — before it is a cultural power.",
-    },
-  },
-  {
-    n: "08",
-    title: {
-      ko: "가까운 국가는 현재보다 유산을 질문한다",
-      en: "Close countries ask about heritage over the present",
-    },
-    data: {
-      ko: "한국과 일본은 한글, 전통문화, 역사, 문화유산 질문 비중이 높았다.",
-      en: "Korea and Japan showed high proportions of questions about Hangeul, traditional culture, history, and cultural heritage.",
-    },
-    interpretation: {
-      ko: "가까운 국가는 한국을 낯선 문화로 소비하지 않는다. 오히려 어떤 역사와 기억이 지금의 한국을 만들었는가를 질문한다.",
-      en: "Close countries don't consume Korea as an exotic culture. Instead, they ask what history and memory made today's Korea.",
-    },
-  },
-  {
-    n: "09",
-    title: {
-      ko: "가까운 국가는 문화를 넘어 사회를 질문한다",
-      en: "Close countries ask beyond culture into society",
-    },
-    data: {
-      ko: "일본은 K-pop, 아이돌뿐 아니라 예절, 사회 규범, 인간관계 관련 질문도 높게 나타났다.",
-      en: "Japan showed high rates not only for K-pop and idols but also for manners, social norms, and interpersonal relationships.",
-    },
-    interpretation: {
-      ko: "관심이 깊어질수록 질문은 콘텐츠에서 사회로 이동한다.",
-      en: "As interest deepens, questions migrate from content to society.",
-    },
-  },
-  {
-    n: "10",
-    title: {
-      ko: "새로운 청중은 한국 자체를 먼저 질문한다",
-      en: "New audiences question Korea itself first",
-    },
-    data: {
-      ko: "인도네시아에서는 '한국은 무엇으로 유명한가', '한국은 어떤 나라인가'와 같은 입문형 질문이 많았다.",
-      en: "In Indonesia, introductory questions like 'What is Korea famous for?' and 'What kind of country is Korea?' appeared at high rates.",
-    },
-    interpretation: {
-      ko: "정보가 많은 사회는 세부 질문을 남긴다. 정보가 적은 사회는 국가 자체를 이해하려고 한다. 질문의 수준은 관심의 수준이 아니라 접촉의 단계일 수 있다.",
-      en: "Information-rich societies leave detailed questions. Information-sparse societies try to understand the country itself. The level of a question may reflect the stage of contact, not the level of interest.",
-    },
-  },
-];
-
-// ── unexpected questions ─────────────────────────────────────────────────────
-interface UnexpectedQ {
-  question: L;
-  meaning: L;
-}
-
-const UNEXPECTED: UnexpectedQ[] = [
-  {
-    question: {
-      ko: "한국인은 왜 영어를 배우나요?",
-      en: "Why do Koreans learn English?",
-    },
-    meaning: {
-      ko: "영어 능력에 대한 관심이 아니라 한국 사회의 경쟁 구조를 이해하려는 질문이다.",
-      en: "Not a question about English ability — it's a question trying to understand Korea's competitive social structure.",
-    },
-  },
-  {
-    question: {
-      ko: "한국은 왜 분단되었나요?",
-      en: "Why was Korea divided?",
-    },
-    meaning: {
-      ko: "역사 질문이 아니라 현재 한국을 이해하려는 질문이다.",
-      en: "Not a history question — it's a question to understand Korea as it is now.",
-    },
-  },
-  {
-    question: {
-      ko: "한국인은 왜 금속 젓가락을 쓰나요?",
-      en: "Why do Koreans use metal chopsticks?",
-    },
-    meaning: {
-      ko: "식기 질문이 아니라 '왜 다른가'를 통해 한국의 일상을 이해하려는 질문이다.",
-      en: "Not about utensils — it's trying to understand Korean daily life through 'why is it different?'",
-    },
-  },
-  {
-    question: {
-      ko: "왜 한국 남성은 수염이 없나요?",
-      en: "Why don't Korean men have beards?",
-    },
-    meaning: {
-      ko: "외모 질문이 아니라 한국의 미적 기준과 사회 규범을 이해하려는 질문이다.",
-      en: "Not about appearance — it's trying to understand Korea's beauty standards and social norms.",
-    },
-  },
-  {
-    question: {
-      ko: "원화는 왜 이렇게 약한가요?",
-      en: "Why is the Korean won so weak?",
-    },
-    meaning: {
-      ko: "환율 질문이 아니라 한국의 경제적 위상에 대한 불확실성을 드러내는 질문이다.",
-      en: "Not a currency question — it reveals uncertainty about Korea's economic standing.",
-    },
-  },
-];
-
-// ── country profiles ─────────────────────────────────────────────────────────
-interface CountryProfile {
-  flag: string;
-  code: string;
-  name: L;
-  topics: L;
-  reading: L;
-}
-
-const COUNTRY_PROFILES: CountryProfile[] = [
-  {
-    flag: "🇩🇪",
-    code: "DE",
-    name: { ko: "독일", en: "Germany" },
-    topics: { ko: "기술 · 역사 · 언어", en: "Technology · History · Language" },
-    reading: { ko: "한국을 산업국가로 이해", en: "Understands Korea as an industrial nation" },
-  },
-  {
-    flag: "🇧🇷",
-    code: "BR",
-    name: { ko: "브라질", en: "Brazil" },
-    topics: { ko: "음식 · 한류 · 뷰티", en: "Food · Hallyu · Beauty" },
-    reading: { ko: "한국을 문화국가로 이해", en: "Understands Korea as a cultural nation" },
-  },
-  {
-    flag: "🇯🇵",
-    code: "JP",
-    name: { ko: "일본", en: "Japan" },
-    topics: { ko: "예절 · 사회 · 문화", en: "Etiquette · Society · Culture" },
-    reading: { ko: "한국을 생활세계로 이해", en: "Understands Korea as a lived world" },
-  },
-  {
-    flag: "🇮🇩",
-    code: "ID",
-    name: { ko: "인도네시아", en: "Indonesia" },
-    topics: { ko: "분단 · 국가 기본 · 뷰티", en: "Division · Country basics · Beauty" },
-    reading: { ko: "한국을 알고 싶은 나라로 이해", en: "Understands Korea as a country to discover" },
-  },
-  {
-    flag: "🇦🇪",
-    code: "AE",
-    name: { ko: "아랍권", en: "Arab Market" },
-    topics: { ko: "분단 · 음식 · 드라마", en: "Division · Food · Drama" },
-    reading: { ko: "한국을 지정학과 콘텐츠의 이중상으로 이해", en: "Understands Korea as a dual image of geopolitics and content" },
-  },
-  {
-    flag: "🇺🇸",
-    code: "US+IN",
-    name: { ko: "영어권 (미국+인도)", en: "English (US+India)" },
-    topics: { ko: "사람 · 여행 · 분단 · 언어", en: "People · Travel · Division · Language" },
-    reading: { ko: "한국을 넓게 그러나 얕게 이해", en: "Understands Korea broadly but shallowly" },
-  },
-  {
-    flag: "🇰🇷",
-    code: "KR",
-    name: { ko: "한국", en: "Korea" },
-    topics: { ko: "사람 · 문화유산 · 사회", en: "People · Heritage · Society" },
-    reading: { ko: "외국인의 시선으로 자신을 질문", en: "Questions itself through foreign eyes" },
-  },
-];
-
-// ── data strip ───────────────────────────────────────────────────────────────
 const DATA_STRIP: { value: string; label: L }[] = [
-  { value: "1,540", label: { ko: "개 질문", en: "Questions" } },
-  { value: "8", label: { ko: "개 주제", en: "Topics" } },
-  { value: "8", label: { ko: "개 국가", en: "Countries" } },
-  { value: "7", label: { ko: "개 언어", en: "Languages" } },
+  { value: "1,540", label: { ko: "질문", en: "Questions" } },
+  { value: "7", label: { ko: "언어", en: "Languages" } },
+  { value: "8", label: { ko: "국가", en: "Countries" } },
+  { value: "5", label: { ko: "단계 분석 모델", en: "-step analysis model" } },
 ];
 
-// ── sub-components ───────────────────────────────────────────────────────────
-
-function DataStrip({ locale }: { locale: "ko" | "en" }) {
-  return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-      {DATA_STRIP.map((d) => (
-        <div
-          key={d.label.en}
-          className="rounded-xl border border-border bg-white px-4 py-4 text-center"
-        >
-          <div className="text-2xl font-bold tabular-nums text-navy sm:text-3xl">
-            {d.value}
-          </div>
-          <div className="mt-1 text-[13px] text-secondary">
-            {d.label[locale]}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+interface SourceCard {
+  name: L;
+  observable: L;
+  limitation: L;
+  verdict: L;
+  status: "excluded" | "supplementary" | "core";
 }
 
-function FindingCard({
-  finding,
-  locale,
-}: {
-  finding: FindingData;
-  locale: "ko" | "en";
-}) {
-  return (
-    <div className="rounded-2xl border border-border bg-white shadow-card">
-      {/* title bar */}
-      <div className="border-b border-border px-6 py-5 sm:px-7">
-        <div className="flex items-baseline gap-3">
-          <span className="font-mono text-sm font-bold text-[color:var(--accent)]">
-            {finding.n}
-          </span>
-          <h3 className="text-lg font-semibold leading-snug text-navy sm:text-xl">
-            {finding.title[locale]}
-          </h3>
-        </div>
-      </div>
+const SOURCES: SourceCard[] = [
+  {
+    name: { ko: "SNS", en: "SNS" },
+    observable: { ko: "형성된 의견", en: "Formed opinions" },
+    limitation: { ko: "이미 인식이 형성된 이후 데이터", en: "Data after perception is already formed" },
+    verdict: { ko: "제외", en: "Excluded" },
+    status: "excluded",
+  },
+  {
+    name: { ko: "뉴스", en: "News" },
+    observable: { ko: "언론이 선택한 의제", en: "Agenda chosen by media" },
+    limitation: { ko: "대중의 질문이 아닌 언론의 관심", en: "Media interest, not public questions" },
+    verdict: { ko: "제외", en: "Excluded" },
+    status: "excluded",
+  },
+  {
+    name: { ko: "Google Trends", en: "Google Trends" },
+    observable: { ko: "관심 규모", en: "Scale of interest" },
+    limitation: { ko: "왜 검색했는지는 알 수 없음", en: "Cannot know why people searched" },
+    verdict: { ko: "제외", en: "Excluded" },
+    status: "excluded",
+  },
+  {
+    name: { ko: "Reddit", en: "Reddit" },
+    observable: { ko: "질문 이후의 토론", en: "Discussion after questions" },
+    limitation: { ko: "최초 질문 확인 불가", en: "Cannot verify the original question" },
+    verdict: { ko: "보조 참고", en: "Supplementary" },
+    status: "supplementary",
+  },
+  {
+    name: { ko: "People Also Ask", en: "People Also Ask" },
+    observable: { ko: "질문 확장 구조", en: "Question expansion structure" },
+    limitation: { ko: "질문의 출발점 확인 불가", en: "Cannot verify question origin" },
+    verdict: { ko: "보조 참고", en: "Supplementary" },
+    status: "supplementary",
+  },
+  {
+    name: { ko: "Google Autocomplete", en: "Google Autocomplete" },
+    observable: { ko: "실제 사용자의 질문", en: "Actual user questions" },
+    limitation: { ko: "질문 생성 단계 직접 관찰 가능", en: "Directly observable at question generation stage" },
+    verdict: { ko: "핵심 데이터", en: "Core data" },
+    status: "core",
+  },
+];
 
-      <div className="grid gap-0 divide-y divide-border">
-        {/* data */}
-        <div className="px-6 py-5 sm:px-7">
-          <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-            {locale === "ko" ? "데이터" : "Data"}
-          </div>
-          <p className="text-[15px] leading-relaxed text-secondary">
-            {finding.data[locale]}
-          </p>
-        </div>
-
-        {/* interpretation */}
-        <div className="rounded-b-2xl px-6 py-5 sm:px-7">
-          <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
-            {locale === "ko" ? "해석" : "Interpretation"}
-          </div>
-          <p className="text-[15.5px] leading-relaxed text-navy">
-            {finding.interpretation[locale]}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
+interface CountryCard {
+  flag: string;
+  name: L;
+  desc: L;
 }
 
-// ── main component ───────────────────────────────────────────────────────────
+const COUNTRIES: CountryCard[] = [
+  { flag: "\u{1F1FA}\u{1F1F8}", name: { ko: "미국", en: "United States" }, desc: { ko: "세계 최대 영어권 검색 시장", en: "Largest English-language search market" } },
+  { flag: "\u{1F1EF}\u{1F1F5}", name: { ko: "일본", en: "Japan" }, desc: { ko: "가장 인접한 문화 비교 대상", en: "Closest cultural comparison" } },
+  { flag: "\u{1F1E9}\u{1F1EA}", name: { ko: "독일", en: "Germany" }, desc: { ko: "유럽 대표 산업 국가", en: "Europe's leading industrial nation" } },
+  { flag: "\u{1F1EE}\u{1F1F3}", name: { ko: "인도", en: "India" }, desc: { ko: "급성장 중인 글로벌 사우스", en: "Rapidly growing Global South" } },
+  { flag: "\u{1F1EE}\u{1F1E9}", name: { ko: "인도네시아", en: "Indonesia" }, desc: { ko: "동남아 최대 무슬림 국가", en: "Southeast Asia's largest Muslim nation" } },
+  { flag: "\u{1F1E7}\u{1F1F7}", name: { ko: "브라질", en: "Brazil" }, desc: { ko: "남미 대표 국가", en: "South America's leading nation" } },
+  { flag: "\u{1F1E6}\u{1F1EA}", name: { ko: "아랍에미리트", en: "UAE" }, desc: { ko: "중동 관문 국가", en: "Middle East gateway nation" } },
+  { flag: "\u{1F1F0}\u{1F1F7}", name: { ko: "대한민국", en: "Korea" }, desc: { ko: "자기 인식 비교 기준", en: "Self-perception baseline" } },
+];
+
+interface RoleCard {
+  source: string;
+  role: L;
+}
+
+const ROLES: RoleCard[] = [
+  { source: "Autocomplete", role: { ko: "질문 생성", en: "Question generation" } },
+  { source: "People Also Ask", role: { ko: "질문 확장", en: "Question expansion" } },
+  { source: "Ontology", role: { ko: "질문 구조화", en: "Question structuring" } },
+  { source: "Research Layer", role: { ko: "질문 해석", en: "Question interpretation" } },
+  { source: "Pathway", role: { ko: "인식 형성 과정 시각화", en: "Perception formation visualization" } },
+];
 
 export function DataReport() {
   const { locale } = useLanguage();
 
   return (
     <>
-      {/* ── data strip ── */}
+      {/* Section 1: Data Strip */}
       <DocSection>
-        <DataStrip locale={locale} />
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {DATA_STRIP.map((d) => (
+            <div
+              key={d.label.en}
+              className="rounded-xl border border-border bg-white px-4 py-4 text-center"
+            >
+              <div className="text-2xl font-bold tabular-nums text-navy sm:text-3xl">
+                {d.value}
+              </div>
+              <div className="mt-1 text-[13px] text-secondary">
+                {d.label[locale]}
+              </div>
+            </div>
+          ))}
+        </div>
       </DocSection>
 
-      {/* ── section: entry points (findings 01-04) ── */}
+      {/* Section 2: Why Google Autocomplete */}
+      <DocSection>
+        <Kicker>
+          {locale === "ko" ? "데이터 선정" : "Data selection"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "우리는 검색량보다 질문을 선택했다"
+            : "We chose questions over search volume"}
+        </H2>
+        <Lead>
+          {locale === "ko"
+            ? "이 연구의 목표는 긍정·부정 반응을 측정하거나 콘텐츠 인기도를 집계하는 것이 아니다. 사람들이 한국을 이해하기 위해 사용하는 질문 구조를 식별하는 것이다."
+            : "The goal of this study is not to measure positive or negative reactions or to tally content popularity. It is to identify the question structures people use to understand Korea."}
+        </Lead>
+        <div className="mt-6 max-w-2xl">
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "데이터 선정의 기준은 노출량, 반응량, 감성 분석이 아니었다. 우리가 관찰할 수 있는 것은 질문 생성 과정 자체, 그리고 질문 간의 구조였다."
+              : "The criteria for data selection were not exposure, reactions, or sentiment analysis. What we could observe was the question generation process itself, and the structure between questions."}
+          </p>
+        </div>
+      </DocSection>
+
+      {/* Section 3: Data Source Comparison */}
       <DocSection tint>
         <Kicker>
-          {locale === "ko" ? "진입점" : "Entry points"}
+          {locale === "ko" ? "데이터 소스 비교" : "Data source comparison"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "세계는 어떤 문을 통해 한국으로 들어오는가"
-            : "Which doors does the world use to enter Korea?"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "문화, 분단, 언어, 음식, 사람 — 다섯 개의 진입점이 세계의 한국 이해를 형성한다."
-            : "Culture, division, language, food, people — five entry points shape how the world understands Korea."}
-        </Lead>
-        <div className="mt-8 grid gap-6">
-          {FINDINGS.slice(0, 4).map((f) => (
-            <FindingCard key={f.n} finding={f} locale={locale} />
-          ))}
-        </div>
-      </DocSection>
-
-      {/* ── section: structural patterns (findings 05-06) ── */}
-      <DocSection>
-        <Kicker>
-          {locale === "ko" ? "구조적 패턴" : "Structural patterns"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "하나의 한국이 아니라 여러 개의 한국이 질문된다"
-            : "Not one Korea but many are questioned"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "세계는 한국에 대해 같은 질문을 하지 않는다. 시장마다 다른 한국을 질문하고, 다른 이미지를 만든다."
-            : "The world doesn't ask the same questions about Korea. Each market questions a different Korea and builds a different image."}
-        </Lead>
-        <div className="mt-8 grid gap-6">
-          {FINDINGS.slice(4, 6).map((f) => (
-            <FindingCard key={f.n} finding={f} locale={locale} />
-          ))}
-        </div>
-      </DocSection>
-
-      {/* ── section: country differences (findings 07-10) ── */}
-      <DocSection tint>
-        <Kicker>
-          {locale === "ko" ? "국가별 차이" : "Country differences"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "국가마다 다른 한국을 만난다"
-            : "Each country meets a different Korea"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "브라질에게 한국은 분단 국가이고, 일본에게 한국은 이웃의 생활세계이며, 인도네시아에게 한국은 아직 알아가는 중인 나라다."
-            : "To Brazil, Korea is a divided nation. To Japan, a neighbor's lived world. To Indonesia, a country still being discovered."}
-        </Lead>
-        <div className="mt-8 grid gap-6">
-          {FINDINGS.slice(6, 10).map((f) => (
-            <FindingCard key={f.n} finding={f} locale={locale} />
-          ))}
-        </div>
-      </DocSection>
-
-      {/* ── section: country comparison ── */}
-      <DocSection>
-        <Kicker>
-          {locale === "ko"
-            ? "국가는 서로 다른 한국을 질문했다"
-            : "Each country questioned a different Korea"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "같은 나라, 다른 이미지"
-            : "Same country, different images"}
+            ? "여섯 개의 소스를 검토하고, 하나를 선택했다"
+            : "We reviewed six sources and chose one"}
         </H2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {COUNTRY_PROFILES.map((cp) => (
+          {SOURCES.map((s) => (
             <div
-              key={cp.code}
+              key={s.name.en}
+              className={`rounded-xl border p-5 ${
+                s.status === "core"
+                  ? "border-[color:var(--accent)] bg-white ring-1 ring-[color:var(--accent)]"
+                  : "border-border bg-white"
+              }`}
+              style={
+                s.status === "core"
+                  ? { background: "color-mix(in srgb, var(--accent) 4%, white)" }
+                  : undefined
+              }
+            >
+              <div className="text-[15px] font-semibold text-navy">
+                {s.name[locale]}
+              </div>
+              <div className="mt-3">
+                <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
+                  {locale === "ko" ? "관찰 가능" : "Observable"}
+                </div>
+                <p className="mt-1 text-[14px] leading-relaxed text-secondary">
+                  {s.observable[locale]}
+                </p>
+              </div>
+              <div className="mt-3">
+                <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
+                  {locale === "ko" ? "한계" : "Limitation"}
+                </div>
+                <p className="mt-1 text-[14px] leading-relaxed text-secondary">
+                  {s.limitation[locale]}
+                </p>
+              </div>
+              <div className="mt-4">
+                <span
+                  className={`inline-block rounded-full px-3 py-1 text-[12px] font-semibold ${
+                    s.status === "excluded"
+                      ? "bg-gray-100 text-gray-500"
+                      : s.status === "supplementary"
+                        ? "bg-amber-50 text-amber-700"
+                        : "text-white"
+                  }`}
+                  style={
+                    s.status === "core"
+                      ? { background: "var(--accent)" }
+                      : undefined
+                  }
+                >
+                  {s.verdict[locale]}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </DocSection>
+
+      {/* Section 4: Why Autocomplete is suitable */}
+      <DocSection>
+        <Kicker>
+          {locale === "ko" ? "핵심 데이터" : "Core data"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "Autocomplete는 질문이 만들어지는 순간을 보여준다"
+            : "Autocomplete shows the moment questions are formed"}
+        </H2>
+        <div className="mt-6 max-w-2xl space-y-4">
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "Autocomplete는 플랫폼 편집, 언론 선택, 커뮤니티 해석이 개입하기 이전의 데이터를 제공한다. 사용자가 검색창에 질문을 입력하는 그 순간의 데이터다."
+              : "Autocomplete provides data before platform editing, media selection, or community interpretation intervene. It is data from the very moment a user types a question into the search bar."}
+          </p>
+          <div className="rounded-xl border border-border bg-white p-5">
+            <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
+              {locale === "ko" ? "비교 예시" : "Comparison example"}
+            </div>
+            <p className="text-[14px] leading-relaxed text-secondary">
+              {locale === "ko"
+                ? "Google Trends는 \"Korea\", \"K-pop\", \"Kimchi\"의 검색량을 보여주지만 왜/무엇/어떤 질문인지는 보여주지 않는다. Autocomplete는 \"Why is Korea...\", \"How does Korea...\", \"Why do Koreans...\"와 같은 질문 구조를 그대로 보존한다."
+                : "Google Trends shows search volumes for \"Korea\", \"K-pop\", \"Kimchi\" but does NOT show the why/what/which gap. Autocomplete preserves question structures like \"Why is Korea...\", \"How does Korea...\", \"Why do Koreans...\"."}
+            </p>
+          </div>
+          <p className="text-[15px] font-medium leading-relaxed text-navy">
+            {locale === "ko"
+              ? "우리는 검색량이 아니라 질문 구조를 분석하기 위해 Autocomplete를 선택했다."
+              : "We chose Autocomplete to analyze question structure, not search volume."}
+          </p>
+        </div>
+      </DocSection>
+
+      {/* Section 5: Why these countries */}
+      <DocSection tint>
+        <Kicker>
+          {locale === "ko" ? "국가 선정" : "Country selection"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "우리는 국가 수보다 비교 가능성을 우선했다"
+            : "We prioritized comparability over country count"}
+        </H2>
+        <Lead>
+          {locale === "ko"
+            ? "선정 기준은 인구나 GDP가 아니라, 한국에 대한 서로 다른 시각을 비교할 수 있는가였다."
+            : "The criteria was not population or GDP, but whether we can compare different perspectives on Korea."}
+        </Lead>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {COUNTRIES.map((c) => (
+            <div
+              key={c.name.en}
               className="rounded-xl border border-border bg-white p-5"
             >
               <div className="flex items-center gap-2.5">
-                <span className="text-xl">{cp.flag}</span>
+                <span className="text-xl">{c.flag}</span>
                 <span className="text-[15px] font-semibold text-navy">
-                  {cp.name[locale]}
-                </span>
-                <span className="ml-auto font-mono text-[11px] text-muted-foreground">
-                  {cp.code}
+                  {c.name[locale]}
                 </span>
               </div>
-              <div className="mt-3 text-[13px] font-medium text-secondary">
-                {cp.topics[locale]}
-              </div>
-              <div
-                className="mt-3 flex items-center gap-2 rounded-lg px-3 py-2 text-[13px] font-semibold text-navy"
-                style={{
-                  background:
-                    "color-mix(in srgb, var(--accent) 8%, transparent)",
-                }}
-              >
-                <ArrowRight className="h-3.5 w-3.5 text-[color:var(--accent)]" />
-                {cp.reading[locale]}
-              </div>
+              <p className="mt-3 text-[13px] leading-relaxed text-secondary">
+                {c.desc[locale]}
+              </p>
             </div>
           ))}
         </div>
       </DocSection>
 
-      {/* ── section: unexpected questions ── */}
-      <DocSection tint>
+      {/* Section 6: Why language-based analysis */}
+      <DocSection>
         <Kicker>
-          {locale === "ko"
-            ? "우리가 예상하지 못했던 질문들"
-            : "Questions we didn't expect"}
+          {locale === "ko" ? "언어 선정" : "Language selection"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "표면 아래의 질문들"
-            : "Questions beneath the surface"}
+            ? "국가는 달라도 언어는 질문을 남긴다"
+            : "Countries differ, but language leaves questions"}
         </H2>
-        <Lead>
+        <div className="mt-6 max-w-2xl space-y-4">
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "같은 국가 안에서도 언어에 따라 질문 구조가 달라질 수 있다. 이 연구는 7개 언어를 기준으로 분석했다."
+              : "Even within the same country, question structures can differ by language. This study analyzed based on 7 languages."}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {(locale === "ko"
+              ? ["영어", "한국어", "일본어", "독일어", "인도네시아어", "포르투갈어", "아랍어"]
+              : ["English", "Korean", "Japanese", "German", "Indonesian", "Portuguese", "Arabic"]
+            ).map((lang) => (
+              <span
+                key={lang}
+                className="rounded-full border border-border bg-white px-3 py-1.5 text-[13px] font-medium text-navy"
+              >
+                {lang}
+              </span>
+            ))}
+          </div>
+          <p className="text-[15px] font-medium leading-relaxed text-navy">
+            {locale === "ko"
+              ? "우리는 국가보다 언어가 만들어내는 질문 구조를 먼저 관찰했다."
+              : "We observed question structures created by language before country."}
+          </p>
+        </div>
+      </DocSection>
+
+      {/* Section 7: Data role division */}
+      <DocSection tint>
+        <Kicker>
+          {locale === "ko" ? "분석 구조" : "Analysis structure"}
+        </Kicker>
+        <H2>
           {locale === "ko"
-            ? "어떤 질문은 겉으로 보이는 것과 다른 것을 묻고 있다."
-            : "Some questions ask something different from what they appear to."}
-        </Lead>
-        <div className="mt-8 grid gap-4">
-          {UNEXPECTED.map((u) => (
+            ? "하나의 데이터만으로 국가 이미지를 설명할 수는 없다"
+            : "No single data source can explain national image"}
+        </H2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {ROLES.map((r) => (
             <div
-              key={u.question.en}
-              className="grid gap-3 rounded-xl border border-border bg-white p-5 sm:grid-cols-[1fr_1fr] sm:gap-6 sm:p-6"
+              key={r.source}
+              className="rounded-xl border border-border bg-white p-5 text-center"
             >
-              <div>
-                <div className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
-                  {locale === "ko" ? "질문" : "Question"}
-                </div>
-                <p className="text-[16px] font-semibold leading-snug text-navy">
-                  {u.question[locale]}
-                </p>
+              <div className="text-[13px] font-semibold text-[color:var(--accent)]">
+                {r.source}
               </div>
-              <div>
-                <div className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[color:var(--accent)]">
-                  {locale === "ko" ? "실제 의미" : "What it really asks"}
-                </div>
-                <p className="text-[15px] leading-relaxed text-secondary">
-                  {u.meaning[locale]}
-                </p>
+              <div className="mx-auto my-2 h-px w-8 bg-border" />
+              <div className="text-[14px] font-medium text-navy">
+                {r.role[locale]}
               </div>
             </div>
           ))}
         </div>
+        <div className="mt-6 max-w-2xl">
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "Ask About Korea는 단일 데이터 소스에 의존하지 않는다. 각 데이터는 서로 다른 역할을 수행한다."
+              : "Ask About Korea does not rely on a single data source. Each data plays a different role."}
+          </p>
+        </div>
       </DocSection>
 
-      {/* ── conclusion ── */}
+      {/* Section 8: Limitations */}
+      <DocSection>
+        <Kicker>
+          {locale === "ko" ? "한계" : "Limitations"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "우리는 한국에 대한 모든 질문을 수집하지 않았다"
+            : "We did not collect every question about Korea"}
+        </H2>
+        <div className="mt-6 max-w-2xl space-y-4">
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "Autocomplete는 강력하지만 완전하지 않다."
+              : "Autocomplete is powerful but not complete."}
+          </p>
+          <div className="space-y-3">
+            {(locale === "ko"
+              ? [
+                  "검색량 자체를 보여주지 않는다",
+                  "검색자의 의도 전체를 설명하지 못한다",
+                  "플랫폼 알고리즘 변화 영향을 받을 수 있다",
+                ]
+              : [
+                  "Does not show search volume itself",
+                  "Cannot explain the full intent of searchers",
+                  "Can be affected by platform algorithm changes",
+                ]
+            ).map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 rounded-lg border border-border bg-white px-4 py-3"
+              >
+                <span className="mt-0.5 font-mono text-[12px] font-bold text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[14px] leading-relaxed text-secondary">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+          <p className="text-[15px] leading-relaxed text-secondary">
+            {locale === "ko"
+              ? "따라서 AAK는 People Also Ask, 주제 분석, 온톨로지 구조화, 질문 경로 분석을 함께 사용하여 이를 보완한다."
+              : "Therefore AAK uses People Also Ask, topic analysis, ontology structuring, and question path analysis together to compensate."}
+          </p>
+        </div>
+      </DocSection>
+
+      {/* Section 9: Conclusion */}
       <DocSection>
         <Kicker>
           {locale === "ko" ? "결론" : "Conclusion"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "세계는 질문을 통해 한국을 만난다"
-            : "The world meets Korea through its questions"}
+            ? "중요한 것은 검색량이 아니라 질문이다"
+            : "What matters is not search volume but questions"}
         </H2>
-        <div className="mt-6 max-w-2xl">
+        <div className="mt-6 max-w-2xl space-y-3">
           <p className="text-[17px] leading-[1.8] text-secondary">
             {locale === "ko"
-              ? "사람들은 한국을 방문하기 전에 검색한다. 질문한다. 비교한다."
-              : "Before visiting Korea, people search. They ask. They compare."}
+              ? "국가 이미지는 뉴스에서 시작되지 않는다. 사람들이 반복적으로 던지는 질문 속에서 형성된다."
+              : "National image does not start from news. It is formed within the questions people repeatedly ask."}
           </p>
-          <p className="mt-3 text-[17px] leading-[1.8] text-secondary">
+          <p className="text-[17px] leading-[1.8] text-secondary">
             {locale === "ko"
-              ? "그 질문들은 문화, 분단, 언어, 음식, 사람이라는 진입점에 몰려 있고, 시장마다 다른 조합으로 나타난다."
-              : "Those questions cluster around the entry points of culture, division, language, food, and people — in a different mix in every market."}
+              ? "Ask About Korea는 한국에 대한 답을 찾기 전에 세계가 어떤 질문을 하고 있는지부터 조사했다."
+              : "Ask About Korea investigated what questions the world is asking before seeking answers about Korea."}
           </p>
-          <p className="mt-4 text-lg font-semibold leading-relaxed text-navy">
+          <p className="text-[17px] leading-[1.8] text-secondary">
             {locale === "ko"
-              ? "이 보고서는 세계가 한국을 어떻게 이해하고 있는지를 질문을 통해 읽은 결과다."
-              : "This report reads how the world understands Korea, through its questions."}
+              ? "그리고 그 질문들이 어떻게 연결되어 하나의 국가 이해로 발전하는지 추적했다."
+              : "And we traced how those questions connect and develop into an understanding of a nation."}
+          </p>
+          <p className="mt-4 text-lg font-bold leading-relaxed text-navy">
+            {locale === "ko"
+              ? "이 연구는 한국에 대한 평가가 아니라 한국을 이해하는 과정 자체를 연구한 기록이다."
+              : "This study is not an evaluation of Korea, but a record of researching the very process of understanding Korea."}
           </p>
         </div>
       </DocSection>
 
-      {/* ── section: why it matters ── */}
-      <DocSection tint>
-        <Kicker>
-          {locale === "ko" ? "왜 중요한가" : "Why it matters"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "발견이 남기는 질문"
-            : "Questions the discovery leaves behind"}
-        </H2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-border bg-white p-5">
-            <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
-              {locale === "ko" ? "정책적 함의" : "Policy implications"}
-            </div>
-            <p className="text-[15px] leading-relaxed text-secondary">
-              {locale === "ko"
-                ? "질문 데이터는 세계가 한국의 어떤 측면에 관심을 갖고 있는지를 보여준다. 이 관심 지도 없이 설계된 국가 전략은 세계의 궁금증과 어긋날 수밖에 없다."
-                : "Question data reveals which aspects of Korea the world cares about. National strategies designed without this map of interest are bound to miss what the world is actually curious about."}
-            </p>
-          </div>
-          <div className="rounded-xl border border-border bg-white p-5">
-            <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
-              {locale === "ko" ? "사회적 함의" : "Social implications"}
-            </div>
-            <p className="text-[15px] leading-relaxed text-secondary">
-              {locale === "ko"
-                ? "한국인이 중요하게 여기는 한국과 세계가 궁금해하는 한국 사이에는 구조적 차이가 존재한다. 이 차이를 인식하는 것이 상호 이해의 출발점이다."
-                : "There is a structural gap between the Korea Koreans value and the Korea the world is curious about. Recognizing this gap is the starting point of mutual understanding."}
-            </p>
-          </div>
-          <div className="rounded-xl border border-border bg-white p-5">
-            <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--accent)]">
-              {locale === "ko" ? "공공외교 함의" : "Public diplomacy implications"}
-            </div>
-            <p className="text-[15px] leading-relaxed text-secondary">
-              {locale === "ko"
-                ? "공공외교는 무엇을 전달할 것인가에서 시작하지만, 이 데이터는 무엇이 궁금해지고 있는가에서 시작할 것을 제안한다."
-                : "Public diplomacy starts with what to communicate, but this data suggests starting with what people are becoming curious about."}
-            </p>
-          </div>
-        </div>
-      </DocSection>
-
-      {/* ── bridge to next rung ── */}
+      {/* Section 10: Bridge to next page */}
       <DocSection tint>
         <div className="rounded-2xl border border-border bg-white p-6 sm:p-8">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--accent)]">
-            {locale === "ko" ? "다음 단계 · 해석" : "Next rung · Interpretation"}
-          </div>
-          <p className="mt-2 max-w-2xl text-lg leading-relaxed text-navy">
+          <p className="max-w-2xl text-[15px] leading-relaxed text-secondary">
             {locale === "ko"
-              ? "여기까지가 발견입니다. 이 질문 패턴이 무엇을 의미하는지는 공공외교 브리프에서 다룹니다."
-              : "This is the discovery. What these question patterns mean is covered in the Diplomacy Brief."}
+              ? "데이터 검증은 여기까지입니다. 이 데이터에서 무엇이 발견되었고, 그것을 어떻게 분석했는지는 다음 문서에서 다룹니다."
+              : "Data validation ends here. What was found in this data and how it was analyzed is covered in the next document."}
           </p>
           <Link
-            href="/research/diplomacy-brief"
+            href="/research/understanding-model"
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--accent)] transition-opacity hover:opacity-80"
           >
-            {locale === "ko" ? "공공외교 브리프 읽기" : "Read the Diplomacy Brief"}
+            {locale === "ko" ? "발견과 분석 읽기" : "Read findings & analysis"}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

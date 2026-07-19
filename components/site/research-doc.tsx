@@ -8,15 +8,11 @@ import { getDoc, docNeighbors, type ResearchSlug } from "@/lib/research";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { DataReport } from "./research/data-report";
-import { DiplomacyBrief } from "./research/diplomacy-brief";
 import { UnderstandingModel } from "./research/framework-paper";
-import { QuestionObservatory } from "./research/question-commons";
 
 const CONTENT: Record<ResearchSlug, React.ComponentType> = {
   "data-report": DataReport,
-  "diplomacy-brief": DiplomacyBrief,
   "understanding-model": UnderstandingModel,
-  "question-observatory": QuestionObservatory,
 };
 
 export function ResearchDoc({ slug }: { slug: ResearchSlug }) {

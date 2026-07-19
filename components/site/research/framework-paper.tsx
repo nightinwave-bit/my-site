@@ -1,15 +1,143 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { DocSection, Kicker, H2, Lead, Finding, type L } from "./parts";
 
-// ── types ────────────────────────────────────────────────────────────────────
+// ── helpers ─────────────────────────────────────────────────────────────────
 const D = (ko: string, en: string): L => ({ ko, en });
 
-// ── 5-layer model ───────────────────────────────────────────────────────────
+// ── PART 1 data: findings ───────────────────────────────────────────────────
+
+interface FindingItem {
+  n: string;
+  head: L;
+  body: L;
+}
+
+const KEY_FINDINGS: FindingItem[] = [
+  {
+    n: "01",
+    head: D(
+      "문화는 가장 강력한 진입점이다",
+      "Culture is the strongest entry point",
+    ),
+    body: D(
+      "한류·K-pop·음식·드라마는 모든 시장에서 가장 큰 비중을 차지한다. 한국을 처음 질문하는 사람의 대다수는 문화를 통해 들어온다.",
+      "Hallyu, K-pop, food, and drama hold the largest share across all markets. The majority who first ask about Korea enter through culture.",
+    ),
+  },
+  {
+    n: "02",
+    head: D(
+      "단일 최대 질문은 '두 개의 한국'이다",
+      "The single largest question is 'the two Koreas'",
+    ),
+    body: D(
+      "242개 질문(15.7%)이 분단에 관한 것이다. 이는 단일 한류 개념보다 크다. 세계는 한국을 문화로 진입하되, 분단으로 정의한다.",
+      "242 questions (15.7%) concern division — larger than any single Hallyu concept. The world enters Korea through culture but defines it through division.",
+    ),
+  },
+  {
+    n: "03",
+    head: D(
+      "시장을 넘나드는 질문은 31%에 불과하다",
+      "Only 31% of questions cross markets",
+    ),
+    body: D(
+      "69%의 질문은 특정 시장에서만 나타난다. 각 나라는 서로 다른 한국을 질문하고 있다.",
+      "69% of questions appear in only one market. Each country is asking about a different Korea.",
+    ),
+  },
+  {
+    n: "04",
+    head: D(
+      "가까운 국가는 사회를, 먼 국가는 문화를 질문한다",
+      "Proximate countries ask about society; distant ones ask about culture",
+    ),
+    body: D(
+      "일본은 예절·규범·사회를 질문한다. 인도네시아와 브라질은 '한국이란 무엇인가'라는 입문적 질문을 던진다. 거리가 질문의 깊이를 결정한다.",
+      "Japan asks about etiquette, norms, and society. Indonesia and Brazil ask introductory 'What is Korea?' questions. Distance determines the depth of inquiry.",
+    ),
+  },
+  {
+    n: "05",
+    head: D(
+      "언어에 대한 첫 프레임은 '어려움'이다",
+      "The first frame for language is 'difficulty'",
+    ),
+    body: D(
+      "163개 질문(10.6%)이 한국어를 '어려움'으로 프레이밍한다. 학습 욕구가 아니라 장벽 인식이 언어 질문의 출발점이다.",
+      "163 questions (10.6%) frame Korean through difficulty. The starting point of language questions is barrier perception, not learning desire.",
+    ),
+  },
+];
+
+// ── country profiles ────────────────────────────────────────────────────────
+
+interface CountryProfile {
+  flag: string;
+  code: string;
+  name: L;
+  topics: L;
+  reading: L;
+}
+
+const COUNTRIES: CountryProfile[] = [
+  {
+    flag: "🇩🇪",
+    code: "DE",
+    name: D("독일", "Germany"),
+    topics: D("기술 · 역사 · 언어", "Technology · History · Language"),
+    reading: D("산업국가로 이해", "Understood as an industrial nation"),
+  },
+  {
+    flag: "🇧🇷",
+    code: "BR",
+    name: D("브라질", "Brazil"),
+    topics: D("음식 · 한류 · 뷰티", "Food · Hallyu · Beauty"),
+    reading: D("문화국가로 이해", "Understood as a cultural nation"),
+  },
+  {
+    flag: "🇯🇵",
+    code: "JP",
+    name: D("일본", "Japan"),
+    topics: D("예절 · 사회 · 문화", "Etiquette · Society · Culture"),
+    reading: D("생활세계로 이해", "Understood as a lived world"),
+  },
+  {
+    flag: "🇮🇩",
+    code: "ID",
+    name: D("인도네시아", "Indonesia"),
+    topics: D("분단 · 국가 기본 · 뷰티", "Division · National basics · Beauty"),
+    reading: D("알고 싶은 나라로 이해", "Understood as a country to discover"),
+  },
+  {
+    flag: "🇦🇪",
+    code: "AE",
+    name: D("아랍권", "Arab world"),
+    topics: D("분단 · 음식 · 드라마", "Division · Food · Drama"),
+    reading: D("지정학과 콘텐츠의 이중상", "A dual image of geopolitics and content"),
+  },
+  {
+    flag: "🇺🇸",
+    code: "US+IN",
+    name: D("영어권", "English-speaking"),
+    topics: D("사람 · 여행 · 분단 · 언어", "People · Travel · Division · Language"),
+    reading: D("넓게 그러나 얕게 이해", "Understood broadly but shallowly"),
+  },
+  {
+    flag: "🇰🇷",
+    code: "KR",
+    name: D("한국", "Korea"),
+    topics: D("사람 · 문화유산 · 사회", "People · Heritage · Society"),
+    reading: D("외국인의 시선으로 자신을 질문", "Questioning itself through foreign eyes"),
+  },
+];
+
+// ── PART 2 data: analytical model ───────────────────────────────────────────
+
 interface LayerStep {
   n: string;
   ko: string;
@@ -32,8 +160,8 @@ const LAYERS: LayerStep[] = [
     ko: "개념",
     en: "Concept",
     desc: D(
-      "질문이 가리키는 구체적 대상 — K-pop, 김치, 병역 같은 것들",
-      "The specific objects questions point to — K-pop, kimchi, military service",
+      "질문이 가리키는 구체적 대상 (K-pop, 김치, 병역)",
+      "Specific objects questions point to (K-pop, kimchi, military service)",
     ),
   },
   {
@@ -41,8 +169,8 @@ const LAYERS: LayerStep[] = [
     ko: "주제",
     en: "Theme",
     desc: D(
-      "개념들이 모여 형성하는 관심 영역 — 한류, 언어, 관광 같은 것들",
-      "The interest areas that form as concepts cluster — Hallyu, language, tourism",
+      "개념들이 모여 형성하는 관심 영역 (한류, 언어, 관광)",
+      "Interest areas formed as concepts cluster (Hallyu, language, tourism)",
     ),
   },
   {
@@ -50,8 +178,8 @@ const LAYERS: LayerStep[] = [
     ko: "서사",
     en: "Narrative",
     desc: D(
-      "주제가 반복되며 만들어지는 이야기 구조 — '문화 강국', '기술 선진국' 같은 것들",
-      "The story structures that emerge as themes recur — 'cultural powerhouse', 'tech leader'",
+      "주제가 반복되며 만들어지는 이야기 구조 ('문화 강국', '기술 선진국')",
+      "Story structures that emerge as themes recur ('cultural powerhouse', 'tech leader')",
     ),
   },
   {
@@ -60,90 +188,78 @@ const LAYERS: LayerStep[] = [
     en: "Perception",
     desc: D(
       "서사가 축적되어 형성되는 국가 이미지",
-      "The national image that forms as narratives accumulate",
+      "National image formed as narratives accumulate",
     ),
   },
 ];
 
-// ── why existing theory fails ────────────────────────────────────────────────
-interface TheoryGap {
-  n: string;
+// ── example flow ────────────────────────────────────────────────────────────
+
+interface FlowStep {
+  ko: string;
+  en: string;
+}
+
+const EXAMPLE_FLOW: FlowStep[] = [
+  { ko: "Why is K-pop popular?", en: "Why is K-pop popular?" },
+  { ko: "아이돌 문화", en: "Idol culture" },
+  { ko: "한류", en: "Hallyu" },
+  { ko: "문화 강국", en: "Cultural powerhouse" },
+  { ko: "문화 강국 한국", en: "Korea as cultural power" },
+];
+
+// ── analytical capabilities ─────────────────────────────────────────────────
+
+interface Capability {
   head: L;
   body: L;
 }
 
-const THEORY_GAPS: TheoryGap[] = [
+const CAPABILITIES: Capability[] = [
   {
-    n: "01",
-    head: D("메시지 중심 접근", "The message-centered approach"),
+    head: D("진입점 식별", "Entry point identification"),
     body: D(
-      "기존 국가브랜드 이론은 오랫동안 '국가가 무엇을 전달하는가'를 분석의 단위로 삼아 왔다. 발신자가 메시지를 설계하고 수신자에게 전달하면 이미지가 형성된다고 가정한다. 그러나 이 모델은 수신자가 스스로 질문하고, 답을 찾고, 그 답을 다른 사람과 공유하는 과정을 설명할 언어를 갖고 있지 않다.",
-      "National brand theory has long treated 'what the state communicates' as its unit of analysis, assuming a sender designs a message and an image forms once it reaches a receiver. But this model has no vocabulary for the receiver who asks their own question, searches for an answer, and shares it onward.",
+      "어떤 질문이 어떤 개념으로 연결되는지 추적할 수 있다.",
+      "Track which questions connect to which concepts.",
     ),
   },
   {
-    n: "02",
-    head: D("여론조사 기반 이미지 측정", "Polling-based image measurement"),
+    head: D("서사 형성 감지", "Narrative formation detection"),
     body: D(
-      "국가 이미지를 측정하는 대표적 방법은 설문이다. '한국에 대해 어떻게 생각하십니까'라는 질문에 응답을 요청한다. 그러나 설문은 이미지가 이미 형성된 이후의 결과만을 포착한다. 사람들이 무엇을 궁금해했고, 어떤 답을 얻었고, 그 답을 어떻게 받아들였는가 — 이미지가 만들어지는 과정 자체는 설문에 담기지 않는다.",
-      "The standard way to measure national image is a survey — asking respondents what they think of a country. But a survey captures only the outcome, after an image has already formed. What people were curious about, what answers they found, how they made sense of those answers — the process by which the image was built — never appears in the poll.",
+      "주제가 반복될 때 서사가 형성되는 시점을 포착할 수 있다.",
+      "Detect when recurring themes begin to form narratives.",
     ),
   },
   {
-    n: "03",
-    head: D("정부 중심 모델", "The government-centric model"),
+    head: D("국가별 경로 비교", "Cross-country path comparison"),
     body: D(
-      "기존 이론은 정부를 국가 이미지 형성의 유일한 행위자로 취급한다. 그러나 실제로 이미지를 형성하는 것은 검색엔진, AI, 여행자, 유학생, 디아스포라, 콘텐츠 창작자처럼 정부가 통제할 수 없는 무수한 행위자들이다. 정부 중심 모델은 이들을 예외 취급하거나 아예 시야 밖에 둔다.",
-      "Existing theory treats the state as the sole actor in national image formation. In practice, the image is built by search engines, AI systems, travelers, international students, diaspora communities, and content creators — actors no government controls. A government-centric model either treats them as exceptions or never sees them at all.",
+      "같은 질문이 국가마다 다른 인식으로 이어지는 이유를 분석할 수 있다.",
+      "Analyze why the same questions lead to different perceptions in each country.",
     ),
   },
 ];
 
-// ── old vs new model ─────────────────────────────────────────────────────────
-interface ModelStep {
-  label: L;
-}
+// ── sub-components ──────────────────────────────────────────────────────────
 
-const OLD_MODEL: ModelStep[] = [
-  { label: D("국가", "State") },
-  { label: D("메시지", "Message") },
-  { label: D("대중", "Public") },
-];
-
-const NEW_MODEL: ModelStep[] = [
-  { label: D("질문", "Question") },
-  { label: D("검색 / AI", "Search / AI") },
-  { label: D("답변", "Answers") },
-  { label: D("인식", "Perception") },
-];
-
-// ── sub-components ───────────────────────────────────────────────────────────
-
-function ModelFlow({
+function FlowChips({
   steps,
   locale,
-  accent,
 }: {
-  steps: ModelStep[];
+  steps: { ko: string; en: string }[];
   locale: "ko" | "en";
-  accent?: boolean;
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-y-2">
+    <div className="flex flex-wrap items-center gap-y-3">
       {steps.map((step, i) => (
-        <React.Fragment key={step.label.en}>
+        <React.Fragment key={i}>
           <div
-            className="rounded-lg border px-4 py-2.5 text-center text-[14px] font-semibold text-navy"
+            className="rounded-lg border px-4 py-2.5 text-center text-[14px] font-bold text-navy"
             style={{
-              borderColor: accent
-                ? "color-mix(in srgb, var(--accent) 50%, transparent)"
-                : "var(--border)",
-              background: accent
-                ? "color-mix(in srgb, var(--accent) 6%, transparent)"
-                : "white",
+              borderColor: "color-mix(in srgb, var(--accent) 50%, transparent)",
+              background: "color-mix(in srgb, var(--accent) 8%, transparent)",
             }}
           >
-            {step.label[locale]}
+            {step[locale]}
           </div>
           {i < steps.length - 1 && (
             <ChevronDown className="mx-2 h-4 w-4 rotate-[-90deg] text-muted-foreground" />
@@ -192,81 +308,121 @@ function LayerCard({
   );
 }
 
-// ── main component ───────────────────────────────────────────────────────────
+function CountryCard({
+  country,
+  locale,
+}: {
+  country: CountryProfile;
+  locale: "ko" | "en";
+}) {
+  return (
+    <div className="rounded-xl border border-border bg-white p-5">
+      <div className="flex items-center gap-2.5">
+        <span className="text-xl">{country.flag}</span>
+        <span className="text-[15px] font-bold text-navy">
+          {country.name[locale]}
+        </span>
+        <span className="text-[12px] text-muted-foreground">{country.code}</span>
+      </div>
+      <p className="mt-2.5 text-[14px] leading-relaxed text-secondary">
+        {country.topics[locale]}
+      </p>
+      <p
+        className="mt-2 text-[13px] font-semibold"
+        style={{ color: "var(--accent)" }}
+      >
+        {country.reading[locale]}
+      </p>
+    </div>
+  );
+}
+
+// ── main component ──────────────────────────────────────────────────────────
 
 export function UnderstandingModel() {
   const { locale } = useLanguage();
 
   return (
     <>
-      {/* ── 1. problem statement ── */}
+      {/* ════════════════════════════════════════════════════════════════════
+          PART 1: 세계는 어떤 한국을 질문하는가 — What was found
+      ════════════════════════════════════════════════════════════════════ */}
+
+      {/* ── 1a. Key Findings ── */}
       <DocSection>
         <Kicker>
-          {locale === "ko" ? "문제 제기" : "The problem"}
+          {locale === "ko" ? "발견" : "Findings"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "우리는 국가 이미지를 잘못 이해해 왔다"
-            : "We have misunderstood national image"}
-        </H2>
-        <div className="mt-6 max-w-2xl">
-          <p className="text-[17px] leading-[1.8] text-secondary">
-            {locale === "ko"
-              ? "지난 수십 년간 국가브랜드는 국가가 세계에 '무엇을 말하는가'의 문제로 다뤄져 왔다. 슬로건을 만들고, 로고를 디자인하고, 캠페인을 집행하는 것 — 이것이 국가 이미지를 관리하는 방법이라고 여겨졌다."
-              : "For decades, national branding has been treated as a question of what a state says to the world. Crafting slogans, designing logos, running campaigns — this was assumed to be how national image gets managed."}
-          </p>
-          <p className="mt-3 text-[17px] leading-[1.8] text-secondary">
-            {locale === "ko"
-              ? "그러나 이 전제는 처음부터 잘못되었다. 국가 이미지는 국가가 만들어 전달하는 것이 아니라, 세계가 질문하고 답을 찾는 과정에서 형성되는 것이다. 정부가 아무 말도 하지 않아도, 사람들은 검색하고 묻는다. 그 순간부터 이미지는 이미 형성되기 시작한다."
-              : "But that premise was wrong from the start. National image is not something a state manufactures and delivers — it forms as the world asks questions and searches for answers. Even if a government says nothing at all, people still search, still ask. The image begins forming the moment they do."}
-          </p>
-          <p className="mt-3 text-[17px] leading-[1.8] text-secondary">
-            {locale === "ko"
-              ? "문제는 방법론이 아니라 전제였다. 우리는 '무엇을 전달할 것인가'를 물어 왔다. 정작 물었어야 할 질문은 '사람들은 무엇을 궁금해하는가'였다."
-              : "The flaw was never in the methodology — it was in the premise. We kept asking what to communicate. The question we should have asked was what people are curious about."}
-          </p>
-          <p className="mt-4 text-lg font-semibold leading-relaxed text-navy">
-            {locale === "ko"
-              ? "중요한 것은 국가가 무엇을 말했는가가 아니라 사람들이 무엇을 묻고 있는가이다."
-              : "What matters is not what the state said, but what people are asking."}
-          </p>
-        </div>
-      </DocSection>
-
-      {/* ── 2. the 5-layer model ── */}
-      <DocSection tint>
-        <Kicker>
-          {locale === "ko" ? "한국 이해 모델" : "Korea Understanding Model"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "이해는 다섯 층위로 형성된다"
-            : "Understanding forms through five layers"}
+            ? "1,540개의 질문이 보여준 것"
+            : "What 1,540 questions revealed"}
         </H2>
         <Lead>
           {locale === "ko"
-            ? "세계가 한국을 이해하는 과정은 단일한 사건이 아니라, 다섯 개의 층위를 거치며 축적되는 구조다. 질문에서 출발하여 인식에 이르기까지, 각 층위는 이전 층위 위에 쌓인다."
-            : "How the world comes to understand Korea is not a single event but a structure that accumulates through five layers. From question to perception, each layer builds on the one before it."}
+            ? "7개국에서 수집한 1,540개의 자동완성 질문은 일관된 패턴을 보여주었다. 아래는 데이터가 드러낸 핵심 사실이다."
+            : "1,540 autocomplete questions collected from seven countries showed consistent patterns. Below are the core facts the data revealed."}
+        </Lead>
+        <div className="mt-8 grid gap-4">
+          {KEY_FINDINGS.map((f) => (
+            <Finding
+              key={f.n}
+              n={f.n}
+              head={f.head[locale]}
+              body={f.body[locale]}
+            />
+          ))}
+        </div>
+      </DocSection>
+
+      {/* ── 1b. Country Differences ── */}
+      <DocSection tint>
+        <Kicker>
+          {locale === "ko" ? "국가별 차이" : "Country differences"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "같은 나라, 다른 이미지"
+            : "Same country, different images"}
+        </H2>
+        <Lead>
+          {locale === "ko"
+            ? "각 나라는 자신의 맥락에서 한국을 구성한다. 같은 대상을 질문하되 서로 다른 한국을 만들어낸다."
+            : "Each country constructs Korea from its own context. They ask about the same subject but produce different Koreas."}
+        </Lead>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {COUNTRIES.map((c) => (
+            <CountryCard key={c.code} country={c} locale={locale} />
+          ))}
+        </div>
+      </DocSection>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          PART 2: 질문은 어떻게 국가 이해가 되는가 — How we read it
+      ════════════════════════════════════════════════════════════════════ */}
+
+      {/* ── 2a. The 5-Layer Model ── */}
+      <DocSection>
+        <Kicker>
+          {locale === "ko" ? "분석 구조" : "Analysis structure"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "질문에서 인식까지, 다섯 층위로 읽었다"
+            : "From question to perception, read through five layers"}
+        </H2>
+        <Lead>
+          {locale === "ko"
+            ? "질문을 단순히 분류하지 않았다. 이해가 형성되는 경로 자체를 재구성했다."
+            : "We did not simply classify questions. We reconstructed the path through which understanding forms."}
         </Lead>
 
         {/* flow visualization */}
-        <div className="mt-8 flex flex-wrap items-center gap-y-2">
-          {LAYERS.map((layer, i) => (
-            <React.Fragment key={layer.en}>
-              <div
-                className="rounded-lg border px-4 py-2.5 text-center text-[14px] font-bold text-navy"
-                style={{
-                  borderColor: "color-mix(in srgb, var(--accent) 50%, transparent)",
-                  background: "color-mix(in srgb, var(--accent) 8%, transparent)",
-                }}
-              >
-                {locale === "ko" ? layer.ko : layer.en}
-              </div>
-              {i < LAYERS.length - 1 && (
-                <ChevronDown className="mx-2 h-4 w-4 rotate-[-90deg] text-muted-foreground" />
-              )}
-            </React.Fragment>
-          ))}
+        <div className="mt-8">
+          <FlowChips
+            steps={LAYERS.map((l) => ({ ko: l.ko, en: l.en }))}
+            locale={locale}
+          />
         </div>
 
         {/* layer cards */}
@@ -275,201 +431,105 @@ export function UnderstandingModel() {
             <LayerCard key={layer.en} layer={layer} locale={locale} />
           ))}
         </div>
-
-        <p className="mt-8 max-w-2xl text-[17px] leading-[1.8] text-secondary">
-          {locale === "ko"
-            ? "이 다섯 층위는 계단이 아니라 퇴적이다. 질문이 반복되면 개념이 되고, 개념이 반복되면 주제가 되고, 주제가 반복되면 서사가 되고, 서사가 반복되면 인식이 된다. 어느 층위에서든 구조에 개입할 수 있지만, 출발점은 언제나 질문이다."
-            : "These five layers are not stairs but sediment. When questions recur, they become concepts; when concepts recur, they become themes; when themes recur, they become narratives; when narratives recur, they become perception. One can intervene at any layer, but the starting point is always the question."}
-        </p>
       </DocSection>
 
-      {/* ── 3. why existing theory fails ── */}
-      <DocSection>
+      {/* ── 2b. Example ── */}
+      <DocSection tint>
         <Kicker>
-          {locale === "ko" ? "이론적 공백" : "The theoretical gap"}
+          {locale === "ko" ? "적용 사례" : "Application"}
         </Kicker>
         <H2>
           {locale === "ko"
-            ? "기존 국가브랜드 이론으로는 부족하다"
-            : "Existing national brand theory is not enough"}
+            ? "하나의 질문이 인식이 되기까지"
+            : "From a single question to perception"}
         </H2>
         <Lead>
           {locale === "ko"
-            ? "이 부족함은 하나의 결함이 아니라 세 방향에서 동시에 드러난다."
-            : "This insufficiency shows up in three places at once, not one."}
+            ? "이론적 도식이 아니라, 실제 질문이 축적을 통해 국가 이미지를 형성하는 과정이다."
+            : "This is not a theory diagram — it is how actual question accumulation produces a reading of Korea."}
         </Lead>
-        <div className="mt-8 grid gap-4">
-          {THEORY_GAPS.map((gap) => (
-            <Finding key={gap.n} n={gap.n} head={gap.head[locale]} body={gap.body[locale]} />
+
+        {/* vertical stepped flow */}
+        <div className="mt-8 space-y-3">
+          {EXAMPLE_FLOW.map((step, i) => (
+            <React.Fragment key={i}>
+              <div
+                className="rounded-xl border-l-4 px-5 py-4"
+                style={{
+                  borderColor: "var(--accent)",
+                  background: "color-mix(in srgb, var(--accent) 4%, transparent)",
+                }}
+              >
+                <div className="flex items-center gap-3">
+                  <span
+                    className="flex-shrink-0 font-mono text-[13px] font-bold"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    {i + 1}
+                  </span>
+                  <span className="text-[16px] font-semibold text-navy">
+                    {step[locale]}
+                  </span>
+                </div>
+              </div>
+              {i < EXAMPLE_FLOW.length - 1 && (
+                <div className="flex justify-center">
+                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
-        <p className="mt-6 max-w-2xl text-lg font-semibold leading-relaxed text-navy">
+
+        <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-secondary">
           {locale === "ko"
-            ? "세 가지 한계는 하나의 결함을 가리킨다. 기존 이론은 국가 이미지를 결과로 다룰 뿐, 과정으로 다루지 않는다."
-            : "All three limits point to a single flaw: existing theory treats national image as an outcome, never as a process."}
+            ? "하나의 질문은 하나의 답으로 끝나지 않는다. 유사한 질문이 반복될 때 개념이 되고, 개념이 묶일 때 주제가 되고, 주제가 서사를 형성할 때 비로소 국가 이미지가 된다."
+            : "A single question does not end with a single answer. When similar questions recur they become concepts, when concepts cluster they become themes, and when themes form narratives they finally become national image."}
         </p>
       </DocSection>
 
-      {/* ── 4. core declaration ── */}
+      {/* ── 2c. What the model enables ── */}
+      <DocSection>
+        <Kicker>
+          {locale === "ko" ? "분석적 가치" : "Analytical value"}
+        </Kicker>
+        <H2>
+          {locale === "ko"
+            ? "이 구조가 가능하게 하는 것"
+            : "What this structure enables"}
+        </H2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
+          {CAPABILITIES.map((cap, i) => (
+            <div
+              key={i}
+              className="rounded-xl border p-5 sm:p-6"
+              style={{
+                borderColor: "color-mix(in srgb, var(--accent) 30%, transparent)",
+                background: "color-mix(in srgb, var(--accent) 4%, transparent)",
+              }}
+            >
+              <h3 className="text-[17px] font-bold text-navy">
+                {cap.head[locale]}
+              </h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-secondary">
+                {cap.body[locale]}
+              </p>
+            </div>
+          ))}
+        </div>
+      </DocSection>
+
+      {/* ── 2d. Conclusion ── */}
       <DocSection tint>
-        <div className="py-6">
+        <div className="py-4">
           <p
-            className="max-w-2xl text-2xl font-bold leading-snug text-navy sm:text-3xl"
+            className="max-w-2xl text-2xl font-bold leading-snug"
             style={{ color: "var(--accent)" }}
           >
             {locale === "ko"
-              ? "질문은 관심의 흔적이 아니다. 질문은 국가 이미지의 출발점이다."
-              : "A question is not a trace of curiosity. A question is the starting point of national image."}
+              ? "이 연구는 한국에 대한 평가가 아니라, 한국을 이해하는 과정 자체를 분석한 기록이다."
+              : "This research is not an evaluation of Korea, but a record of analyzing the process of understanding Korea itself."}
           </p>
-        </div>
-      </DocSection>
-
-      {/* ── 5. old vs new model ── */}
-      <DocSection>
-        <Kicker>
-          {locale === "ko" ? "모델 전환" : "Model shift"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "메시지 모델에서 질문 모델로"
-            : "From the message model to the question model"}
-        </H2>
-        <div className="mt-6 max-w-2xl">
-          <p className="mb-4 text-[15px] text-secondary">
-            {locale === "ko"
-              ? "전통적인 국가브랜드 모델은 다음 구조를 가정해 왔다."
-              : "The traditional national brand model has assumed this structure:"}
-          </p>
-          <ModelFlow steps={OLD_MODEL} locale={locale} />
-
-          <p className="mt-6 mb-4 text-[15px] text-secondary">
-            {locale === "ko"
-              ? "이 이론이 옳다면, 실제로 먼저 작동하는 구조는 다르게 그려져야 한다."
-              : "If this theory holds, the structure that actually operates first must be redrawn:"}
-          </p>
-          <ModelFlow steps={NEW_MODEL} locale={locale} accent />
-
-          <p className="mt-6 text-lg font-semibold leading-relaxed text-navy">
-            {locale === "ko"
-              ? "국가는 더 이상 이미지를 일방적으로 전달할 수 없다. 국가는 질문이 축적되는 구조에 참여할 수 있을 뿐이다."
-              : "A country can no longer deliver its image unilaterally. It can only participate in the structure where questions accumulate."}
-          </p>
-        </div>
-      </DocSection>
-
-      {/* ── 6. search / AI ── */}
-      <DocSection tint>
-        <Kicker>
-          {locale === "ko" ? "매체가 구조를 바꾼다" : "The medium reshapes the structure"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "검색과 AI는 국가 인식이 형성되는 구조 자체를 바꾼다"
-            : "Search and AI change the very structure through which national perception forms"}
-        </H2>
-        <div className="mt-6 max-w-2xl">
-          <p className="text-[17px] leading-[1.8] text-secondary">
-            {locale === "ko"
-              ? "디지털 이전, 질문과 답은 언론·외교·교육이라는 기관을 거쳐 연결되었다. 한 사람의 궁금증이 답에 이르기까지는 여러 매개와 지연, 여과가 있었다. 검색과 AI는 이 구조를 무너뜨렸다. 이제 묻는 자리와 답을 받는 자리는 하나의 인터페이스, 하나의 순간이다."
-              : "Before the digital era, questions and answers were connected through institutions — journalism, diplomacy, education. A person's curiosity passed through layers of mediation, delay, and filtering before reaching an answer. Search and AI collapsed that structure. Now the place where someone asks and the place where they receive an answer are the same interface, the same moment."}
-          </p>
-          <p className="mt-3 text-[17px] leading-[1.8] text-secondary">
-            {locale === "ko"
-              ? "이것은 속도의 변화가 아니라 구조의 변화다. 묻는 자리와 답 받는 자리가 같아지는 순간, '대중'과 '메시지'를 나누던 경계는 사라진다. 국가가 관리할 수 있는 통제된 채널은 더 이상 없다. 남는 것은 질문과 답변의 축적뿐이다."
-              : "This is not merely a change in speed — it is a change in structure. Once the place of asking and the place of answering become one, the boundary between 'the public' and 'the message' disappears. There is no longer a controlled channel a state can manage. What remains is only the accumulation of questions and answers."}
-          </p>
-          <p className="mt-3 text-[17px] leading-[1.8] text-secondary">
-            {locale === "ko"
-              ? "게다가 AI는 기관이 미리 준비해 둔 메시지를 그대로 꺼내 주지 않는다. 질문이 던져지는 그 순간, 질문의 패턴으로부터 답을 즉석에서 생성한다. 그래서 국가가 어떻게 설명되는가는 국가가 사전에 설계한 메시지가 아니라, 그 순간 어떻게 질문이 던져졌는가에 달려 있다."
-              : "Moreover, AI does not simply retrieve a message some institution prepared in advance. At the moment a question is asked, it generates an answer live, from the pattern of that question. So how a nation gets described depends not on any message the state pre-authored, but on how the question was framed in that instant."}
-          </p>
-          <p className="mt-4 text-lg font-semibold leading-relaxed text-navy">
-            {locale === "ko"
-              ? "매체가 질문과 답변을 하나의 순간으로 묶는 순간, 국가 이미지는 관리의 대상이 아니라 구조의 산물이 된다."
-              : "Once the medium binds question and answer into a single moment, national image stops being something to manage — it becomes the product of a structure."}
-          </p>
-        </div>
-      </DocSection>
-
-      {/* ── 7. why it matters ── */}
-      <DocSection>
-        <Kicker>
-          {locale === "ko" ? "왜 중요한가" : "Why it matters"}
-        </Kicker>
-        <H2>
-          {locale === "ko"
-            ? "이 모델이 바꾸는 것"
-            : "What this model changes"}
-        </H2>
-        <Lead>
-          {locale === "ko"
-            ? "질문에서 인식까지의 구조를 이해하면, 국가 브랜드·공공외교·시민·플랫폼이라는 개념 자체를 다시 정의해야 한다. 이것은 실행 지침이 아니라 관점의 전환이다."
-            : "Once the structure from question to perception is understood, the very concepts of national brand, public diplomacy, citizens, and platforms must be redefined. This is not a set of action items — it is a shift in perspective."}
-        </Lead>
-        <div className="mt-8 grid gap-6 sm:grid-cols-1">
-          {/* policy implications */}
-          <div className="rounded-xl border border-border bg-white p-5 sm:p-6">
-            <div
-              className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em]"
-              style={{ color: "var(--accent)" }}
-            >
-              {locale === "ko" ? "정책적 함의" : "Policy implications"}
-            </div>
-            <p className="text-[17px] leading-[1.8] text-secondary">
-              {locale === "ko"
-                ? "기존 국가브랜드 전략은 메시지 설계에서 시작한다. 이 모델은 질문 분석에서 시작해야 한다고 제안한다. 국가 브랜드는 더 이상 '전달된 메시지의 결과'가 아니라 '질문과 답변이 축적되며 형성되는 사회적 인식'이다. 생산되는 것이 아니라 축적되는 것이다."
-                : "Existing national brand strategy begins with message design. This model proposes that it must begin with question analysis. National brand is no longer 'the result of delivered messages' but 'social perception formed as questions and answers accumulate.' It is not something produced — it is something that accumulates."}
-            </p>
-          </div>
-          {/* social implications */}
-          <div className="rounded-xl border border-border bg-white p-5 sm:p-6">
-            <div
-              className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em]"
-              style={{ color: "var(--accent)" }}
-            >
-              {locale === "ko" ? "사회적 함의" : "Social implications"}
-            </div>
-            <p className="text-[17px] leading-[1.8] text-secondary">
-              {locale === "ko"
-                ? "한국인이 익숙한 한국과 세계가 궁금해하는 한국 사이에는 구조적 차이가 존재한다. 이 모델은 그 차이를 가시화한다. 시민은 메시지의 수용자가 아니라 국가 이미지의 공동 설계자이며, 플랫폼은 콘텐츠 게시 도구가 아니라 질문과 답변을 연결하고 지식을 축적하는 인프라다."
-                : "A structural gap exists between the Korea that Koreans know and the Korea the world is curious about. This model makes that gap visible. Citizens are not receivers of messages but co-designers of national image, and platforms are not content publishing tools but infrastructure that connects questions to answers and accumulates knowledge."}
-            </p>
-          </div>
-          {/* public diplomacy implications */}
-          <div className="rounded-xl border border-border bg-white p-5 sm:p-6">
-            <div
-              className="mb-2 text-[11px] font-bold uppercase tracking-[0.14em]"
-              style={{ color: "var(--accent)" }}
-            >
-              {locale === "ko" ? "공공외교 함의" : "Public diplomacy implications"}
-            </div>
-            <p className="text-[17px] leading-[1.8] text-secondary">
-              {locale === "ko"
-                ? "질문에서 인식까지의 경로를 이해하면, 어디에 개입해야 하는지가 보인다. 공공외교는 국가를 설명하는 활동이 아니라 질문과 답변을 연결하는 과정이다. 다섯 층위 중 어느 지점에서 서사가 형성되고 있는지를 파악하면, 개입의 시점과 방식이 달라진다."
-                : "Understanding the path from question to perception reveals where to intervene. Public diplomacy is not the activity of explaining a country but a process of connecting questions to answers. Identifying at which of the five layers a narrative is forming changes both the timing and the method of engagement."}
-            </p>
-          </div>
-        </div>
-      </DocSection>
-
-      {/* ── 8. bridge to question observatory ── */}
-      <DocSection>
-        <div className="rounded-2xl border border-border bg-tint p-6 sm:p-8">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--accent)]">
-            {locale === "ko" ? "다음 단계 · 질문 관측소" : "Next rung · Question Observatory"}
-          </div>
-          <p className="mt-2 max-w-2xl text-lg leading-relaxed text-navy">
-            {locale === "ko"
-              ? "여기까지가 구조입니다. 이 구조가 시간에 따라 어떻게 변화하는가는 질문 관측소에서 다룹니다."
-              : "This is the structure. How it changes over time is covered in the Question Observatory."}
-          </p>
-          <Link
-            href="/research/question-observatory"
-            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--accent)] transition-opacity hover:opacity-80"
-          >
-            {locale === "ko" ? "질문 관측소 읽기" : "Read the Question Observatory"}
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </DocSection>
     </>
