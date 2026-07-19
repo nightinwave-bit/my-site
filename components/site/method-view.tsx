@@ -56,6 +56,7 @@ function Lead({ children }: { children: React.ReactNode }) {
 
 interface SourceCard {
   name: L;
+  data: L;
   observable: L;
   limitation: L;
   verdict: "excluded" | "supplementary" | "core";
@@ -64,38 +65,44 @@ interface SourceCard {
 const SOURCES: SourceCard[] = [
   {
     name: D("SNS", "SNS"),
-    observable: D("형성된 의견", "Formed opinions"),
-    limitation: D("인식이 이미 형성된 이후 데이터", "Data after perceptions are already formed"),
+    data: D("게시물, 댓글, 좋아요, 공유", "Posts, comments, likes, shares"),
+    observable: D("사람들이 한국에 대해 어떻게 평가하는가", "How people evaluate Korea"),
+    limitation: D("이미 의견이 형성된 이후의 반응 데이터", "Reaction data after opinions are already formed"),
     verdict: "excluded",
   },
   {
     name: D("뉴스", "News"),
-    observable: D("언론이 선택한 의제", "Agendas chosen by media"),
-    limitation: D("대중의 질문이 아닌 언론의 관심", "Media interest, not public questions"),
+    data: D("언론 기사, 보도량, 기사 주제", "News articles, coverage volume, article topics"),
+    observable: D("언론이 한국을 어떤 이슈로 다루는가", "What issues the media covers Korea with"),
+    limitation: D("대중의 관심이 아니라 언론사의 편집 결과", "Editorial result of media outlets, not public interest"),
     verdict: "excluded",
   },
   {
     name: D("Google Trends", "Google Trends"),
-    observable: D("관심 규모", "Scale of interest"),
+    data: D("검색량 변화", "Search volume changes"),
+    observable: D("무엇에 관심이 증가하거나 감소하는가", "What interest is rising or falling"),
     limitation: D("왜 검색했는지 알 수 없음", "Cannot know why people searched"),
     verdict: "excluded",
   },
   {
     name: D("Reddit", "Reddit"),
-    observable: D("질문 이후의 토론", "Discussion after questions"),
-    limitation: D("최초 질문 시점 확인 불가", "Cannot confirm the initial question moment"),
+    data: D("게시글, 댓글, 토론", "Posts, comments, discussions"),
+    observable: D("질문 이후 사람들이 어떤 답변을 주고받는가", "What answers people exchange after questions"),
+    limitation: D("최초 질문이 어디서 시작되었는지는 확인 불가", "Cannot confirm where the initial question started"),
     verdict: "supplementary",
   },
   {
     name: D("People Also Ask", "People Also Ask"),
-    observable: D("질문 확장 구조", "Question expansion structure"),
-    limitation: D("질문 출발점 확인 불가", "Cannot confirm question origin point"),
+    data: D("연관 질문 묶음", "Related question clusters"),
+    observable: D("질문이 어떤 질문으로 확장되는가", "How questions expand into other questions"),
+    limitation: D("실제 질문 빈도와 규모는 확인 불가", "Actual question frequency and scale cannot be confirmed"),
     verdict: "supplementary",
   },
   {
     name: D("Google Autocomplete", "Google Autocomplete"),
-    observable: D("실제 사용자의 질문", "Actual user questions"),
-    limitation: D("검색량 미제공", "No search volume provided"),
+    data: D("실제 검색창에 반복적으로 입력된 질문", "Questions repeatedly typed into the actual search bar"),
+    observable: D("사람들이 한국에 대해 실제로 무엇을 궁금해하는가", "What people actually wonder about Korea"),
+    limitation: D("검색량 규모는 제공하지 않음", "Does not provide search volume scale"),
     verdict: "core",
   },
 ];
@@ -385,7 +392,13 @@ export function MethodView() {
                 </div>
                 <p className="mt-3 text-[13px] text-secondary">
                   <span className="font-medium text-navy">
-                    {locale === "ko" ? "관찰 가능: " : "Observable: "}
+                    {locale === "ko" ? "수집 데이터: " : "Data collected: "}
+                  </span>
+                  {tx(s.data, locale)}
+                </p>
+                <p className="mt-1.5 text-[13px] text-secondary">
+                  <span className="font-medium text-navy">
+                    {locale === "ko" ? "확인 가능한 것: " : "Observable: "}
                   </span>
                   {tx(s.observable, locale)}
                 </p>
@@ -398,11 +411,23 @@ export function MethodView() {
               </div>
             ))}
           </div>
-          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-secondary">
-            {locale === "ko"
-              ? "Google Autocomplete는 질문이 생성되는 바로 그 순간을 포착한다. 플랫폼이 편집하거나 커뮤니티가 해석하기 이전의 원래 질문을 보여준다. 이것이 이 소스를 핵심 데이터로 선택한 이유다."
-              : "Google Autocomplete captures the exact moment questions are generated. It shows the original question before any platform editing or community interpretation. This is why we chose it as our core data source."}
-          </p>
+          <div className="mt-6 max-w-2xl space-y-4 text-[15px] leading-relaxed text-secondary" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+            <p>
+              {locale === "ko"
+                ? "Google Autocomplete는 실제 사용자가 검색창에 입력한 질문 데이터를 제공한다."
+                : "Google Autocomplete provides question data that actual users typed into the search bar."}
+            </p>
+            <p>
+              {locale === "ko"
+                ? "Ask About Korea는 한국 관련 질문의 원천 데이터를 확보하기 위해 Google Autocomplete를 핵심 데이터로 선택했다."
+                : "Ask About Korea chose Google Autocomplete as its core data to secure the source data of Korea-related questions."}
+            </p>
+            <p>
+              {locale === "ko"
+                ? "해당 데이터를 통해 8개 국가, 7개 언어에서 수집한 1,540개 질문을 직접 분류·구조화하여 질문의 규모, 주제별 분포, 국가별 관심사 차이를 비교할 수 있는 분석 데이터셋을 구축했다."
+                : "Using this data, we directly classified and structured 1,540 questions collected from 8 countries in 7 languages, building an analytical dataset that enables comparison of question scale, topic distribution, and cross-country interest differences."}
+            </p>
+          </div>
         </Section>
 
         {/* ── 3. why these countries ── */}
