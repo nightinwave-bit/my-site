@@ -14,7 +14,7 @@ export const dict: Dict = {
   "nav.topics": { ko: "주제", en: "Topics" },
   "nav.explore": { ko: "질문 지도", en: "Question Map" },
   "nav.research": { ko: "리서치", en: "Research" },
-  "nav.method": { ko: "데이터와 분석", en: "Data & Analysis" },
+  "nav.method": { ko: "데이터 검증", en: "Data Validation" },
 
   // Research section — structural chrome (content prose lives in components)
   "research.eyebrow": { ko: "리서치", en: "Research" },
