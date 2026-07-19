@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Search, X, ChevronRight, ChevronDown, Globe, Database, BarChart3 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { getNode, PROVENANCE } from "@/lib/ontology";
+import { GRAPH_EDGES } from "@/lib/ontology.generated";
 import { TOPICS, getTopic } from "@/lib/topics";
 import { MARKETS, marketName } from "@/lib/markets";
 import { Navbar } from "./navbar";
@@ -15,7 +16,6 @@ import allTopicQuestions from "@/lib/topic-questions.generated.json";
 import translationData from "@/lib/translations.generated.json";
 
 type L = { ko: string; en: string };
-const D = (ko: string, en: string): L => ({ ko, en });
 
 const COUNTRY_FLAG: Record<string, string> = {
   US: "\u{1F1FA}\u{1F1F8}", DE: "\u{1F1E9}\u{1F1EA}", IN: "\u{1F1EE}\u{1F1F3}", ID: "\u{1F1EE}\u{1F1E9}",
@@ -31,66 +31,6 @@ const LANG_LABEL: Record<string, L> = {
   ko: { ko: "한국어", en: "Korean" },
   ja: { ko: "일본어", en: "Japanese" },
 };
-
-const COUNTRY_PROFILES: Record<string, {
-  interests: L[];
-  summary: L;
-}> = {
-  JP: {
-    interests: [D("사회", "Society"), D("언어", "Language"), D("생활문화", "Daily culture")],
-    summary: D(
-      "일본은 한국을 소비하는 문화보다 관찰하는 사회로 접근한다.",
-      "Japan approaches Korea as a society to observe rather than a culture to consume."
-    ),
-  },
-  ID: {
-    interests: [D("K-pop", "K-pop"), D("뷰티", "Beauty"), D("드라마", "Drama")],
-    summary: D(
-      "인도네시아는 한류를 통해 처음 한국에 진입한다.",
-      "Indonesia first enters Korea through Hallyu."
-    ),
-  },
-  BR: {
-    interests: [D("분단", "Division"), D("북한", "North Korea"), D("한국전쟁", "Korean War")],
-    summary: D(
-      "브라질은 지정학적 호기심으로 한국에 접근한다.",
-      "Brazil approaches Korea through geopolitical curiosity."
-    ),
-  },
-  DE: {
-    interests: [D("언어", "Language"), D("발음", "Pronunciation"), D("학습", "Learning")],
-    summary: D(
-      "독일은 한국어 자체를 통해 한국에 진입한다.",
-      "Germany enters Korea through the Korean language itself."
-    ),
-  },
-  "US+IN": {
-    interests: [D("사람", "People"), D("여행", "Travel"), D("분단", "Division"), D("언어", "Language")],
-    summary: D(
-      "영어권은 넓게 그러나 얕게 한국을 질문한다.",
-      "The English-speaking world asks about Korea widely but shallowly."
-    ),
-  },
-  AE: {
-    interests: [D("스킨케어", "Skincare"), D("생활", "Lifestyle"), D("관광", "Tourism")],
-    summary: D(
-      "아랍권은 라이프스타일을 통해 한국에 접근한다.",
-      "The Arab world approaches Korea through lifestyle."
-    ),
-  },
-  KR: {
-    interests: [D("사람", "People"), D("문화유산", "Heritage"), D("사회", "Society")],
-    summary: D(
-      "한국은 외국인의 시선으로 자신을 질문한다.",
-      "Korea asks about itself through foreign eyes."
-    ),
-  },
-};
-
-function getCountryProfile(code: string) {
-  if (code === "US" || code === "IN") return COUNTRY_PROFILES["US+IN"];
-  return COUNTRY_PROFILES[code] ?? null;
-}
 
 interface TopicQuestion {
   id: string;
@@ -124,6 +64,22 @@ const ALL_QUESTIONS: TopicQuestion[] = (() => {
   return all;
 })();
 
+function buildOntologyPath(conceptId: string): string[] {
+  const path: string[] = [conceptId];
+  const themes = GRAPH_EDGES.filter((e) => e.from === conceptId && e.to.startsWith("t_")).map((e) => e.to);
+  if (themes.length === 0) return path;
+  const themeId = themes[0];
+  path.push(themeId);
+  const narratives = GRAPH_EDGES.filter((e) => e.from === themeId && e.to.startsWith("n_")).map((e) => e.to);
+  if (narratives.length === 0) return path;
+  const narrativeId = narratives[0];
+  path.push(narrativeId);
+  const perceptions = GRAPH_EDGES.filter((e) => e.from === narrativeId && e.to.startsWith("p_")).map((e) => e.to);
+  if (perceptions.length === 0) return path;
+  path.push(perceptions[0]);
+  return path;
+}
+
 const PAGE_SIZE = 40;
 
 function QuestionTranslation({ qId, text, language, locale }: { qId: string; text: string; language: string; locale: "ko" | "en" }) {
@@ -134,6 +90,26 @@ function QuestionTranslation({ qId, text, language, locale }: { qId: string; tex
   return (
     <div className="mt-0.5 text-[12px] leading-snug text-muted-foreground">
       {tr}
+    </div>
+  );
+}
+
+function OntologyPathDisplay({ conceptId, locale }: { conceptId: string; locale: "ko" | "en" }) {
+  const path = useMemo(() => buildOntologyPath(conceptId), [conceptId]);
+  return (
+    <div className="flex flex-wrap items-center gap-1 text-[10px] text-muted-foreground">
+      {path.map((nodeId, i) => {
+        const node = getNode(nodeId);
+        if (!node) return null;
+        return (
+          <React.Fragment key={nodeId}>
+            {i > 0 && <span className="text-brand/40">&rarr;</span>}
+            <span className={i === 0 ? "font-medium text-brand" : ""}>
+              {node.label[locale]}
+            </span>
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 }
@@ -198,7 +174,6 @@ export function ExploreView() {
     return MARKETS.filter((m) => set.has(m.code)).map((m) => m.code);
   }, []);
 
-  // Country question counts for grid
   const countryQuestionCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const q of ALL_QUESTIONS) {
@@ -209,12 +184,31 @@ export function ExploreView() {
     return counts;
   }, []);
 
-  // Country profile data (when a country is selected)
+  const countryTopTopics = useMemo(() => {
+    const map: Record<string, Record<string, number>> = {};
+    for (const q of ALL_QUESTIONS) {
+      const topicSlug = topicConceptMap[q.conceptId];
+      if (!topicSlug) continue;
+      for (const c of q.countries) {
+        if (!map[c]) map[c] = {};
+        map[c][topicSlug] = (map[c][topicSlug] ?? 0) + 1;
+      }
+    }
+    const result: Record<string, string[]> = {};
+    for (const [code, topics] of Object.entries(map)) {
+      result[code] = Object.entries(topics)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([slug]) => slug);
+    }
+    return result;
+  }, [topicConceptMap]);
+
   const countryProfileData = useMemo(() => {
     if (!selectedCountry) return null;
     const qs = ALL_QUESTIONS.filter((q) => q.countries.includes(selectedCountry));
     const uniqueQs = qs.filter((q) => q.countries.length === 1);
-    const topQuestions = qs.slice(0, 5); // already sorted by frequency
+    const topQuestions = qs.slice(0, 5);
     return { total: qs.length, uniqueCount: uniqueQs.length, topQuestions };
   }, [selectedCountry]);
 
@@ -224,10 +218,8 @@ export function ExploreView() {
     if (!q) return null;
 
     const sameConceptQs = ALL_QUESTIONS.filter((x) => x.conceptId === q.conceptId && x.id !== q.id);
-
     const topicSlug = topicConceptMap[q.conceptId];
     const topic = topicSlug ? getTopic(topicSlug) : undefined;
-
     const relatedQuestions = sameConceptQs.slice(0, 10);
 
     return { q, topic, relatedQuestions };
@@ -252,8 +244,8 @@ export function ExploreView() {
                 style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "1,540개의 질문을 직접 탐색하세요"
-                  : "Explore 1,540 questions yourself"}
+                  ? "질문으로 한국을 탐색하다"
+                  : "Explore Korea through questions"}
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
@@ -262,8 +254,8 @@ export function ExploreView() {
                 style={{ wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "8개 국가, 7개 언어로 수집된 실제 검색 질문. 각 질문의 출처, 분포, 관련 질문을 확인할 수 있습니다."
-                  : "Real search questions collected across 8 countries and 7 languages. See each question's origin, distribution, and related questions."}
+                  ? "1,540개의 질문을 직접 탐색하는 공간. 국가, 언어, 주제별로 필터링하고, 각 질문의 출처와 연결 구조를 확인하세요."
+                  : "A space to explore 1,540 questions directly. Filter by country, language, or topic, and see each question's origin and connections."}
               </p>
             </Reveal>
 
@@ -289,7 +281,6 @@ export function ExploreView() {
         <section className="border-b border-border bg-white">
           <div className="container max-w-[1280px] py-10 sm:py-12">
             {!selectedCountry ? (
-              /* -- Country Grid: 8 cards -- */
               <div>
                 <Reveal>
                   <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
@@ -301,15 +292,14 @@ export function ExploreView() {
                     style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
                   >
                     {locale === "ko"
-                      ? "특정 국가는 한국을 어떻게 바라보는가?"
-                      : "How does a specific country view Korea?"}
+                      ? "국가를 선택해 질문을 탐색하세요"
+                      : "Select a country to explore its questions"}
                   </h2>
                 </Reveal>
                 <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
                   {MARKETS.map((m) => {
-                    const profile = getCountryProfile(m.code);
-                    const topInterest = profile?.interests[0];
                     const qCount = countryQuestionCounts[m.code] ?? 0;
+                    const topTopics = countryTopTopics[m.code] ?? [];
                     return (
                       <Reveal key={m.code} delay={0.02}>
                         <button
@@ -321,10 +311,21 @@ export function ExploreView() {
                           <span className="mt-0.5 text-[11px] tabular-nums text-muted-foreground">
                             {qCount}{locale === "ko" ? "개 질문" : " questions"}
                           </span>
-                          {topInterest && (
-                            <span className="mt-2 inline-block rounded-full bg-brand/8 px-2 py-0.5 text-[10px] font-medium text-brand">
-                              {topInterest[locale]}
-                            </span>
+                          {topTopics.length > 0 && (
+                            <div className="mt-2 flex flex-wrap gap-1">
+                              {topTopics.map((slug) => {
+                                const tp = getTopic(slug);
+                                if (!tp) return null;
+                                return (
+                                  <span
+                                    key={slug}
+                                    className="rounded-full bg-brand/8 px-2 py-0.5 text-[10px] font-medium text-brand"
+                                  >
+                                    {tp.title[locale]}
+                                  </span>
+                                );
+                              })}
+                            </div>
                           )}
                         </button>
                       </Reveal>
@@ -333,7 +334,6 @@ export function ExploreView() {
                 </div>
               </div>
             ) : (
-              /* -- Country Profile Card (prominent) -- */
               <div>
                 <button
                   onClick={() => { setSelectedCountry(null); setShowCount(PAGE_SIZE); }}
@@ -343,7 +343,6 @@ export function ExploreView() {
                   {locale === "ko" ? "모든 국가 보기" : "All countries"}
                 </button>
                 <div className="rounded-2xl border border-brand/20 bg-[#F8FAFF] p-5 sm:p-7">
-                  {/* Header */}
                   <div className="flex items-center gap-3">
                     <span className="text-[2.5rem]">{COUNTRY_FLAG[selectedCountry]}</span>
                     <div>
@@ -357,40 +356,33 @@ export function ExploreView() {
                     </div>
                   </div>
 
-                  {/* Summary */}
+                  {/* Top topics for this country */}
                   {(() => {
-                    const profile = getCountryProfile(selectedCountry);
-                    if (!profile) return null;
-                    return (
-                      <p className="mt-4 text-[14px] leading-relaxed text-secondary" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
-                        {profile.summary[locale]}
-                      </p>
-                    );
-                  })()}
-
-                  {/* Interest chips */}
-                  {(() => {
-                    const profile = getCountryProfile(selectedCountry);
-                    if (!profile) return null;
+                    const topTopics = countryTopTopics[selectedCountry] ?? [];
+                    if (topTopics.length === 0) return null;
                     return (
                       <div className="mt-4 flex flex-wrap gap-2">
-                        {profile.interests.map((interest, i) => (
-                          <span
-                            key={i}
-                            className="rounded-full border border-brand/15 bg-white px-3 py-1 text-[12px] font-medium text-brand"
-                          >
-                            {interest[locale]}
-                          </span>
-                        ))}
+                        {topTopics.map((slug) => {
+                          const tp = getTopic(slug);
+                          if (!tp) return null;
+                          return (
+                            <span
+                              key={slug}
+                              className="rounded-full border border-brand/15 bg-white px-3 py-1 text-[12px] font-medium text-brand"
+                            >
+                              {tp.title[locale]}
+                            </span>
+                          );
+                        })}
                       </div>
                     );
                   })()}
 
-                  {/* Representative questions (top 5 by frequency) */}
+                  {/* Representative questions */}
                   {countryProfileData && countryProfileData.topQuestions.length > 0 && (
                     <div className="mt-5 border-t border-border pt-4">
                       <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                        {locale === "ko" ? "대표 질문" : "Representative questions"}
+                        {locale === "ko" ? "대표 질문" : "Top questions"}
                       </div>
                       <div className="mt-2 space-y-2">
                         {countryProfileData.topQuestions.map((q) => (
@@ -427,8 +419,8 @@ export function ExploreView() {
                 style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "세계는 실제로 무엇을 검색했을까?"
-                  : "What did the world actually search?"}
+                  ? "전체 질문 목록"
+                  : "Full question list"}
               </h2>
             </Reveal>
 
@@ -536,7 +528,6 @@ export function ExploreView() {
                 const isExpanded = expandedQuestion === q.id;
                 const topicSlug = topicConceptMap[q.conceptId];
                 const topic = topicSlug ? getTopic(topicSlug) : undefined;
-                const relatedCount = ALL_QUESTIONS.filter((x) => x.conceptId === q.conceptId && x.id !== q.id).length;
 
                 return (
                   <div key={q.id}>
@@ -559,11 +550,9 @@ export function ExploreView() {
                           {topic && (
                             <span className="text-[9px] text-muted-foreground">{topic.title[locale]}</span>
                           )}
-                          <span className="text-[9px] tabular-nums text-muted-foreground">
+                          <span className="inline-flex items-center gap-0.5 text-[9px] tabular-nums text-muted-foreground">
+                            <Globe className="h-2.5 w-2.5" />
                             {q.countries.length}{locale === "ko" ? "개국" : " countries"}
-                          </span>
-                          <span className="text-[9px] tabular-nums text-muted-foreground">
-                            {locale === "ko" ? `관련 ${relatedCount}개` : `${relatedCount} related`}
                           </span>
                           <span className="text-[9px] text-muted-foreground">
                             {q.countries.map((c) => COUNTRY_FLAG[c]).join(" ")}
@@ -575,9 +564,19 @@ export function ExploreView() {
                     {/* -- Expanded Detail Panel -- */}
                     {isExpanded && expandedData && (
                       <div className="ml-5 mt-1 space-y-3 rounded-xl border border-brand/15 bg-brand/[0.02] px-4 py-4">
-                        {/* Country distribution */}
+                        {/* Ontology path */}
                         <div>
                           <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand">
+                            {locale === "ko" ? "온톨로지 경로" : "Ontology path"}
+                          </div>
+                          <div className="mt-1.5">
+                            <OntologyPathDisplay conceptId={expandedData.q.conceptId} locale={locale} />
+                          </div>
+                        </div>
+
+                        {/* Country distribution */}
+                        <div>
+                          <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                             {locale === "ko" ? "질문 발생 국가" : "Countries asking this"}
                           </div>
                           <div className="mt-2 flex flex-wrap gap-2">
@@ -604,7 +603,7 @@ export function ExploreView() {
                         {expandedData.relatedQuestions.length > 0 && (
                           <div>
                             <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                              {locale === "ko" ? `관련 질문 (${expandedData.relatedQuestions.length}개)` : `Related questions (${expandedData.relatedQuestions.length})`}
+                              {locale === "ko" ? `같은 개념의 질문 (${expandedData.relatedQuestions.length}개)` : `Same concept (${expandedData.relatedQuestions.length})`}
                             </div>
                             <div className="mt-1.5 flex flex-wrap gap-1">
                               {expandedData.relatedQuestions.map((rq) => (
@@ -627,7 +626,7 @@ export function ExploreView() {
                             href={`/topics/${expandedData.topic.slug}`}
                             className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-brand hover:underline"
                           >
-                            {locale === "ko" ? `${expandedData.topic.title.ko} 주제 페이지로` : `Go to ${expandedData.topic.title.en} topic`}
+                            {locale === "ko" ? `${expandedData.topic.title.ko} 주제 페이지` : `${expandedData.topic.title.en} topic page`}
                             <ArrowRight className="h-3 w-3" />
                           </Link>
                         )}
@@ -673,12 +672,53 @@ export function ExploreView() {
         <section className="border-b border-border bg-white">
           <div className="container max-w-[1280px] py-8 sm:py-10">
             <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
-              {locale === "ko" ? "질문 연결 구조" : "How questions connect"}
+              {locale === "ko" ? "질문 연결 구조" : "Question connection structure"}
             </div>
             <h2 className="mt-1 text-[1.1rem] font-semibold text-navy sm:text-[1.2rem]">
-              {locale === "ko" ? "질문들이 어떻게 연결되는가" : "How questions connect"}
+              {locale === "ko" ? "질문은 어떻게 연결되는가" : "How questions connect"}
             </h2>
-            <div className="mt-4">
+            <p className="mt-1 text-[12px] text-muted-foreground" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+              {locale === "ko"
+                ? "각 질문은 개념 → 주제 → 서사 → 인식의 경로를 따라 연결됩니다."
+                : "Each question connects along a path: Concept → Theme → Narrative → Perception."}
+            </p>
+
+            {/* Visual flow example */}
+            <div className="mt-4 rounded-xl border border-border bg-[#F8FAFF] p-4 sm:p-5">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                {locale === "ko" ? "연결 예시" : "Example path"}
+              </div>
+              <div className="mt-3 flex flex-wrap items-center gap-2 text-[12px]">
+                <span className="rounded-md border border-brand/20 bg-white px-2.5 py-1 font-medium text-navy">
+                  {locale === "ko" ? "K-팝은 왜 인기가 많을까?" : "Why is K-pop so popular?"}
+                </span>
+                <span className="text-brand/50">&rarr;</span>
+                <span className="rounded-md bg-brand/8 px-2 py-0.5 font-medium text-brand">
+                  {locale === "ko" ? "K-팝과 아이돌" : "K-Pop & Idols"}
+                </span>
+                <span className="text-brand/50">&rarr;</span>
+                <span className="rounded-md bg-brand/5 px-2 py-0.5 text-secondary">
+                  {locale === "ko" ? "한류" : "Hallyu"}
+                </span>
+                <span className="text-brand/50">&rarr;</span>
+                <span className="rounded-md bg-brand/5 px-2 py-0.5 text-secondary">
+                  {locale === "ko" ? "문화 강국" : "Global cultural force"}
+                </span>
+                <span className="text-brand/50">&rarr;</span>
+                <span className="rounded-md bg-navy/5 px-2 py-0.5 font-medium text-navy">
+                  {locale === "ko" ? "문화 강국, 한국" : "Korea as cultural powerhouse"}
+                </span>
+              </div>
+              <div className="mt-2 flex items-center gap-4 text-[10px] text-muted-foreground">
+                <span>{locale === "ko" ? "질문" : "Question"}</span>
+                <span>&rarr; {locale === "ko" ? "개념" : "Concept"}</span>
+                <span>&rarr; {locale === "ko" ? "주제" : "Theme"}</span>
+                <span>&rarr; {locale === "ko" ? "서사" : "Narrative"}</span>
+                <span>&rarr; {locale === "ko" ? "인식" : "Perception"}</span>
+              </div>
+            </div>
+
+            <div className="mt-5">
               <figure className="overflow-hidden rounded-2xl border border-border bg-white shadow-card">
                 <div className="overflow-x-auto px-4 py-6 sm:px-8 sm:py-8">
                   <div className="min-w-[720px]">
@@ -699,8 +739,8 @@ export function ExploreView() {
               style={{ wordBreak: "keep-all" } as React.CSSProperties}
             >
               {locale === "ko"
-                ? "데이터를 탐색했다면, 이제 그것이 무엇을 의미하는지 읽어보세요."
-                : "You've explored the data. Now read what it means."}
+                ? "이 질문들이 무엇을 보여주는지 궁금하다면"
+                : "Curious what these questions reveal?"}
             </p>
             <Link
               href="/research"
