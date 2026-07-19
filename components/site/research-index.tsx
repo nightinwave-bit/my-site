@@ -2,18 +2,12 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, ArrowDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
-import { RESEARCH_DOCS } from "@/lib/research";
 import { PROVENANCE } from "@/lib/ontology";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 import { Reveal } from "./reveal";
-
-const PHASE_LABELS = [
-  { ko: "데이터 검증", en: "Data Validation" },
-  { ko: "발견과 분석", en: "Findings & Analysis" },
-];
 
 export function ResearchIndex() {
   const { t, locale } = useLanguage();
@@ -22,7 +16,7 @@ export function ResearchIndex() {
     <>
       <Navbar />
       <main>
-        {/* ── Hero — journey framing ── */}
+        {/* ── Hero ── */}
         <section className="border-b border-border" style={{ background: "linear-gradient(180deg, #F8FAFF, #F2F6FF)" }}>
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[280px] bg-grid opacity-50 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
           <div className="container relative pb-14 pt-24 sm:pb-16 sm:pt-28">
@@ -37,7 +31,7 @@ export function ResearchIndex() {
                 style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "질문에서 국가 이해까지"
+                  ? "질문에서 국��� 이해까���"
                   : "From Questions to National Understanding"}
               </h1>
             </Reveal>
@@ -47,8 +41,8 @@ export function ResearchIndex() {
                 style={{ wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "Ask About Korea는 데이터를 수집하기 전에 데이터를 검증했다. 그리고 검증된 데이터에서 발견한 패턴을 분석 구조로 읽었다."
-                  : "Ask About Korea validated its data before collecting it. Then we read the patterns discovered in the validated data through an analytical structure."}
+                  ? "Ask About Korea는 질문을 수집하기 전에 데이터를 검증했고, 검증된 데이터에서 국가별 한국 이�� 패턴을 발견했다."
+                  : "Ask About Korea validated its data before collecting questions, then discovered how each country understands Korea from the validated dataset."}
               </p>
             </Reveal>
             <Reveal delay={0.15}>
@@ -61,93 +55,99 @@ export function ResearchIndex() {
           </div>
         </section>
 
-        {/* ── Journey Flow — visual pipeline ── */}
+        {/* ── Two Tracks ── */}
         <section className="border-b border-border bg-white">
-          <div className="container max-w-[900px] py-12 sm:py-14">
+          <div className="container max-w-[1100px] py-12 sm:py-16">
+
+            {/* Mini infographic — pipeline overview */}
             <Reveal>
-              <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-3">
-                {PHASE_LABELS.map((p, i) => (
-                  <React.Fragment key={p.en}>
-                    <div className="rounded-lg border border-border bg-[#F7F9FD] px-5 py-2.5 text-center">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
-                        {String(i + 1).padStart(2, "0")}
-                      </div>
-                      <div className="mt-0.5 text-[15px] font-bold text-navy">
-                        {p[locale]}
-                      </div>
-                    </div>
-                    {i < PHASE_LABELS.length - 1 && (
-                      <>
-                        <ArrowDown className="h-3.5 w-3.5 text-brand/40 sm:hidden" />
-                        <ArrowRight className="hidden h-3.5 w-3.5 text-brand/40 sm:block" />
-                      </>
-                    )}
-                  </React.Fragment>
-                ))}
+              <div className="mb-10 flex items-center justify-center gap-2 text-[12px] font-medium text-muted-foreground sm:gap-3 sm:text-[13px]">
+                <span className="rounded-md border border-border bg-[#F7F9FD] px-3 py-1.5 text-navy">Google Autocomplete</span>
+                <span className="text-brand/40">&rarr;</span>
+                <span className="rounded-md border border-border bg-[#F7F9FD] px-3 py-1.5 text-navy">1,540 {locale === "ko" ? "질문" : "Questions"}</span>
+                <span className="text-brand/40">&rarr;</span>
+                <span className="rounded-md border border-border bg-[#F7F9FD] px-3 py-1.5 text-navy">{locale === "ko" ? "국가 이해" : "National Understanding"}</span>
               </div>
             </Reveal>
-          </div>
-        </section>
 
-        {/* ── Research Documents ── */}
-        <section className="border-b border-border bg-[#F3F6FB]">
-          <div className="container max-w-[1100px] py-12 sm:py-14">
-            <div className="space-y-0">
-              {RESEARCH_DOCS.map((doc, i) => (
-                <Reveal key={doc.slug} delay={i * 0.06}>
-                  <div className="relative">
-                    {i < RESEARCH_DOCS.length - 1 && (
-                      <div className="absolute bottom-0 left-6 top-full z-0 w-px bg-border sm:left-8" style={{ height: "24px" }} />
-                    )}
+            {/* Track cards — side by side on desktop, stacked on mobile */}
+            <div className="grid gap-6 md:grid-cols-2">
 
-                    <Link
-                      href={`/research/${doc.slug}`}
-                      className="group relative z-10 mb-6 block rounded-2xl border border-border bg-white p-6 transition-all hover:border-[color:var(--accent)]/30 hover:shadow-md sm:p-8"
-                      style={{ ["--accent" as string]: doc.accent } as React.CSSProperties}
-                    >
-                      <div className="flex items-center gap-4">
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg font-mono text-[13px] font-bold text-white sm:h-11 sm:w-11" style={{ backgroundColor: doc.accent }}>
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div className="flex-1">
-                          <div className="text-[10px] font-semibold uppercase tracking-[0.12em]" style={{ color: doc.accent }}>
-                            {PHASE_LABELS[i][locale]}
-                          </div>
-                          <h3
-                            className="mt-0.5 text-xl font-bold leading-snug text-navy sm:text-2xl"
-                            style={{ wordBreak: "keep-all" } as React.CSSProperties}
-                          >
-                            {doc.title[locale]}
-                          </h3>
-                        </div>
-                        <ArrowRight className="hidden h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 sm:block" style={{ color: doc.accent }} />
-                      </div>
-
-                      <p
-                        className="mt-4 max-w-2xl text-[15px] leading-relaxed text-secondary"
-                        style={{ wordBreak: "keep-all" } as React.CSSProperties}
-                      >
-                        {doc.oneLine[locale]}
-                      </p>
-
-                      <div className="mt-4 flex items-center gap-4 text-[12px]">
-                        <span className="text-muted-foreground">
-                          {doc.audience[locale]}
-                        </span>
-                        <span className="inline-flex items-center gap-1 font-semibold transition-transform group-hover:translate-x-0.5" style={{ color: doc.accent }}>
-                          {locale === "ko" ? "읽기" : "Read"} <ArrowRight className="h-3 w-3" />
-                        </span>
-                      </div>
-                    </Link>
+              {/* Track A: 데이터 검증 */}
+              <Reveal delay={0.05}>
+                <Link
+                  href="/method"
+                  className="group flex h-full flex-col rounded-2xl border border-border bg-[#F7F9FD] p-6 transition-all hover:border-brand/30 hover:shadow-md sm:p-8"
+                >
+                  <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+                    Track A
                   </div>
-                </Reveal>
-              ))}
+                  <h2
+                    className="mt-3 text-[1.3rem] font-bold leading-snug text-navy sm:text-[1.5rem]"
+                    style={{ wordBreak: "keep-all" } as React.CSSProperties}
+                  >
+                    {locale === "ko" ? "데이터 검증" : "Data Validation"}
+                  </h2>
+                  <p className="mt-2 text-[14px] font-medium text-navy/80" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+                    {locale === "ko"
+                      ? "우리는 무엇을 데이터로 사용할 수 있는가?"
+                      : "What can we use as data?"}
+                  </p>
+                  <p
+                    className="mt-3 flex-1 text-[14px] leading-relaxed text-secondary"
+                    style={{ wordBreak: "keep-all" } as React.CSSProperties}
+                  >
+                    {locale === "ko"
+                      ? "Google Autocomplete를 선택한 이유, 국가 선정 기준, 수집 과정, 한계와 보완 방법을 공개한다."
+                      : "Why we chose Google Autocomplete, country selection criteria, collection process, limitations and how we addressed them."}
+                  </p>
+                  <div className="mt-5 flex items-center gap-2 text-[13px] font-semibold text-brand transition-transform group-hover:translate-x-1">
+                    {locale === "ko" ? "Method 읽기" : "Read Method"}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </div>
+                </Link>
+              </Reveal>
+
+              {/* Track B: 발견과 분석 */}
+              <Reveal delay={0.1}>
+                <Link
+                  href="/research/data-report"
+                  className="group flex h-full flex-col rounded-2xl border border-border bg-[#F7F9FD] p-6 transition-all hover:border-[#a9781a]/30 hover:shadow-md sm:p-8"
+                >
+                  <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#a9781a]">
+                    Track B
+                  </div>
+                  <h2
+                    className="mt-3 text-[1.3rem] font-bold leading-snug text-navy sm:text-[1.5rem]"
+                    style={{ wordBreak: "keep-all" } as React.CSSProperties}
+                  >
+                    {locale === "ko" ? "발견과 분석" : "Findings & Analysis"}
+                  </h2>
+                  <p className="mt-2 text-[14px] font-medium text-navy/80" style={{ wordBreak: "keep-all" } as React.CSSProperties}>
+                    {locale === "ko"
+                      ? "세계는 어떤 한국을 질문하는가?"
+                      : "What Korea does the world question?"}
+                  </p>
+                  <p
+                    className="mt-3 flex-1 text-[14px] leading-relaxed text-secondary"
+                    style={{ wordBreak: "keep-all" } as React.CSSProperties}
+                  >
+                    {locale === "ko"
+                      ? "1,540개의 질문에서 발견한 국가별 한국 이해 방식, 질문 이동 경로, 주제 구조, 인식 패턴을 분석한다."
+                      : "Analyzing how each country understands Korea, question migration paths, topic structures, and perception patterns from 1,540 questions."}
+                  </p>
+                  <div className="mt-5 flex items-center gap-2 text-[13px] font-semibold text-[#a9781a] transition-transform group-hover:translate-x-1">
+                    {locale === "ko" ? "Data Report 읽기" : "Read Data Report"}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </div>
+                </Link>
+              </Reveal>
             </div>
           </div>
         </section>
 
         {/* ── Why This Research ── */}
-        <section className="border-b border-border bg-white">
+        <section className="border-b border-border bg-[#F3F6FB]">
           <div className="container max-w-[1100px] py-12 sm:py-14">
             <Reveal>
               <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
@@ -169,7 +169,7 @@ export function ResearchIndex() {
                 { q: "research.why.found.q", a: "research.why.found.a" },
               ].map((it) => (
                 <Reveal key={it.q} delay={0.08}>
-                  <div className="rounded-xl border border-border bg-[#F3F6FB] p-5">
+                  <div className="rounded-xl border border-border bg-white p-5">
                     <h3 className="text-[13px] font-semibold text-brand">{t(it.q)}</h3>
                     <p
                       className="mt-2 text-[14px] font-medium leading-relaxed text-navy"
@@ -185,7 +185,7 @@ export function ResearchIndex() {
         </section>
 
         {/* ── Bridge → Explore ── */}
-        <section className="border-b border-border bg-[#F3F6FB]">
+        <section className="border-b border-border bg-white">
           <div className="container flex flex-col items-start justify-between gap-4 py-10 sm:flex-row sm:items-center sm:py-12">
             <div className="max-w-xl">
               <p
