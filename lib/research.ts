@@ -41,15 +41,15 @@ export const RESEARCH_DOCS: ResearchDocMeta[] = [
     slug: "understanding-model",
     rung: 2,
     accent: "#a9781a",
-    kicker: { ko: "2부 · 발견과 분석", en: "Part 2 · Findings & Analysis" },
-    title: { ko: "세계는 어떤 한국을 질문하는가", en: "What Korea Does the World Question?" },
-    question: { ko: "무엇이 발견되었고, 어떻게 읽었는가?", en: "What was found, and how did we read it?" },
-    pagerTitle: { ko: "발견과 분석 모델", en: "Findings & Analysis Model" },
+    kicker: { ko: "2부 · 활용과 설계", en: "Part 2 · Application & Design" },
+    title: { ko: "질문에서 전략까지", en: "From Questions to Strategy" },
+    question: { ko: "질문 데이터를 어떻게 활용할 수 있는가?", en: "How can question data be put to use?" },
+    pagerTitle: { ko: "활용과 설계", en: "Application & Design" },
     oneLine: {
-      ko: "1,540개의 질문에서 발견한 패턴과, 그 패턴을 읽기 위해 설계한 질문→개념→주제→서사→인식 분석 구조를 설명한다.",
-      en: "Patterns discovered from 1,540 questions and the question→concept→theme→narrative→perception analysis structure designed to read them.",
+      ko: "질문은 발견으로 끝나지 않는다. 국가별 질문 패턴을 바탕으로 정부, 시민사회, 재외동포, AI가 어떤 역할을 해야 하는지 제안한다.",
+      en: "Questions do not end at discovery. Based on country-level question patterns, we propose roles for government, civil society, diaspora, and AI.",
     },
-    audience: { ko: "분석가 · 연구자 · 전략가", en: "Analysts, researchers, strategists" },
+    audience: { ko: "정책가 · 전략가 · 시민사회", en: "Policymakers, strategists, civil society" },
   },
 ];
 
