@@ -805,72 +805,17 @@ export function DataReport() {
             </div>
           </FindingCard>
 
-          {/* ── Finding 12 (was 7): Korea self-conscious ── */}
+          {/* ── Finding 12: Arab ── */}
           <FindingCard
             n={12}
-            title={locale === "ko"
-              ? "한국인은 한국보다 한국의 이미지를 검색한다"
-              : "Koreans search for how Korea looks more than what Korea is"}
-            summary={locale === "ko"
-              ? "8개 시장 중 한국만 '한국이 어떻게 보이는지'를 묻는다."
-              : "The only market that asks how Korea looks rather than what Korea is."}
-            open={isOpen(12)}
-            onToggle={() => toggle(12)}
-          >
-            <Prose>
-              {locale === "ko" ? (
-                <>
-                  <p>한국 시장의 1위 주제는 사회(49개)다. 미국·인도(각 사회 111개)와 비슷해 보인다.</p>
-                  <p>그러나 질문 내용이 완전히 다르다. 미국·인도의 사회 질문은 &ldquo;한국인은 왜 성형을 하는가&rdquo; &ldquo;한국의 자살률은 왜 높은가&rdquo;처럼 현상을 묻는다. 한국 시장의 사회 질문은 &ldquo;외국인은 한국인을 어떻게 보는가&rdquo; &ldquo;한국인의 특징은 무엇인가&rdquo;처럼 이미지를 묻는다.</p>
-                  <p>다른 나라는 한국을 이해하려 한다. 한국은 자신이 어떻게 이해되고 있는지를 확인하려 한다.</p>
-                  <p>이 차이는 8개 시장 중 한국에서만 나타난다.</p>
-                </>
-              ) : (
-                <>
-                  <p>Korea&apos;s top topic is society (49 questions). At first glance, similar to the US and India (111 each).</p>
-                  <p>But the content is entirely different. US and India society questions ask about phenomena: &ldquo;Why plastic surgery?&rdquo; &ldquo;Why high suicide rate?&rdquo; Korean society questions ask about image: &ldquo;How do foreigners see Koreans?&rdquo; &ldquo;What are Korean characteristics?&rdquo;</p>
-                  <p>Other countries try to understand Korea. Korea tries to verify how it is being understood.</p>
-                  <p>This difference appears only in Korea among all 8 markets.</p>
-                </>
-              )}
-            </Prose>
-
-            <div className="mt-6 rounded-xl border border-border bg-white p-5">
-              <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
-                {locale === "ko" ? "같은 \"사회\" 주제, 다른 질문" : "Same topic \"Society,\" different questions"}
-              </div>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-lg bg-brand/5 p-4">
-                  <div className="text-[11px] font-semibold text-brand">{locale === "ko" ? "미국·인도" : "US & India"}</div>
-                  <div className="mt-2 space-y-1 text-[12px] text-secondary">
-                    <p>{locale === "ko" ? "한국인은 왜 성형을 하는가" : "Why do Koreans get plastic surgery"}</p>
-                    <p>{locale === "ko" ? "한국의 자살률은 왜 높은가" : "Why is the suicide rate high in Korea"}</p>
-                  </div>
-                  <div className="mt-2 text-[10px] font-medium text-brand">{locale === "ko" ? "→ 현상을 묻는다" : "→ Asks about phenomena"}</div>
-                </div>
-                <div className="rounded-lg bg-navy/5 p-4">
-                  <div className="text-[11px] font-semibold text-navy">{locale === "ko" ? "한국" : "Korea"}</div>
-                  <div className="mt-2 space-y-1 text-[12px] text-secondary">
-                    <p>{locale === "ko" ? "외국인은 한국인을 어떻게 보는가" : "How do foreigners see Koreans"}</p>
-                    <p>{locale === "ko" ? "한국인의 특징은 무엇인가" : "What are Korean characteristics"}</p>
-                  </div>
-                  <div className="mt-2 text-[10px] font-medium text-navy">{locale === "ko" ? "→ 이미지를 묻는다" : "→ Asks about image"}</div>
-                </div>
-              </div>
-            </div>
-          </FindingCard>
-
-          {/* ── Finding 13 (was 8): Arab ── */}
-          <FindingCard
-            n={13}
             title={locale === "ko"
               ? "아랍권은 한국을 문화보다 국가로 먼저 본다"
               : "The Arab world sees Korea as a state before a culture"}
             summary={locale === "ko"
               ? "외교와 한류가 전체의 66%. 사회·관광·경제는 거의 공백."
               : "Diplomacy and Hallyu account for 66%. Society, tourism, economy are near-blank."}
-            open={isOpen(13)}
-            onToggle={() => toggle(13)}
+            open={isOpen(12)}
+            onToggle={() => toggle(12)}
           >
             <Prose>
               {locale === "ko" ? (
@@ -919,6 +864,61 @@ export function DataReport() {
                     <span className="w-8 shrink-0 text-right text-[11px] tabular-nums text-muted-foreground">{d.val}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+          </FindingCard>
+
+          {/* ── Finding 13: Korea self-conscious ── */}
+          <FindingCard
+            n={13}
+            title={locale === "ko"
+              ? "한국인은 한국보다 한국의 이미지를 검색한다"
+              : "Koreans search for how Korea looks more than what Korea is"}
+            summary={locale === "ko"
+              ? "8개 시장 중 한국만 '한국이 어떻게 보이는지'를 묻는다."
+              : "The only market that asks how Korea looks rather than what Korea is."}
+            open={isOpen(13)}
+            onToggle={() => toggle(13)}
+          >
+            <Prose>
+              {locale === "ko" ? (
+                <>
+                  <p>한국 시장의 1위 주제는 사회(49개)다. 미국·인도(각 사회 111개)와 비슷해 보인다.</p>
+                  <p>그러나 질문 내용이 완전히 다르다. 미국·인도의 사회 질문은 &ldquo;한국인은 왜 성형을 하는가&rdquo; &ldquo;한국의 자살률은 왜 높은가&rdquo;처럼 현상을 묻는다. 한국 시장의 사회 질문은 &ldquo;외국인은 한국인을 어떻게 보는가&rdquo; &ldquo;한국인의 특징은 무엇인가&rdquo;처럼 이미지를 묻는다.</p>
+                  <p>다른 나라는 한국을 이해하려 한다. 한국은 자신이 어떻게 이해되고 있는지를 확인하려 한다.</p>
+                  <p>이 차이는 8개 시장 중 한국에서만 나타난다.</p>
+                </>
+              ) : (
+                <>
+                  <p>Korea&apos;s top topic is society (49 questions). At first glance, similar to the US and India (111 each).</p>
+                  <p>But the content is entirely different. US and India society questions ask about phenomena: &ldquo;Why plastic surgery?&rdquo; &ldquo;Why high suicide rate?&rdquo; Korean society questions ask about image: &ldquo;How do foreigners see Koreans?&rdquo; &ldquo;What are Korean characteristics?&rdquo;</p>
+                  <p>Other countries try to understand Korea. Korea tries to verify how it is being understood.</p>
+                  <p>This difference appears only in Korea among all 8 markets.</p>
+                </>
+              )}
+            </Prose>
+
+            <div className="mt-6 rounded-xl border border-border bg-white p-5">
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-secondary">
+                {locale === "ko" ? "같은 \"사회\" 주제, 다른 질문" : "Same topic \"Society,\" different questions"}
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-lg bg-brand/5 p-4">
+                  <div className="text-[11px] font-semibold text-brand">{locale === "ko" ? "미국·인도" : "US & India"}</div>
+                  <div className="mt-2 space-y-1 text-[12px] text-secondary">
+                    <p>{locale === "ko" ? "한국인은 왜 성형을 하는가" : "Why do Koreans get plastic surgery"}</p>
+                    <p>{locale === "ko" ? "한국의 자살률은 왜 높은가" : "Why is the suicide rate high in Korea"}</p>
+                  </div>
+                  <div className="mt-2 text-[10px] font-medium text-brand">{locale === "ko" ? "→ 현상을 묻는다" : "→ Asks about phenomena"}</div>
+                </div>
+                <div className="rounded-lg bg-navy/5 p-4">
+                  <div className="text-[11px] font-semibold text-navy">{locale === "ko" ? "한국" : "Korea"}</div>
+                  <div className="mt-2 space-y-1 text-[12px] text-secondary">
+                    <p>{locale === "ko" ? "외국인은 한국인을 어떻게 보는가" : "How do foreigners see Koreans"}</p>
+                    <p>{locale === "ko" ? "한국인의 특징은 무엇인가" : "What are Korean characteristics"}</p>
+                  </div>
+                  <div className="mt-2 text-[10px] font-medium text-navy">{locale === "ko" ? "→ 이미지를 묻는다" : "→ Asks about image"}</div>
+                </div>
               </div>
             </div>
           </FindingCard>
