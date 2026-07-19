@@ -3,16 +3,110 @@
 import * as React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
+import { TOPICS } from "@/lib/topics";
+import { PATHWAYS } from "@/lib/ontology";
+import { RESEARCH_DOCS } from "@/lib/research";
 import { cn } from "@/lib/utils";
 import { LanguageSwitch } from "./language-switch";
 
-const LINKS = [
-  { key: "nav.pathways", href: "/#pathways" },
-  { key: "nav.topics", href: "/topics" },
+interface SubItem {
+  label: { ko: string; en: string };
+  href: string;
+}
+
+interface NavLink {
+  key: string;
+  href: string;
+  children?: SubItem[];
+}
+
+const LINKS: NavLink[] = [
+  {
+    key: "nav.pathways",
+    href: "/#pathways",
+    children: PATHWAYS.map((p) => ({
+      label: p.title,
+      href: `/#pathways`,
+    })),
+  },
+  {
+    key: "nav.topics",
+    href: "/topics",
+    children: TOPICS.map((t) => ({
+      label: t.title,
+      href: `/topics/${t.slug}`,
+    })),
+  },
   { key: "nav.explore", href: "/explore" },
-  { key: "nav.research", href: "/research" },
+  {
+    key: "nav.research",
+    href: "/research",
+    children: RESEARCH_DOCS.map((d) => ({
+      label: d.pagerTitle,
+      href: `/research/${d.slug}`,
+    })),
+  },
   { key: "nav.method", href: "/method" },
-] as const;
+];
+
+function NavItem({ link }: { link: NavLink }) {
+  const { t, locale } = useLanguage();
+  const [open, setOpen] = React.useState(false);
+  const timeout = React.useRef<ReturnType<typeof setTimeout>>();
+
+  const enter = () => {
+    clearTimeout(timeout.current);
+    setOpen(true);
+  };
+  const leave = () => {
+    timeout.current = setTimeout(() => setOpen(false), 150);
+  };
+
+  if (!link.children) {
+    return (
+      <Link
+        href={link.href}
+        className="rounded-md px-3 py-1.5 text-sm font-medium text-secondary transition-colors hover:bg-secondary hover:text-navy"
+      >
+        {t(link.key)}
+      </Link>
+    );
+  }
+
+  return (
+    <div className="relative" onMouseEnter={enter} onMouseLeave={leave}>
+      <Link
+        href={link.href}
+        className="rounded-md px-3 py-1.5 text-sm font-medium text-secondary transition-colors hover:bg-secondary hover:text-navy"
+      >
+        {t(link.key)}
+      </Link>
+
+      <div
+        className={cn(
+          "absolute left-1/2 top-full z-50 pt-2 -translate-x-1/2 transition-all duration-150",
+          open
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-1 opacity-0",
+        )}
+      >
+        <div className="min-w-[180px] rounded-xl border border-border bg-white p-1.5 shadow-lg">
+          {link.children.map((child, i) => (
+            <Link
+              key={i}
+              href={child.href}
+              className="block rounded-lg px-3 py-2 text-[13px] font-medium text-secondary transition-colors hover:bg-[#F3F6FB] hover:text-navy"
+              style={{ wordBreak: "keep-all" } as React.CSSProperties}
+              onClick={() => setOpen(false)}
+            >
+              {child.label[locale]}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Navbar() {
   const { t } = useLanguage();
@@ -46,13 +140,7 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-1 md:flex">
           {LINKS.map((link) => (
-            <Link
-              key={link.key}
-              href={link.href}
-              className="rounded-md px-3 py-1.5 text-sm font-medium text-secondary transition-colors hover:bg-secondary hover:text-navy"
-            >
-              {t(link.key)}
-            </Link>
+            <NavItem key={link.key} link={link} />
           ))}
         </nav>
 
