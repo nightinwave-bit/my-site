@@ -55,26 +55,6 @@ export const dict: Dict = {
   },
   "research.teaser.rung": { ko: "단계", en: "Rung" },
   "research.teaser.all": { ko: "리서치 전체 보기", en: "See all research" },
-  "research.why.eyebrow": { ko: "왜 이 연구인가", en: "Why this research" },
-  "research.why.lede": {
-    ko: "우리는 한국에 대한 답을 찾기 전에, 세계가 어떤 질문을 하는지부터 조사했다.",
-    en: "Before looking for answers about Korea, we studied what questions the world is asking.",
-  },
-  "research.why.autocomplete.q": { ko: "왜 Google 자동완성인가?", en: "Why Google Autocomplete?" },
-  "research.why.autocomplete.a": {
-    ko: "사람들은 공식 설문조사보다 검색창에 더 솔직한 질문을 남긴다.",
-    en: "People leave more honest questions in a search box than in any official survey.",
-  },
-  "research.why.markets.q": { ko: "왜 8개 국가인가?", en: "Why eight markets?" },
-  "research.why.markets.a": {
-    ko: "‘세계 평균’은 존재하지 않는다. 나라마다 질문하는 방식이 다르다.",
-    en: "There is no “global average.” Each country asks in its own way.",
-  },
-  "research.why.found.q": { ko: "우리는 무엇을 발견했는가?", en: "What did we find?" },
-  "research.why.found.a": {
-    ko: "문화 질문은 많았다. 하지만 그것이 문화에만 관심 있다는 뜻은 아니었다. 문화는 세계가 한국을 처음 만나는 입구였다.",
-    en: "There were many culture questions. But that did not mean interest in culture alone — culture was the entrance where the world first meets Korea.",
-  },
   "evidence.research.perception": { ko: "해석 읽기", en: "Read the interpretation" },
   "evidence.research.concept": { ko: "관련 발견 보기", en: "See the finding" },
   "nav.sources": { ko: "데이터 출처", en: "Sources" },
