@@ -11,10 +11,8 @@ import { Footer } from "./footer";
 import { Reveal } from "./reveal";
 
 const PHASE_LABELS = [
-  { ko: "발견", en: "Discovery" },
-  { ko: "해석", en: "Interpretation" },
-  { ko: "모델", en: "Model" },
-  { ko: "관찰", en: "Observation" },
+  { ko: "데이터 검증", en: "Data Validation" },
+  { ko: "발견과 분석", en: "Findings & Analysis" },
 ];
 
 export function ResearchIndex() {
@@ -49,8 +47,8 @@ export function ResearchIndex() {
                 style={{ wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "1,540개의 질문은 데이터로 끝나지 않는다. 우리는 질문을 발견하고, 그 의미를 해석하고, 이해 구조를 설계하고, 미래의 질문을 관찰한다."
-                  : "1,540 questions do not end as data. We discover questions, interpret their meaning, design understanding structures, and observe future questions."}
+                  ? "Ask About Korea는 데이터를 수집하기 전에 데이터를 검증했다. 그리고 검증된 데이터에서 발견한 패턴을 분석 구조로 읽었다."
+                  : "Ask About Korea validated its data before collecting it. Then we read the patterns discovered in the validated data through an analytical structure."}
               </p>
             </Reveal>
             <Reveal delay={0.15}>
@@ -91,7 +89,7 @@ export function ResearchIndex() {
           </div>
         </section>
 
-        {/* ── Four Research Documents ── */}
+        {/* ── Research Documents ── */}
         <section className="border-b border-border bg-[#F3F6FB]">
           <div className="container max-w-[1100px] py-12 sm:py-14">
             <div className="space-y-0">

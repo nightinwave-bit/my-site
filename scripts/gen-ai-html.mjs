@@ -21,10 +21,8 @@ const SECTIONS = [
   ["사회", "/topics/society"],
   ["경제", "/topics/economy"],
   ["기술", "/topics/technology"],
-  ["데이터 리포트", "/research/data-report"],
-  ["공공외교 브리프", "/research/diplomacy-brief"],
-  ["한국 이해 모델", "/research/understanding-model"],
-  ["질문 관측소", "/research/question-observatory"],
+  ["데이터 검증 리포트", "/research/data-report"],
+  ["발견과 분석", "/research/understanding-model"],
 ];
 
 const decode = (s) =>
@@ -78,7 +76,7 @@ parts.push('<meta name="viewport" content="width=device-width, initial-scale=1">
 parts.push('<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">');
 parts.push("<title>Ask About Korea — 전체 텍스트 (AI 읽기 전용 · ai.html)</title>");
 parts.push(
-  '<meta name="description" content="세계가 한국을 어떻게 이해하는지에 대한 온톨로지 리서치 플랫폼의 전체 텍스트 — 홈, 여덟 개 주제, 네 편의 리서치 문서를 하나의 정적 HTML로.">',
+  '<meta name="description" content="세계가 한국을 어떻게 이해하는지에 대한 온톨로지 리서치 플랫폼의 전체 텍스트 — 홈, 여덟 개 주제, 두 편의 리서치 문서를 하나의 정적 HTML로.">',
 );
 parts.push('<link rel="canonical" href="https://velvety-hotteok-370c8c.netlify.app/ai.html">');
 parts.push("</head>");

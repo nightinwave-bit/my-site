@@ -1,14 +1,12 @@
 import type { Localized } from "@/lib/ontology";
 
-// Research section manifest — four stages of inquiry:
-// 발견 → 해석 → 모델 → 관찰
-// Discovery → Interpretation → Model → Observation
+// Research section manifest — two stages of inquiry:
+// 검증 → 분석
+// Validation → Analysis
 
 export type ResearchSlug =
   | "data-report"
-  | "diplomacy-brief"
-  | "understanding-model"
-  | "question-observatory";
+  | "understanding-model";
 
 export interface ResearchDocMeta {
   slug: ResearchSlug;
@@ -29,57 +27,29 @@ export const RESEARCH_DOCS: ResearchDocMeta[] = [
     slug: "data-report",
     rung: 1,
     accent: "#1f5fd6",
-    kicker: { ko: "1단계 · 발견", en: "Step 1 · Discovery" },
-    title: { ko: "세계는 어떤 한국을 질문하는가", en: "What Korea Does the World Question?" },
-    question: { ko: "무엇이 보이는가?", en: "What is there?" },
-    pagerTitle: { ko: "질문의 패턴 발견하기", en: "Discovering question patterns" },
+    kicker: { ko: "1부 · 데이터 검증", en: "Part 1 · Data Validation" },
+    title: { ko: "데이터보다 먼저 검증한 것은 질문이었다", en: "Before the Data, We Validated the Questions" },
+    question: { ko: "왜 이 데이터를 선택했는가?", en: "Why did we choose this data?" },
+    pagerTitle: { ko: "데이터 검증 리포트", en: "Data Validation Report" },
     oneLine: {
-      ko: "1,540개의 질문은 하나의 한국이 아니라 여러 개의 한국을 보여준다. 이 보고서는 질문이 드러내는 국가 이미지의 구조를 읽는다.",
-      en: "1,540 questions reveal not one Korea but many. This report reads the structure of national image they reveal.",
+      ko: "Ask About Korea는 Google Autocomplete를 핵심 데이터로 선택했다. 이 페이지는 데이터 선정 기준, 국가 선정 기준, 분석 방법, 한계와 보완 과정을 공개한다.",
+      en: "Ask About Korea chose Google Autocomplete as its core data. This page discloses the data selection criteria, country selection criteria, analysis methods, and limitations.",
     },
-    audience: { ko: "분석가 · 기자 · 궁금한 독자", en: "Analysts, journalists, the curious" },
-  },
-  {
-    slug: "diplomacy-brief",
-    rung: 2,
-    accent: "#2f6f62",
-    kicker: { ko: "2단계 · 해석", en: "Step 2 · Interpretation" },
-    title: { ko: "질문은 공공외교의 출발점이다", en: "Questions Are Where Public Diplomacy Begins" },
-    question: { ko: "그것은 무엇을 의미하는가?", en: "What does it mean?" },
-    pagerTitle: { ko: "질문의 의미 읽기", en: "Reading what questions mean" },
-    oneLine: {
-      ko: "공공외교는 무엇을 알릴 것인가에서 시작되지 않는다. 사람들이 무엇을 묻고 있는가에서 시작된다. 이 브리프는 질문 데이터를 바탕으로 공공외교의 새로운 출발점을 제안한다.",
-      en: "Public diplomacy doesn't start with what to announce — it starts with what people are asking. This brief proposes a new starting point for public diplomacy, grounded in question data.",
-    },
-    audience: { ko: "정책 · 외교 독자", en: "Policy / diplomacy readers" },
+    audience: { ko: "연구자 · 검증을 원하는 독자", en: "Researchers, readers who want verification" },
   },
   {
     slug: "understanding-model",
-    rung: 3,
+    rung: 2,
     accent: "#a9781a",
-    kicker: { ko: "3단계 · 모델", en: "Step 3 · Model" },
-    title: { ko: "한국 이해 모델", en: "Korea Understanding Model" },
-    question: { ko: "어떻게 이해가 만들어지는가?", en: "How is understanding formed?" },
-    pagerTitle: { ko: "한국 이해 모델", en: "Korea Understanding Model" },
+    kicker: { ko: "2부 · 발견과 분석", en: "Part 2 · Findings & Analysis" },
+    title: { ko: "세계는 어떤 한국을 질문하는가", en: "What Korea Does the World Question?" },
+    question: { ko: "무엇이 발견되었고, 어떻게 읽었는가?", en: "What was found, and how did we read it?" },
+    pagerTitle: { ko: "발견과 분석 모델", en: "Findings & Analysis Model" },
     oneLine: {
-      ko: "질문에서 개념으로, 개념에서 주제로, 주제에서 서사로, 서사에서 인식으로. 세계가 한국을 이해하는 과정을 모델로 재구성했다.",
-      en: "From questions to concepts, concepts to themes, themes to narratives, narratives to perception. We reconstructed the process by which the world understands Korea as a model.",
+      ko: "1,540개의 질문에서 발견한 패턴과, 그 패턴을 읽기 위해 설계한 질문→개념→주제→서사→인식 분석 구조를 설명한다.",
+      en: "Patterns discovered from 1,540 questions and the question→concept→theme→narrative→perception analysis structure designed to read them.",
     },
-    audience: { ko: "연구자 · 전략가", en: "Researchers, strategists" },
-  },
-  {
-    slug: "question-observatory",
-    rung: 4,
-    accent: "#12886a",
-    kicker: { ko: "4단계 · 관찰", en: "Step 4 · Observation" },
-    title: { ko: "질문은 끝나지 않는다", en: "Questions Never End" },
-    question: { ko: "앞으로 무엇이 바뀌는가?", en: "What changes next?" },
-    pagerTitle: { ko: "질문으로 미래 읽기", en: "Reading the future through questions" },
-    oneLine: {
-      ko: "국가 이미지는 완성된 결과물이 아니다. 새로운 기술, 새로운 사건, 새로운 세대가 한국을 만날 때마다 질문은 바뀐다. 질문 관측소는 세계의 시선 변화를 기록하는 공간이다.",
-      en: "National image is never a finished product. Questions change whenever new technologies, new events, and new generations encounter Korea. The Question Observatory records how the world's gaze shifts.",
-    },
-    audience: { ko: "미래학자 · 정책설계자 · 연구자", en: "Futurists, policy designers, researchers" },
+    audience: { ko: "분석가 · 연구자 · 전략가", en: "Analysts, researchers, strategists" },
   },
 ];
 
