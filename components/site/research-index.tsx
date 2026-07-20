@@ -31,7 +31,7 @@ export function ResearchIndex() {
                 style={{ textWrap: "balance", wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "질문에서 국��� 이해까���"
+                  ? "질문에서 국가 이해까지"
                   : "From Questions to National Understanding"}
               </h1>
             </Reveal>
@@ -41,7 +41,7 @@ export function ResearchIndex() {
                 style={{ wordBreak: "keep-all" } as React.CSSProperties}
               >
                 {locale === "ko"
-                  ? "Ask About Korea는 질문을 수집하기 전에 데이터를 검증했고, 검증된 데이터에서 국가별 한국 이�� 패턴을 발견했다."
+                  ? "Ask About Korea는 질문을 수집하기 전에 데이터를 검증했고, 검증된 데이터에서 국가별 한국 이해 패턴을 발견했다."
                   : "Ask About Korea validated its data before collecting questions, then discovered how each country understands Korea from the validated dataset."}
               </p>
             </Reveal>
