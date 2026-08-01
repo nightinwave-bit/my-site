@@ -1,23 +1,5 @@
 {
-  "meta": {
-    "version": "stage-500/0.3.0-utf8fix",
-    "mode": "live",
-    "modeNote": "",
-    "date": "2026-08-01",
-    "locales": [
-      "US",
-      "DE",
-      "IN",
-      "ID",
-      "JP",
-      "BR",
-      "AE",
-      "KR"
-    ],
-    "autocompleteAttempts": 234,
-    "paaAttempts": 0,
-    "paaSkippedNoKey": true
-  },
+  "month": "2026-08",
   "count": 2131,
   "questions": [
     {

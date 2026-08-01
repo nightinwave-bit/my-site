@@ -1,0 +1,5230 @@
+{
+  "schema": "aak.change-report/1.0",
+  "framework": "Kwon-Soyoung v1.5",
+  "month": "2026-08",
+  "previousMonth": "2026-07",
+  "baseline": false,
+  "boundaryNote": "AI fields = detected findings. Human fields = significance, left empty (§12).",
+  "detected": {
+    "questions": {
+      "newQuestions": {
+        "author": "ai",
+        "filled": true,
+        "value": [
+          {
+            "text": "north korea world cup",
+            "language": "en"
+          },
+          {
+            "text": "korean beauty near me",
+            "language": "en"
+          },
+          {
+            "text": "kimchi recipe",
+            "language": "de"
+          },
+          {
+            "text": "samsung s26 ultra",
+            "language": "de"
+          },
+          {
+            "text": "korea vs japan soccer",
+            "language": "de"
+          },
+          {
+            "text": "is korea in the world cup 2026",
+            "language": "en"
+          },
+          {
+            "text": "is korean a language",
+            "language": "en"
+          },
+          {
+            "text": "are koreans asian",
+            "language": "en"
+          },
+          {
+            "text": "is korean hard for english speakers",
+            "language": "en"
+          },
+          {
+            "text": "what is korean food",
+            "language": "en"
+          },
+          {
+            "text": "what is korean age",
+            "language": "en"
+          },
+          {
+            "text": "north korea vs south korea soccer",
+            "language": "en"
+          },
+          {
+            "text": "ما هي كوريا الجنوبية",
+            "language": "ar"
+          },
+          {
+            "text": "korean culture center nyc",
+            "language": "en"
+          },
+          {
+            "text": "korea vs japan vs china",
+            "language": "en"
+          },
+          {
+            "text": "hanbok top",
+            "language": "de"
+          },
+          {
+            "text": "ما هي كوريا الشمالية",
+            "language": "ar"
+          },
+          {
+            "text": "why is korean age different",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare near me",
+            "language": "en"
+          },
+          {
+            "text": "are koreans catholic",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans count age",
+            "language": "en"
+          },
+          {
+            "text": "how is korea doing in the world cup",
+            "language": "en"
+          },
+          {
+            "text": "is korea out of the world cup",
+            "language": "en"
+          },
+          {
+            "text": "is korean asian",
+            "language": "en"
+          },
+          {
+            "text": "are koreans east asian",
+            "language": "en"
+          },
+          {
+            "text": "does korea have a royal family",
+            "language": "en"
+          },
+          {
+            "text": "korean culture center dc",
+            "language": "en"
+          },
+          {
+            "text": "korean war veterans memorial",
+            "language": "en"
+          },
+          {
+            "text": "why is korean skincare so good",
+            "language": "en"
+          },
+          {
+            "text": "why do koreans sleep on the floor",
+            "language": "en"
+          },
+          {
+            "text": "why are koreans in mexico",
+            "language": "en"
+          },
+          {
+            "text": "is korea still in the world cup",
+            "language": "en"
+          },
+          {
+            "text": "is korean bbq spicy",
+            "language": "en"
+          },
+          {
+            "text": "do koreans have middle names",
+            "language": "en"
+          },
+          {
+            "text": "korean language classes",
+            "language": "en"
+          },
+          {
+            "text": "korean dramas on netflix",
+            "language": "en"
+          },
+          {
+            "text": "seoul korea",
+            "language": "en"
+          },
+          {
+            "text": "korean technology companies",
+            "language": "en"
+          },
+          {
+            "text": "samsung galaxy s25 ultra",
+            "language": "en"
+          },
+          {
+            "text": "hanbok korean",
+            "language": "en"
+          },
+          {
+            "text": "korean names for girls",
+            "language": "en"
+          },
+          {
+            "text": "korea is southeast asia",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so good at esports",
+            "language": "en"
+          },
+          {
+            "text": "hanbok korea",
+            "language": "de"
+          },
+          {
+            "text": "por que a coreia do norte não participa da copa",
+            "language": "pt"
+          },
+          {
+            "text": "is korea in asia",
+            "language": "en"
+          },
+          {
+            "text": "is korea a country",
+            "language": "en"
+          },
+          {
+            "text": "is korean bbq healthy",
+            "language": "en"
+          },
+          {
+            "text": "are koreans considered asian",
+            "language": "en"
+          },
+          {
+            "text": "do koreans like black people",
+            "language": "en"
+          },
+          {
+            "text": "is korea expensive to live in",
+            "language": "en"
+          },
+          {
+            "text": "k-pop demon hunter songs",
+            "language": "en"
+          },
+          {
+            "text": "korean war memorial dc",
+            "language": "en"
+          },
+          {
+            "text": "korean economy crash",
+            "language": "en"
+          },
+          {
+            "text": "samsung stock",
+            "language": "en"
+          },
+          {
+            "text": "hanbok meaning",
+            "language": "en"
+          },
+          {
+            "text": "why is korea soccer team purple",
+            "language": "en"
+          },
+          {
+            "text": "why do koreans have good skin",
+            "language": "en"
+          },
+          {
+            "text": "why are koreans so good at video games",
+            "language": "en"
+          },
+          {
+            "text": "what is korean fried chicken",
+            "language": "en"
+          },
+          {
+            "text": "do koreans celebrate christmas",
+            "language": "en"
+          },
+          {
+            "text": "does korea advance in world cup",
+            "language": "en"
+          },
+          {
+            "text": "korean culture camp",
+            "language": "en"
+          },
+          {
+            "text": "korean war years",
+            "language": "en"
+          },
+          {
+            "text": "south korea stock market",
+            "language": "en"
+          },
+          {
+            "text": "samsung galaxy z fold 8",
+            "language": "en"
+          },
+          {
+            "text": "korea vs japan travel",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese sweet potato",
+            "language": "en"
+          },
+          {
+            "text": "why is korea soccer jersey purple",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so popular",
+            "language": "en"
+          },
+          {
+            "text": "hanbok modern",
+            "language": "de"
+          },
+          {
+            "text": "why do koreans have such good skin",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans pronounce hyundai",
+            "language": "en"
+          },
+          {
+            "text": "does korea have a monarchy",
+            "language": "en"
+          },
+          {
+            "text": "is korea expensive for americans",
+            "language": "en"
+          },
+          {
+            "text": "korean history of slavery",
+            "language": "en"
+          },
+          {
+            "text": "korean drama teach you a lesson",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion websites",
+            "language": "en"
+          },
+          {
+            "text": "korean age explained",
+            "language": "en"
+          },
+          {
+            "text": "korean education center houston",
+            "language": "en"
+          },
+          {
+            "text": "kimchi trader",
+            "language": "en"
+          },
+          {
+            "text": "korean names and meanings",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese vs chinese writing",
+            "language": "en"
+          },
+          {
+            "text": "korea utara piala dunia",
+            "language": "id"
+          },
+          {
+            "text": "why is korean sunscreen better",
+            "language": "en"
+          },
+          {
+            "text": "why are koreans not having kids",
+            "language": "en"
+          },
+          {
+            "text": "what is korean anime called",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans greet each other",
+            "language": "en"
+          },
+          {
+            "text": "does korea have free healthcare",
+            "language": "en"
+          },
+          {
+            "text": "is korea safe for black people",
+            "language": "en"
+          },
+          {
+            "text": "korean culture clothing",
+            "language": "en"
+          },
+          {
+            "text": "korean language name",
+            "language": "en"
+          },
+          {
+            "text": "korean dramas on disney plus",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare store",
+            "language": "en"
+          },
+          {
+            "text": "korean war timeline",
+            "language": "en"
+          },
+          {
+            "text": "south korea vs czechia",
+            "language": "en"
+          },
+          {
+            "text": "samsung galaxy z fold 2",
+            "language": "en"
+          },
+          {
+            "text": "hanbok rental",
+            "language": "en"
+          },
+          {
+            "text": "kimchi blue",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china world cup",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese pokemon cards",
+            "language": "en"
+          },
+          {
+            "text": "koreans are the italians",
+            "language": "en"
+          },
+          {
+            "text": "samsung s25",
+            "language": "de"
+          },
+          {
+            "text": "k-pops",
+            "language": "en"
+          },
+          {
+            "text": "seoulspice",
+            "language": "en"
+          },
+          {
+            "text": "korean education center dc",
+            "language": "en"
+          },
+          {
+            "text": "warum sind koreaner schlank",
+            "language": "de"
+          },
+          {
+            "text": "sejarah korea di piala dunia",
+            "language": "id"
+          },
+          {
+            "text": "seoul busters",
+            "language": "id"
+          },
+          {
+            "text": "韓流ドラマ",
+            "language": "ja"
+          },
+          {
+            "text": "كيبوب",
+            "language": "ar"
+          },
+          {
+            "text": "الدراما الكورية",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية كاس العالم",
+            "language": "ar"
+          },
+          {
+            "text": "هل كوريا آمنة",
+            "language": "ar"
+          },
+          {
+            "text": "السفر إلى كوريا في المنام للعزباء",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화원",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육원",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼식 하객룩",
+            "language": "ko"
+          },
+          {
+            "text": "why is korean skincare so popular",
+            "language": "en"
+          },
+          {
+            "text": "what is korean bbq sauce",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans answer the phone",
+            "language": "en"
+          },
+          {
+            "text": "is korea in the world cup",
+            "language": "en"
+          },
+          {
+            "text": "do koreans use chopsticks",
+            "language": "en"
+          },
+          {
+            "text": "why is kpop in english",
+            "language": "en"
+          },
+          {
+            "text": "korean culture festival",
+            "language": "en"
+          },
+          {
+            "text": "k-pop videos",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion show",
+            "language": "en"
+          },
+          {
+            "text": "korean age of drinking",
+            "language": "en"
+          },
+          {
+            "text": "north korea kn-23 production",
+            "language": "en"
+          },
+          {
+            "text": "south korea soccer",
+            "language": "en"
+          },
+          {
+            "text": "south korea standings",
+            "language": "en"
+          },
+          {
+            "text": "korean education center atlanta",
+            "language": "en"
+          },
+          {
+            "text": "korean technology tv",
+            "language": "en"
+          },
+          {
+            "text": "samsung galaxy z series",
+            "language": "en"
+          },
+          {
+            "text": "kimchi benefits",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china history",
+            "language": "en"
+          },
+          {
+            "text": "north korea vs south korea flag",
+            "language": "en"
+          },
+          {
+            "text": "kimchi box",
+            "language": "de"
+          },
+          {
+            "text": "korean food washington",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare washington",
+            "language": "en"
+          },
+          {
+            "text": "seoul prime",
+            "language": "en"
+          },
+          {
+            "text": "südkorea wm",
+            "language": "de"
+          },
+          {
+            "text": "kenapa orang korea harus wamil",
+            "language": "id"
+          },
+          {
+            "text": "kimchi ai",
+            "language": "id"
+          },
+          {
+            "text": "korea vs jepang 2026",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜ寒い",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマ 鉄槌 教師 キャスト",
+            "language": "ja"
+          },
+          {
+            "text": "ケーポップデーモンハンターズ キャラ",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 国旗",
+            "language": "ja"
+          },
+          {
+            "text": "キムチ レシピ",
+            "language": "ja"
+          },
+          {
+            "text": "韓流スター",
+            "language": "ja"
+          },
+          {
+            "text": "cultura coreana niteroi",
+            "language": "pt"
+          },
+          {
+            "text": "تاريخ كوريا في كاس العالم",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화원 엘에이",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식점 near me",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사 몇년",
+            "language": "ko"
+          },
+          {
+            "text": "북한 영어로",
+            "language": "ko"
+          },
+          {
+            "text": "한복 드레스",
+            "language": "ko"
+          },
+          {
+            "text": "한류 영어로",
+            "language": "ko"
+          },
+          {
+            "text": "why do koreans bow",
+            "language": "en"
+          },
+          {
+            "text": "why are koreans so good at league",
+            "language": "en"
+          },
+          {
+            "text": "what is korea republic",
+            "language": "en"
+          },
+          {
+            "text": "how is korean read",
+            "language": "en"
+          },
+          {
+            "text": "are koreans southeast asian",
+            "language": "en"
+          },
+          {
+            "text": "do koreans drink a lot",
+            "language": "en"
+          },
+          {
+            "text": "does korean skin care work",
+            "language": "en"
+          },
+          {
+            "text": "is korea safe to travel to right now",
+            "language": "en"
+          },
+          {
+            "text": "how to learn korean for beginners",
+            "language": "en"
+          },
+          {
+            "text": "k-pop songs",
+            "language": "en"
+          },
+          {
+            "text": "north korea national football team",
+            "language": "en"
+          },
+          {
+            "text": "north korea soccer",
+            "language": "en"
+          },
+          {
+            "text": "korean educational rights protection bureau",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china reddit",
+            "language": "en"
+          },
+          {
+            "text": "is korea soccer",
+            "language": "en"
+          },
+          {
+            "text": "koreans are the irish of asia",
+            "language": "en"
+          },
+          {
+            "text": "what is korean iced milk coffee",
+            "language": "en"
+          },
+          {
+            "text": "are koreans related to mongolians",
+            "language": "en"
+          },
+          {
+            "text": "korean food alexandria va",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare fairfax",
+            "language": "en"
+          },
+          {
+            "text": "nordkorea präsident",
+            "language": "de"
+          },
+          {
+            "text": "kimchi rezept",
+            "language": "de"
+          },
+          {
+            "text": "hanbok frauen",
+            "language": "de"
+          },
+          {
+            "text": "seoul taco",
+            "language": "en"
+          },
+          {
+            "text": "bahasa koreanya terima kasih",
+            "language": "id"
+          },
+          {
+            "text": "samsung a07",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜ反日",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 レシピ",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 英語",
+            "language": "ja"
+          },
+          {
+            "text": "ソウルメイト",
+            "language": "ja"
+          },
+          {
+            "text": "韓流ドラマ 人気",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 ビザ",
+            "language": "ja"
+          },
+          {
+            "text": "coreia do sul jogo",
+            "language": "pt"
+          },
+          {
+            "text": "kimchi mart",
+            "language": "pt"
+          },
+          {
+            "text": "لماذا كوريا الشمالية لم تشارك في كاس العالم",
+            "language": "ar"
+          },
+          {
+            "text": "الدراما الكورية الجديدة",
+            "language": "ar"
+          },
+          {
+            "text": "한국어 translate to english",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 다시보기 미국 사이트",
+            "language": "ko"
+          },
+          {
+            "text": "서울시장 후보",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육원 엘에이",
+            "language": "ko"
+          },
+          {
+            "text": "한복 쇼핑몰",
+            "language": "ko"
+          },
+          {
+            "text": "why is korean sunscreen banned in us",
+            "language": "en"
+          },
+          {
+            "text": "why do koreans look young",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans say hello",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans laugh in text",
+            "language": "en"
+          },
+          {
+            "text": "how is korean airlines rated",
+            "language": "en"
+          },
+          {
+            "text": "do koreans eat sushi",
+            "language": "en"
+          },
+          {
+            "text": "is korea safer than the us",
+            "language": "en"
+          },
+          {
+            "text": "is korea expensive than japan",
+            "language": "en"
+          },
+          {
+            "text": "why is korean food so expensive reddit",
+            "language": "en"
+          },
+          {
+            "text": "korean history month",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion store",
+            "language": "en"
+          },
+          {
+            "text": "korean age spot remover",
+            "language": "en"
+          },
+          {
+            "text": "korean economy class",
+            "language": "en"
+          },
+          {
+            "text": "hanbok top women",
+            "language": "en"
+          },
+          {
+            "text": "korean wave dash",
+            "language": "en"
+          },
+          {
+            "text": "korean names meaning moon",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china map",
+            "language": "en"
+          },
+          {
+            "text": "is korea south africa",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so popular now",
+            "language": "en"
+          },
+          {
+            "text": "does korean air have premium economy",
+            "language": "en"
+          },
+          {
+            "text": "korean drama to watch",
+            "language": "en"
+          },
+          {
+            "text": "seoul kitchen",
+            "language": "en"
+          },
+          {
+            "text": "koreans are descendants of",
+            "language": "en"
+          },
+          {
+            "text": "koreanische sprache ursprung",
+            "language": "de"
+          },
+          {
+            "text": "nordkorea wm",
+            "language": "de"
+          },
+          {
+            "text": "südkorea wm 2026",
+            "language": "de"
+          },
+          {
+            "text": "korean food recipes",
+            "language": "en"
+          },
+          {
+            "text": "korean dramas to watch",
+            "language": "en"
+          },
+          {
+            "text": "korean education center in los angeles",
+            "language": "en"
+          },
+          {
+            "text": "kenapa korea utara dan korea selatan berpisah",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea terimakasih banyak",
+            "language": "id"
+          },
+          {
+            "text": "korea selatan vs afrika selatan",
+            "language": "id"
+          },
+          {
+            "text": "seoul national university",
+            "language": "id"
+          },
+          {
+            "text": "korea vs jepang 2002",
+            "language": "id"
+          },
+          {
+            "text": "なぜ韓国人は肌が綺麗なのか",
+            "language": "ja"
+          },
+          {
+            "text": "韓国語 勉強",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 大統領",
+            "language": "ja"
+          },
+          {
+            "text": "ソウルイーター",
+            "language": "ja"
+          },
+          {
+            "text": "韓服 女性",
+            "language": "ja"
+          },
+          {
+            "text": "韓流ドラマ おすすめ",
+            "language": "ja"
+          },
+          {
+            "text": "por que a coreia do sul e a coreia do norte são inimigas",
+            "language": "pt"
+          },
+          {
+            "text": "seul restaurante",
+            "language": "pt"
+          },
+          {
+            "text": "beleza coreana loja",
+            "language": "pt"
+          },
+          {
+            "text": "كيبوب ديمون",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الشمالية كاس العالم",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية ضد التشيك",
+            "language": "ar"
+          },
+          {
+            "text": "السفر الى كوريا في المنام",
+            "language": "ar"
+          },
+          {
+            "text": "سامسونج 26 الترا",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화원 뉴욕",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식 미국 배송",
+            "language": "ko"
+          },
+          {
+            "text": "한국어 영어로",
+            "language": "ko"
+          },
+          {
+            "text": "서울 지하철 노선도",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육부장관",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제 상황",
+            "language": "ko"
+          },
+          {
+            "text": "삼성전자 주식",
+            "language": "ko"
+          },
+          {
+            "text": "한복 구매",
+            "language": "ko"
+          },
+          {
+            "text": "한류 열풍",
+            "language": "ko"
+          },
+          {
+            "text": "한국 나이키 매장",
+            "language": "ko"
+          },
+          {
+            "text": "is korea safe for tourists",
+            "language": "en"
+          },
+          {
+            "text": "is korean hard language to learn",
+            "language": "en"
+          },
+          {
+            "text": "do you need a visa for korea layover",
+            "language": "en"
+          },
+          {
+            "text": "etiquette korean bbq",
+            "language": "en"
+          },
+          {
+            "text": "korean economy etf",
+            "language": "en"
+          },
+          {
+            "text": "korean names that start with k",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so obsessed with looks",
+            "language": "en"
+          },
+          {
+            "text": "is korean skincare actually better",
+            "language": "en"
+          },
+          {
+            "text": "korean food annandale",
+            "language": "en"
+          },
+          {
+            "text": "korean language words",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion near me",
+            "language": "en"
+          },
+          {
+            "text": "seoul food",
+            "language": "en"
+          },
+          {
+            "text": "nordkorea reisen",
+            "language": "de"
+          },
+          {
+            "text": "südkoreanische fußballnationalmannschaft",
+            "language": "de"
+          },
+          {
+            "text": "hanbok oberteil",
+            "language": "de"
+          },
+          {
+            "text": "korean food nyc",
+            "language": "en"
+          },
+          {
+            "text": "seoul south korea",
+            "language": "en"
+          },
+          {
+            "text": "korean education center of new york",
+            "language": "en"
+          },
+          {
+            "text": "apa itu korean beauty standard",
+            "language": "id"
+          },
+          {
+            "text": "bahasa koreanya sayang",
+            "language": "id"
+          },
+          {
+            "text": "seoul joongdae elementary school",
+            "language": "id"
+          },
+          {
+            "text": "kimchi terbuat dari apa",
+            "language": "id"
+          },
+          {
+            "text": "korea vs jepang head to head",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜ鉄の箸",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 ドラマ",
+            "language": "ja"
+          },
+          {
+            "text": "ソウルメイト netflix",
+            "language": "ja"
+          },
+          {
+            "text": "キムチ鍋 レシピ",
+            "language": "ja"
+          },
+          {
+            "text": "韓流レアル",
+            "language": "ja"
+          },
+          {
+            "text": "idioma coreano é parecido com japones",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte presidente",
+            "language": "pt"
+          },
+          {
+            "text": "seul desconhecida",
+            "language": "pt"
+          },
+          {
+            "text": "ما هي كوريا موريا",
+            "language": "ar"
+          },
+          {
+            "text": "كيبوب زوي",
+            "language": "ar"
+          },
+          {
+            "text": "한국인은 정도를 모르나",
+            "language": "ko"
+          },
+          {
+            "text": "한국 문화 체험",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식점",
+            "language": "ko"
+          },
+          {
+            "text": "한국어 영어 번역",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사 기간",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 미국에서 보기",
+            "language": "ko"
+          },
+          {
+            "text": "북한 월드컵",
+            "language": "ko"
+          },
+          {
+            "text": "서울가든",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육부",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제 신문",
+            "language": "ko"
+          },
+          {
+            "text": "한복 가격",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼식 순서",
+            "language": "ko"
+          },
+          {
+            "text": "한국 여행 패키지",
+            "language": "ko"
+          },
+          {
+            "text": "한국 vs 일본 농구",
+            "language": "ko"
+          },
+          {
+            "text": "are koreans the tallest asians",
+            "language": "en"
+          },
+          {
+            "text": "does korea have a prime minister",
+            "language": "en"
+          },
+          {
+            "text": "korean food dc",
+            "language": "en"
+          },
+          {
+            "text": "korean language jobs",
+            "language": "en"
+          },
+          {
+            "text": "korean beauty paradise",
+            "language": "en"
+          },
+          {
+            "text": "südkorea nationalmannschaft",
+            "language": "de"
+          },
+          {
+            "text": "kimchi was ist das",
+            "language": "de"
+          },
+          {
+            "text": "hanbok kaufen",
+            "language": "de"
+          },
+          {
+            "text": "is korean east asian",
+            "language": "en"
+          },
+          {
+            "text": "korean food nearby",
+            "language": "en"
+          },
+          {
+            "text": "seoul beauty club",
+            "language": "en"
+          },
+          {
+            "text": "kimchi red",
+            "language": "en"
+          },
+          {
+            "text": "makanan korea di medan",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea dan artinya",
+            "language": "id"
+          },
+          {
+            "text": "drama korea sub indo",
+            "language": "id"
+          },
+          {
+            "text": "seoul samjeon elementary school",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜフルネームで呼ぶ",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 甘辛 牛肉",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 歴史 ない",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 サッカー",
+            "language": "ja"
+          },
+          {
+            "text": "ソウル 観光",
+            "language": "ja"
+          },
+          {
+            "text": "サムスン スマホ",
+            "language": "ja"
+          },
+          {
+            "text": "キムチチゲ レシピ",
+            "language": "ja"
+          },
+          {
+            "text": "韓服とは",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 必要なもの",
+            "language": "ja"
+          },
+          {
+            "text": "seul fc",
+            "language": "pt"
+          },
+          {
+            "text": "skincare coreano no paraguai",
+            "language": "pt"
+          },
+          {
+            "text": "hallyu coffee",
+            "language": "pt"
+          },
+          {
+            "text": "الدراما الكورية 2026",
+            "language": "ar"
+          },
+          {
+            "text": "سامسونج s26 الترا",
+            "language": "ar"
+          },
+          {
+            "text": "월드컵 한국은 어떻게 되나요",
+            "language": "ko"
+          },
+          {
+            "text": "한국어를 영어로 번역",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝 데몬 헌터스 보기",
+            "language": "ko"
+          },
+          {
+            "text": "북한 축구",
+            "language": "ko"
+          },
+          {
+            "text": "서울마켓",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육청",
+            "language": "ko"
+          },
+          {
+            "text": "한복 저고리",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼식 하객 복장",
+            "language": "ko"
+          },
+          {
+            "text": "korean food rockville",
+            "language": "en"
+          },
+          {
+            "text": "seoul spice dc",
+            "language": "en"
+          },
+          {
+            "text": "südkorea tschechien",
+            "language": "de"
+          },
+          {
+            "text": "hanbok jacket",
+            "language": "de"
+          },
+          {
+            "text": "does korea have universal healthcare",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare website",
+            "language": "en"
+          },
+          {
+            "text": "korean beauty store nyc",
+            "language": "en"
+          },
+          {
+            "text": "seoul garden",
+            "language": "en"
+          },
+          {
+            "text": "hanbok skirt",
+            "language": "en"
+          },
+          {
+            "text": "budaya korea selatan yang terkenal",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea ke bahasa indonesia",
+            "language": "id"
+          },
+          {
+            "text": "drama korea 21 tahun ke atas terbaru",
+            "language": "id"
+          },
+          {
+            "text": "korea selatan vs brasil",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜキムが多い",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 有名",
+            "language": "ja"
+          },
+          {
+            "text": "韓国語 日本語",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマ 朱蒙 相関図",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 歴史年表",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 ワールドカップ",
+            "language": "ja"
+          },
+          {
+            "text": "ソウルメイト ドラマ",
+            "language": "ja"
+          },
+          {
+            "text": "キムチチャーハン レシピ",
+            "language": "ja"
+          },
+          {
+            "text": "韓流プレミア",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 時期",
+            "language": "ja"
+          },
+          {
+            "text": "cultura coreana largo da batata",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte participa da copa do mundo",
+            "language": "pt"
+          },
+          {
+            "text": "seul horario",
+            "language": "pt"
+          },
+          {
+            "text": "الثقافة الكورية في العراق",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية ضد المكسيك",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화센터",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝스타 한별",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사 순서",
+            "language": "ko"
+          },
+          {
+            "text": "북한군",
+            "language": "ko"
+          },
+          {
+            "text": "서울순대",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제 전망",
+            "language": "ko"
+          },
+          {
+            "text": "삼성 주가",
+            "language": "ko"
+          },
+          {
+            "text": "한복 렌트",
+            "language": "ko"
+          },
+          {
+            "text": "한류초등학교",
+            "language": "ko"
+          },
+          {
+            "text": "한국 나이 계산기",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼 문화",
+            "language": "ko"
+          },
+          {
+            "text": "한국 여행사 추천",
+            "language": "ko"
+          },
+          {
+            "text": "warum ist korean skincare so beliebt",
+            "language": "de"
+          },
+          {
+            "text": "اللغة الكورية صعبة",
+            "language": "ar"
+          },
+          {
+            "text": "do koreans grow facial hair",
+            "language": "en"
+          },
+          {
+            "text": "korean food in centreville",
+            "language": "en"
+          },
+          {
+            "text": "korean language classes online",
+            "language": "en"
+          },
+          {
+            "text": "korean war memorial names",
+            "language": "en"
+          },
+          {
+            "text": "seoul kitchen rockville",
+            "language": "en"
+          },
+          {
+            "text": "hanbok definition",
+            "language": "en"
+          },
+          {
+            "text": "kimchi fried rice recipe",
+            "language": "en"
+          },
+          {
+            "text": "koreanisches essen münchen",
+            "language": "de"
+          },
+          {
+            "text": "nordkorea fußball",
+            "language": "de"
+          },
+          {
+            "text": "südkorea tabelle",
+            "language": "de"
+          },
+          {
+            "text": "seoul sky",
+            "language": "de"
+          },
+          {
+            "text": "samsung galaxy watch",
+            "language": "de"
+          },
+          {
+            "text": "kimchi pancake",
+            "language": "de"
+          },
+          {
+            "text": "why do koreans like mexicans",
+            "language": "en"
+          },
+          {
+            "text": "korean food las vegas",
+            "language": "en"
+          },
+          {
+            "text": "korean culture festival 2026",
+            "language": "en"
+          },
+          {
+            "text": "korean language a to z",
+            "language": "en"
+          },
+          {
+            "text": "korean drama netflix 2026",
+            "language": "en"
+          },
+          {
+            "text": "korean beauty store pasadena",
+            "language": "en"
+          },
+          {
+            "text": "hanbok men",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese faces",
+            "language": "en"
+          },
+          {
+            "text": "kenapa korea utara tidak ikut piala dunia",
+            "language": "id"
+          },
+          {
+            "text": "makanan korea di bandung",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea iya",
+            "language": "id"
+          },
+          {
+            "text": "sejarah korea dan china",
+            "language": "id"
+          },
+          {
+            "text": "korea selatan vs meksiko",
+            "language": "id"
+          },
+          {
+            "text": "seoul vibe",
+            "language": "id"
+          },
+          {
+            "text": "samsung indonesia",
+            "language": "id"
+          },
+          {
+            "text": "skincare korea apa saja",
+            "language": "id"
+          },
+          {
+            "text": "なぜ韓国は美容大国",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 文化体育観光部",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理人",
+            "language": "ja"
+          },
+          {
+            "text": "韓国語 フレーズ",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマ 恋人",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 歴史ドラマ 人気",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 教育 厳しい",
+            "language": "ja"
+          },
+          {
+            "text": "サムスン テレビ",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 安い時期",
+            "language": "ja"
+          },
+          {
+            "text": "cultura coreana kpop",
+            "language": "pt"
+          },
+          {
+            "text": "história da coreia e japão",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do sul copa do mundo",
+            "language": "pt"
+          },
+          {
+            "text": "seul coreia",
+            "language": "pt"
+          },
+          {
+            "text": "كوريا الشمالية ضد البرتغال",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية والتشيك",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화 체험 캠프",
+            "language": "ko"
+          },
+          {
+            "text": "한국어 영어",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝 데몬 헌터스 호랑이",
+            "language": "ko"
+          },
+          {
+            "text": "북한 인구",
+            "language": "ko"
+          },
+          {
+            "text": "서울대학교",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제 뉴스",
+            "language": "ko"
+          },
+          {
+            "text": "삼성증권",
+            "language": "ko"
+          },
+          {
+            "text": "김치냉장고 미국",
+            "language": "ko"
+          },
+          {
+            "text": "한복이야기",
+            "language": "ko"
+          },
+          {
+            "text": "한국 나이 미국 나이 계산기",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼 영주권",
+            "language": "ko"
+          },
+          {
+            "text": "한국 여행 esim",
+            "language": "ko"
+          },
+          {
+            "text": "koreanische schönheitsprodukte",
+            "language": "de"
+          },
+          {
+            "text": "한국은 왜 korea",
+            "language": "ko"
+          },
+          {
+            "text": "does korean air miles expire",
+            "language": "en"
+          },
+          {
+            "text": "korean food chantilly",
+            "language": "en"
+          },
+          {
+            "text": "korean culture dress",
+            "language": "en"
+          },
+          {
+            "text": "korean language institute",
+            "language": "en"
+          },
+          {
+            "text": "korean drama black",
+            "language": "en"
+          },
+          {
+            "text": "korean beauty salon",
+            "language": "en"
+          },
+          {
+            "text": "seoul prime falls church",
+            "language": "en"
+          },
+          {
+            "text": "samsung watch",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese vs chinese women",
+            "language": "en"
+          },
+          {
+            "text": "ist koreanisch eine schwere sprache zu lernen",
+            "language": "de"
+          },
+          {
+            "text": "nordkorea urlaub",
+            "language": "de"
+          },
+          {
+            "text": "seoul flughafen",
+            "language": "de"
+          },
+          {
+            "text": "samsung galaxy s25",
+            "language": "de"
+          },
+          {
+            "text": "kimchi heilbronn",
+            "language": "de"
+          },
+          {
+            "text": "what is korean hot pot",
+            "language": "en"
+          },
+          {
+            "text": "is korea republic south korea",
+            "language": "en"
+          },
+          {
+            "text": "is korean skincare better",
+            "language": "en"
+          },
+          {
+            "text": "are koreans buddhist",
+            "language": "en"
+          },
+          {
+            "text": "does korea have a king",
+            "language": "en"
+          },
+          {
+            "text": "korean food chicago",
+            "language": "en"
+          },
+          {
+            "text": "korean language family",
+            "language": "en"
+          },
+          {
+            "text": "k-pop the debut",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare nyc",
+            "language": "en"
+          },
+          {
+            "text": "north korea soccer team",
+            "language": "en"
+          },
+          {
+            "text": "seoul korean bbq",
+            "language": "en"
+          },
+          {
+            "text": "samsung fold 8",
+            "language": "en"
+          },
+          {
+            "text": "kimchi near me",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese vs chinese face",
+            "language": "en"
+          },
+          {
+            "text": "kenapa korea berpisah",
+            "language": "id"
+          },
+          {
+            "text": "budaya korea yang mendunia",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea tidak",
+            "language": "id"
+          },
+          {
+            "text": "sejarah korea selatan vs afrika selatan",
+            "language": "id"
+          },
+          {
+            "text": "samsung a17",
+            "language": "id"
+          },
+          {
+            "text": "hanbok arirang bts",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜ銀の箸",
+            "language": "ja"
+          },
+          {
+            "text": "なぜ韓国は学歴社会なのか",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 文化 食べ物",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 近く",
+            "language": "ja"
+          },
+          {
+            "text": "韓国語 文法",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマ サメ キャスト",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 教育 ドラマ",
+            "language": "ja"
+          },
+          {
+            "text": "サムスン ギャラクシー",
+            "language": "ja"
+          },
+          {
+            "text": "キムチ 作り方",
+            "language": "ja"
+          },
+          {
+            "text": "韓服体験",
+            "language": "ja"
+          },
+          {
+            "text": "韓流アイドル",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 準備",
+            "language": "ja"
+          },
+          {
+            "text": "por que a coreia foi eliminada",
+            "language": "pt"
+          },
+          {
+            "text": "por que os coreanos vieram para o brasil",
+            "language": "pt"
+          },
+          {
+            "text": "cultura coreana costumes",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte tem seleção de futebol",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do sul copa",
+            "language": "pt"
+          },
+          {
+            "text": "seul fica onde",
+            "language": "pt"
+          },
+          {
+            "text": "فيديوهات الطعام الكوري",
+            "language": "ar"
+          },
+          {
+            "text": "الدراما الكورية teach you a lesson",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية ضد التشيك بث مباشر",
+            "language": "ar"
+          },
+          {
+            "text": "سيولة الدم الطبيعية",
+            "language": "ar"
+          },
+          {
+            "text": "كيمتشي خيار",
+            "language": "ar"
+          },
+          {
+            "text": "한국인은 본능적으로 찾는 김치",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식 케이터링",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝 데몬 헌터 스 골든 가수",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사 시작",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 최신",
+            "language": "ko"
+          },
+          {
+            "text": "서울시장",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제력 순위",
+            "language": "ko"
+          },
+          {
+            "text": "삼성 갤럭시 z 시리즈",
+            "language": "ko"
+          },
+          {
+            "text": "한복 웨딩드레스",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼식 축의금",
+            "language": "ko"
+          },
+          {
+            "text": "한국 여행 esim 추천",
+            "language": "ko"
+          },
+          {
+            "text": "한국 vs 일본 축구 디시",
+            "language": "ko"
+          },
+          {
+            "text": "warum ist koreanische hautpflege so gut",
+            "language": "de"
+          },
+          {
+            "text": "why do koreans clap when they laugh",
+            "language": "en"
+          },
+          {
+            "text": "korean food fairfax",
+            "language": "en"
+          },
+          {
+            "text": "korean drama romance",
+            "language": "en"
+          },
+          {
+            "text": "k-pop demon hunter dolls",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare georgetown",
+            "language": "en"
+          },
+          {
+            "text": "seoul prime - korean steakhouse",
+            "language": "en"
+          },
+          {
+            "text": "korean education drama",
+            "language": "en"
+          },
+          {
+            "text": "hanbok shirt",
+            "language": "en"
+          },
+          {
+            "text": "kimchi microplastics",
+            "language": "en"
+          },
+          {
+            "text": "korean wavepat",
+            "language": "en"
+          },
+          {
+            "text": "koreanische kultur in deutschland",
+            "language": "de"
+          },
+          {
+            "text": "koreanisches essen düsseldorf",
+            "language": "de"
+          },
+          {
+            "text": "nordkorea wm 2026",
+            "language": "de"
+          },
+          {
+            "text": "seoul tower tickets",
+            "language": "de"
+          },
+          {
+            "text": "sind koreaner nett",
+            "language": "de"
+          },
+          {
+            "text": "korea vs japan basketball",
+            "language": "de"
+          },
+          {
+            "text": "what is korean lash lift",
+            "language": "en"
+          },
+          {
+            "text": "are koreans and chinese related",
+            "language": "en"
+          },
+          {
+            "text": "do koreans and japanese get along",
+            "language": "en"
+          },
+          {
+            "text": "does korea have tigers",
+            "language": "en"
+          },
+          {
+            "text": "korean food truck",
+            "language": "en"
+          },
+          {
+            "text": "korean language books",
+            "language": "en"
+          },
+          {
+            "text": "korean drama agent kim",
+            "language": "en"
+          },
+          {
+            "text": "k-pop demon hunter toys",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion online",
+            "language": "en"
+          },
+          {
+            "text": "south korea vs mexico",
+            "language": "en"
+          },
+          {
+            "text": "seoul fried chicken",
+            "language": "en"
+          },
+          {
+            "text": "korean wave pool",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese bbq",
+            "language": "en"
+          },
+          {
+            "text": "kenapa korea disebut jepang barat",
+            "language": "id"
+          },
+          {
+            "text": "apa itu korea healthy life",
+            "language": "id"
+          },
+          {
+            "text": "bagaimana korea selatan",
+            "language": "id"
+          },
+          {
+            "text": "budaya korea memberi sepatu",
+            "language": "id"
+          },
+          {
+            "text": "makanan korea selatan",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea pangeran agung",
+            "language": "id"
+          },
+          {
+            "text": "korea utara vs portugal",
+            "language": "id"
+          },
+          {
+            "text": "korea selatan jam berapa sekarang",
+            "language": "id"
+          },
+          {
+            "text": "seoul bunsik",
+            "language": "id"
+          },
+          {
+            "text": "samsung a55",
+            "language": "id"
+          },
+          {
+            "text": "kimchi bokkeumbap",
+            "language": "id"
+          },
+          {
+            "text": "hanbok arirang",
+            "language": "id"
+          },
+          {
+            "text": "orang korea utara",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜキムチ",
+            "language": "ja"
+          },
+          {
+            "text": "なぜ韓国人は綺麗なのか",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマミセン の キャスト",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 拉致",
+            "language": "ja"
+          },
+          {
+            "text": "ソウルメイトとは",
+            "language": "ja"
+          },
+          {
+            "text": "キムチの素",
+            "language": "ja"
+          },
+          {
+            "text": "韓服 英語",
+            "language": "ja"
+          },
+          {
+            "text": "韓流俳優",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 治安 日本と 比べて",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 ツアー",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 vs 日本 軍事 力",
+            "language": "ja"
+          },
+          {
+            "text": "por que os coreanos não envelhecem",
+            "language": "pt"
+          },
+          {
+            "text": "como é a coreia do sul em dezembro",
+            "language": "pt"
+          },
+          {
+            "text": "cultura coreana curiosidades",
+            "language": "pt"
+          },
+          {
+            "text": "comida coreana topokki",
+            "language": "pt"
+          },
+          {
+            "text": "história da coreia do sul e coreia do norte",
+            "language": "pt"
+          },
+          {
+            "text": "dorama coreano escolar",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte esta na copa",
+            "language": "pt"
+          },
+          {
+            "text": "seulgi red velvet",
+            "language": "pt"
+          },
+          {
+            "text": "samsung account",
+            "language": "pt"
+          },
+          {
+            "text": "skincare coreano para melasma",
+            "language": "pt"
+          },
+          {
+            "text": "hallyu wave",
+            "language": "pt"
+          },
+          {
+            "text": "ما هي عاصمه كوريا",
+            "language": "ar"
+          },
+          {
+            "text": "صوت الطعام الكوري",
+            "language": "ar"
+          },
+          {
+            "text": "الدراما الكورية اسيا تي في",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الشمالية كأس العالم 2010",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية ضد",
+            "language": "ar"
+          },
+          {
+            "text": "한국 음식 캐더링",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝 데몬 헌터스 감독",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사 나라 순서",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 추천 2026",
+            "language": "ko"
+          },
+          {
+            "text": "서울의 봄",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제성장률 2026",
+            "language": "ko"
+          },
+          {
+            "text": "삼성전자 주가 전망",
+            "language": "ko"
+          },
+          {
+            "text": "한국 나이지리아 축구",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼식장",
+            "language": "ko"
+          }
+        ],
+        "note": "Questions surfacing this month that were absent last month."
+      },
+      "removedQuestions": {
+        "author": "ai",
+        "filled": true,
+        "value": [
+          {
+            "text": "samsung s26 ultra",
+            "language": "en"
+          },
+          {
+            "text": "ما هي عملة كوريا",
+            "language": "ar"
+          },
+          {
+            "text": "north korea vs south korea women",
+            "language": "en"
+          },
+          {
+            "text": "samsung stock",
+            "language": "de"
+          },
+          {
+            "text": "samsung a17",
+            "language": "en"
+          },
+          {
+            "text": "hanbok rental seoul",
+            "language": "de"
+          },
+          {
+            "text": "is korean tap water safe",
+            "language": "en"
+          },
+          {
+            "text": "is korea southeast asia",
+            "language": "en"
+          },
+          {
+            "text": "hanboknam",
+            "language": "de"
+          },
+          {
+            "text": "korea vs japan travel",
+            "language": "de"
+          },
+          {
+            "text": "hanbok rental",
+            "language": "de"
+          },
+          {
+            "text": "hanbok men",
+            "language": "de"
+          },
+          {
+            "text": "seoul grand park",
+            "language": "en"
+          },
+          {
+            "text": "kimchi jjim",
+            "language": "de"
+          },
+          {
+            "text": "is korean hard to learn for english speakers",
+            "language": "en"
+          },
+          {
+            "text": "korean food",
+            "language": "en"
+          },
+          {
+            "text": "korean language",
+            "language": "en"
+          },
+          {
+            "text": "hanboknam gyeongbokgung",
+            "language": "de"
+          },
+          {
+            "text": "kimchi jeon",
+            "language": "de"
+          },
+          {
+            "text": "what is korea known for",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans write date of birth",
+            "language": "en"
+          },
+          {
+            "text": "is korea a first world country",
+            "language": "en"
+          },
+          {
+            "text": "do koreans need a visa for china",
+            "language": "en"
+          },
+          {
+            "text": "is korea safe at night",
+            "language": "en"
+          },
+          {
+            "text": "korean culture examples",
+            "language": "en"
+          },
+          {
+            "text": "korean language course in korea",
+            "language": "en"
+          },
+          {
+            "text": "korean age",
+            "language": "en"
+          },
+          {
+            "text": "korean war museum",
+            "language": "en"
+          },
+          {
+            "text": "south korea population",
+            "language": "en"
+          },
+          {
+            "text": "korean technology company",
+            "language": "en"
+          },
+          {
+            "text": "korean names girl",
+            "language": "en"
+          },
+          {
+            "text": "koreans are asian",
+            "language": "en"
+          },
+          {
+            "text": "samsung lions",
+            "language": "de"
+          },
+          {
+            "text": "السفر إلى كوريا في المنام",
+            "language": "ar"
+          },
+          {
+            "text": "why is korean won dropping",
+            "language": "en"
+          },
+          {
+            "text": "why do koreans say annyeonghaseyo when leaving",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans say cheers",
+            "language": "en"
+          },
+          {
+            "text": "how is korean written in korean language",
+            "language": "en"
+          },
+          {
+            "text": "is korea a developed country",
+            "language": "en"
+          },
+          {
+            "text": "do koreans eat breakfast",
+            "language": "en"
+          },
+          {
+            "text": "does korea have daylight savings",
+            "language": "en"
+          },
+          {
+            "text": "korean food delivery app",
+            "language": "en"
+          },
+          {
+            "text": "k-pop square",
+            "language": "en"
+          },
+          {
+            "text": "south korean won",
+            "language": "en"
+          },
+          {
+            "text": "korean educational development institute",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china vs japan",
+            "language": "en"
+          },
+          {
+            "text": "koreans are east asian",
+            "language": "en"
+          },
+          {
+            "text": "why are koreans taller than japanese",
+            "language": "en"
+          },
+          {
+            "text": "are koreans happy",
+            "language": "en"
+          },
+          {
+            "text": "do koreans need visa for japan",
+            "language": "en"
+          },
+          {
+            "text": "does korea have amazon",
+            "language": "en"
+          },
+          {
+            "text": "is korea safe for solo female travellers",
+            "language": "en"
+          },
+          {
+            "text": "is korea expensive to live",
+            "language": "en"
+          },
+          {
+            "text": "korean food delivery",
+            "language": "en"
+          },
+          {
+            "text": "k-pop square hongdae",
+            "language": "en"
+          },
+          {
+            "text": "korean age numbers",
+            "language": "en"
+          },
+          {
+            "text": "korean war museum seoul",
+            "language": "en"
+          },
+          {
+            "text": "south korea map",
+            "language": "en"
+          },
+          {
+            "text": "korea vs japan gdp per capita",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china football",
+            "language": "en"
+          },
+          {
+            "text": "why do koreans wear black",
+            "language": "en"
+          },
+          {
+            "text": "what is korean breakfast",
+            "language": "en"
+          },
+          {
+            "text": "how is korean fried chicken different",
+            "language": "en"
+          },
+          {
+            "text": "is korean tap water drinkable",
+            "language": "en"
+          },
+          {
+            "text": "are koreans religious",
+            "language": "en"
+          },
+          {
+            "text": "does korea have uber",
+            "language": "en"
+          },
+          {
+            "text": "korean culture theme park andong",
+            "language": "en"
+          },
+          {
+            "text": "korean language course",
+            "language": "en"
+          },
+          {
+            "text": "korean drama netflix",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion psychology institute",
+            "language": "en"
+          },
+          {
+            "text": "korean war memorial seoul",
+            "language": "en"
+          },
+          {
+            "text": "north korean defectors",
+            "language": "en"
+          },
+          {
+            "text": "seoul population",
+            "language": "en"
+          },
+          {
+            "text": "korean education centre uk",
+            "language": "en"
+          },
+          {
+            "text": "samsung electronics",
+            "language": "en"
+          },
+          {
+            "text": "kimchi pancake",
+            "language": "en"
+          },
+          {
+            "text": "korean names for girls with meaning",
+            "language": "en"
+          },
+          {
+            "text": "korea vs japan economy",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china afc",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese face",
+            "language": "en"
+          },
+          {
+            "text": "koreans are white",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so foggy",
+            "language": "en"
+          },
+          {
+            "text": "why do koreans use flat chopsticks",
+            "language": "en"
+          },
+          {
+            "text": "why are koreans so attractive",
+            "language": "en"
+          },
+          {
+            "text": "what is korean bbq called in korean",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans pronounce seoul",
+            "language": "en"
+          },
+          {
+            "text": "are koreans circumcised",
+            "language": "en"
+          },
+          {
+            "text": "do koreans wear wedding rings",
+            "language": "en"
+          },
+          {
+            "text": "does korea accept apple pay",
+            "language": "en"
+          },
+          {
+            "text": "is korean hard to learn for hindi speakers",
+            "language": "en"
+          },
+          {
+            "text": "korean foods to try",
+            "language": "en"
+          },
+          {
+            "text": "korean culture day",
+            "language": "en"
+          },
+          {
+            "text": "korean drama list",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare for rosacea",
+            "language": "en"
+          },
+          {
+            "text": "korean beauty point",
+            "language": "en"
+          },
+          {
+            "text": "north korean currency",
+            "language": "en"
+          },
+          {
+            "text": "south korea president",
+            "language": "en"
+          },
+          {
+            "text": "seoul weather forecast",
+            "language": "en"
+          },
+          {
+            "text": "korean education center in malaysia",
+            "language": "en"
+          },
+          {
+            "text": "korean economy rice",
+            "language": "en"
+          },
+          {
+            "text": "samsung electronics stock",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china war",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese people",
+            "language": "en"
+          },
+          {
+            "text": "koreans are buddhist",
+            "language": "en"
+          },
+          {
+            "text": "hanbok korea",
+            "language": "id"
+          },
+          {
+            "text": "なぜ韓国人は辛いものが好きなのか",
+            "language": "ja"
+          },
+          {
+            "text": "キムチ 機内持ち込み",
+            "language": "ja"
+          },
+          {
+            "text": "韓流スター通り",
+            "language": "ja"
+          },
+          {
+            "text": "كي بوب",
+            "language": "ar"
+          },
+          {
+            "text": "هل كوريا امنه",
+            "language": "ar"
+          },
+          {
+            "text": "한국 나이계산기",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼 대비 이혼율",
+            "language": "ko"
+          },
+          {
+            "text": "why are koreans protesting",
+            "language": "en"
+          },
+          {
+            "text": "what is korea time zone",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans feel about japan",
+            "language": "en"
+          },
+          {
+            "text": "how is korea",
+            "language": "en"
+          },
+          {
+            "text": "are koreans rich",
+            "language": "en"
+          },
+          {
+            "text": "does korea get earthquakes",
+            "language": "en"
+          },
+          {
+            "text": "why is kpop demon hunters so cringe",
+            "language": "en"
+          },
+          {
+            "text": "korean culture reddit",
+            "language": "en"
+          },
+          {
+            "text": "korean language test",
+            "language": "en"
+          },
+          {
+            "text": "korean history summary",
+            "language": "en"
+          },
+          {
+            "text": "korean beauty treatments",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion trends",
+            "language": "en"
+          },
+          {
+            "text": "korean age counting",
+            "language": "en"
+          },
+          {
+            "text": "korean war history",
+            "language": "en"
+          },
+          {
+            "text": "south korea currency",
+            "language": "en"
+          },
+          {
+            "text": "korean economy vs indian economy",
+            "language": "en"
+          },
+          {
+            "text": "kimchi recipe",
+            "language": "en"
+          },
+          {
+            "text": "korean names that work in english",
+            "language": "en"
+          },
+          {
+            "text": "koreans are which religion",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so hot",
+            "language": "en"
+          },
+          {
+            "text": "makanan korea daging sapi",
+            "language": "id"
+          },
+          {
+            "text": "korea vs jepang u21",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜトイレットペーパー流せない",
+            "language": "ja"
+          },
+          {
+            "text": "なぜ韓国の箸は金属",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマ 放送中",
+            "language": "ja"
+          },
+          {
+            "text": "por que a coreia do norte e a coreia do sul são inimigas",
+            "language": "pt"
+          },
+          {
+            "text": "seul ou seoul",
+            "language": "pt"
+          },
+          {
+            "text": "كوريا الجنوبية الآن مباشر",
+            "language": "ar"
+          },
+          {
+            "text": "한국어문회",
+            "language": "ko"
+          },
+          {
+            "text": "서울경제",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육 신문",
+            "language": "ko"
+          },
+          {
+            "text": "한복 대여",
+            "language": "ko"
+          },
+          {
+            "text": "why do koreans drink coffee at night",
+            "language": "en"
+          },
+          {
+            "text": "why are koreans so obsessed with looks",
+            "language": "en"
+          },
+          {
+            "text": "what is korean salt bread",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans write numbers",
+            "language": "en"
+          },
+          {
+            "text": "how is korean air economy class",
+            "language": "en"
+          },
+          {
+            "text": "is korea water safe to drink",
+            "language": "en"
+          },
+          {
+            "text": "are koreans friendly",
+            "language": "en"
+          },
+          {
+            "text": "do koreans like foreigners",
+            "language": "en"
+          },
+          {
+            "text": "does korea have earthquakes",
+            "language": "en"
+          },
+          {
+            "text": "how to learn korean language step by step",
+            "language": "en"
+          },
+          {
+            "text": "korean food seoul",
+            "language": "en"
+          },
+          {
+            "text": "korean culture street incheon airport",
+            "language": "en"
+          },
+          {
+            "text": "korean language program",
+            "language": "en"
+          },
+          {
+            "text": "korean drama actors",
+            "language": "en"
+          },
+          {
+            "text": "k-pop artists",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare steps",
+            "language": "en"
+          },
+          {
+            "text": "korean age verification",
+            "language": "en"
+          },
+          {
+            "text": "north korea currency",
+            "language": "en"
+          },
+          {
+            "text": "south korea election 2026",
+            "language": "en"
+          },
+          {
+            "text": "seoul subway map",
+            "language": "en"
+          },
+          {
+            "text": "korean education center indonesia",
+            "language": "en"
+          },
+          {
+            "text": "hanboknam reviews",
+            "language": "en"
+          },
+          {
+            "text": "korean wave adalah",
+            "language": "en"
+          },
+          {
+            "text": "korean names meaning",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese sunscreen",
+            "language": "en"
+          },
+          {
+            "text": "koreans are chinese",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so clean",
+            "language": "en"
+          },
+          {
+            "text": "südkorea währung in euro",
+            "language": "de"
+          },
+          {
+            "text": "samsung pay",
+            "language": "de"
+          },
+          {
+            "text": "budaya korea yang terkenal",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea indonesia",
+            "language": "id"
+          },
+          {
+            "text": "韓国 ドラマ ロケ地",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮式参鶏湯",
+            "language": "ja"
+          },
+          {
+            "text": "サムスン駅",
+            "language": "ja"
+          },
+          {
+            "text": "韓流ぴあ",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 フレーズ",
+            "language": "ja"
+          },
+          {
+            "text": "cultura coreana niterói",
+            "language": "pt"
+          },
+          {
+            "text": "dorama coreano em português no youtube",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte é socialista",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do sul mapa",
+            "language": "pt"
+          },
+          {
+            "text": "seul temperatura",
+            "language": "pt"
+          },
+          {
+            "text": "كوريا الشمالية في كاس العالم",
+            "language": "ar"
+          },
+          {
+            "text": "الدراما الكورية القديمة",
+            "language": "ar"
+          },
+          {
+            "text": "한국언론진흥재단",
+            "language": "ko"
+          },
+          {
+            "text": "서울교통공사",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제인 협회 이상호",
+            "language": "ko"
+          },
+          {
+            "text": "한복입은남자",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼 가능 나이",
+            "language": "ko"
+          },
+          {
+            "text": "why do koreans like americanos",
+            "language": "en"
+          },
+          {
+            "text": "what is korean minimum wage",
+            "language": "en"
+          },
+          {
+            "text": "how do koreans celebrate children's day",
+            "language": "en"
+          },
+          {
+            "text": "are koreans healthy",
+            "language": "en"
+          },
+          {
+            "text": "do koreans bow",
+            "language": "en"
+          },
+          {
+            "text": "does korea use uber",
+            "language": "en"
+          },
+          {
+            "text": "is korea safe for indian",
+            "language": "en"
+          },
+          {
+            "text": "is korea expensive for malaysian",
+            "language": "en"
+          },
+          {
+            "text": "korean food app",
+            "language": "en"
+          },
+          {
+            "text": "korean culture and information service",
+            "language": "en"
+          },
+          {
+            "text": "korean language school seoul",
+            "language": "en"
+          },
+          {
+            "text": "korean history proficiency test",
+            "language": "en"
+          },
+          {
+            "text": "korean drama in hindi dubbed",
+            "language": "en"
+          },
+          {
+            "text": "kpop store near me",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare seoul",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion brands women",
+            "language": "en"
+          },
+          {
+            "text": "korean etiquette food",
+            "language": "en"
+          },
+          {
+            "text": "korean age calculator by date of birth",
+            "language": "en"
+          },
+          {
+            "text": "north korean money",
+            "language": "en"
+          },
+          {
+            "text": "south korea weather",
+            "language": "en"
+          },
+          {
+            "text": "seoul metro map",
+            "language": "en"
+          },
+          {
+            "text": "korean education center india",
+            "language": "en"
+          },
+          {
+            "text": "korea vs japan cherry blossom",
+            "language": "en"
+          },
+          {
+            "text": "korean vs japanese cherry blossom",
+            "language": "en"
+          },
+          {
+            "text": "koreans are catholic",
+            "language": "en"
+          },
+          {
+            "text": "north korea is socialist",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so hazy",
+            "language": "en"
+          },
+          {
+            "text": "nordkoreanischer won",
+            "language": "de"
+          },
+          {
+            "text": "südkorea flagge",
+            "language": "de"
+          },
+          {
+            "text": "kimchi museum seoul",
+            "language": "de"
+          },
+          {
+            "text": "bahasa korea dan indonesia",
+            "language": "id"
+          },
+          {
+            "text": "korea selatan negara maju atau berkembang",
+            "language": "id"
+          },
+          {
+            "text": "kimchi terbuat dari",
+            "language": "id"
+          },
+          {
+            "text": "skincare korea terbaik untuk memutihkan wajah",
+            "language": "id"
+          },
+          {
+            "text": "韓国 文化の日",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理酒 代用",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 スタバ",
+            "language": "ja"
+          },
+          {
+            "text": "ソウル駅 ロッテマート",
+            "language": "ja"
+          },
+          {
+            "text": "キムチチム",
+            "language": "ja"
+          },
+          {
+            "text": "韓流ブーム",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 言葉",
+            "language": "ja"
+          },
+          {
+            "text": "por que a coreia do norte é tão rígida",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte e coreia do sul",
+            "language": "pt"
+          },
+          {
+            "text": "seul clima",
+            "language": "pt"
+          },
+          {
+            "text": "loja coreana beleza",
+            "language": "pt"
+          },
+          {
+            "text": "كيبوب تلوين",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية رئيس",
+            "language": "ar"
+          },
+          {
+            "text": "سامسونج جالكسي إس 22",
+            "language": "ar"
+          },
+          {
+            "text": "한국인은 밥심 뜻",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝투게더",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사적 인물 추천",
+            "language": "ko"
+          },
+          {
+            "text": "북한 태풍",
+            "language": "ko"
+          },
+          {
+            "text": "서울보증보험",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제 티비",
+            "language": "ko"
+          },
+          {
+            "text": "한복남",
+            "language": "ko"
+          },
+          {
+            "text": "한국 나이키 프로모션 코드",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼 나이",
+            "language": "ko"
+          },
+          {
+            "text": "why is korea boycotting starbucks",
+            "language": "en"
+          },
+          {
+            "text": "why do koreans love the little prince",
+            "language": "en"
+          },
+          {
+            "text": "what is korean soju",
+            "language": "en"
+          },
+          {
+            "text": "is korean air safe",
+            "language": "en"
+          },
+          {
+            "text": "are koreans originally from china",
+            "language": "en"
+          },
+          {
+            "text": "do koreans accept tips",
+            "language": "en"
+          },
+          {
+            "text": "does korea have bears",
+            "language": "en"
+          },
+          {
+            "text": "is korea safe for girls",
+            "language": "en"
+          },
+          {
+            "text": "is korea expensive for indian tourists",
+            "language": "en"
+          },
+          {
+            "text": "is korean hard to learn for filipinos",
+            "language": "en"
+          },
+          {
+            "text": "why is korean food served so hot",
+            "language": "en"
+          },
+          {
+            "text": "why is kpop so hated",
+            "language": "en"
+          },
+          {
+            "text": "do you need a visa to go to korea",
+            "language": "en"
+          },
+          {
+            "text": "korean foods to try in seoul",
+            "language": "en"
+          },
+          {
+            "text": "korean culture shock",
+            "language": "en"
+          },
+          {
+            "text": "korean drama 2026 list",
+            "language": "en"
+          },
+          {
+            "text": "korean skincare for acne scars",
+            "language": "en"
+          },
+          {
+            "text": "korean beauty court",
+            "language": "en"
+          },
+          {
+            "text": "korean fashion trends 2026",
+            "language": "en"
+          },
+          {
+            "text": "north korea tour",
+            "language": "en"
+          },
+          {
+            "text": "korean technology vs japanese technology",
+            "language": "en"
+          },
+          {
+            "text": "korean economy growth",
+            "language": "en"
+          },
+          {
+            "text": "hanbok rental near gyeongbokgung palace",
+            "language": "en"
+          },
+          {
+            "text": "kimchi vest",
+            "language": "en"
+          },
+          {
+            "text": "korean wave entertainment awards",
+            "language": "en"
+          },
+          {
+            "text": "korea vs japan gdp",
+            "language": "en"
+          },
+          {
+            "text": "korea vs china badminton",
+            "language": "en"
+          },
+          {
+            "text": "seoul korea is south",
+            "language": "en"
+          },
+          {
+            "text": "why is korea so cold now",
+            "language": "en"
+          },
+          {
+            "text": "nordkorea währung",
+            "language": "de"
+          },
+          {
+            "text": "südkoreanische won in euro",
+            "language": "de"
+          },
+          {
+            "text": "kimchi selber machen",
+            "language": "de"
+          },
+          {
+            "text": "kenapa korea selatan dan korea utara berpisah",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea permisi",
+            "language": "id"
+          },
+          {
+            "text": "korea selatan bebas visa",
+            "language": "id"
+          },
+          {
+            "text": "samsung s24 ultra",
+            "language": "id"
+          },
+          {
+            "text": "hanbok modern",
+            "language": "id"
+          },
+          {
+            "text": "orang korea ciuman 24 jam",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜグーグルマップ",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 残す マナー",
+            "language": "ja"
+          },
+          {
+            "text": "韓国語 すみません",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマ 美しき 日々 あらすじ",
+            "language": "ja"
+          },
+          {
+            "text": "ソウル駅から仁川空港",
+            "language": "ja"
+          },
+          {
+            "text": "キムチ 韓国 持ち帰り",
+            "language": "ja"
+          },
+          {
+            "text": "韓服 髪型",
+            "language": "ja"
+          },
+          {
+            "text": "韓流ブーム 歴史",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 アプリ",
+            "language": "ja"
+          },
+          {
+            "text": "por que a coreia do norte não participa da copa do mundo",
+            "language": "pt"
+          },
+          {
+            "text": "história da coreia antiga",
+            "language": "pt"
+          },
+          {
+            "text": "samsung s25",
+            "language": "pt"
+          },
+          {
+            "text": "لماذا كوريا الشمالية لا تشارك في كاس العالم",
+            "language": "ar"
+          },
+          {
+            "text": "الثقافة الكورية pdf",
+            "language": "ar"
+          },
+          {
+            "text": "الطعام الكوري المشهور",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화유산 소개",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식 문화",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝 노래",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사 유적지",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 대본 사이트",
+            "language": "ko"
+          },
+          {
+            "text": "서울시교육청",
+            "language": "ko"
+          },
+          {
+            "text": "삼성닷컴",
+            "language": "ko"
+          },
+          {
+            "text": "한복 종류",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼율",
+            "language": "ko"
+          },
+          {
+            "text": "한국 여행지 순위",
+            "language": "ko"
+          },
+          {
+            "text": "koreanische sprache herkunft",
+            "language": "de"
+          },
+          {
+            "text": "nordkorea einreise",
+            "language": "de"
+          },
+          {
+            "text": "südkorea leitungswasser trinkbar",
+            "language": "de"
+          },
+          {
+            "text": "hanbok verleih seoul",
+            "language": "de"
+          },
+          {
+            "text": "apa itu koreak",
+            "language": "id"
+          },
+          {
+            "text": "makanan korea yang halal",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea hari",
+            "language": "id"
+          },
+          {
+            "text": "korea utara negara maju atau berkembang",
+            "language": "id"
+          },
+          {
+            "text": "korea selatan ada berapa provinsi",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜ漢字を使わなくなった",
+            "language": "ja"
+          },
+          {
+            "text": "なぜ韓国は兵役があるのか",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 ソウル",
+            "language": "ja"
+          },
+          {
+            "text": "韓国語能力試験",
+            "language": "ja"
+          },
+          {
+            "text": "ソウル駅 事前チェックイン",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 教育費",
+            "language": "ja"
+          },
+          {
+            "text": "キムチ 飛行機",
+            "language": "ja"
+          },
+          {
+            "text": "韓服男(ハンボクナム) レビュー",
+            "language": "ja"
+          },
+          {
+            "text": "韓流四天王",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行地",
+            "language": "ja"
+          },
+          {
+            "text": "كوريا الجنوبية بالانجليزي",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화 종류",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝스토어",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 명작",
+            "language": "ko"
+          },
+          {
+            "text": "북한 이탈 주민 의 날",
+            "language": "ko"
+          },
+          {
+            "text": "서울외국환중개",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제 뉴스 속보",
+            "language": "ko"
+          },
+          {
+            "text": "삼성카드",
+            "language": "ko"
+          },
+          {
+            "text": "한복상점",
+            "language": "ko"
+          },
+          {
+            "text": "한국 여행금지 국가",
+            "language": "ko"
+          },
+          {
+            "text": "nordkorea tour",
+            "language": "de"
+          },
+          {
+            "text": "samsung store seoul",
+            "language": "de"
+          },
+          {
+            "text": "sind koreaner chinesen",
+            "language": "de"
+          },
+          {
+            "text": "japan vs korea soccer",
+            "language": "de"
+          },
+          {
+            "text": "bahasa korea lupa",
+            "language": "id"
+          },
+          {
+            "text": "sejarah korea semenanjung korea dari masa ke masa",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜアメリカーノ",
+            "language": "ja"
+          },
+          {
+            "text": "なぜ韓国ドラマは面白いのか",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 歴史 博物館 bts",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮が見えるスタバ 行き方",
+            "language": "ja"
+          },
+          {
+            "text": "サムスンライオンズ",
+            "language": "ja"
+          },
+          {
+            "text": "キムチチムとは",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行中 病院",
+            "language": "ja"
+          },
+          {
+            "text": "cultura coreana namoro",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte população",
+            "language": "pt"
+          },
+          {
+            "text": "seul o que fazer",
+            "language": "pt"
+          },
+          {
+            "text": "hallyu korean fest curitiba",
+            "language": "pt"
+          },
+          {
+            "text": "الدراما الكورية perfect crown",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية نموذج لبلد حديث النمو الاقتصادي",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화 특징",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식 특징",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 명대사 100",
+            "language": "ko"
+          },
+          {
+            "text": "서울대병원",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육 문제",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제성장률 전망",
+            "language": "ko"
+          },
+          {
+            "text": "삼성중공업",
+            "language": "ko"
+          },
+          {
+            "text": "김치프리미엄",
+            "language": "ko"
+          },
+          {
+            "text": "한복의 특징",
+            "language": "ko"
+          },
+          {
+            "text": "한류백서",
+            "language": "ko"
+          },
+          {
+            "text": "한국 나이 기준",
+            "language": "ko"
+          },
+          {
+            "text": "südkorea trinkgeld",
+            "language": "de"
+          },
+          {
+            "text": "seoul spring festival 2026",
+            "language": "de"
+          },
+          {
+            "text": "kenapa korea utara punya nuklir",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea hari senin sampai minggu",
+            "language": "id"
+          },
+          {
+            "text": "sejarah korea selatan di piala dunia",
+            "language": "id"
+          },
+          {
+            "text": "korea utara bahasa inggris",
+            "language": "id"
+          },
+          {
+            "text": "seoul forest park",
+            "language": "id"
+          },
+          {
+            "text": "hanbok korea hijab",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜ左ハンドル",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 残す",
+            "language": "ja"
+          },
+          {
+            "text": "韓国語 美味しかったです",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 ツアー",
+            "language": "ja"
+          },
+          {
+            "text": "ソウル 気温",
+            "language": "ja"
+          },
+          {
+            "text": "サムスン美術館",
+            "language": "ja"
+          },
+          {
+            "text": "韓流百貨店",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 旅行 男性 おすすめ",
+            "language": "ja"
+          },
+          {
+            "text": "cultura coreana no largo da batata",
+            "language": "pt"
+          },
+          {
+            "text": "comida coreana campinas",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do sul x brasil",
+            "language": "pt"
+          },
+          {
+            "text": "samsung s26 ultra preço",
+            "language": "pt"
+          },
+          {
+            "text": "kimchi bokkeumbap",
+            "language": "pt"
+          },
+          {
+            "text": "الدراما الكورية المحامي الشبح",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الشمالية عدد السكان",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية عاصمة",
+            "language": "ar"
+          },
+          {
+            "text": "خطوات العناية بالبشرة الكورية",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화 소개",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식 소개",
+            "language": "ko"
+          },
+          {
+            "text": "한국어기초사전",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝 플리",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사 인물",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 명작 순위",
+            "language": "ko"
+          },
+          {
+            "text": "북한 지뢰",
+            "language": "ko"
+          },
+          {
+            "text": "서울대학교 관악캠퍼스",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육 학술 정보원",
+            "language": "ko"
+          },
+          {
+            "text": "한복 일러스트",
+            "language": "ko"
+          },
+          {
+            "text": "한류형 비한류형 차이",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼비자",
+            "language": "ko"
+          },
+          {
+            "text": "한국 여행 지도",
+            "language": "ko"
+          },
+          {
+            "text": "한국 vs 일본 레딧",
+            "language": "ko"
+          },
+          {
+            "text": "warum ist koreanische kosmetik so günstig",
+            "language": "de"
+          },
+          {
+            "text": "koreanisches essen hamburg",
+            "language": "de"
+          },
+          {
+            "text": "nordkorea leben",
+            "language": "de"
+          },
+          {
+            "text": "südkorea fläche",
+            "language": "de"
+          },
+          {
+            "text": "seoul busan train",
+            "language": "de"
+          },
+          {
+            "text": "kimchi gesund",
+            "language": "de"
+          },
+          {
+            "text": "kenapa korea terpisah",
+            "language": "id"
+          },
+          {
+            "text": "bagaimana korea merdeka dari jepang",
+            "language": "id"
+          },
+          {
+            "text": "makanan korea yang hits di indonesia",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea ke indonesia",
+            "language": "id"
+          },
+          {
+            "text": "sejarah korea menghapus monarki",
+            "language": "id"
+          },
+          {
+            "text": "drama korea perfect crown",
+            "language": "id"
+          },
+          {
+            "text": "korea utara iran",
+            "language": "id"
+          },
+          {
+            "text": "korea selatan vs pantai gading",
+            "language": "id"
+          },
+          {
+            "text": "seoul weather today",
+            "language": "id"
+          },
+          {
+            "text": "samsung account",
+            "language": "id"
+          },
+          {
+            "text": "kimchi booth medan",
+            "language": "id"
+          },
+          {
+            "text": "korea vs jepang women",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜ箸が金属",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 文化の違い",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 多い",
+            "language": "ja"
+          },
+          {
+            "text": "韓国語 ご馳走様でした",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマ その男の記憶法 あらすじ",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 歴史 簡単 に",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮式タッカンマリ",
+            "language": "ja"
+          },
+          {
+            "text": "ソウルタワー",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 教育院",
+            "language": "ja"
+          },
+          {
+            "text": "サムスンペイ",
+            "language": "ja"
+          },
+          {
+            "text": "韓服男(ハンボクナム)",
+            "language": "ja"
+          },
+          {
+            "text": "韓流スター通り 一覧",
+            "language": "ja"
+          },
+          {
+            "text": "por que os coreanos tem a pele bonita",
+            "language": "pt"
+          },
+          {
+            "text": "cultura coreana desenho",
+            "language": "pt"
+          },
+          {
+            "text": "idioma coreano em ingles",
+            "language": "pt"
+          },
+          {
+            "text": "história da coreia do sul e norte",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte capital",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do sul horario",
+            "language": "pt"
+          },
+          {
+            "text": "samsung gangnam",
+            "language": "pt"
+          },
+          {
+            "text": "skincare coreano curitiba",
+            "language": "pt"
+          },
+          {
+            "text": "تاريخ كوريا الشمالية الجديد",
+            "language": "ar"
+          },
+          {
+            "text": "الدراما الكورية اسيا تو تي في",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الشمالية وايران",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية ضد البرازيل",
+            "language": "ar"
+          },
+          {
+            "text": "سامسونج a36",
+            "language": "ar"
+          },
+          {
+            "text": "كيمتشي الخيار",
+            "language": "ar"
+          },
+          {
+            "text": "한국인은 10 의 이성과 90 의 감성으로 살아간다",
+            "language": "ko"
+          },
+          {
+            "text": "한국 문화 병존 사례",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식 이름",
+            "language": "ko"
+          },
+          {
+            "text": "한국어교원자격증",
+            "language": "ko"
+          },
+          {
+            "text": "케이팝 데몬 헌터스 2",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사적 사건",
+            "language": "ko"
+          },
+          {
+            "text": "북한 전쟁",
+            "language": "ko"
+          },
+          {
+            "text": "서울시 평생교육이용권",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육제도 문제점",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제성장률 추이",
+            "language": "ko"
+          },
+          {
+            "text": "삼성 라이온즈",
+            "language": "ko"
+          },
+          {
+            "text": "한복남 경복궁점",
+            "language": "ko"
+          },
+          {
+            "text": "한류홀딩스",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼",
+            "language": "ko"
+          },
+          {
+            "text": "한국 vs 일본 기술력",
+            "language": "ko"
+          },
+          {
+            "text": "warum ist korea christlich",
+            "language": "de"
+          },
+          {
+            "text": "ist russisch oder koreanisch schwerer",
+            "language": "de"
+          },
+          {
+            "text": "koreanische kultur hamburg",
+            "language": "de"
+          },
+          {
+            "text": "koreanisches essen wien",
+            "language": "de"
+          },
+          {
+            "text": "nordkorea grenze zu südkorea",
+            "language": "de"
+          },
+          {
+            "text": "seoul spring festival",
+            "language": "de"
+          },
+          {
+            "text": "kimchi museum",
+            "language": "de"
+          },
+          {
+            "text": "hanok village",
+            "language": "de"
+          },
+          {
+            "text": "kenapa korea utara ditakuti",
+            "language": "id"
+          },
+          {
+            "text": "apa itu korea utara",
+            "language": "id"
+          },
+          {
+            "text": "budaya korea eps topik",
+            "language": "id"
+          },
+          {
+            "text": "bahasa korea bunga sakura",
+            "language": "id"
+          },
+          {
+            "text": "sejarah korea pdf",
+            "language": "id"
+          },
+          {
+            "text": "drama korea ceo kejam",
+            "language": "id"
+          },
+          {
+            "text": "korea utara mata uang",
+            "language": "id"
+          },
+          {
+            "text": "samsung s23 ultra",
+            "language": "id"
+          },
+          {
+            "text": "kimchi oppaya",
+            "language": "id"
+          },
+          {
+            "text": "hanbok jepang",
+            "language": "id"
+          },
+          {
+            "text": "korea vs jepang perang",
+            "language": "id"
+          },
+          {
+            "text": "韓国 なぜ日本語話せる人多い",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 料理 クッパ 食べ 方",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 ドラマ ランキング",
+            "language": "ja"
+          },
+          {
+            "text": "ケーポップデーモンハンターズ 曲",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 歴史を学べる場所",
+            "language": "ja"
+          },
+          {
+            "text": "北朝鮮 スタバ ツアー",
+            "language": "ja"
+          },
+          {
+            "text": "ソウル駅から仁川空港 arex",
+            "language": "ja"
+          },
+          {
+            "text": "キムチェウォン",
+            "language": "ja"
+          },
+          {
+            "text": "韓服 写真",
+            "language": "ja"
+          },
+          {
+            "text": "韓流スター通り 場所",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 治安 スリ",
+            "language": "ja"
+          },
+          {
+            "text": "韓国 vs 日本 野球 結果",
+            "language": "ja"
+          },
+          {
+            "text": "por que a coreia do norte é inimiga da coreia do sul",
+            "language": "pt"
+          },
+          {
+            "text": "por que os coreanos comem tanto e não engordam",
+            "language": "pt"
+          },
+          {
+            "text": "como é a coreia do sul em julho",
+            "language": "pt"
+          },
+          {
+            "text": "cultura coreana em curitiba",
+            "language": "pt"
+          },
+          {
+            "text": "coreia do norte mapa",
+            "language": "pt"
+          },
+          {
+            "text": "kimchi de repolho",
+            "language": "pt"
+          },
+          {
+            "text": "skincare coreano melasma",
+            "language": "pt"
+          },
+          {
+            "text": "hallyu fest",
+            "language": "pt"
+          },
+          {
+            "text": "تناول الطعام الكوري",
+            "language": "ar"
+          },
+          {
+            "text": "kay pop",
+            "language": "ar"
+          },
+          {
+            "text": "الدراما الكورية falling for love",
+            "language": "ar"
+          },
+          {
+            "text": "كوريا الجنوبية ضد العراق",
+            "language": "ar"
+          },
+          {
+            "text": "سيول جدة",
+            "language": "ar"
+          },
+          {
+            "text": "한국 문화유산 추천",
+            "language": "ko"
+          },
+          {
+            "text": "한국 음식 순위",
+            "language": "ko"
+          },
+          {
+            "text": "한국언론진흥재단 채용",
+            "language": "ko"
+          },
+          {
+            "text": "한국 역사적 인물",
+            "language": "ko"
+          },
+          {
+            "text": "한국 드라마 명대사",
+            "language": "ko"
+          },
+          {
+            "text": "북한 음식",
+            "language": "ko"
+          },
+          {
+            "text": "서울시",
+            "language": "ko"
+          },
+          {
+            "text": "한국 교육제도",
+            "language": "ko"
+          },
+          {
+            "text": "한국 경제인 협회",
+            "language": "ko"
+          },
+          {
+            "text": "삼성화재",
+            "language": "ko"
+          },
+          {
+            "text": "한국 나이대별 인구수",
+            "language": "ko"
+          },
+          {
+            "text": "한국 결혼식 문화",
+            "language": "ko"
+          },
+          {
+            "text": "한국 여행 기념품",
+            "language": "ko"
+          }
+        ],
+        "note": "Questions present last month that did not surface this month."
+      },
+      "counts": {
+        "author": "ai",
+        "filled": true,
+        "value": {
+          "added": 591,
+          "removed": 526,
+          "current": 1605,
+          "previous": 1540
+        }
+      }
+    },
+    "concepts": {
+      "growth": {
+        "author": "ai",
+        "filled": true,
+        "value": [
+          {
+            "id": "c_culture",
+            "label": "Culture, Tradition & Heritage",
+            "dCount": 64,
+            "dShare": 0.8,
+            "direction": "growth",
+            "from": {
+              "count": 127,
+              "sharePct": 8.2
+            },
+            "to": {
+              "count": 191,
+              "sharePct": 9
+            }
+          },
+          {
+            "id": "c_place",
+            "label": "Seoul, Places & Climate",
+            "dCount": 41,
+            "dShare": 0.8,
+            "direction": "growth",
+            "from": {
+              "count": 61,
+              "sharePct": 4
+            },
+            "to": {
+              "count": 102,
+              "sharePct": 4.8
+            }
+          },
+          {
+            "id": "c_food",
+            "label": "Korean Cuisine",
+            "dCount": 67,
+            "dShare": 0.6,
+            "direction": "growth",
+            "from": {
+              "count": 140,
+              "sharePct": 9.1
+            },
+            "to": {
+              "count": 207,
+              "sharePct": 9.7
+            }
+          },
+          {
+            "id": "c_drama",
+            "label": "K-Drama & Screen Stories",
+            "dCount": 42,
+            "dShare": 0.6,
+            "direction": "growth",
+            "from": {
+              "count": 77,
+              "sharePct": 5
+            },
+            "to": {
+              "count": 119,
+              "sharePct": 5.6
+            }
+          },
+          {
+            "id": "c_people",
+            "label": "Korean People & National Character",
+            "dCount": 60,
+            "dShare": 0.2,
+            "direction": "growth",
+            "from": {
+              "count": 143,
+              "sharePct": 9.3
+            },
+            "to": {
+              "count": 203,
+              "sharePct": 9.5
+            }
+          },
+          {
+            "id": "c_tech",
+            "label": "Technology & Brands",
+            "dCount": 28,
+            "dShare": 0.2,
+            "direction": "growth",
+            "from": {
+              "count": 62,
+              "sharePct": 4
+            },
+            "to": {
+              "count": 90,
+              "sharePct": 4.2
+            }
+          },
+          {
+            "id": "c_education",
+            "label": "Education & Study",
+            "dCount": 12,
+            "dShare": 0.1,
+            "direction": "growth",
+            "from": {
+              "count": 28,
+              "sharePct": 1.8
+            },
+            "to": {
+              "count": 40,
+              "sharePct": 1.9
+            }
+          },
+          {
+            "id": "c_history",
+            "label": "History",
+            "dCount": 14,
+            "dShare": 0,
+            "direction": "growth",
+            "from": {
+              "count": 39,
+              "sharePct": 2.5
+            },
+            "to": {
+              "count": 53,
+              "sharePct": 2.5
+            }
+          },
+          {
+            "id": "c_society",
+            "label": "Society, Religion & Daily Life",
+            "dCount": 15,
+            "dShare": 0,
+            "direction": "growth",
+            "from": {
+              "count": 38,
+              "sharePct": 2.5
+            },
+            "to": {
+              "count": 53,
+              "sharePct": 2.5
+            }
+          },
+          {
+            "id": "c_kpop",
+            "label": "K-Pop & Idols",
+            "dCount": 12,
+            "dShare": 0,
+            "direction": "growth",
+            "from": {
+              "count": 34,
+              "sharePct": 2.2
+            },
+            "to": {
+              "count": 46,
+              "sharePct": 2.2
+            }
+          }
+        ]
+      },
+      "decline": {
+        "author": "ai",
+        "filled": true,
+        "value": [
+          {
+            "id": "c_language",
+            "label": "Korean Language & Its Difficulty",
+            "dCount": 38,
+            "dShare": -1.2,
+            "direction": "decline",
+            "from": {
+              "count": 163,
+              "sharePct": 10.6
+            },
+            "to": {
+              "count": 201,
+              "sharePct": 9.4
+            }
+          },
+          {
+            "id": "c_travel",
+            "label": "Travel & Safety",
+            "dCount": 22,
+            "dShare": -0.8,
+            "direction": "decline",
+            "from": {
+              "count": 100,
+              "sharePct": 6.5
+            },
+            "to": {
+              "count": 122,
+              "sharePct": 5.7
+            }
+          },
+          {
+            "id": "c_division",
+            "label": "North–South Division & Two Koreas",
+            "dCount": 79,
+            "dShare": -0.6,
+            "direction": "decline",
+            "from": {
+              "count": 242,
+              "sharePct": 15.7
+            },
+            "to": {
+              "count": 321,
+              "sharePct": 15.1
+            }
+          },
+          {
+            "id": "c_etiquette",
+            "label": "Etiquette & Social Norms",
+            "dCount": 1,
+            "dShare": -0.5,
+            "direction": "decline",
+            "from": {
+              "count": 31,
+              "sharePct": 2
+            },
+            "to": {
+              "count": 32,
+              "sharePct": 1.5
+            }
+          },
+          {
+            "id": "c_compare",
+            "label": "Regional Comparison (Japan / China)",
+            "dCount": 18,
+            "dShare": -0.4,
+            "direction": "decline",
+            "from": {
+              "count": 67,
+              "sharePct": 4.4
+            },
+            "to": {
+              "count": 85,
+              "sharePct": 4
+            }
+          },
+          {
+            "id": "c_economy",
+            "label": "Economy, Money & Cost",
+            "dCount": 12,
+            "dShare": -0.4,
+            "direction": "decline",
+            "from": {
+              "count": 52,
+              "sharePct": 3.4
+            },
+            "to": {
+              "count": 64,
+              "sharePct": 3
+            }
+          },
+          {
+            "id": "c_beauty",
+            "label": "K-Beauty, Skincare & Fashion",
+            "dCount": 29,
+            "dShare": -0.1,
+            "direction": "decline",
+            "from": {
+              "count": 81,
+              "sharePct": 5.3
+            },
+            "to": {
+              "count": 110,
+              "sharePct": 5.2
+            }
+          }
+        ]
+      },
+      "appeared": {
+        "author": "ai",
+        "filled": true,
+        "value": [],
+        "note": "New concepts — may require human bilingual labels before the site refreshes."
+      },
+      "disappeared": {
+        "author": "ai",
+        "filled": true,
+        "value": []
+      }
+    },
+    "themeShifts": {
+      "author": "ai",
+      "filled": true,
+      "value": [
+        {
+          "id": "t_hallyu",
+          "label": "The Korean Wave (Hallyu)",
+          "curShare": 30.33,
+          "prevShare": 28.23,
+          "dShare": 2.1,
+          "membershipChanged": false,
+          "isNew": false
+        },
+        {
+          "id": "t_language",
+          "label": "Learning & Understanding Korea",
+          "curShare": 10.86,
+          "prevShare": 11.75,
+          "dShare": -0.89,
+          "membershipChanged": false,
+          "isNew": false
+        },
+        {
+          "id": "t_geopolitics",
+          "label": "Division, History & Geopolitics",
+          "curShare": 20.68,
+          "prevShare": 21.4,
+          "dShare": -0.72,
+          "membershipChanged": false,
+          "isNew": false
+        }
+      ]
+    },
+    "narrativeShifts": {
+      "author": "ai",
+      "filled": true,
+      "value": [
+        {
+          "id": "n_aspiration",
+          "label": "Korea as an aspirational lifestyle & beauty model",
+          "curShare": 28.84,
+          "prevShare": 27.86,
+          "dShare": 0.98,
+          "membershipChanged": false,
+          "isNew": false
+        },
+        {
+          "id": "n_model",
+          "label": "Korea as a development & technology success story",
+          "curShare": 21.16,
+          "prevShare": 22.14,
+          "dShare": -0.98,
+          "membershipChanged": false,
+          "isNew": false
+        },
+        {
+          "id": "n_softpower",
+          "label": "Korea as a global cultural force",
+          "curShare": 20.55,
+          "prevShare": 19.68,
+          "dShare": 0.87,
+          "membershipChanged": false,
+          "isNew": false
+        },
+        {
+          "id": "n_enigma",
+          "label": "Korea as distinctive and intriguing",
+          "curShare": 19.11,
+          "prevShare": 19.62,
+          "dShare": -0.51,
+          "membershipChanged": false,
+          "isNew": false
+        }
+      ]
+    },
+    "perceptionShifts": {
+      "author": "ai",
+      "filled": true,
+      "value": [
+        {
+          "id": "p_aspirational",
+          "label": "Korea as an aspirational, modern lifestyle",
+          "curShare": 28.84,
+          "prevShare": 27.86,
+          "dShare": 0.98,
+          "membershipChanged": false,
+          "isNew": false
+        },
+        {
+          "id": "p_advanced",
+          "label": "Korea as a technologically advanced, developed nation",
+          "curShare": 21.16,
+          "prevShare": 22.14,
+          "dShare": -0.98,
+          "membershipChanged": false,
+          "isNew": false
+        },
+        {
+          "id": "p_cultural",
+          "label": "Korea as a cultural powerhouse",
+          "curShare": 20.55,
+          "prevShare": 19.68,
+          "dShare": 0.87,
+          "membershipChanged": false,
+          "isNew": false
+        },
+        {
+          "id": "p_enigmatic",
+          "label": "Korea as fascinating and hard to fully grasp",
+          "curShare": 19.11,
+          "prevShare": 19.62,
+          "dShare": -0.51,
+          "membershipChanged": false,
+          "isNew": false
+        }
+      ]
+    },
+    "frameCompetition": {
+      "leadChanged": false,
+      "leaderNow": {
+        "author": "ai",
+        "filled": true,
+        "value": "Korea as an aspirational, modern lifestyle (29.5%)"
+      },
+      "leaderBefore": {
+        "author": "ai",
+        "filled": true,
+        "value": "Korea as an aspirational, modern lifestyle"
+      },
+      "ranking": {
+        "author": "ai",
+        "filled": true,
+        "value": [
+          {
+            "id": "p_aspirational",
+            "label": "Korea as an aspirational, modern lifestyle",
+            "rank": 1,
+            "prevRank": 1,
+            "share": 29.5,
+            "prevShare": 28.7,
+            "dShare": 0.8,
+            "dRank": 0
+          },
+          {
+            "id": "p_cultural",
+            "label": "Korea as a cultural powerhouse",
+            "rank": 2,
+            "prevRank": 4,
+            "share": 20.9,
+            "prevShare": 20.1,
+            "dShare": 0.8,
+            "dRank": 2
+          },
+          {
+            "id": "p_enigmatic",
+            "label": "Korea as fascinating and hard to fully grasp",
+            "rank": 3,
+            "prevRank": 3,
+            "share": 19.7,
+            "prevShare": 20.3,
+            "dShare": -0.6,
+            "dRank": 0
+          },
+          {
+            "id": "p_advanced",
+            "label": "Korea as a technologically advanced, developed nation",
+            "rank": 4,
+            "prevRank": 2,
+            "share": 19.5,
+            "prevShare": 20.3,
+            "dShare": -0.8,
+            "dRank": -2
+          },
+          {
+            "id": "p_divided",
+            "label": "Korea as a nation defined by division & security",
+            "rank": 5,
+            "prevRank": 5,
+            "share": 10.4,
+            "prevShare": 10.7,
+            "dShare": -0.3,
+            "dRank": 0
+          }
+        ]
+      },
+      "materialShifts": {
+        "author": "ai",
+        "filled": true,
+        "value": [
+          {
+            "id": "p_cultural",
+            "label": "Korea as a cultural powerhouse",
+            "rank": 2,
+            "prevRank": 4,
+            "share": 20.9,
+            "prevShare": 20.1,
+            "dShare": 0.8,
+            "dRank": 2
+          },
+          {
+            "id": "p_advanced",
+            "label": "Korea as a technologically advanced, developed nation",
+            "rank": 4,
+            "prevRank": 2,
+            "share": 19.5,
+            "prevShare": 20.3,
+            "dShare": -0.8,
+            "dRank": -2
+          }
+        ]
+      }
+    }
+  },
+  "interpretation": {
+    "overall": {
+      "reveals": {
+        "author": "human",
+        "filled": false,
+        "value": null,
+        "prompt": "What does this change reveal? — the month as a whole",
+        "section": "§5·L2"
+      },
+      "perceptionGap": {
+        "author": "human",
+        "filled": false,
+        "value": null,
+        "prompt": "What perception gap does it expose? — the month as a whole",
+        "section": "§7"
+      },
+      "participationOpportunity": {
+        "author": "human",
+        "filled": false,
+        "value": null,
+        "prompt": "What participation opportunity emerges? — the month as a whole",
+        "section": "§8"
+      },
+      "missingSystem": {
+        "author": "human",
+        "filled": false,
+        "value": null,
+        "prompt": "What missing system might it imply? — the month as a whole",
+        "section": "§6"
+      }
+    },
+    "frame": {
+      "reveals": {
+        "author": "human",
+        "filled": false,
+        "value": null,
+        "prompt": "What does this change reveal? — the frame-competition shift (§7)",
+        "section": "§5·L2"
+      },
+      "perceptionGap": {
+        "author": "human",
+        "filled": false,
+        "value": null,
+        "prompt": "What perception gap does it expose? — the frame-competition shift (§7)",
+        "section": "§7"
+      },
+      "participationOpportunity": {
+        "author": "human",
+        "filled": false,
+        "value": null,
+        "prompt": "What participation opportunity emerges? — the frame-competition shift (§7)",
+        "section": "§8"
+      },
+      "missingSystem": {
+        "author": "human",
+        "filled": false,
+        "value": null,
+        "prompt": "What missing system might it imply? — the frame-competition shift (§7)",
+        "section": "§6"
+      }
+    },
+    "topMovers": [
+      {
+        "id": "c_language",
+        "label": "Korean Language & Its Difficulty",
+        "direction": "decline",
+        "dShare": -1.2,
+        "reveals": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What does this change reveal? — “Korean Language & Its Difficulty” decline (-1.2pp)",
+          "section": "§5·L2"
+        },
+        "perceptionGap": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What perception gap does it expose? — “Korean Language & Its Difficulty” decline (-1.2pp)",
+          "section": "§7"
+        },
+        "participationOpportunity": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What participation opportunity emerges? — “Korean Language & Its Difficulty” decline (-1.2pp)",
+          "section": "§8"
+        },
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What missing system might it imply? — “Korean Language & Its Difficulty” decline (-1.2pp)",
+          "section": "§6"
+        }
+      },
+      {
+        "id": "c_culture",
+        "label": "Culture, Tradition & Heritage",
+        "direction": "growth",
+        "dShare": 0.8,
+        "reveals": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What does this change reveal? — “Culture, Tradition & Heritage” growth (+0.8pp)",
+          "section": "§5·L2"
+        },
+        "perceptionGap": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What perception gap does it expose? — “Culture, Tradition & Heritage” growth (+0.8pp)",
+          "section": "§7"
+        },
+        "participationOpportunity": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What participation opportunity emerges? — “Culture, Tradition & Heritage” growth (+0.8pp)",
+          "section": "§8"
+        },
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What missing system might it imply? — “Culture, Tradition & Heritage” growth (+0.8pp)",
+          "section": "§6"
+        }
+      },
+      {
+        "id": "c_place",
+        "label": "Seoul, Places & Climate",
+        "direction": "growth",
+        "dShare": 0.8,
+        "reveals": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What does this change reveal? — “Seoul, Places & Climate” growth (+0.8pp)",
+          "section": "§5·L2"
+        },
+        "perceptionGap": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What perception gap does it expose? — “Seoul, Places & Climate” growth (+0.8pp)",
+          "section": "§7"
+        },
+        "participationOpportunity": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What participation opportunity emerges? — “Seoul, Places & Climate” growth (+0.8pp)",
+          "section": "§8"
+        },
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What missing system might it imply? — “Seoul, Places & Climate” growth (+0.8pp)",
+          "section": "§6"
+        }
+      },
+      {
+        "id": "c_travel",
+        "label": "Travel & Safety",
+        "direction": "decline",
+        "dShare": -0.8,
+        "reveals": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What does this change reveal? — “Travel & Safety” decline (-0.8pp)",
+          "section": "§5·L2"
+        },
+        "perceptionGap": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What perception gap does it expose? — “Travel & Safety” decline (-0.8pp)",
+          "section": "§7"
+        },
+        "participationOpportunity": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What participation opportunity emerges? — “Travel & Safety” decline (-0.8pp)",
+          "section": "§8"
+        },
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What missing system might it imply? — “Travel & Safety” decline (-0.8pp)",
+          "section": "§6"
+        }
+      },
+      {
+        "id": "c_food",
+        "label": "Korean Cuisine",
+        "direction": "growth",
+        "dShare": 0.6,
+        "reveals": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What does this change reveal? — “Korean Cuisine” growth (+0.6pp)",
+          "section": "§5·L2"
+        },
+        "perceptionGap": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What perception gap does it expose? — “Korean Cuisine” growth (+0.6pp)",
+          "section": "§7"
+        },
+        "participationOpportunity": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What participation opportunity emerges? — “Korean Cuisine” growth (+0.6pp)",
+          "section": "§8"
+        },
+        "missingSystem": {
+          "author": "human",
+          "filled": false,
+          "value": null,
+          "prompt": "What missing system might it imply? — “Korean Cuisine” growth (+0.6pp)",
+          "section": "§6"
+        }
+      }
+    ]
+  }
+}
