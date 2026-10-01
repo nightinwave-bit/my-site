@@ -30,7 +30,17 @@
       "leadingFrame": "Korea as an aspirational, modern lifestyle",
       "significanceOwed": 234,
       "siteRefreshed": false
+    },
+    {
+      "month": "2026-10",
+      "date": "2026-10-01",
+      "accumulatedQuestions": 2750,
+      "freshQuestions": 1775,
+      "concepts": 18,
+      "leadingFrame": "Korea as an aspirational, modern lifestyle",
+      "significanceOwed": 234,
+      "siteRefreshed": false
     }
   ],
-  "updatedAt": "2026-09-01"
+  "updatedAt": "2026-10-01"
 }
